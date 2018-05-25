@@ -1,0 +1,42 @@
+<!--pages/braRankItem/braRankItem.wxml-->
+<!-- 分享图 -->
+<view style='position: reletive;'>
+  <canvas canvas-id="shareCanvas" style="position:absolute;top:0;left:-9999rpx;visibility:hidden;width:100%;height:{{windowHeight}}px"></canvas>
+</view>
+<view class='container'>
+  <view class='banner'>
+    <image src='../../images/rank_item_banner.png'></image>
+    <text>{{title}}</text>
+  </view>
+  <view class='wrap'>
+    <view class='item' wx:for="{{list}}">
+      <view class='item-header'>
+        <view>
+          <image class='rank-num' src='../../images/rank_num_{{index}}.png'></image>
+          <text>{{item.title}}</text>
+        </view>
+        <image class='logo' src='{{item.thumb}}'></image>
+      </view>
+      <view class='company'>{{item.company}}</view>
+      <view class='website'>网址：<text>{{item.homepage}}</text></view>
+      <view class='address'>地址：{{item.address}}</view>
+    </view>
+    <view class='btn-group'>
+      <view class='signup' bindtap='showtips'>点击报名</view>
+      <image class='share-img' src='../../images/share_active.png' bindtap='showActionSheet'></image>
+      <button class='service-img' hover-class='none' open-type='contact'>
+        <image src='../../images/kefu.png'></image>
+      </button>
+    </view>
+    <view bindtap='hideActionSheet' hidden='{{actionSheetHidden}}' class='action-sheet'>
+      <view class='sheetCtt'>
+        <view class='sheetList'>
+          <button bindtap='hideActionSheet' open-type='share' style='width: 710rpx;height: 100rpx;line-height: 100rpx;border-radius:0;border-bottom:1px solid #ccc;'>转发</button>
+          <button bindtap='createShareImg' style='width: 710rpx;height: 100rpx;line-height: 100rpx;border-radius:0;border-bottom:1px solid #ccc;'>生成朋友圈分享图</button>
+          <button bindtap='showCode' style='width: 710rpx;height: 100rpx;line-height: 100rpx;border-radius:0;'>生成小程序码</button>
+        </view>
+        <button style='width: 710rpx;height: 100rpx;line-height: 100rpx;' bindtap='hideActionSheet' class='sheetCancel'>取消</button>
+      </view>
+    </view>
+  </view>
+</view>

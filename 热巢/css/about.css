@@ -1,0 +1,151 @@
+.wrap .banner img {
+  width: 100%;
+  height: 100%;
+}
+.wrap .about-us {
+  background-color: #f3f3f3;
+  padding: 100px 0;
+}
+.wrap .about-us .about-words {
+  width: 440px;
+  margin-top: 30px;
+}
+.wrap .about-us .about-words .about-tit {
+  font-size: 24px;
+  line-height: 24px;
+  color: #ffbd1a;
+  margin-bottom: 42px;
+}
+.wrap .about-us .about-words .about-ctt {
+  text-indent: 32px;
+  letter-spacing: 2px;
+  font-size: 16px;
+  line-height: 28px;
+  color: #353535;
+}
+.wrap .about-us .about-img {
+  width: 689px;
+  height: 398px;
+  background-image: url(../images/about/about.png);
+  background-position: -965px 0;
+}
+.wrap .service {
+  font-size: 0
+}
+.wrap .service .service-img {
+  display: inline-block;
+  width: 954px;
+  height: 600px;
+  background-image: url(../images/about/about.png);
+  background-position: 0 0;
+}
+.wrap .service .service-words {
+  display: inline-block;
+  margin-left: 86px;
+  width: 520px;
+  margin-top: 100px;
+  vertical-align: top;
+}
+.wrap .service .service-words .service-tit {
+  font-size: 24px;
+  line-height: 24px;
+  color: #ffbd1a;
+}
+.wrap .service .service-words .service-img2 {
+  margin: 30px 0;
+  width: 520px;
+  height: 160px;
+  background-image: url(../images/about/about.png);
+  background-position: -965px 462px;
+}
+.wrap .service .service-words .service-ctt {
+  text-indent: 32px;
+  letter-spacing: 2px;
+  font-size: 16px;
+  line-height: 28px;
+  color: #353535;
+}
+.wrap .idea {
+  background-color: #f3f3f3;
+  padding: 100px 0;
+  text-align: center;
+}
+.wrap .idea .tit {
+  font-size: 24px;
+  line-height: 24px;
+  color: #ffbd1a;
+}
+.wrap .idea .idea-img {
+  margin: 70px auto;
+  width: 1000px;
+  height: 260px;
+  background-image: url(../images/about/about.png);
+  background-position: 0 -610px;
+}
+.wrap .idea .idea-words {
+  letter-spacing: 2px;
+  font-size: 16px;
+  line-height: 28px;
+  color: #353535;
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .wrap .about-us .about-words,
+  .wrap .service .service-words {
+    width: auto;
+    margin-left: 0;
+    margin-top: 0;
+  }
+  .wrap .about-us .about-words .about-tit,
+  .wrap .service .service-words .service-tit,
+  .wrap .idea .tit {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .wrap .about-us {
+    padding: 50px 0;
+  }
+  .wrap .service {
+    padding: 50px 30px;
+  }
+  .wrap .idea {
+    padding: 50px 15px;
+  }
+  .wrap .idea .idea-words {
+    text-align: left;
+    text-indent: 32px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .wrap .about-us .about-words,
+  .wrap .service .service-words {
+    width: auto;
+    margin-left: 0;
+    margin-top: 0;
+  }
+  .wrap .about-us .about-words .about-tit,
+  .wrap .service .service-words .service-tit,
+  .wrap .idea .tit {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  .wrap .about-us {
+    padding: 30px 0;
+  }
+  .wrap .service {
+    padding: 30px 30px;
+  }
+  .wrap .idea {
+    padding: 30px 15px;
+  }
+  .wrap .idea .idea-words {
+    text-align: left;
+    text-indent: 32px;
+  }
+  .wrap .service .service-words .service-ctt,
+  .wrap .about-us .about-words .about-ctt,
+  .wrap .idea .idea-words {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

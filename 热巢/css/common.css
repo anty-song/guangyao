@@ -1,0 +1,195 @@
+.wrap .ctt {
+  width: 1200px;
+  margin: 0 auto;
+}
+.wrap .kefu {
+  display: block;
+  position: fixed;
+  bottom: 150px;
+  right: 50px;
+  width: 144px;
+  height: 168px;
+  background-image: url(../images/qq.png);
+}
+.navbar-default {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  border-radius: 0
+}
+.navbar-brand img {
+  height: 100%
+}
+@media only screen and (max-width: 768px) {
+  .navbar {
+    width: 100%
+  }
+  .navbar-brand {
+    padding: 10px;
+    margin: 0;
+    width: 120px;
+  }
+  header .navbar .container-fluid .navbar-nav a {
+    background: initial
+  }
+  .wrap .bottom-info {
+    padding: 0 0 70px !important;
+  }
+  .wrap .bottom-info .contact .btm-logo img {
+    width: 100%;
+  }
+  .wrap .kefu {
+    bottom: 50px;
+    right: 20px;
+    width: 72px;
+    height: 84px;
+    background-size: 100% 100%;
+  }
+  .wrap .banner {
+    margin-top: 70px;
+  }
+  .wrap .bottom-info .links a {
+    width: 70px !important;
+  }
+  .wrap .bottom-info {
+    padding: 30px 0 !important;
+  }
+  .wrap .bottom-info .contact .contact-ways {
+    font-size: 14px !important;
+    padding-top: 0 !important;
+    line-height: 24px !important;
+  }
+}
+
+@media only screen and (min-width: 765px) and (max-width: 1370px) {
+  .navbar {
+    width: 1370px
+  }
+
+  .navbar-brand {
+    padding: 10px;
+    margin: 0;
+    width: 120px;
+  }
+
+  .navbar .container-fluid .navbar-nav {
+    position: absolute;
+    left: 50%;
+    margin-left: -212px
+  }
+
+  header .navbar .container-fluid .navbar-nav li a {
+    display: inline-block;
+    padding-left: 25px;
+    padding-right: 25px;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 1370px) {
+  .navbar {
+    height: 88px;
+    line-height: 88px;
+    text-align: center;
+    width: 100%
+  }
+
+  .navbar .container-fluid {
+    text-align: center;
+    max-width: 1355px;
+    margin: auto
+  }
+
+  .navbar .container-fluid .navbar-brand {
+    float: none;
+    padding-top: 20px
+  }
+
+  .navbar .container-fluid,.navbar .nav,.navbar .navbar-header {
+    height: 88px;
+    line-height: 88px
+  }
+
+  .navbar .nav a {
+    padding: 0;
+    line-height: 88px;
+    font-size: 20px
+  }
+
+  .navbar .container-fluid .navbar-nav {
+    margin-left: 300px
+  }
+
+  header .navbar .container-fluid .navbar-nav li {
+    display: inline-block
+  }
+
+  header .navbar .container-fluid .navbar-nav li a {
+    display: inline-block;
+    padding-left: 45px;
+    padding-right: 45px;
+    cursor: pointer;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-nav>li>a {
+    padding-bottom: 25px;
+    padding-top: 25px;
+  }
+}
+.navbar-toggle {
+  margin-top: 18px;
+}
+header .navbar .container-fluid .navbar-nav .active a {
+  background: rgba(255, 189, 26, 0.8)
+}
+header .navbar .container-fluid .navbar-nav .active a:active,header .navbar .container-fluid .navbar-nav .active a:link {
+  background: rgba(255, 189, 26, 0.8)
+}
+.wrap .bottom-info {
+  padding: 70px 0;
+  background-image: url(../images/bottom_bg.png);
+  background-size: cover;
+}
+.wrap .bottom-info .links {
+  font-size: 0;
+  text-align: center;
+}
+.wrap .bottom-info .links a {
+  display: inline-block;
+  width: 136px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+  border-left: 2px solid #fff;
+  color: #fff;
+}
+.wrap .bottom-info .links .no-border {
+  border-left: none;
+}
+.wrap .bottom-info .contact .col-md-6 {
+  padding-right: 0;
+  padding-left: 0;
+}
+.wrap .bottom-info .contact .btm-logo {
+  text-align: center;
+  margin-top: 92px;
+}
+.wrap .bottom-info .contact .contact-ways {
+  font-size: 16px;
+  color: #fff;
+  line-height: 42px;
+  padding-top: 70px;
+}
+.wrap footer {
+  background-color: #000;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  line-height: 20px;
+}

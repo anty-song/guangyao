@@ -1,0 +1,46 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.clock-wrap .header {
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	width: 6.4rem;
+	height: 2.45rem;
+	background-image: url(../xiangq_bg.png);
+	background-size: 100%;
+}
+.clock-wrap .header span {
+	font-size: .36rem;
+	color: #fff;
+}
+.clock-wrap .body {
+	font-size: .3rem;
+	color: #4d4d4d;
+	margin-top: .24rem;
+	line-height: .4rem;
+	word-break: break-all;
+}
+.clock-wrap .body ul {
+	list-style: none;
+	padding: 0 .2rem .2rem .54rem;
+}
+.clock-wrap .body ul li {
+	position: relative;
+	margin-bottom: .42rem;
+}
+.clock-wrap .body ul li:nth-child(5) {
+	margin-bottom: 0;
+}
+.clock-wrap .body ul li:before{
+	position: absolute;
+	left: -.34rem;
+	top: .14rem;
+	content: "";
+	width: .16rem;
+	height: .16rem;
+	border-radius: 50%;
+	background-color: #47c4ee;
+}

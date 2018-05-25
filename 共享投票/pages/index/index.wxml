@@ -1,0 +1,22 @@
+<view class='wrap'>
+  <view class='head-tip'>热门推荐</view>
+  <view class='items'>
+    <view class='item'
+          bind:tap="goActive"
+          wx:for="{{list}}"
+          data-itemid="{{item.itemid}}">
+      <view class='img-box'>
+        <image src='{{item.thumb}}'></image>
+      </view>
+      <view class='title'><text>{{item.title}}</text></view>
+      <view class='info'>
+        <view class='views'>访问<text>{{item.hits}}</text></view>
+        <view class='votes'>票数<text>{{item.votes}}</text></view>
+        <view class='state' wx:if="{{item.isend == 1}}">未开始</view>
+        <view class='state' wx:elif="{{item.isend == 2}}">已结束</view>
+        <view class='state' wx:else>进行中</view>
+      </view>
+    </view>
+  </view>
+  <view class='loadmore'>{{hint}}</view>
+</view>

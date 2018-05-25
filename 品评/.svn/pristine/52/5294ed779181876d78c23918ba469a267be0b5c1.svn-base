@@ -1,0 +1,23 @@
+<!--pages/proRank/proRank.wxml-->
+<view class='container'>
+  <navigator url='../proRankItem/proRankItem'
+             wx:for="{{list}}"
+             class='rank-item'
+             bindtap='showItemList'
+             data-itemid='{{item.itemid}}'
+             data-title='{{item.title}}'>
+    <view class='item-name'>
+      <image src='../../images/proRank_item_bg.png'></image>
+      <view class='tit'>{{item.title}}</view>
+      <view class='subtit'>{{item.title2}}</view>
+    </view>
+    <view class='item-info'>
+      <text class='time'>{{item.addtime}}</text>
+      <view class='scan-box'>
+        <image src='../../images/scan_icon.png'></image>
+        <text class='scan'>{{item.hits}}</text>
+      </view>
+    </view>
+  </navigator>
+  <view class='loadmore' hidden='{{isHidden}}'>{{hint}}</view>
+</view>

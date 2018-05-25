@@ -1,0 +1,85 @@
+/* pages/proRankItem/proRankItem.wxss */
+
+page {
+  background-color: #f3f3f3;
+}
+.wrap {
+  width: 710rpx;
+  margin: 0 auto;
+}
+.banner {
+  position: relative;
+  text-align: center;
+  width: 750rpx;
+  height: 146rpx;
+  padding-top: 104rpx;
+}
+.banner image {
+  width: 750rpx;
+  height: 250rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.banner text {
+  font-size: 36rpx;
+  line-height: 36rpx;
+  color: #fff;
+}
+.item {
+  margin-top: 20rpx;
+  width: 690rpx;
+  height: 270rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  padding: 30rpx 10rpx 0;
+}
+.item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+.item-header view {
+  display: flex;
+  align-items: center;
+}
+.rank-num {
+  width: 60rpx;
+  height: 58rpx;
+  margin-left: 20rpx;
+}
+.item-header text {
+  font-size: 36rpx;
+  color: #b18246;
+  margin-left: 20rpx;
+  line-height: 68rpx;
+}
+.logo {
+  width: 182rpx;
+  height: 102rpx;
+  margin-right: 50rpx;
+}
+.company,
+.website,
+.address {
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #353535;
+}
+.company {
+  margin-top: 30rpx;
+}
+.website {
+  margin: 20rpx 0 20rpx 20rpx;
+}
+.website text {
+  color: #0261b1;
+}
+.address {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

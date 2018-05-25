@@ -1,0 +1,139 @@
+.ctt {
+	/*width: 1200px;*/
+	margin: 0 auto;
+}
+.navbar{
+	max-width: 1200px;
+	margin: 0 auto;
+}
+/* 网页头部 */
+.navbar {
+	width: 100%;
+	background: transparent;
+}
+.nav-box {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.navbar .navbar-brand {
+	color: #de1224;
+	font-size: 24px;
+}
+.navbar ul {
+	font-size: 18px;
+}
+.navbar ul a {
+	color: #fff;
+}
+.nav>li>a:focus,
+.nav>li>a:hover {
+	background-color: transparent !important ;
+}
+.navbar .active a {
+	color: #de1224; 
+}
+@media screen and (max-width: 992px){
+	.footer .options li {
+		float: left;
+		margin: 0 4px;
+	}
+}
+/* 页面底部 */
+.footer {
+	background: #333;
+	padding: 80px 0 36px;
+}
+.footer .info {
+	max-width: 1200px;
+	margin: 0 auto;
+	font-size: 0;
+}
+.footer .info .logo,
+.footer .info ul,
+.footer .info .wechat {
+	display: inline-block;
+	font-size: 16px;
+	color: #ccc;
+}
+.footer .info .logo {
+	font-size: 24px;
+	color: red;
+	vertical-align: top;
+	/*margin-top: 90px;*/
+}
+.footer .info .options,
+.footer .info .contact {
+	line-height: 42px;
+}
+.footer .info .wechat .qrcode {
+	width: 134px;
+	height: 134px;
+	background-image: url("../images/index/index.png");
+	background-position: -754px -1559px;
+	margin: 0 auto 22px;
+}
+.footer .info .wechat p {
+	text-align: center;
+}
+.footer .options li a {
+	color: #ccc;
+}
+.footer .options li a:hover,
+.footer .options li a:active {
+	color: #ccc;
+	text-decoration: none;
+}
+.footer .copyright {
+	font-size: 18px;
+	text-align: center;
+	margin-top: 56px;
+	color: #888;
+}
+/*@media screen and (max-width: 1050px) {
+	.footer {
+		padding: 0;
+	}
+	.footer .info {
+		display: none;
+	}
+	.footer .copyright {
+		margin: 0;
+		padding: 20px 0;
+	}
+}*/
+@media screen and (max-width: 992px) {
+	.banner .banner-box ._btn {
+		transform: scale(.5);
+	}
+	.banner .banner-box .left,
+	.banner .banner-box .right {
+		margin-top: -35px
+	}
+}
+@media screen and (min-width: 768px) {
+	.navbar {
+		position: absolute !important;
+		z-index: 99;
+		background: transparent;
+		margin: 0;
+		border: 0;
+		padding-top: 32px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.banner .banner-box ._btn {
+		transform: scale(.4);
+	}
+	.nav-box {
+	    position: absolute;
+	    z-index: 99;
+	    width: 100%;
+	    background: transparent;
+	}
+	.navbar {
+		background: rgba(0,0,0,.3);
+	}
+	.navbar ul {
+		font-size: 12px;
+	}
+}

@@ -1,0 +1,22 @@
+<!--pages/proRankItem/proRankItem.wxml-->
+
+<view class='container'>
+  <view class='banner'>
+    <image src='../../images/rank_item_banner.png'></image>
+    <text>{{title}}</text>
+  </view>
+  <view class='wrap'>
+    <view class='item' wx:for="{{list}}">
+      <view class='item-header'>
+        <view>
+          <image class='rank-num' src='../../images/rank_num_{{index}}.png'></image>
+          <text>{{item.title}}</text>
+        </view>
+        <image class='logo' src='{{item.thumb}}'></image>
+      </view>
+      <view class='company'>{{item.company}}</view>
+      <view class='website'>网址：<text>{{item.homepage}}</text></view>
+      <view class='address'>地址：{{item.address}}</view>
+    </view>
+  </view>
+</view>

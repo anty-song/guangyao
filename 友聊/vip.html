@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>友聊</title>
+	<script type="text/javascript" src="js/calc.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/vip.css">
+</head>
+<body>
+	<script type="text/javascript" src="js/head.js"></script>
+	<section class="banner"></section>
+	<section class="privileges container">
+		<p class="sec-tit">会员<span>特权</span></p>
+		<p class="sec-subtit">Membership Privileges</p>
+		<div class="privileges-ctt row">
+			<div class="privileges-item col-md-3 col-sm-6 col-xs-6">
+				<div class="item-box">
+					<div class="ico-box chat"></div>
+					<span>免费不限次数聊天</span>
+				</div>
+			</div>
+			<div class="privileges-item col-md-3 col-sm-6 col-xs-6">
+				<div class="item-box">
+					<div class="ico-box top"></div>
+					<span>消息置顶，对方会优先看到你发的信息</span>
+				</div>
+			</div>
+			<div class="privileges-item col-md-3 col-sm-6 col-xs-6">
+				<div class="item-box">
+					<div class="ico-box status"></div>
+					<span>尊贵标识，彰显身份地位</span>
+				</div>
+			</div>
+			<div class="privileges-item col-md-3 col-sm-6 col-xs-6">
+				<div class="item-box">
+					<div class="ico-box tel"></div>
+					<span>查看对方的联系方式</span>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="category container">
+		<p class="sec-tit">会员<span>种类</span></p>
+		<p class="sec-subtit">Membership Category</p>
+		<div class="category-ctt">
+			<div class="category-item col-md-3 col-sm-6 col-xs-6">
+				<div class="item-box">
+					<p class="options">限时体验30天</p>
+					<p>￥20</p>
+				</div>
+			</div>
+			<div class="category-item col-md-3 col-sm-6 col-xs-6">
+				<div class="item-box">
+					<p class="options">包月至尊VIP</p>
+					<p>￥45</p>
+				</div>
+			</div>
+			<div class="category-item col-md-3 col-sm-6 col-xs-6">
+				<div class="item-box">
+					<p class="options">三个月至尊VIP</p>
+					<p>￥100</p>
+				</div>
+			</div>
+			<div class="category-item col-md-3 col-sm-6 col-xs-6">
+				<div class="item-box">
+					<p class="options">包年至尊VIP</p>
+					<p class="money">￥240</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="js/footer.js"></script>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$($(".navbar-nav").children()[4]).attr("class", "active");
+		$(".banner-links a").click(function(){
+			$(this).addClass("a-active").siblings().removeClass("a-active");
+		});
+		$(".phone").on("click mouseover", function(){
+			$(this).addClass("down-active").siblings().removeClass("down-active");
+		});
+	</script>
+</body>
+</html>

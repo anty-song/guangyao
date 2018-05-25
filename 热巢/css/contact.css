@@ -1,0 +1,50 @@
+.wrap .banner img {
+  width: 100%;
+  height: 100%;
+}
+.wrap .info {
+  padding: 70px 0;
+}
+.wrap .info .hint {
+  text-align: center;
+  font-size: 18px;
+  line-height: 18px;
+}
+.wrap .info .map {
+  margin: 60px 0;
+  height: 600px;
+}
+.wrap .info .address {
+  font-size: 24px;
+  line-height: 24px;
+}
+.wrap .info .ways {
+  margin-top: 28px;
+  font-size: 18px;
+  line-height: 18px;
+  color: #888;
+}
+.wrap .info .ways .col-md-3 {
+  padding-right: 0;
+  padding-left: 0;
+}
+@media only screen and (max-width: 1200px) {
+  .wrap .info .hint,
+  .wrap .info .ways p {
+    font-size: 16px;
+    text-align: center;
+    line-height: 28px;
+  }
+  .wrap .info .address {
+    line-height: 40px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .wrap .info .map {
+    height: 300px;
+    margin: 30px 0 0;
+  }
+  .wrap .info {
+    padding: 30px 0;
+  }
+}

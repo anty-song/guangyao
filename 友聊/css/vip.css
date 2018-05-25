@@ -1,0 +1,216 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+@media screen and (min-width: 1200px) {
+	nav {
+		width: 12rem;
+		margin: 0 auto;
+	}
+}
+@media screen and (max-width: 768px) {
+	.nav > li {
+		margin-top: 1rem;
+		text-align: right;
+	}
+	.navbar-collapse {
+		background-color: rgba(255, 255, 255, .8);
+	}
+}
+header {
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+	background-color: rgba(255, 255, 255, .8);
+	box-shadow: 0 -.05rem .15rem -.1rem #000 inset;
+	-moz-box-shadow: 0 -.05rem .15rem -.1rem #000 inset;
+	-webkit-box-shadow: 0 -.05rem .15rem -.1rem #000 inset;
+}
+nav,
+.nav > li {
+	height: .9rem;
+}
+nav .navbar-brand {
+	position: relative;
+	height: .9rem;
+	font-size: .28rem;
+	line-height: .9rem;
+	padding: 0;
+	padding-left: 1.07rem;
+}
+nav .navbar-header {
+	min-height: 50px;
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+}
+nav .navbar-header:after {
+	position: absolute;
+	left: .15rem;
+	width: .62rem;
+	height: .62rem;
+	background-image: url(../images/brand.png);
+  background-size: 100%;
+	border-radius: .05rem;
+}
+nav .navbar-toggle {
+	position: absolute;
+	right: .2rem;
+	margin: 0;
+	padding: 0;
+}
+.nav > .active {
+	position: relative;
+}
+.nav > .active:before {
+	position: absolute;
+	left: 0;
+	top: .295rem;
+	content: "";
+	width: .37rem;
+	height: .31rem;
+	background-image: url(../images/sy_dhxin_img.png);
+}
+.nav > .active > a {
+	font-weight: bold;
+	background-image: url(../images/sy_dhbj_bg.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.nav > li > a {
+	line-height: .14rem;
+	color: #000;
+	padding: .38rem .44rem;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+	background-color: transparent;
+	background-image: url(../images/sy_dhbj_bg.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.banner {
+	height: 6.02rem;
+	background-image: url(../images/hyzx_banner_img.png);
+	background-size: 100% 100%;
+}
+.privileges {
+	padding-top: 1rem;
+}
+.sec-tit {
+	position: relative;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	height: .4rem;
+	width: 2rem;
+	margin: 0 auto;
+	color: #353535;
+	font-size: .24rem;
+	border: 1px solid #000;
+}
+.sec-tit:before,
+.sec-tit:after {
+	position: absolute;
+	top: 50%;
+	margin-top: -0.5px;
+	content: "";
+	height: 0;
+	width: 1rem;
+	border-bottom: 1px solid #000;
+}
+.sec-tit:before {
+	left: -.8rem;
+}
+.sec-tit:after {
+	right: -.8rem;
+}
+.sec-tit span {
+	color: #a24e17;
+}
+.sec-subtit {
+	font-size: .18rem;
+	margin-top: .2rem;
+	margin-bottom: .7rem;
+	text-align: center;
+}
+.category-item,
+.privileges-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 1rem;
+}
+.ico-box {
+	width: 1rem;
+	height: 1.03rem;
+	margin: 0 auto .34rem;
+	background-image: url(../images/hyzx_icon_img.png);
+	background-size: 1.2rem 8.87rem;
+}
+.privileges .chat {
+	background-position: -.1rem 0;
+}
+.privileges .top {
+	background-position: -.1rem -1.13rem;
+}
+.privileges .status {
+	background-position: -.1rem -2.26rem;
+}
+.privileges .tel {
+	background-position: -.1rem -3.39rem;
+}
+.privileges-item span {
+	font-size: .16rem;
+	color: #353535;
+}
+.category .item-box {
+	height: 2.84rem;
+	width: 2.84rem;
+	background-color: #e4a175;
+	border-radius: .1rem;
+}
+.category .item-box p {
+	text-align: center;
+	font-size: .3rem;
+	line-height: .3rem;
+	color: #fff;
+	font-weight: bold;
+} 
+.category .item-box .options {
+	margin-top: 1rem;
+	margin-bottom: .5rem;
+}
+footer {
+	position: relative;
+	padding-top: 2.02rem;
+	height: 3.3rem;
+	width: 100%;
+	color: #fff;
+	background-image: url(../images/sy_img_one.png);
+	background-size: 19.2rem 26.31rem;
+	background-position: 0 -23.01rem;
+}
+footer p {
+	text-align: center;
+	font-size: .14rem;
+	line-height: .24rem;
+}
+footer .saying {
+	position: absolute;
+	left: 1.41rem;
+	top: 1.33rem;
+	font-size: .16rem;
+}
+.kefu {
+	display: block;
+	width: 1.18rem;
+	height: 1.61rem;
+	position: fixed;
+	bottom: 3.3rem;
+	right: .47rem;
+}
+.kefu img {
+	width: 100%;
+	height: 100%;
+}

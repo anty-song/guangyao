@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/brand/brand",
+    "pages/braVote/braVote",
+    "pages/braRank/braRank",
+    "pages/braRankItem/braRankItem",
+    "pages/find/find",
+    "pages/product/product",
+    "pages/proVote/proVote",
+    "pages/proRank/proRank",
+    "pages/proRankItem/proRankItem",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/forget/forget"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#353535",
+    "selectedColor": "#0261b1",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "text": "十大品牌",
+        "pagePath": "pages/brand/brand",
+        "iconPath": "images/brand.png",
+        "selectedIconPath": "images/brand_active.png"
+      },
+      {
+        "text": "发现",
+        "pagePath": "pages/find/find",
+        "iconPath": "images/find.png",
+        "selectedIconPath": "images/find_active.png"
+      },
+      {
+        "text": "十佳产品",
+        "pagePath": "pages/product/product",
+        "iconPath": "images/product.png",
+        "selectedIconPath": "images/product_active.png"
+      }
+    ]
+  }
+}

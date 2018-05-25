@@ -1,0 +1,179 @@
+.banner img {
+	width: 100%;
+	height: 100%;
+}
+.list-tit {
+	font-size: 22px;
+	color: #333;
+	font-weight: bold;
+
+}
+.panel-heading {
+	color: #333;
+}
+.panel-heading p:nth-child(3n) {
+	color: #e01919;
+}
+.recruit-box {
+	max-width: 1200px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	padding: 50px;
+}
+.tit-box {
+	margin: 100px 0;
+	text-align: center;
+}
+.tit {
+	font-size: 36px;
+	line-height: 36px;
+	color: #353535;
+}
+.subtit {
+	position: relative;
+	font-size: 20px;
+	line-height: 20px;
+	color: #ccc;
+	display: inline-block;
+	margin-top: 18px;
+	letter-spacing: 2px;
+}
+.subtit:before {
+	position: absolute;
+	content: "";
+	width: 35px;
+	right: -39px;
+	top: 9px;
+	height: 0;
+	border-top: 2px solid #ccc;
+}
+
+.subtit:after {
+	position: absolute;
+	content: "";
+	width: 35px;
+	left: -39px;
+	top: 9px;
+	height: 0;
+	border-top: 2px solid #ccc;
+}
+.recruit .panel {
+	border-bottom: 1px dotted #f3f3f3 !important;
+}
+.recruit .list-heading .panel-heading {
+	color: #333;
+	font-weight: bold;
+	border-bottom: 2px solid #f3f3f3;
+}
+
+.recruit .panel-body {
+	padding-left: 45px;
+	color: #333;
+}
+.recruit .panel-body .name {
+	font-weight: bold;
+}
+.recruit .panel-body .message span:nth-child(2) {
+	margin: 0 55px;
+}
+._contact {
+	padding-bottom: 140px;
+}
+._contact .list {
+	text-align: center;
+	font-size: 16px;
+	color: #333;
+}
+._contact .list .image {
+	width: 82px;
+	height: 82px;
+	background-image: url(../images/join/join.png);
+	margin: 0 auto;
+}
+._contact .list .item:nth-child(1) .image {
+	background-position: -194px -10px;
+}
+._contact .list .item:nth-child(2) .image {
+	background-position: -102px -10px;
+}
+._contact .list .item:nth-child(3) .image {
+	background-position: -10px -10px;
+}
+._contact .list .item .msg {
+	margin: 58px auto 70px;
+}
+@media screen and (min-width: 768px) {
+	.panel-heading {
+		font-size: 18px;
+	}
+	.recruit .list-heading .panel-heading {
+		font-size: 22px;
+	}
+	.map {
+		height: 520px;
+		max-width: 1200px;
+	}
+	.recruit .panel-body {
+		font-size: 18px;
+		line-height: 42px;
+	}
+	.panel-group > div .panel-heading span {
+		display: block;
+		width: 20px;
+		height: 10px;
+		margin-left: 8px;
+		margin-top: 8px;
+		background-image: url(../images/join/join.png);
+		background-position: -286px -10px;
+	}
+	.panel-group > .dropdown .panel-heading span {
+		display: block;
+		width: 20px;
+		height: 10px;
+		background-image: url(../images/join/join.png);
+		background-position: -286px -30px;
+	}
+}
+@media screen and (min-width: 621px) {
+	.recruit .panel-body .message span:nth-child(2) {
+		margin: 0 55px;
+	}
+}
+@media screen and (max-width: 621px) {
+	.recruit .panel-body .message span {
+		display: block;
+	}
+	.recruit .panel-body .message span:nth-child(2) {
+		margin: 0;
+	}
+}
+@media screen and (max-width: 768px) {
+	.panel-heading {
+		font-size: 14px;
+	}
+	.recruit .list-heading .panel-heading {
+		font-size: 18px;
+	}
+	.map {
+		height: 220px;
+	}
+	.recruit .panel-body {
+		font-size: 14px;
+		line-height: 32px;
+	}
+	.recruit .panel-heading span {
+		display: inline-block;
+		width: 20px;
+		height: 10px;
+		margin-left: 5px;
+		background-image: url(../images/join/join.png);
+		background-position: -286px -10px;
+	}
+	.recruit .panel-heading span.dropdown {
+		display: inline-block;
+		width: 20px;
+		height: 10px;
+		background-image: url(../images/join/join.png);
+		background-position: -286px -30px;
+	}
+}

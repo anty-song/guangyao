@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "十大产品榜单",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

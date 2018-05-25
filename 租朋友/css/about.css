@@ -1,0 +1,108 @@
+.banner {
+	height: calc(100vw/2.942);
+	background-image: url(../images/about_banner.png);
+}
+@media screen and (min-width: 768px) {
+	.banner {
+		padding-top: 90px;
+	}
+	.about-us {
+		padding: 100px 0 140px;
+	}
+	.about-us .left-ctt {
+		padding-top: 22px;
+	}
+	.about-us .left-ctt .sec-tit {
+		font-size: 34px;
+		color: #333;
+	}
+	.about-us .left-ctt .us-msg {
+		font-size: 18px;
+		line-height: 46px;
+		color: #666;
+	}
+	.about-us .left-ctt .us-msg p:nth-child(1) {
+		margin: 38px 0;
+	}
+	.contact .sec-tit {
+		font-size: 32px;
+		line-height: 32px;
+		padding: 57px 0;
+		color: #333;
+		text-align: center;
+	}
+	.contact .contact-ctt .contact-ways {
+		height: 426px;
+	}
+	.contact .contact-ctt .map {
+		height: 426px;
+	}
+	.contact .contact-ctt .contact-ways p {
+		font-size: 18px;
+		line-height: 40px;
+		color: #fff;
+		margin-left: 40px;
+	}
+}
+@media screen and (max-width: 767px) {
+	.banner {
+		padding-top: 90px;
+	}
+	.about-us {
+		padding-bottom: 40px;
+	}
+	.about-us .left-ctt {
+		padding-top: 40px;
+	}
+	.about-us .left-ctt .sec-tit {
+		font-size: 24px;
+		color: #333;
+		text-align: center;
+	}
+	.about-us .left-ctt .us-msg {
+		font-size: 16px;
+		line-height: 30px;
+		color: #666;
+	}
+	.about-us .left-ctt .us-msg p:nth-child(1) {
+		margin: 15px 0;
+	}
+	.about-us .left-ctt .us-msg p:nth-child(2) {
+		margin-bottom: 15px;
+	}
+	.contact .sec-tit {
+		font-size: 24px;
+		line-height: 24px;
+		padding: 20px 0;
+		color: #333;
+		text-align: center;
+	}
+	.contact .contact-ctt .map {
+		height: 300px;
+	}
+	.contact .contact-ctt .contact-ways p {
+		font-size: 16px;
+		line-height: 30px;
+		color: #fff;
+		margin-left: 20px;
+	}
+}
+
+.about-us .right-pic .img-box {
+	max-width: 400px;
+	margin: 0 auto;
+}
+.about-us .right-pic img {
+	width: 100%;
+	height: 100%;
+}
+.contact {
+	background-color: #ffeae8;
+	padding-bottom: 63px;
+}
+.contact .contact-ctt .contact-ways {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background-color: #ffaaa2;
+}

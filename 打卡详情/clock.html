@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>每日打卡</title>
+	<link rel="stylesheet" href="css/clock.css">
+</head>
+<body>
+	<div class="clock-wrap">
+		<section class="header">
+			<span>活动规则</span>
+		</section>
+		<section class="body">
+			<ul>
+				<li>
+					每日支付1元参与全民打卡，放入全民打卡奖金池。每日00:00-23:59:00之间支付1元，可获得次日打卡机会。
+				</li>
+				<li>
+					次日早晨7:00-9:00为打卡时间，用户在期间进入打卡页面，且成功打卡，可平分当日奖金池内全部现金。
+				</li>
+				<li>
+					未在次日早晨7:00-9:00内进行打卡（例如：已过打卡时间），视为打卡失败，打卡失败不可参与当日奖金分配。每日瓜分金额于早9点后开始结算，当日10点前到账品评网账户中。
+				</li>
+				<li>
+					用户可通过支付宝、微信支付参与打卡。如出现重复支付或全部参与用户未打卡情况，支付金额将原路返回支付账户中，退款将于次日到账。
+				</li>
+				<li>
+					平分奖金金额最终将通过品评网账户发放，可在红包余额中完成提现。
+				</li>
+			</ul>
+		</section>
+	</div>
+	<script type="text/javascript">
+		;(function yeMianShiPei(win) {
+		    var doc = win.document;
+		    var docEl = doc.documentElement;
+		    var tid;
+
+		    function refreshRem() {
+		        var width = docEl.getBoundingClientRect().width;
+		        // 若只是手机 请打开下面的注释
+		        // 根据设计稿 动态改变以下数值 此处设计稿为640px
+		        /*
+		        if (width > 640) {
+		            width = 640;
+		        }
+		        */
+		        var rem = width / 6.4;
+		        docEl.style.fontSize = rem + 'px';
+		    }
+
+		    win.addEventListener('resize', function () {
+		        clearTimeout(tid);
+		        tid = setTimeout(refreshRem, 300);
+		    }, false);
+		    win.addEventListener('pageshow', function (e) {
+		        if (e.persisted) {
+		            clearTimeout(tid);
+		            tid = setTimeout(refreshRem, 300);
+		        }
+		    }, false);
+
+		    refreshRem();
+		})(window);
+	</script>
+</body>
+</html>

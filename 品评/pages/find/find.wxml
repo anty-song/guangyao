@@ -1,0 +1,15 @@
+<!--pages/find/find.wxml-->
+<view class='container'>
+  <navigator class='item brand' url='../braRank/braRank'>
+    <view class='title'>
+      <image src='../../images/find_brand_cup.png'></image>
+      <text>十大品牌榜单</text>
+    </view>
+  </navigator>
+  <navigator class='item product' url='../proRank/proRank'>
+    <view class='title'>
+      <image src='../../images/find_product_cup.png'></image>
+      <text>十佳产品榜单</text>
+    </view>
+  </navigator>
+</view>

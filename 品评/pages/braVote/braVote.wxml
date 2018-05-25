@@ -1,0 +1,143 @@
+<!--pages/voting/voting.wxml-->
+<!-- 分享图 -->
+<view style='position:relative;'>
+  <canvas canvas-id="shareCanvas" style="position:absolute;top:0;left:-9999rpx;visibility:hidden;width:100%;height:{{windowHeight}}px"></canvas>
+</view>
+<view class="container">
+  <view class='banner'>
+    <image src='../../images/brand_list_banner.png'></image>
+  </view>
+  <view class="wrap">
+    <view class="bg-color champion">
+      <view class="info">
+        <view class='logo-box'><image class="logo" src="{{champion[0].thumb}}"></image></view>
+        <view class="name">{{champion[0].title}}</view>
+      </view>
+      <view class="rank">
+        <image class="champion-cup" src="../../images/champion.png"></image>
+        <view class="vote-num">票数：{{champion[0].toupiao}}</view>
+      </view>      
+      <button class="vote-btn"
+              form-type="submit"
+              data-tit="{{champion[0].title}}"
+              data-img="{{champion[0].thumb}}"
+              data-id="{{champion[0].itemid}}"
+              data-yzm="{{champion[0].captcha}}"
+              data-num="{{champion[0].toupiao}}"
+              bindtap="showMark">立即投票</button>
+    </view>
+    <view class="bg-color item second">
+      <image class="second-cup" src="../../images/second.png"></image>
+      <view class='logo-box'><image class="logo" src="{{second[0].thumb}}"></image></view>
+      <view class="name">{{second[0].title}}</view>
+      <view class="vote-num">票数:<text>{{second[0].toupiao}}</text></view>
+      <button class="vote-btn"
+              form-type="submit"
+              data-tit="{{second[0].title}}"
+              data-img="{{second[0].thumb}}"
+              data-id="{{second[0].itemid}}"
+              data-yzm="{{second[0].captcha}}"
+              data-num="{{second[0].toupiao}}"
+              bindtap="showMark">立即投票</button>
+    </view>
+    <view class="bg-color item third">
+      <image class="third-cup" src="../../images/third.png"></image>
+      <view class='logo-box'><image class="logo" src="{{third[0].thumb}}"></image></view>
+      <view class="name">{{third[0].title}}</view>
+      <view class="vote-num">票数:<text>{{third[0].toupiao}}</text></view>
+      <button class="vote-btn"
+              form-type="submit"
+              data-tit="{{third[0].title}}"
+              data-img="{{third[0].thumb}}"
+              data-id="{{third[0].itemid}}"
+              data-yzm="{{third[0].captcha}}"
+              data-num="{{third[0].toupiao}}"
+              bindtap="showMark">立即投票</button>
+    </view>
+    <view class="bg-color item" wx:for="{{topTen}}">
+      <view class="front-rank-box">
+        <image class="front-rank-pic" src="../../images/front_rank.png"></image>
+        <text>{{item.ranking}}</text>
+      </view>
+      <view class='logo-box'><image class="logo" src="{{item.thumb}}"></image></view>
+      <view class="name">{{item.title}}</view>
+      <view class="vote-num">票数:<text>{{item.toupiao}}</text></view>
+      <button class="vote-btn"
+              form-type="submit"
+              data-tit="{{item.title}}"
+              data-img="{{item.thumb}}"
+              data-id="{{item.itemid}}"
+              data-yzm="{{item.captcha}}"
+              data-num="{{item.toupiao}}"
+              bindtap="showMark">立即投票</button>
+    </view>
+    <view class="item" wx:for="{{others}}">
+      <view class="back-rank-box">
+        <image class="back-rank-pic" src="../../images/back_rank.png"></image>
+        <text>{{item.ranking}}</text>
+      </view>
+      <view class='logo-box'><image class="logo" src="{{item.thumb}}"></image></view>
+      <view class="name">{{item.title}}</view>
+      <view class="vote-num">票数:<text>{{item.toupiao}}</text></view>
+      <button class="vote-btn"
+              form-type="submit"
+              data-tit="{{item.title}}"
+              data-img="{{item.thumb}}"
+              data-id="{{item.itemid}}"
+              data-yzm="{{item.captcha}}"
+              data-num="{{item.toupiao}}"
+              bindtap="showMark">立即投票</button>
+    </view>
+  </view>
+  <view class="mark" style="display:{{displayMark}}">
+    <view class="mark-ctt">
+      <image class="close"
+             bindtap="closeMark"
+             src="../../images/close.png"></image>
+      <image class="mark-logo" src="{{markImg}}"></image>
+      <view class="hold">喜欢就来支持它  <text>{{markTit}}</text></view>
+      <view class="verify-box">
+        <input name="imgYzm"
+               class="verify"
+               bindinput='bindKeyInput'
+               value='{{yzmValue}}'
+               placeholder="请输入验证码"/>
+        <icon size='20'
+              type='{{iconType}}'
+              style='margin-left:20rpx;margin-top:5rpx;'></icon>
+        <view class="show-code" bindtap="changeYzm">
+          <image src="{{imgYzm}}"></image>
+        </view>
+      </view>
+      <button bindtap='vote'>投票</button>
+    </view>
+  </view>
+  <view class="vote-result" style="display:{{displayResult}}">
+    <view class="vote-result-ctt">
+      <image class="vote-result-pic" src="{{imgUrl}}"></image>
+      <view class="tip" style='color:{{markTipColor}}'>{{markTip}}</view>
+      <view class="name" style='display:{{titleState}};'>{{markTit}}：<text class="vote-num">{{voteNum}}</text></view>
+      <view calss="time" style='font-size:22rpx;line-height:22rpx;color:#888;margin: 19rpx 0 30rpx 0;display:{{timeState}};'>{{currentTime}}</view>
+      <view style='display:{{linkState}};' class="link-msg">专属链接（点击文本框复制）</view>
+      <text class='link' selectable='true' bindtap='copyLink' style='display:{{shareUrlState}};'>{{shareUrl}}</text>
+      <button bindtap="closeVoteResult" style='background-color:{{btnBgColor}}'>关闭</button>
+    </view>
+  </view>
+  <view class='btn-group'>
+    <view class='signup' bindtap='showtips'>点击报名</view>
+    <image class='share-img' src='../../images/share_active.png' bindtap='showActionSheet'></image>
+    <button class='service-img' hover-class='none' open-type='contact'>
+      <image src='../../images/kefu.png'></image>
+    </button>
+  </view>
+  <view bindtap='hideActionSheet' hidden='{{actionSheetHidden}}' class='action-sheet'>
+    <view class='sheetCtt'>
+      <view class='sheetList'>
+        <button bindtap='hideActionSheet' open-type='share' style='width: 710rpx;height: 100rpx;line-height: 100rpx;border-radius:0;border-bottom:1px solid #ccc;'>转发</button>
+        <button bindtap='createShareImg' style='width: 710rpx;height: 100rpx;line-height: 100rpx;border-radius:0;border-bottom:1px solid #ccc;'>生成朋友圈分享图</button>
+        <button bindtap='showCode' style='width: 710rpx;height: 100rpx;line-height: 100rpx;border-radius:0;'>生成小程序码</button>
+      </view>
+      <button style='width: 710rpx;height: 100rpx;line-height: 100rpx;' bindtap='hideActionSheet' class='sheetCancel'>取消</button>
+    </view>
+  </view>
+</view>

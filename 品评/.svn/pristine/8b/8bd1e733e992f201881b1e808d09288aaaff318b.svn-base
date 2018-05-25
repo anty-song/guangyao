@@ -1,0 +1,100 @@
+/* pages/vote/vote.wxss */
+.search {
+  display: flex;
+  align-items: center;
+  width: 660rpx;
+  height: 70rpx;
+  border: 1rpx solid #353535;
+  border-radius: 25rpx;
+  margin: 0 auto;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.search-box {
+  width: 620rpx;
+  height: 100%;
+  font-size: 26rpx;
+  color: #353535;
+}
+.banner {
+  width: 100%;
+  margin-top: 30rpx;
+  margin-bottom: -15rpx;
+}
+.banner image {
+  width: 100%;
+  height: 100%;
+}
+.item {
+  padding: 20rpx 0 25rpx;
+  margin-top: 10rpx;
+}
+.item:nth-child(odd) {
+  background-color: #e8f1f6;
+}
+.item:nth-child(even) {
+  background-color: #f3f3f3;
+}
+.item-ctt {
+  width: 690rpx;
+  margin: 0 auto;
+}
+.header-msg {
+  margin-bottom: 14rpx;
+}
+.header-msg image {
+  width: 31rpx;
+  height: 28rpx;
+  margin-right: 18rpx;
+}
+.header-msg text {
+  font-size: 30rpx;
+}
+.header-msg .more {
+  float: right;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+.body-msg {
+  font-size: 0;
+}
+.body-msg .vote-li {
+  display: inline-block;
+  padding-top: 20rpx;
+  text-align: center;
+  width: 224rpx;
+  height: 235rpx;
+  background-color: #fff;
+}
+.item .vote-li {
+  margin-top: 9rpx;
+}
+.item .vote-li:nth-child(3n+2) {
+  margin-left: 9rpx;
+  margin-right: 9rpx;
+}
+.vote-li image {
+  width: 224rpx;
+  height: 112rpx;
+}
+.vote-li .name {
+  font-size: 28rpx;
+  line-height: 28rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 27rpx 0 26rpx 0;
+  color: #353535;
+}
+.vote-li .number {
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #ff0000;
+}
+.loadmore {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 20rpx;
+  color: #ccc;
+  text-align: center;
+}

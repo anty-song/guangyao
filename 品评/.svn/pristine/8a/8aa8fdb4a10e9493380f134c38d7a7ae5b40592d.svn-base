@@ -1,0 +1,28 @@
+<!--pages/vote/vote.wxml-->
+<view class="page">
+  <view class="search">
+    <input confirm-type="search" bindinput='bindKeyInput' class="search-box" placeholder="快速查找行业"/>
+    <icon type='search' size='20' color='#353535'></icon>
+  </view>
+  <view class="banner">
+    <image src="../../images/banner.png" mode="widthFix"></image>
+  </view>
+  <!--for 循环中存在内嵌循环时 内部循环使用 相邻外部循环的 item 进行进一步循环 -->
+  <view wx:for="{{list}}" class="item">
+    <view class="item-ctt item-one-ctt" data-catid="{{item.catid}}" data-catname="{{item.catname}}" bindtap="showMore">
+      <view class="header-msg">
+        <image src="../../images/option_icon.png"></image>
+        <text>{{item.catname}}</text>
+        <text class="more">更多 ></text>
+      </view>
+      <view class="body-msg">
+        <view wx:for="{{item.data}}" wx:for-item="data" class="vote-li">
+          <image src="{{data.thumb}}"></image>
+          <view class="name">{{index+1}}.{{data.title}}</view>
+          <view class="number">票数：{{data.toupiao}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='loadmore' hidden='{{isHidden}}'>{{hint}}</view>
+</view>

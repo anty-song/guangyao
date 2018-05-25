@@ -1,0 +1,45 @@
+/* pages/find/find.wxss */
+page {
+  background-color: #f3f3f3;
+}
+.container {
+  width: 710rpx;
+  margin: 0 auto;
+}
+.brand {
+  margin-top: 20rpx;
+}
+.product {
+  margin-top: 40rpx;
+}
+.item {
+  padding: 20rpx 0;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 10rpx 16rpx rgba(0, 0, 0, .08);
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title text {
+  font-size: 34rpx;
+  line-height: 34rpx;
+  color: #353535;
+  margin-left: 20rpx;
+}
+.brand .title {
+  height: 50rpx;
+}
+.brand .title image {
+  width: 55rpx;
+  height: 50rpx;
+}
+.product .title {
+  height: 54rpx;
+}
+.product .title image {
+  width: 52rpx;
+  height: 54rpx;
+}

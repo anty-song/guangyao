@@ -1,0 +1,66 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.91",
+	"appid": "wx719080d2a46bf68f",
+	"projectname": "pinping",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "转发分享",
+					"pathName": "pages/forget/forget",
+					"query": "",
+					"scene": "1036",
+					"referrerInfo": {
+						"appId": "wx139cf5df87e680d4"
+					}
+				},
+				{
+					"id": -1,
+					"name": "转发分享1",
+					"pathName": "pages/forget/forget",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "O-RIhtLj-0cicNqlUBpplG4FPlH3sJM-cM5W3VPvJ-g@cr4dev",
+						"shareKey": "FTJMdzoegk_63a6rcTNQ065HGv2DzS3va5qjWZ-IiEZWbi8tPgPcCMsjKRdoJL0Nu8_KBL-BNI2CoUe72PqUFw~~"
+					}
+				},
+				{
+					"id": 2,
+					"name": "扫码",
+					"pathName": "pages/brand/brand",
+					"query": "scene=39492%2c2",
+					"scene": "1047"
+				}
+			]
+		}
+	}
+}

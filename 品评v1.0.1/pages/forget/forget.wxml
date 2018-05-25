@@ -1,0 +1,37 @@
+<!--pages/forget/forget.wxml-->
+<view class='container'>
+  <form class='wrap' bindsubmit='formSubmit'>
+    <view class='section phone'>
+      <view class='img-box'>
+        <image src='../../images/user.png'></image>
+      </view>
+      <input type='number' name="phone" bindinput='completePhoneNum' value='{{phoneNum}}' placeholder='请输入手机号'></input>
+      <view class='errmsg'>{{phoneErrMsg}}</view>
+    </view>
+    <view class='yzm-box'>
+      <view class='yzm'>
+        <view class='img-box'>
+          <image src='../../images/yzm.png'></image>
+        </view>
+        <input name="input" name="yzm" bindblur='completeMsg' placeholder='请输入短信验证码'></input>
+      </view>
+      <button class='show-yzm' disabled='{{isDisabled}}' style='background-color: #0261b1;color: #fff;' bindtap='sendMsg'>{{hintMsg}}</button>
+      <view class='errmsg'>{{yzmErrMsg}}</view>
+    </view>
+    <view class='section password'>
+      <view class='img-box'>
+        <image src='../../images/password.png'></image>
+      </view>
+      <input type='password' name="password" bindblur='completePass' value='{{password}}' placeholder='请输入密码'></input>
+      <view class='errmsg'>{{passwordErrMsg}}</view>
+    </view>
+    <view class='section  password'>
+      <view class='img-box'>
+        <image src='../../images/password.png'></image>
+      </view>
+      <input type='password' name="subpassword" bindblur='completePassAgain' value='{{passwordAgain}}' placeholder='请再次输入密码'></input>
+      <view class='errmsg'>{{passwordAgainErrMsg}}</view>
+    </view>
+    <button class='login-btn' formType='submit'>确认修改</button>
+  </form>
+</view>

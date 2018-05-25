@@ -2,6 +2,11 @@
 	padding: 0;
 	margin: 0;
 }
+a:hover,
+a:active,
+a:focus {
+	text-decoration: none;
+}
 .navbar-default {
   background: rgba(255, 255, 255, 0.9);
   border: none;
@@ -77,6 +82,24 @@
   footer p:nth-child(2) {
   	margin-top: 10px;
   }
+  .kefu {
+  	display: flex;
+  	justify-content: center;
+  	align-items: flex-end;
+  	width: 60px;
+  	height: 63.5px;
+  	position: fixed;
+  	right: 20px;
+  	bottom: 70px;
+  	background-image: url(../images/kefu.png);
+  	background-size: 100% 100%;
+  }
+  .kefu-info {
+  	font-size: 12px;
+    margin-bottom: 8px;
+    padding-left: 3px;
+    color: #fff;
+  }
 }
 header .navbar .container-fluid .navbar-nav .active a {
   background: rgba(255, 189, 26, 0.8)
@@ -93,5 +116,23 @@ header .navbar .container-fluid .navbar-nav .active a:active,header .navbar .con
 	}
 	footer p:nth-child(2) {
 		margin-top: 10px;
+	}
+	.kefu {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		width: 120px;
+		height: 127px;
+		position: fixed;
+		right: 50px;
+		bottom: 150px;
+		background-image: url(../images/kefu.png);
+		background-size: 100% 100%;
+	}
+	.kefu-info {
+		font-size: 12px;
+	  margin-bottom: 26px;
+	  padding-left: 3px;
+	  color: #fff;
 	}
 }

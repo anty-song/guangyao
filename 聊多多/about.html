@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>聊多多</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+	<script type="text/javascript" src="js/head.js"></script>
+	<section class="banner"></section>
+	<section class="about hidden-xs">
+		<p class="sec-tit">关于我们</p>
+		<p class="sec-subtit">About Us</p>
+		<div class="about-pic"></div>
+		<div class="about-msg">
+			<p>友聊是友聊（NASDAQ：youliao）推出的一款基于地理位置的开放式移动视频社交应用，是相对成熟社交泛娱乐平台。</p>
+			<p>在友聊，你可以通过文字、语音、图片来展示自己，基于地理位置发现附近的人，加入附近的群组，建立真实、有效、健康的社交关系。</p>
+			<p>友聊公司于2018年成立，友聊的愿景是希望人们通过移动互联网，发现身边的美好与新奇，让人们连接原本该连接的人。</p>
+		</div>
+	</section>
+	<section class="about-btp container hidden-sm hidden-md hidden-lg">
+		<p class="sec-tit">关于我们</p>
+		<p class="sec-subtit">About Us</p>
+		<div class="about-btp-pic" style="text-align: center;">
+			<img style="max-width: 250px;height: 100%;width: 100%" src="images/gywm_gywm_bg.png">
+		</div>
+		<div class="about-btp-msg">
+			<p>友聊是友聊（NASDAQ：youliao）推出的一款基于地理位置的开放式移动视频社交应用，是相对成熟社交泛娱乐平台。</p>
+			<p>在友聊，你可以通过文字、语音、图片来展示自己，基于地理位置发现附近的人，加入附近的群组，建立真实、有效、健康的社交关系。</p>
+			<p>友聊公司于2018年成立，友聊的愿景是希望人们通过移动互联网，发现身边的美好与新奇，让人们连接原本该连接的人。</p>
+		</div>
+	</section>
+	<section class="contact container">
+		<p class="sec-tit">联系我们</p>
+		<p class="sec-subtit">Contact Us</p>
+		<div class="contact-ctt row">
+			<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=5af7bb8b74a118161562953353774898"></script> 
+      <div class="map col-md-6" id="container"></div>
+      <div class="contact-ways col-md-6">
+				<p>电话：56464464464</p>
+				<p>QQ：9-808007</p>
+				<p>微信：361000</p>
+				<p>邮箱：361000@123.com</p>
+				<p>邮政编码：361000</p>
+				<p>公司地址：厦门市思明区世茂海峡大厦4409</p>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="js/footer.js"></script>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/gaode-map.js"></script>
+	<script type="text/javascript">
+		$($(".navbar-nav").children()[1]).attr("class", "active");
+		$(".banner-links a").click(function(){
+			$(this).addClass("a-active").siblings().removeClass("a-active");
+		});
+		$(".phone").on("click mouseover", function(){
+			$(this).addClass("down-active").siblings().removeClass("down-active");
+		});
+	</script>
+</body>
+</html>

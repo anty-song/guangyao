@@ -1,0 +1,123 @@
+
+.banner {
+	height: calc(100vw/3.19);
+	background-image: url(../images/hyzx_banner_img.png);
+	background-size: 100% 100%;
+}
+
+.sec-tit {
+	position: relative;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+	width: 200px;
+	margin: 0 auto;
+	color: #353535;
+	font-size: 24px;
+	border: 1px solid #000;
+}
+.sec-tit:before,
+.sec-tit:after {
+	position: absolute;
+	top: 50%;
+	margin-top: -0.5px;
+	content: "";
+	height: 0;
+	width: 100px;
+	border-bottom: 1px solid #000;
+}
+.sec-tit:before {
+	left: -80px;
+}
+.sec-tit:after {
+	right: -80px;
+}
+.sec-tit span {
+	color: #a24e17;
+}
+.sec-subtit {
+	font-size: 18px;
+	margin-top: 20px;
+	text-align: center;
+}
+.category-item,
+.privileges-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.ico-box {
+	width: 100px;
+	height: 103px;
+	background-image: url(../images/hyzx_icon_img.png);
+	background-size: 120px 887px;
+}
+@media screen and (max-width: 768px) {
+	.ico-box {
+		transform: scale(.5);
+		margin: 0 auto;
+	}
+	.privileges {
+		padding-top: 40px;
+	}
+	.category-item,
+	.privileges-item {
+		padding-bottom: 20px;
+	}
+	.sec-subtit {
+		margin-bottom: 20px;
+	}
+	.category {
+		padding-top: 40px;
+	}
+}
+@media screen and (min-width: 769px) {
+	.ico-box {
+		margin: 0 auto 34px;
+	}
+	.category-item,
+	.privileges-item {
+		padding-bottom: 100px;
+	}
+	.sec-subtit {
+		margin-bottom: 70px;
+	}
+	.privileges {
+		padding-top: 100px;
+	}
+}
+.privileges .chat {
+	background-position: -10px 0;
+}
+.privileges .top {
+	background-position: -10px -113px;
+}
+.privileges .status {
+	background-position: -10px -226px;
+}
+.privileges .tel {
+	background-position: -10px -339px;
+}
+.privileges-item span {
+	font-size: 16px;
+	color: #353535;
+}
+.category .item-box {
+	height: 284px;
+	width: 284px;
+	background-color: #e4a175;
+	border-radius: 10px;
+}
+.category .item-box p {
+	text-align: center;
+	font-size: 30px;
+	line-height: 30px;
+	color: #fff;
+	font-weight: bold;
+} 
+.category .item-box .options {
+	margin-top: 100px;
+	margin-bottom: 50px;
+}

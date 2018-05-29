@@ -1,0 +1,297 @@
+@media screen and (min-width: 768px) {
+	.never-alone {
+		padding-top: 188px;
+	}
+	.never-alone-wrap .never-alone-item img {
+		max-width: 285px;
+	}
+	.download .down-box .down-links > div {
+		position: relative;
+		display: inline-flex;
+		display: -webkit-inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 270px;
+		height: 270px;
+		border: 1px solid #888;
+		box-sizing: border-box;
+		vertical-align: top;
+	}
+	.sec-subtit {
+		margin-bottom: 70px;
+	}
+	.happiness {
+		position: relative;
+		height: 600px;
+		width: 100%;
+		margin-top: 70px;
+		padding-top: 70px;
+		background-image: url(../images/sy_img_one.png);
+		background-size: 1920px 2631px;
+		background-position: 0 -1411px;
+	}
+	.love {
+		padding-top: 100px;
+	}
+	.download {
+		padding-top: 70px;
+	}
+}
+@media screen and (max-width: 767px) {
+	.never-alone {
+		padding-top: 40px;
+	}
+	.never-alone-wrap .never-alone-item img {
+		max-width: 200px;
+	}
+	.download .down-box .down-links > div {
+		position: relative;
+		width: 270px;
+		height: 270px;
+		border: 1px solid #888;
+		box-sizing: border-box;
+		vertical-align: top;
+	}
+	.sec-subtit {
+		margin-bottom: 20px;
+	}
+	.qrcode {
+		margin: 0 auto 30px;
+	}
+	.love {
+		padding-top: 20px;
+	}
+	.download {
+		padding-top: 40px;
+	}
+}
+.banner {
+	height: calc(100vw/3.19);
+	background-image: url(../images/sy_banner_img.png);
+	background-size: 100% 100%;
+}
+.banner-ctt {
+	margin: 0 auto;
+	position: relative;
+	height: 100%;
+}
+.banner .phone-show {
+	position: absolute;
+	left: 60px;
+	bottom: -107px;
+	width: 292px;
+	height: 570px;
+	background-image: url(../images/sy_sj_img.png);
+	background-position: -6px -3px;
+	background-size: 100% 100%;
+}
+.banner .banner-links {
+	position: absolute;
+	right: 20px;
+	bottom: 102px;
+	height: 160px;
+	width: 180px;
+}
+.banner .banner-links a {
+	text-decoration: none;
+	display: block;
+	height: 60px;
+	width: 180px;
+	border: 1px solid #9c6da3;
+	box-sizing: border-box;
+	color: #9c6da3;
+	text-align: center;
+	font-size: 24px;
+	line-height: 60px;
+	border-radius: 10px;
+}
+.banner .banner-links a:nth-child(2) {
+	margin-top: 40px;
+}
+.banner .banner-links .a-active {
+	border: none;
+	background-color: #9c6da3;
+	color: #fffeff;
+}
+
+.sec-tit {
+	position: relative;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+	width: 200px;
+	margin: 0 auto;
+	color: #353535;
+	font-size: 24px;
+	border: 1px solid #000;
+}
+.sec-tit:before,
+.sec-tit:after {
+	position: absolute;
+	top: 50%;
+	margin-top: -0.5px;
+	content: "";
+	height: 0;
+	width: 100px;
+	border-bottom: 1px solid #000;
+}
+.sec-tit:before {
+	left: -80px;
+}
+.sec-tit:after {
+	right: -80px;
+}
+.sec-tit span {
+	color: #674072;
+}
+.sec-subtit {
+	font-size: 18px;
+	margin-top: 20px;
+	text-align: center;
+}
+.never-alone .never-alone-box {
+	position: relative;
+	height: 872px;
+	width: 100%;
+	background-image: url(../images/sy_img_one.png);
+	background-size: 1920px 2631px;
+	background-position: 0 0;
+}
+.never-alone .never-alone-box .never-alone-ctt {
+	position: absolute;
+	left: 50%;
+	margin-left: -390px;
+	bottom: 103px;
+	height: 207px;
+	width: 780px;
+}
+.never-alone .never-alone-box .never-alone-ctt p {
+	font-size: 24px;
+	color: #fff;
+	text-align: center;
+}
+.never-alone .never-alone-box .never-alone-ctt a {
+	text-decoration: none;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 90px auto 0;
+	width: 200px;
+	height: 50px;
+	font-size: 24px;
+	color: #fff;
+	border: 1px solid #fff;
+	border-radius: 4px;
+}
+.never-alone-wrap .never-alone-item {
+	text-align: center;
+}
+.never-alone-wrap .never-alone-item img {
+	width: 100%;
+	height: 100%;
+}
+
+.love .love-ctt {
+	width: 1200px;
+	height: 521px;
+	margin: 0 auto;
+	background-image: url(../images/sy_img_one.png);
+	background-size: 1920px 2631px;
+	background-position: -360px -882px;
+}
+
+.happiness .sec-tit {
+	color: #fff;
+	border: 1px solid #fff;
+}
+.happiness .sec-tit:before,
+.happiness .sec-tit:after {
+	border-bottom: 1px solid #fff;
+}
+.happiness .sec-subtit {
+	color: #fff;
+} 
+.happiness .happiness-ctt {
+	position: absolute;
+	left: 796px;
+	top: 196px;
+	height: 334px;
+	width: 615px;
+	padding: 30px;
+}
+.happiness .happiness-ctt .ctt-tit {
+	font-size: 30px;
+	color: #9c6da3;
+	margin-bottom: 50px;
+}
+.happiness .happiness-ctt .happiness-words {
+	font-size: 14px;
+	text-indent: 28px;
+	color: #353535;
+}
+.happiness .happiness-ctt .p2 {
+	margin: 36px 0 44px;
+}
+.happiness .happiness-ctt a {
+	text-decoration: none;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	width: 110px;
+	height: 30px;
+	margin: 0 auto;
+	font-size: 18px;
+	color: #9c6da3;
+	border: 1px solid #9c6da3;
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+.download .down-box {
+	margin: 0 auto;
+}
+.download .down-box .down-links {
+	font-size: 0;
+}
+.download .down-box .down-links .iphone {
+	margin: 0 165px;
+}
+.download .down-box .down-links .btn-box {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+.download .down-box .down-links .btn-box a {
+	text-decoration: none;
+	display: block;
+	width: 110px;
+	height: 30px;
+	border: 1px solid #fff;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	line-height: 30px;
+}
+.download .down-box .down-links .down-active .btn-box {
+	background-color: rgba(53, 41, 55, .7);
+	z-index: 1;
+}
+.happiness-img img {
+	width: 100%;
+	height: 100%;
+}
+.never-alone-item {
+	margin-bottom: 20px;
+}

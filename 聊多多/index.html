@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>聊多多</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/iconFont/iconfont.css">
+</head>
+<body>
+	<script type="text/javascript" src="js/head.js"></script>
+	<section class="banner">
+		<div class="banner-ctt container hidden-xs">
+			<div class="row">
+				<div class="phone-show"></div>
+				<div class="banner-links">
+					<a href="#download">立即下载</a>
+					<a href="vip.html">会员中心</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="never-alone">
+		<p class="sec-tit">不再<span>孤单</span></p>
+		<p class="sec-subtit">Lonely No More</p>
+		<div class="never-alone-box hidden-xs hidden-sm hidden-md">
+			<div class="never-alone-ctt">
+				<p>海量用户，总有一款适合你</p>
+				<p>只要你愿意伸出手，前方就是幸福，只要你愿意迈出脚步，从此不再孤单</p>
+				<a href="#">了解更多</a>
+			</div>
+		</div>
+		<div class="never-alone-wrap container hidden-lg">
+			<div class="row">
+				<div class="col-md-3 col-sm-6">
+					<div class="never-alone-item">
+						<img src="images/never_alone1.png">
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="never-alone-item">
+						<img src="images/never_alone2.png">
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="never-alone-item">
+						<img src="images/never_alone3.png">
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="never-alone-item">
+						<img src="images/never_alone4.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="love">
+		<p class="sec-tit">拥抱<span>爱情</span></p>
+		<p class="sec-subtit">Embrace The Love</p>
+		<div class="love-ctt hidden-xs hidden-sm hidden-md"></div>
+		<div class="hidden-lg container" style="text-align: center;">
+			<img style="width: 100%;max-width: 699px;height: 100%;" src="images/love.png">
+		</div>
+	</section>
+	<section class="happiness hidden-xs">
+		<p class="sec-tit">收获幸福</p>
+		<p class="sec-subtit">Harvest Happiness</p>
+		<div class="happiness-ctt">
+			<p class="ctt-tit">
+				人生因为有你更美好
+			</p>
+			<p class="happiness-words p1">
+				在爱情里，迟到和错过到底哪个更伤心一点？但对于真正体会过爱情甜蜜的人来说，或许迟到和错过都好过从没爱过吧。
+			</p>
+			<p class="happiness-words p2">
+				笑的是她惺松的鬈发， 散乱的挨着她的耳朵， 轻软如同花影， 痒痒的甜蜜 涌进了你的心窝， 那是笑——诗的笑，画的笑： 云的留痕，浪的柔波。
+			</p>
+			<a href="#">了解更多</a>
+		</div>
+	</section>
+	<section id="download" class="download">
+		<div class="down-box container">
+			<p class="sec-tit">下载客户端</p>
+			<p class="sec-subtit">Client Download</p>
+			<div class="down-links">
+				<div class="phone android hidden-xs hidden-sm">
+					<i class="icon iconfont icon-anzhuo"></i>
+					<div class="btn-box anzhuo-box">
+						<a href="#">立即下载</a>
+					</div>
+				</div>
+				<div class="phone iphone hidden-xs hidden-sm">
+					<i class="icon iconfont icon-pingguo"></i>
+					<div class="btn-box pingguo-box">
+						<a href="#">立即下载</a>
+					</div>
+				</div>
+				<div class="qrcode"></div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="js/footer.js"></script>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$($(".navbar-nav").children()[0]).attr("class", "active");
+		$(".banner-links a").mouseover(function(){
+			$(this).addClass("a-active").siblings().removeClass("a-active");
+		});
+		$(".phone").on("click mouseover", function(){
+			$(this).addClass("down-active").siblings().removeClass("down-active");
+		});
+	</script>
+</body>
+</html>

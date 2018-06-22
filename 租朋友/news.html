@@ -401,6 +401,51 @@
 		<p class="kefu-info hidden-xs">有问题找客服哦</p>
 		<p class="kefu-info hidden-sm hidden-md hidden-lg">客服</p>
 	</a>
+	<div class="pages"><input type="hidden" id="destoon_previous" value="http://127.0.0.1/pengyou/news/list.php?catid=4&page=2"/><a href="http://127.0.0.1/pengyou/news/list.php?catid=4&page=2">&nbsp;&#171;&nbsp;</a> <strong>&nbsp;1&nbsp;</strong>  <a href="http://127.0.0.1/pengyou/news/list.php?catid=4&page=2">&nbsp;2&nbsp;</a>  <a href="http://127.0.0.1/pengyou/news/list.php?catid=4&page=2">&nbsp;&#187;&nbsp;</a> <input type="hidden" id="destoon_next" value="http://127.0.0.1/pengyou/news/list.php?catid=4&page=2"/>&nbsp;<cite>共22条/2页</cite>&nbsp;<input type="text" class="pages_inp" id="destoon_pageno" value="1" onkeydown="if(event.keyCode==13 && this.value) {window.location.href='http://127.0.0.1/pengyou/news/list.php?catid=4&page={destoon_page}'.replace(/\{destoon_page\}/, this.value);return false;}"> <input type="button" class="pages_btn" value="GO" onclick="if(Dd('destoon_pageno').value>0)window.location.href='http://127.0.0.1/pengyou/news/list.php?catid=4&page={destoon_page}'.replace(/\{destoon_page\}/, Dd('destoon_pageno').value);"/></div>
+	<style type="text/css">
+	.pages {padding:20px 0 20px 0;text-align:center;color: #999;}
+	.pages a:link, .pages a:visited, .pages a:active{
+	    width: 36px;
+	    height: 36px;
+	    display: inline-block;
+	    border-radius: 4px;
+	    border: 1px solid #CCC;
+	    line-height: 36px;
+	    font-size: 14px;
+	    box-shadow: none;
+	}
+	.pages a:hover {background:#258CFF;color:#FFFFFF;display:inline-block;text-align: center;}
+	.pages strong {width: 36px;
+	    height: 36px;
+	    background: #0ca4e4;
+	    display: inline-block;
+	    border-radius: 4px;
+	    border: 1px solid #CCC;
+	    line-height: 36px;
+	    font-size: 14px;
+	    color:#fff;box-shadow: none;}
+	.pages_inp {
+	    width:36px;
+	    height:30px;
+	    border-radius:5px;
+	    border:#DDDDDD 1px solid;color:#666666;padding:2px;text-align:center;}
+	.pages_btn {
+	    width:36px;
+	    height:36px;
+	    border-radius:5px;
+	    cursor:pointer;
+	    border:#0ca4e4 1px solid;
+	    color:#FFFFFF;
+	    padding:1px;
+	    background:#0ca4e4;
+	    font-weight:bold;
+	    font-size:11px;
+	}
+	.pages label {background:#FFFFFF;border:#DDDDDD 1px solid;color:#666666;padding:3px 5px 3px 5px;}
+	.pages label em {color:red;font-weight:bold;font-style:normal;}
+	.pages label span {font-weight:bold;}
+	.pages cite {font-style:normal;}
+	</style>
 	<script type="text/javascript" src="js/footer.js"></script>
 	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>

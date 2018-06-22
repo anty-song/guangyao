@@ -1,0 +1,156 @@
+/* 初始化 */
+* {
+	margin: 0;
+	padding: 0;
+}
+a,
+a:active,
+a:hover,
+a:focus {
+	text-decoration-line: none;
+}
+.active {
+	background-color: #e83836;
+	color: #fff;
+}
+.title {
+	text-align: center;
+	font-size: 28px;
+	line-height: 28px;
+}
+.subtitle {
+	text-align: center;
+	font-size: 14px;
+	line-height: 14px;
+	color: #909090;
+	margin-top: 20px;
+}
+/* 顶部导航条 */
+nav,
+.section-content {
+	width: 1200px;
+	margin: 0 auto;
+}
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+nav .logo {
+	width: 200px;
+	height: 65px;
+}
+nav .logo img {
+	width: 100%;
+	height: 100%;
+}
+nav ul {
+	display: flex;
+}
+li {
+	list-style: none;
+}
+nav a {
+	display: block;
+	height: 90px;
+	width: 142px;
+	color: #353535;
+	text-align: center;
+	line-height: 90px;
+}
+/* banner */
+.banner img {
+	width: 100%;
+	height: 100%;
+}
+.youshi {
+	padding: 50px 0;
+}
+.youshi-list {
+	display: flex;
+	margin-top: 50px;
+}
+.youshi-list li {
+	width: 400px;
+	text-align: center;
+	height: 255px;
+}
+.youshi-list li p{
+	margin-top: 50px;
+}
+.xunwei {
+	padding-bottom: 80px;
+}
+.xunwei .section-content {
+	display: flex;
+	justify-content: space-between;
+}
+.xunwei .section-content .xunwei-left {
+	width: 370px;
+}
+.xunwei .section-content .xunwei-left .tit {
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+.xunwei .section-content .xunwei-left .word {
+	line-height: 30px;
+	color: #909090;
+}
+.xunwei .section-content .xunwei-right {
+	font-size: 0;
+}
+.contact {
+	padding-top: 40px;
+	background-color: #1d1c1c;
+}
+.lianxi {
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+	color: #fff;
+}
+.lianxi .dizhi,
+.lianxi .dianhua {
+	position: relative;
+	border-left: 1px solid #fff;
+	padding-left: 20px;
+	margin-left: 60px;
+}
+.lianxi .dizhi:before {
+	position: absolute;
+	top: 0;
+	left: -60px;
+	content: "";
+	width: 32px;
+	height: 40px;
+	background-image: url(../images/index_dz_img.png);
+}
+.lianxi .dianhua:before {
+	position: absolute;
+	top: 0;
+	left: -60px;
+	content: "";
+	width: 40px;
+	height: 40px;
+	background-image: url(../images/index_dh_img.png);
+}
+.contact .links {
+	display: flex;
+	justify-content: center;
+}
+.contact .links a {
+	display: block;
+	height: 50px;
+	width: 140px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 16px;
+	color: #fff;
+}
+.copyright {
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	background-color: #000;
+}

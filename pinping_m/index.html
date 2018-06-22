@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone = no" />
+  <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+  <title>品评网</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script type="text/javascript">
+  // 根据视口尺寸 计算设置根元素的 font-size
+  ;
+  ( function yeMianShiPei( win ) {
+    var doc = win.document;
+    var docEl = doc.documentElement;
+    var tid;
+
+    function refreshRem() {
+      var width = docEl.getBoundingClientRect().width;
+
+      if ( width > 640 ) {
+        width = 640;
+      }
+
+      var rem = width / 6.4;
+      docEl.style.fontSize = rem + 'px';
+    }
+
+    win.addEventListener( 'resize', function () {
+      clearTimeout( tid );
+      tid = setTimeout( refreshRem, 300 );
+    }, false );
+    win.addEventListener( 'pageshow', function ( e ) {
+      if ( e.persisted ) {
+        clearTimeout( tid );
+        tid = setTimeout( refreshRem, 300 );
+      }
+    }, false );
+
+    refreshRem();
+  } )( window );
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="head">
+        <div class="search-box">
+          <input type="text" name="search" placeholder="搜索品牌、行业、榜单">
+        </div>
+      </div>
+    </header>
+    <section class="banner" style="background-image: url(images/dynamic/init/m_shouye_banner.png);"></section>
+    <section class="option-lists">
+      <a href="#" class="brand-vote">
+				<i class="option-icon" style="background-image: url(images/dynamic/init/m_shouye_icon.png)"></i>
+				<p>品牌投票</p>
+			</a>
+      <a href="#" class="product-vote">
+				<i class="option-icon" style="background-image: url(images/dynamic/init/m_shouye_icon.png)"></i>
+				<p>产品投票</p>
+			</a>
+      <a href="#" class="sign-up">
+				<i class="option-icon" style="background-image: url(images/dynamic/init/m_shouye_icon.png)"></i>
+				<p>在线报名</p>
+			</a>
+      <a href="#" class="brand-rank">
+				<i class="option-icon" style="background-image: url(images/dynamic/init/m_shouye_icon.png)"></i>
+				<p>品牌榜单</p>
+			</a>
+      <a href="#" class="product-rank">
+				<i class="option-icon" style="background-image: url(images/dynamic/init/m_shouye_icon.png)"></i>
+				<p>产品榜单</p>
+			</a>
+      <a href="#" class="news">
+				<i class="option-icon" style="background-image: url(images/dynamic/init/m_shouye_icon.png)"></i>
+				<p>新闻资讯</p>
+			</a>
+      <a href="#" class="help">
+				<i class="option-icon" style="background-image: url(images/dynamic/init/m_shouye_icon.png)"></i>
+				<p>帮助中心</p>
+			</a>
+      <a href="#" class="client">
+				<i class="option-icon" style="background-image: url(images/dynamic/init/m_shouye_icon.png)"></i>
+				<p>客户中心</p>
+			</a>
+    </section>
+    <section class="broadcast">
+      <i></i>
+      <div id="scroll" class="scroll clearfix">
+        <ul>
+          <li><a href="#">第1条广播</a></li>
+          <li><a href="#">第2条广播</a></li>
+          <li><a href="#">第3条广播</a></li>
+          <li><a href="#">第4条广播</a></li>
+          <li><a href="#">第5条广播</a></li>
+        </ul>
+      </div>
+      <a href="#" class="more">更多</a>
+    </section>
+    <section class="brand-lists">
+      <p class="lists-title">品牌分类</p>
+      <div class="brand-lists-content">
+        <a href="#" class="wujin">
+					<i></i>
+					<p>家居建材五金</p>
+				</a>
+        <a href="#" class="jiafang">
+					<i></i>
+					<p>家饰家纺</p>
+				</a>
+        <a href="#" class="huaxue">
+					<i></i>
+					<p>建工化学农用品</p>
+				</a>
+        <a href="#" class="fuzhuang">
+					<i></i>
+					<p>服装鞋帽箱包</p>
+				</a>
+        <a href="#" class="jianshen">
+					<i></i>
+					<p>健身医药保健</p>
+				</a>
+        <a href="#" class="jiaotong">
+					<i></i>
+					<p>交通运输物流</p>
+				</a>
+        <a href="#" class="shenghuo">
+					<i></i>
+					<p>生活服务</p>
+				</a>
+        <a href="#" class="dianqi">
+					<i></i>
+					<p>电器数码办公</p>
+				</a>
+        <a href="#" class="shipin">
+					<i></i>
+					<p>食品酒类生鲜</p>
+				</a>
+        <a href="#" class="baihuo">
+					<i></i>
+					<p>日用百货</p>
+				</a>
+        <a href="#" class="muying">
+					<i></i>
+					<p>母婴文教乐器</p>
+				</a>
+        <a href="#" class="jidian">
+					<i></i>
+					<p>机电能源仪器仪表</p>
+				</a>
+        <a href="#" class="huwai">
+					<i></i>
+					<p>运动户外钟表</p>
+				</a>
+        <a href="#" class="meizhuang">
+					<i></i>
+					<p>美妆护理珠宝</p>
+				</a>
+        <a href="#" class="dianzi">
+					<i></i>
+					<p>电气电子制造</p>
+				</a>
+      </div>
+    </section>
+    <section class="recent-lists">
+      <p class="lists-title">近期榜单</p>
+      <a href="#" class="recent-item">
+        <div class="item-head" style="background-color: #ffb644;">
+          <div class="title-box">
+            <p class="title">中国文化石行业十大品牌</p>
+            <p class="subtitle">2018年度总评榜荣耀揭晓</p>
+          </div>
+          <div class="arrow"></div>
+        </div>
+        <div class="item-body">
+          <div class="item-bar"></div>
+          <div class="item-bar"></div>
+          <div class="item-bar"></div>
+        </div>
+        <div class="item-foot">
+          <p class="time">2108-02-06</p>
+          <p class="scan">10</p>
+        </div>
+      </a>
+    </section>
+    <footer>
+      <a href="#">关于我们</a>
+      <a href="#">帮助中心</a>
+      <a href="#">问题反馈</a>
+      <p class="copyright">Copyright@2017 品评网</p>
+    </footer>
+  </div>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/cssControler.js"></script>
+</body>
+
+</html>

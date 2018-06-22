@@ -1,4 +1,4 @@
-document.writeln("<header>");
+document.writeln("<header style='display:none;'>");
 document.writeln("	<nav class='navbar'>");
 document.writeln("		<div class='container-fluid'>");
 document.writeln("			<div class='navbar-header'>");

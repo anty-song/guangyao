@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.input-wrap {
+  width: 100%;
+  height: .8rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.input-box {
+  width: 5.8rem;
+  height: .6rem;
+  border-radius: .3rem;
+  margin: 0 auto;
+  box-shadow: 0 0 5px 5px #000 inset;
+}
+.wrap {
+  max-width: 7.5rem;
+  margin: 0 auto;
+  padding: .7rem .3rem 0;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title img {
+  width: .5rem;
+  height: .5rem;
+}
+
+.title span {
+  font-size: .32rem;
+  margin-left: .2rem;
+}
+
+.money {
+  font-size: .38rem;
+  color: #ff0000;
+  text-align: center;
+  margin: .6rem 0 .4rem;
+}
+
+.handle {
+  font-size: .2rem;
+  color: #888;
+  text-align: center;
+}
+
+.list {
+  margin: .7rem 0 .51rem;
+  font-size: .28rem;
+  color: #353535;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list li:nth-child(2) {
+  margin: .5rem 0;
+}
+
+.line {
+  border-top: 1px solid #ccc;
+  width: 100%;
+}
+
+.process {
+  padding: .5rem .9rem 1rem;
+}
+
+.submit,
+.got {
+	display: flex;
+	align-items: center;
+  font-size: .3rem;
+  color: #353535;
+}
+.got {
+	margin-top: .96rem;
+}
+.ico1,
+.ico2 {
+	position: relative;
+	width: .5rem;
+	height: .5rem;
+	margin-right: .24rem;
+}
+.ico1 {
+	background-image: url(image/myself_daiqueren_icon.png);
+	background-size: 100% 100%;
+}
+.ico1:after,
+.ico2:before {
+	content: "";
+	position: absolute;
+	left: .215rem;
+	width: .07rem;
+	height: .48rem;
+}
+.ico1:after {
+	bottom: -.48rem;
+	background-color: #ffbd2c;
+}
+.ico2:before {
+	top: -.48rem;
+	background-color: #e0e0e0;
+}
+.ico2 {
+	background-image: url(image/txxq_daidaozhang_icon.png);
+	background-size: 100% 100%;
+}
+.time {
+  color: #888;
+  font-size: .26rem;
+  margin-left: 1rem;
+}
+
+.hint {
+  color: #ff0000;
+  font-size: .26rem;
+  text-align: center;
+}

@@ -107,6 +107,11 @@
 	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
+		window.onload = function(){
+			$('header').css({
+				display: 'block'
+			});
+		}
 		$($(".navbar-nav").children()[0]).attr("class", "active");
 		$(".banner-links a").mouseover(function(){
 			$(this).addClass("a-active").siblings().removeClass("a-active");

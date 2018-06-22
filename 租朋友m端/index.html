@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone = no"/> 
+  <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+  <title>租朋友</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script type="text/javascript">
+	  ;( function yeMianShiPei( win ) {
+	    var doc = win.document;
+	    var docEl = doc.documentElement;
+	    var tid;
+
+	    function refreshRem() {
+	      var width = docEl.getBoundingClientRect().width;
+
+	      if ( width > 750 ) {
+	        width = 750;
+	      }
+
+	      var rem = width / 7.5;
+	      docEl.style.fontSize = rem + 'px';
+	    }
+
+	    win.addEventListener( 'resize', function () {
+	      clearTimeout( tid );
+	      tid = setTimeout( refreshRem, 300 );
+	    }, false );
+	    win.addEventListener( 'pageshow', function ( e ) {
+	      if ( e.persisted ) {
+	        clearTimeout( tid );
+	        tid = setTimeout( refreshRem, 300 );
+	      }
+	    }, false );
+
+	    refreshRem();
+	  } )( window );
+  </script>
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="title">
+			<img src="image/zfb_img.png">
+			<span>支付宝</span>
+		</div>
+		<p class="money">100</p>
+		<p class="handle">提现</p>
+		<ul class="list">
+			<li>
+				<span>支付宝</span>
+				<span>15633022558</span>
+			</li>
+			<li>
+				<span>姓名</span>
+				<span>唐三藏</span>
+			</li>
+			<li>
+				<span>提现进度</span>
+				<span style="color: #ff0000;">预计两个工作日</span>
+			</li>
+		</ul>
+		<div class="line"></div>
+		<div class="process">
+			<div class="submit">
+				<i class="ico1"></i>
+				<p>提交申请</p>
+				<p class="time">2018-4-13 13:30</p>
+			</div>
+			<div class="got">
+				<i class="ico2"></i>
+				<p>到账</p>
+			</div>
+		</div>
+		<div class="hint">
+			支付宝账户有误，请核实后再试！
+		</div>
+	</div>
+</body>
+
+</html>

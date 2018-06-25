@@ -3,7 +3,6 @@
   var pos = 0;
   var ticking = false;
   var header = $( "header" );
-  console.log( header )
   var bannerH = $( '.banner' ).height();
   var headerH = $( 'header' ).height();
   var _height = bannerH - headerH - 15;

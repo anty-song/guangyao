@@ -49,11 +49,10 @@ header {
 }
 
 header .search-box {
-  width: .25rem;
-  height: .25rem;
+  width: .26rem;
+  height: .26rem;
   margin-top: .175rem;
   margin-left: .6rem;
-  padding-left: .25rem;
   position: relative;
   background-image: url(../images/static/m_qita_icon.png);
   background-size: 1.59rem .52rem;
@@ -66,9 +65,10 @@ header input {
   outline: none;
   border: none;
   font-size: .24rem;
-  padding-left: .16rem;
+  padding-left: .42rem;
   height: .6rem;
   width: 4.75rem;
+  background-color: transparent;
 }
 
 
@@ -126,19 +126,19 @@ header input {
 }
 
 .option-lists .product-rank i {
-  background-position: 0 -1.1rem;
+  background-position: 0 -1.09rem;
 }
 
 .option-lists .news i {
-  background-position: -1.1rem -1.1rem;
+  background-position: -1.1rem -1.09rem;
 }
 
 .option-lists .help i {
-  background-position: -2.2rem -1.1rem;
+  background-position: -2.2rem -1.09rem;
 }
 
 .option-lists .client i {
-  background-position: -3.3rem -1.1rem;
+  background-position: -3.3rem -1.09rem;
 }
 
 

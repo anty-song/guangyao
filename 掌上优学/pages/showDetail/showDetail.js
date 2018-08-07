@@ -12,15 +12,15 @@ Page({
    */
   data: {
     collectHide: false,
-    item: {},
-    bestComment:{},
-    hotComments:[],
-    otherComments:[],
-    totalComments: 0,
+    item: null,
+    bestComment:null,
+    hotComments:null,
+    otherComments:null,
+    totalComments: null,
     hotCommentsHide:false,
     otherCommentsHide:false,
     bestCommentHide:true,
-    commentInputValue: ''
+    commentInputValue: null
   },
   onLoad: function(){
     var that=this;
@@ -89,20 +89,77 @@ Page({
       complete: function(){}
     })
   },
-  toggleCollect: function() {
-    this.setData({
-      isCollected: !this.data.isCollected
-    })
+
+  // 点赞功能
+  likeComment: function (e) {
+    var that = this;
+    // 时间戳
+    var timestamp = Date.parse(new Date()) / 1000;
+    // userid
+    var userid = wx.getStorageSync('userAccount').userid;
+    // 加密字符串
+    var auth = wx.getStorageSync('userAccount').auth;
+    var paramData = app.strencode(timestamp + ',' + userid + ',' + auth);
+    Req.POST(API.LIKE, {
+      params: {
+        paramData: paramData,
+        itemid: e.currentTarget.dataset.itemid,
+        isagree: 1
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data.status == 2) {
+          wx.showToast({
+            title: 'relogin',
+            icon: 'none'
+          });
+          app.globalData.relogin = true;
+          wx.switchTab({
+            url: '../user/user',
+          });
+        } else {
+          that.onLoad();
+        }
+      },
+      fail: function (res) { },
+      complete: function () { }
+    });
+
   },
-  toggleLike: function(e) {
-    console.log(this)
-    var isLike = this.data.isLike,
-        likeNum = this.data.likeNum;
-    likeNum = isLike ? likeNum - 1 : likeNum + 1;
-    this.setData({
-      isLike: !isLike,
-      likeNum: likeNum
-    })
+  // 取消点赞
+  unLikeComment: function (e) {
+    var that = this;
+    // 时间戳
+    var timestamp = Date.parse(new Date()) / 1000;
+    // userid
+    var userid = wx.getStorageSync('userAccount').userid;
+    // 加密字符串
+    var auth = wx.getStorageSync('userAccount').auth;
+    var paramData = app.strencode(timestamp + ',' + userid + ',' + auth);
+    Req.POST(API.LIKE, {
+      params: {
+        paramData: paramData,
+        itemid: e.currentTarget.dataset.itemid,
+        isagree: 0
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data.status == 2) {
+          wx.showToast({
+            title: 'relogin',
+            icon: 'none'
+          });
+          app.globalData.relogin = true;
+          wx.switchTab({
+            url: '../user/user',
+          });
+        } else {
+          that.onLoad();
+        }
+      },
+      fail: function (res) { },
+      complete: function () { }
+    });
   },
   // 获取评论框中的内容
   bindKeyInput: function(e) {

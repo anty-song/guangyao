@@ -25,7 +25,7 @@ Page({
     lunboArray: [],
     showData: [], // 秀场列表数据
     // like
-    likeNum: 0,
+    // likeNum: null,
     isLike: false,
     showDataAttention: [], // 关注列表数据
     defaultAttentionHide: true,
@@ -45,7 +45,8 @@ Page({
       quan_page: 1,
       guanzhu_page: 1,
       nearby_page: 1,
-      defaultNearbyHide: true
+      defaultNearbyHide: true,
+      likeNum: null
     });
     // 年级分类
     Req.POST(API.SHOW_CATEGORY, {
@@ -102,7 +103,7 @@ Page({
     // 科目分类列表
     Req.POST(API.SUBJECT_CATEGORY, {
       params: {
-        
+
         catid: that.data.currentStageId
       },
       success: function (res) {
@@ -226,6 +227,7 @@ Page({
   },
   // 点赞功能
   likeComment: function(e){
+    console.log('dianzan')
     var that=this;
     // 时间戳
     var timestamp = Date.parse(new Date()) / 1000;
@@ -234,16 +236,27 @@ Page({
     // 加密字符串
     var auth = wx.getStorageSync('userAccount').auth;
     var paramData = app.strencode(timestamp + ',' + userid + ',' + auth);
+    var itemData = e.currentTarget.dataset.itemdata;
     Req.POST(API.LIKE, {
       params: {
         paramData: paramData,
-        itemid: e.currentTarget.dataset.itemid,
+        itemid: itemData.itemid,
         isagree: 1
       },
       success: function (res) {
         console.log(res)
-        that.onLoad();
-        that.loadTiwen();
+        // 重新登录
+        if(res.data.status==2){
+          wx.showToast({
+            title: 'relogin',
+            icon: 'none'
+          });
+          app.globalData.relogin = true;
+          wx.switchTab({
+            url: '../user/user',
+          });
+          // 
+        } else {}
       },
       fail: function (res) { },
       complete: function () { }
@@ -260,6 +273,7 @@ Page({
     // 加密字符串
     var auth = wx.getStorageSync('userAccount').auth;
     var paramData = app.strencode(timestamp + ',' + userid + ',' + auth);
+    var itemData = e.currentTarget.dataset.itemdata;
     Req.POST(API.LIKE, {
       params: {
         paramData: paramData,
@@ -268,8 +282,16 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        that.onLoad();
-        that.loadTiwen();
+        if (res.data.status == 2) {
+          wx.showToast({
+            title: 'relogin',
+            icon: 'none'
+          });
+          app.globalData.relogin=true;
+          wx.switchTab({
+            url: '../user/user',
+          })
+        } else {}
       },
       fail: function (res) { },
       complete: function () { }

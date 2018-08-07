@@ -48,16 +48,24 @@ Page({
       complete: function(){}
     });
   },
-  onLoad: function(){
+  onLoad: function(options){
+    var that=this;
+    // 判断是否需要重新登录
+    if(app.globalData.relogin){
+      that.setData({
+        isLogin: false
+      });
+    } else {
     // 判断是否具有登录信息
     console.log(wx.getStorageSync('userAccount'));
     if (wx.getStorageSync('userAccount') && wx.getStorageSync('userAccount').bindaccount=='1') {
-      this.setData({
+      that.setData({
         isLogin: true,
         userId: wx.getStorageSync('userAccount').ID,
         nickName: wx.getStorageSync('userAccount').username,
         userAvatar: wx.getStorageSync('userAccount').userimg
       });
+    }
     }
   },
   goWallet: function(){

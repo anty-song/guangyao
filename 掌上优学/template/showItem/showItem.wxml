@@ -75,7 +75,7 @@
       <view hidden='{{!item.position}}' class='location'>
         <image src='../../images/index_zuobiao_img.png'></image>
         <text class='place'>{{item.position}}</text>
-      </view>
+      </view> 
       <!-- 点赞/收藏/评论 -->
       <view class='interaction'>
         <view>

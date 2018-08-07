@@ -1,0 +1,70 @@
+<view class='second-comment'>
+  <view class='item'>
+    <view class='shower-info'>
+      <view class='shower-avator'>
+        <image src='{{commentData.userimg}}'></image>
+      </view>
+      <view class='shower-others'>
+        <view>
+          <text class='shower-name'>{{commentData.passport}}</text>
+          <image wx:if='{{commentData.gender=="2"}}' class='shower-gender' src='../../images/index_girl_img.png'></image>
+          <image wx:else class='shower-gender' src='../../images/index_boy_img@2x.png'></image>
+          <text class='shower-distance'>{{commentData.dis?commentData.dis+'km':''}}</text>
+        </view>
+        <view>
+          <text class='time'>{{commentData.addtime}}</text>
+          <text class='school'>{{commentData.myschoolname}}</text>
+        </view>
+      </view>
+      <view class='accepted' style='width:106rpx;height:102rpx;position:absolute;top:8rpx;right:153rpx;'>
+        <image style='width:100%;height:100%;' src='../../images/index_caina_img.png'></image>
+      </view>
+      <view bindtap='toggleLike' class='like'>
+        <image hidden='{{isLike}}' src='../../images/index_zan_icon.png'></image>
+        <image hidden='{{!isLike}}' src='../../images/index_zan_pressed.png'></image>
+        <text>{{commentData.agrees}}</text>
+      </view>
+    </view>
+    <view class='comment-words'>
+      <text>{{commentData.content}}</text>
+    </view>
+  </view>
+  <view class='reply-list'>
+    <view class='reply-item item' wx:for='{{childCommentsData}}'>
+      <view class='shower-info'>
+        <view class='shower-avator'>
+          <image src='{{item.userimg}}'></image>
+        </view>
+        <view class='shower-others'>
+          <view>
+            <text class='shower-name'>{{item.passport}}</text>
+            <image wx:if='{{item.gender=="2"}}' class='shower-gender' src='../../images/index_girl_img.png'></image>
+            <image wx:else class='shower-gender' src='../../images/index_boy_img@2x.png'></image>
+            <text class='shower-distance'>{{item.dis?item.dis+'km':''}}</text>
+          </view>
+          <view>
+            <text class='time'>{{item.addtime}}</text>
+            <text class='school'>{{item.myschoolname}}</text>
+          </view>
+        </view>
+        <view bindtap='toggleLike' class='like'>
+          <image hidden='{{isLike}}' src='../../images/index_zan_icon.png'></image>
+          <image hidden='{{!isLike}}' src='../../images/index_zan_pressed.png'></image>
+          <text>{{item.agrees}}</text>
+        </view>
+      </view>
+      <view class='comment-words'>
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 创建回复内容 -->
+  <view class='create-comment'>
+    <input
+      class='comment-input'
+      bindinput='bindKeyInput'
+      type='text'
+      placeholder='回复...'></input>
+    <button bindtap='sendComments' class='comment-btn'>回复</button>
+  </view>
+</view>

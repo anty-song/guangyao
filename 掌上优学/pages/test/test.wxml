@@ -1,0 +1,166 @@
+<!--index.wxml-->
+<view class='index'>
+  <!-- 顶部 -->
+  <view class='topbar'>
+    <view class='scroll-wrap'>
+      <scroll-view scroll-x class='scroll_H'>
+        <view 
+          wx:for='{{topbarList}}'
+          bindtap='toggleTopBar'
+          style="{{index == topbarItemId ? 'color: #00cca2' : 'color: #333333'}}"
+          data-topbarItem='{{index}}'
+          class='top-item'>{{item.title}}</view>
+      </scroll-view>
+    </view>
+    <view class='stage-select'>
+      <picker bindchange="bindStagePickerChange" value="{{stageIndex}}" range="{{stageArray}}">
+        <view class="stage-picker">#{{stageArray[stageIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+  <swiper style='height: {{winHeight}}rpx;'>
+    <swiper-item>
+      <scroll-view scroll-y='true'>
+      <!-- 学科 -->
+        <view hidden='{{isFriend}}' class='subjects'>
+          <scroll-view scroll-x class='scroll_H'>
+            <view class='subject subject-active'>全部</view>
+            <view class='subject'>语文</view>
+            <view class='subject'>数学</view>
+            <view class='subject'>英语</view>
+            <view class='subject'>物理</view>
+            <view class='subject'>生物</view>
+          </scroll-view>
+        </view>
+        <!-- 轮播 -->
+        <swiper
+          class='lunbo'
+          hidden='{{isFriend}}'
+          indicator-dots="true"
+          autoplay='true'
+          interval='3000'
+          duration='1000'
+          circular='true'
+          indicator-color='rgba(0,0,0,.3)'
+          indicator-active-color='#ffffff'>
+          <block>
+            <swiper-item>
+              <view class='banner-wrap'>
+                <image src='../../images/test/banner1.png'></image>
+              </view>
+            </swiper-item>
+          </block>
+          <block>
+            <swiper-item>
+              <view class='banner-wrap'>
+                <image src='../../images/test/banner2.png'></image>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+        <!-- 秀场 -->
+        <view class='show-content'>
+          <navigator url='../showDetail/showDetail'>
+            <view class='show-item'>
+              <view class='shower-info'>
+                <view class='shower-avator'>
+                  <image src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3394174229,489181423&fm=27&gp=0.jpg'></image>
+                </view>
+                <view class='shower-others'>
+                  <view>
+                    <text class='shower-name'>至尊宝</text>
+                    <image class='shower-gender' src='../../images/index_girl_img.png'></image>
+                    <text class='shower-distance'>0.25km</text>
+                  </view>
+                  <view>
+                    <text class='time'>9分钟前</text>
+                    <text class='school'>石家庄信息工程职业学院</text>
+                  </view>
+                </view>
+              </view>
+              <view class='show-info'>
+                <view class='show-words'>
+                  <text class='current-subject'>【物理】</text>
+                  <text class='reward'>【赏金：1.5元】</text>
+                  <text>小时候的事。东三省的班干部VB宝宝手动阀，可能离开了快速的烦恼死定了附近阿里拉克丝带你飞。</text>
+                </view>
+                <view class='show-img-box' style='margin: 16rpx 0;'>
+                  <image catchtap='getInfo' mode='aspectFill' src='{{showImg}}'></image> 
+                </view>
+                <view class='location'>
+                  <image src='../../images/index_zuobiao_img.png'></image>
+                  <text class='place'>石家庄</text>
+                </view> 
+                <view class='interaction'>
+                  <view class='share'>
+                    <image src='../../images/index_fenxiang_icon.png'></image>
+                    <text>2</text>
+                  </view>
+                  <view class='comments'>
+                    <image src='../../images/index_pinglun_icon.png'></image>
+                    <text>12</text>
+                  </view>
+                  <view class='like'>
+                    <image src='../../images/index_zan_icon.png'></image>
+                    <text>589</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+          <navigator url='../showDetail/showDetail'>
+            <view class='show-item'>
+              <view class='shower-info'>
+                <view class='shower-avator'>
+                  <image src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3394174229,489181423&fm=27&gp=0.jpg'></image>
+                </view>
+                <view class='shower-others'>
+                  <view>
+                    <text class='shower-name'>至尊宝</text>
+                    <image class='shower-gender' src='../../images/index_girl_img.png'></image>
+                    <text class='shower-distance'>0.25km</text>
+                  </view>
+                  <view>
+                    <text class='time'>9分钟前</text>
+                    <text class='school'>石家庄信息工程职业学院</text>
+                  </view>
+                </view>
+              </view>
+              <view class='show-info'>
+                <view class='show-words'>
+                  <text class='current-subject'>【物理】</text>
+                  <text class='reward'>【赏金：1.5元】</text>
+                  <text>小时候的事。东三省的班干部VB宝宝手动阀，可能离开了快速的烦恼死定了附近阿里拉克丝带你飞。</text>
+                </view>
+                <view class='show-img-box' style='margin: 16rpx 0;'>
+                  <image catchtap='getInfo' mode='aspectFill' src='{{showImg}}'></image> 
+                </view>
+                <view class='location'>
+                  <image src='../../images/index_zuobiao_img.png'></image>
+                  <text class='place'>石家庄</text>
+                </view> 
+                <view class='interaction'>
+                  <view class='share'>
+                    <image src='../../images/index_fenxiang_icon.png'></image>
+                    <text>2</text>
+                  </view>
+                  <view class='comments'>
+                    <image src='../../images/index_pinglun_icon.png'></image>
+                    <text>12</text>
+                  </view>
+                  <view class='like'>
+                    <image src='../../images/index_zan_icon.png'></image>
+                    <text>589</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        232323232
+      </swiper-item>
+  </swiper>
+</view>

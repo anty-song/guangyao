@@ -118,6 +118,7 @@ Page({
     Req.POST(URL.BRAND, {
       params: params,
       success: function(res){
+        console.log(res)
         // 判断若 ispage 不为 0 则将数据添加到容器中
         if (res.data.ispage) {
           var itemList = that.data.list;

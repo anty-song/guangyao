@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.91",
-	"appid": "wx139cf5df87e680d4",
+	"appid": "wx74dcbf65c74a69a3",
 	"projectname": "%E5%85%B1%E4%BA%AB%E6%8A%95%E7%A5%A8",
 	"isGameTourist": false,
 	"condition": {
@@ -34,7 +34,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "saoma",
+					"pathName": "pages/index/index",
+					"query": "scene=1026%2c3%2c4007",
+					"scene": "1047"
+				}
+			]
 		}
 	}
 }

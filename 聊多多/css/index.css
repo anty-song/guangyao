@@ -5,12 +5,13 @@
 	.never-alone-wrap .never-alone-item img {
 		max-width: 285px;
 	}
-	.download .down-box .down-links > div {
-		position: relative;
-		display: inline-flex;
-		display: -webkit-inline-flex;
-		align-items: center;
+	.download .down-box .down-links {
+		display: flex;
 		justify-content: center;
+		align-items: center;
+	}
+	.download .down-box .down-links .qrcode {
+		position: relative;
 		width: 270px;
 		height: 270px;
 		border: 1px solid #888;
@@ -213,7 +214,7 @@
 }
 .happiness .sec-subtit {
 	color: #fff;
-} 
+}
 .happiness .happiness-ctt {
 	position: absolute;
 	left: 796px;

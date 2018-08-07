@@ -1,13 +1,34 @@
 <template name='header'>
+  <image src="{{activeData.piao}}" class='float float1'></image>
+  <image src="{{activeData.piao}}" class='float float2'></image>
+  <image src="{{activeData.piao}}" class='float float3'></image>
+  <image src="{{activeData.piao}}" class='float float4'></image>
+  <image src="{{activeData.piao}}" class='float float5'></image>
+  <image src="{{activeData.piao}}" class='float float6'></image>
+  <image src="{{activeData.piao}}" class='float float7'></image>
+  <image src="{{activeData.piao}}" class='float float8'></image>
+  <image src="{{activeData.piao}}" class='float float9'></image>
+  <view hidden='{{audioHide}}' class='pause' style=" animation-name:{{step}}">
+    <text class='iconfont icon-yinle2' catchtap="audioPause" style='display:{{none}};color:{{activeData.color}};'></text>
+    <text class='iconfont icon-yinle' catchtap="audioPlay" style='display:{{block}};color:{{activeData.color}};'></text>
+  </view>
+  <audio action="{{action}}" src="{{activeData.bgmusic}}" id="myAudio"  loop ></audio>
   <view class='common-section'>
-    <!-- <view class='marquee' style='left:{{changeLeft}}rpx;'>{{activeData.marquee}}</view> -->
-    <swiper autoplay='true' circular='true'>
-      <block wx:for='{{imgUrls}}'>
+     <!-- <view class='marquee' style='left:{{changeLeft}}rpx;'>{{activeData.marquee}}</view>  -->
+    <swiper autoplay='true' circular='true' style='height:375rpx;position:relative;'>
+      <block wx:for='{{activeData.thumbs}}'>
         <swiper-item>
-          <image src='{{item.thumb}}' style='height: 380rpx; width: 100%;'></image>
+          <image src='{{item.thumb}}' style='width:100%; height:100%;'></image>
         </swiper-item>
       </block>
     </swiper>
+    <view class='correlation'
+          hidden='{{isCorrelation}}'
+          style='background-color: {{activeData.color}}'
+          bindtap='showGuanList'>
+      <text>关联活动</text>
+      <i style='font-size:22rpx;margin-left:5rpx;' class="icon iconfont icon-guanlian"></i>
+    </view>
     <view class='active-data' style='background-color:{{activeData.color}};'>
       <view class='total'>
         <view>

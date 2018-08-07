@@ -1,0 +1,8 @@
+<!--pages/collect/collect.wxml-->
+<import src='../../template/showItem/showItem.wxml' />
+<view class='show-content'>
+  <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{mineData}}'>
+    <template is='showItem' data='{{item,collectHide}}'></template>
+  </navigator>
+  <view class='loading' hidden='{{loadingHide}}'>加载中...</view>
+</view>

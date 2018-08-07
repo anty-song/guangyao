@@ -1,0 +1,2 @@
+/* pages/dongtai/dongtai.wxss */
+@import '../../template/showItem/showItem.wxss';

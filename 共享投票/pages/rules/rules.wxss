@@ -6,7 +6,7 @@
   width: 566rpx;
   margin: 0 auto;
   border-radius: 10rpx;
-  background-color: #fff;
+  background-color: rgba(255,255,255,.7);
   box-shadow: 0 0 10rpx 0 #fff;
 }
 .rules-detail-tit  {

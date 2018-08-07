@@ -1,0 +1,42 @@
+<!--pages/user/user.wxml-->
+<view class='login-box'>
+  <view class='user-avator'>
+    <image src='{{userAvatar}}'></image>
+  </view>
+  <button 
+    hidden='{{isLogin}}'
+    class='login-btn'
+    lang="zh_CN"
+    bindtap="onGotUserInfo">登录</button>
+  <view hidden='{{!isLogin}}' class='username'>{{nickName}}</view>
+  <view hidden='{{!isLogin}}' class='userid'>ID：{{userId}}</view>
+</view>
+<view bindtap='goWallet' class='user-option wallet'>
+  <view class='left'>
+    <image src='../../images/myself_qianbao_icon.png'></image>
+    <text>钱包</text>
+  </view>
+  <image class='arrow' src='../../images/myself_jiantou_icon.png'></image>
+</view>
+<view bindtap='goDongtai' class='user-option dongtai'>
+  <view class='left'>
+    <image src='../../images/myself_zhuti_icon.png'></image>
+    <text>我的主题</text>
+  </view>
+  <image class='arrow' src='../../images/myself_jiantou_icon.png'></image>
+</view>
+<view bindtap='goCollect' class='user-option collection'>
+  <view class='left'>
+    <image src='../../images/myself_shoucang_icon.png'></image>
+    <text>我的收藏</text>
+  </view>
+  <image class='arrow' src='../../images/myself_jiantou_icon.png'></image>
+</view>
+<view class='user-option download'>
+  <view class='left'>
+    <image src='../../images/myself_xiazai_icon.png'></image>
+    <text>下载APP</text>
+  </view>
+  <image class='arrow' src='../../images/myself_jiantou_icon.png'></image>
+</view>
+<view class='kefu'>客服QQ：12132435745</view>

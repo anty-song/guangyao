@@ -1,8 +1,44 @@
 <import src='../../template/bottomBar/bottomBar.wxml' />
 <import src='../../template/header/header.wxml' />
+<import src='../../template/actionSheet/actionSheet.wxml' />
+<!-- 分享图 -->
+ <view style='position:relative;'>
+  <canvas canvas-id="shareCanvas" style="position:absolute;top:0;left:-9999rpx;visibility:hidden;width:100%;height:{{windowHeight}}px"></canvas>
+</view> 
 <view class='active-wrap'>
-  <image class='bgpic' src='{{bgPic}}'></image>
-  <template is='header' data='{{imgUrls,activeData,time,activeState,changeLeft}}'></template>
+   <view class='share-img' bindtap='showActionSheet'>
+    <image src='../../images/share_btn.png'></image>
+  </view> 
+  <image class='bgpic' src='{{activeData.bgpic}}'></image>
+  <template is='header' data='{{activeData,activeState,time,changeLeft,audioHide,action,none,step,block,isCorrelation}}'></template>
+  <view class='group-wrap' hidden='{{isGroup}}'>
+    <view class='open-group' style='height: {{groupH}};overflow: hidden;'>
+      <view wx:for='{{groups}}'
+            class='group-item'
+            style='background-color:{{item.bgcolor?activeData.color:""}};color:{{item.textcolor?"#fff":""}};'
+            data-groupitemid='{{item.itemid}}'
+            bindtap='changeGroup'>{{item.name}}</view>
+    </view>
+    <view hidden='{{isToggle}}' catchtap='toggleGroup' style='margin-bottom:10rpx;color:{{activeData.color}};text-align:center;'>
+      <i style='font-size:50rpx;' class="icon iconfont icon-{{arrow}}"></i>
+    </view>
+  </view>
+  <view class='corr-wrap' bindtap='closeGuan' hidden='{{isCorList}}'>
+    <view class='corr-wrap-ctt'>
+      <view style='height:60rpx;padding-left:24rpx;color:#fff;background-color: {{activeData.color}}'>
+        <text style='font-size:28rpx;line-height:60rpx;'>关联活动</text>
+        <i style='font-size:24rpx;margin-left:10rpx;' class="icon iconfont icon-guanlian"></i>
+      </view>
+      <scroll-view scroll-y class='corr-list'>
+        <view bindtap='goGuan' class='corr-list-item' wx:for='{{corrList}}' data-guanid='{{item.otherid}}'>
+          <view class='corr-img'>
+            <image src='{{item.thumb}}'></image>
+          </view>
+          <view class='corr-item-tit'>{{item.title}}</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
   <view class='rank-ctt'>
     <view class='table-head'>
       <view>排名</view>
@@ -26,5 +62,7 @@
       <view>{{item.votes}}</view>
     </view>
   </view>
+  <template is='actionSheet' data='{{actionSheetHidden}}'></template>
+  <view class='jishuzhichi' style='color:{{activeData.color?activeData.color:"#fff"}}'>由<text>共享投票(voteyun.com)</text>提供技术支持</view>
   <template is='bottomBar' data='{{activeData,selected,goList,goRank,goRules}}'></template>
 </view>

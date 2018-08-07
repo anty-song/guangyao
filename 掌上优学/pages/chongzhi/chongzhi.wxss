@@ -1,0 +1,40 @@
+/* pages/chongzhi/chongzhi.wxss */
+page {
+  background: #f3f3f3;
+  padding-top: 70rpx;
+}
+.input-num {
+  display: flex;
+  align-items: center;
+  padding-left: 30rpx;
+  width: 590rpx;
+  height: 80rpx;
+  background: #ffffff;
+  margin: 0 auto;
+}
+.input-num text {
+  font-size: 36rpx;
+  color: #333333;
+}
+input {
+  font-size: 30rpx;
+}
+.hint {
+  font-size: 26rpx;
+  color: #666666;
+  margin: 24rpx 0 56rpx 65rpx;
+}
+button::after{
+  border:none;
+}
+.chongzhi-btn {
+  display: block;
+  width: 620rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  background: #00cca2;
+  color: #ffffff;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+}

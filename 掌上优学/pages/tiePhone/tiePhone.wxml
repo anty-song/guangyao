@@ -1,0 +1,12 @@
+<!--pages/tiePhone/tiePhone.wxml-->
+<view class='phone'>
+  <image src='../../images/denglu_yonghu_icon.png'></image>
+  <input bindinput='getPhoneValue' placeholder='请输入手机号'></input>
+</view>
+<view hidden='{{errMsgHide}}' class='errmsg'>{{phoneErrMsg}}</view>
+<view class='yzm'>
+  <image src='../../images/denglu_yanzhengma_icon.png'></image>
+  <input bindinput='getYzmValue' placeholder='请输入验证码'></input>
+  <button disabled='{{isDisabled}}' class='send-yzm' bindtap='sendYZM'>{{hint}}</button>
+</view>
+<button class='confirm-btn' bindtap='confirm'>下一步</button>

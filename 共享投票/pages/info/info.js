@@ -47,7 +47,6 @@ Page({
 	    Req.POST(URL.HISTORY, {
 	      params: params,
 	      success: function (res) {
-          console.log(res)
 	      	var list = res.data.list;
 	      	for (var i = 0; i < list.length; i++) {
 	      		switch (list[i].isend) {
@@ -124,7 +123,6 @@ Page({
    * 进入次级页面 即活动详情页
    */
   goItem: function(e) {
-    console.log(e)
     app.globalData.itemid = e.currentTarget.dataset.itemid;
     wx.navigateTo({
       url: '../active/active'

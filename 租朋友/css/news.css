@@ -1,5 +1,5 @@
 .banner {
-	height: calc(100vw/2.94);
+	height: calc(100vw/3.6);
 	background-image: url(../images/news_banner.png);
 }
 @media screen and (min-width: 768px) {
@@ -177,7 +177,7 @@
 	color: #353535;
 }
 .news .item-info {
-	
+
 	line-height: 20px;
 	color: #888888;
 	/*height: .4px;*/

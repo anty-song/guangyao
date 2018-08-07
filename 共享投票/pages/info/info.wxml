@@ -11,7 +11,7 @@
       <view class='item-foot'>
         <view class='votes'>
           <i class="icon iconfont icon-toupiaoshu"></i>
-          <text>{{item.votes}}人参与投票</text>
+          <text>累计得票数为{{item.votes}}</text>
         </view>
         <view class='state' wx:if='{{item.isend == 2}}' style='color:#ff9999;'>{{item.time}}</view>
         <view class='state' wx:else>{{item.time}}</view>

@@ -1,0 +1,102 @@
+/* pages/wallet/wallet.wxss */
+.property {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 39rpx 32rpx;
+}
+.property image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  height: 195rpx;
+  z-index: -1;
+}
+.money {
+  width: 288rpx;
+  padding: 25rpx 22rpx;
+  height: 200rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 20rpx 5rpx rgba(19, 214, 172, .3);
+}
+.money-name {
+  font-size: 30rpx;
+  color: #666666;
+}
+.sum {
+  font-size: 50rpx;
+  color: #333333;
+  font-weight: bold;
+}
+.handle {
+  font-size: 36rpx;
+  color: #333333;
+  text-align: right;
+}
+.tixian,
+.r-tixian {
+  margin-right: 18rpx;
+}
+.chongzhi,
+.r-tixian {
+  color: #00cca2;
+}
+.chongzhi {
+  margin-right: 60rpx;
+}
+/* 近期交易 */
+.deal .title {
+  font-size: 36rpx;
+  color: #333333;
+  padding-left: 32rpx;
+  padding-bottom: 25rpx;
+}
+.deal > view {
+  border-bottom: 1rpx solid #f1f1f1;
+}
+.deal-item {
+  height: 140rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 32rpx 0 54rpx;
+  align-items: center; 
+}
+.left-title {
+  font-size: 36rpx;
+  color: #333333;
+}
+.left-info {
+  font-size: 30rpx;
+  color: #999999;
+  margin-top: 20rpx;
+}
+.right {
+  text-align: right;
+}
+button::after{
+  border:none;
+}
+button {
+  display: inline-block;
+  width: 160rpx;
+  height: 54rpx;
+  background: -webkit-linear-gradient(top,#4ce896,#01cca2);
+  line-height: 54rpx;
+  text-align: center;
+  border-radius: 27rpx;
+  color: #ffffff;
+}
+.btn-hint {
+  font-size: 26rpx;
+  color: #888888;
+  margin-top: 5rpx;
+}
+.right text {
+  font-size: 36rpx;
+  color: #f53110;
+}

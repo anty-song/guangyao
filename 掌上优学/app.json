@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/tiePhone/tiePhone",
+    "pages/test/test",
+    "pages/chongzhi/chongzhi",
+    "pages/wallet/wallet",
+    "pages/showDetail/showDetail",
+    "pages/commentsDetail/commentsDetail",
+    "pages/dongtai/dongtai",
+    "pages/collect/collect"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#787878",
+    "selectedColor": "#00cca2",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "text": "优学",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/all_xiuchang_icon.png",
+        "selectedIconPath": "images/all_xiuchang_pressed.png"
+      },
+      {
+        "text": " ",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/all_fabiao_icon.png",
+        "selectedIconPath": "images/all_fabiao_icon.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/user/user",
+        "iconPath": "images/all_wode_icon.png",
+        "selectedIconPath": "images/all_wode_pressed.png"
+      }
+    ]
+  }
+}

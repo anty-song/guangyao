@@ -1,0 +1,164 @@
+.news-nav {
+	height: .7rem;
+	background-color: #0261b1;
+	display: flex;
+}
+.news-nav > div {
+	position: relative;
+	width: 50%;
+	text-align: center;
+}
+.nav-title {
+	color: #fff;
+	font-size: .3rem;
+	line-height: .6rem;
+}
+.nav-active .line {
+	width: .6rem;
+	height: .02rem;
+	position: absolute;
+	bottom: .08rem;
+	left: 50%;
+	background-color: #fff;
+	margin-left: -.3rem;
+}
+.lunbo {
+  width: 6.4rem;
+  height: 3.2rem;
+  position: relative;
+}
+.lunbo a {
+	display: block;
+}
+.swiper-container {
+  height: 3.2rem;
+  width: 6.4rem;
+}
+.content-slide {
+  padding: .20rem;
+  color: #fff;
+}
+.title {
+  font-size: .25rem;
+  margin-bottom: .10rem;
+}
+.pagination {
+	width: .8rem;
+  position: absolute;
+  z-index: 1;
+  right: .35rem;
+  bottom: .67rem;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: .14rem;
+  height: .14rem;
+  border-radius: 50%;
+  cursor: pointer;
+  border: .01rem solid #fff;
+  box-sizing: border-box;
+}
+.swiper-pagination-switch:nth-child(2) {
+	margin: 0 .15rem;
+}
+.swiper-active-switch {
+  background: #fff;
+}
+.swiper-slide-title {
+	position: absolute;
+	bottom: 0;
+	height: .52rem;
+	width: 6rem;
+	padding: 0 .2rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #fff;
+	font-size: .24rem;
+	line-height: .52rem;
+	background-color: rgba(0,0,0,.3);
+}
+.kuaixun-lists .kuaixun-item {
+	background-color: #fff;
+	display: flex;
+	padding: .2rem;
+	margin-bottom: .01rem;
+}
+.kuaixun-lists .item-img {
+	width: 2rem;
+	height: 1.4rem;
+	border: .01rem solid #000;
+}
+.kuaixun-lists .item-img img {
+	width: 100%;
+	height: 100%;
+}
+.kuaixun-lists .item-content {
+	margin-left: .14rem;
+	width: 3.86rem;
+}
+.kuaixun-lists .ad {
+	display: block;
+	margin-bottom: .01rem;
+	background-color: #fff;
+	padding: .12rem .2rem;
+}
+.kuaixun-lists .ad .ad-img {
+	height: 2.6rem;
+	border: .01rem solid #000;
+	margin: .15rem 0;
+}
+.kuaixun-lists .ad .ad-img img {
+	width: 100%;
+	height: 100%;
+}
+.kuaixun-lists .item-content .item-title,
+.kuaixun-lists .ad-title {
+	display: -webkit-box; 
+	-webkit-line-clamp: 2; 
+	-webkit-box-orient: vertical; 
+	overflow: hidden;
+	font-size: .3rem;
+	line-height: .38rem;
+	color: #000;
+}
+.kuaixun-lists .item-content .item-info {
+	color: #666;
+	font-size: .24rem;
+	margin-top: .38rem;
+}
+.kuaixun-lists .ad-info {
+	color: #666;
+	font-size: .24rem;
+}
+.kuaixun-lists .item-content .item-info .owner,
+.kuaixun-lists .ad-info .owner {
+	margin-left: .4rem;
+}
+.kuaixun-lists .ad-info .flag {
+	border: .01rem solid #666;
+	margin-right: .2rem;
+	border-radius: .04rem;
+}
+.information-item {
+	display: block;
+	background-color: #fff;
+	padding: .28rem;
+	margin-bottom: .01rem;
+}
+.information-item .item-title {
+	display: -webkit-box; 
+	-webkit-line-clamp: 2; 
+	-webkit-box-orient: vertical; 
+	overflow: hidden;
+	font-size: .3rem;
+	line-height: .36rem;
+}
+.information-item .item-info {
+	color: #888;
+	font-size: .24rem;
+	margin-top: .3rem;
+}
+.information-item .item-info .time {
+	float: right;
+}

@@ -1,0 +1,82 @@
+/* pages/commentsDetail/commentsDetail.wxss */
+@import '../../template/showItem/showItem.wxss';
+page {
+  background: #f1f1f1;
+}
+.item {
+  position: relative;
+  padding:0 32rpx;
+  background: #ffffff;
+}
+.like {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  right: 0;
+}
+.like image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.like text {
+  font-size: 30rpx;
+  color: #666666;
+  margin-left: 10rpx;
+}
+.comment-words {
+  font-size: 30rpx;
+  color: #333333;
+  padding: 15rpx 0;
+  margin-left: 96rpx;
+}
+.reply-item {
+  padding-left: 52rpx;
+  padding-right: 32rpx;
+  background:transparent;
+  margin-top: 10rpx;
+}
+.reply-item .shower-avator {
+  width: 60rpx;
+  height: 60rpx;
+}
+.reply-item .shower-name {
+  font-size: 30rpx;
+}
+.reply-item .comment-words {
+  font-size: 26rpx;
+  border-bottom: 1rpx solid #d1d1d1;
+}
+/* 回复 */
+.create-comment {
+  position: fixed;
+  height: 98rpx;
+  bottom: 0;
+  display: flex;
+  padding: 0 32rpx;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 10rpx 0 20rpx 0 rgba(0,0,0,.1);
+}
+.comment-input {
+  height: 60rpx;
+  width: 528rpx;
+  padding-left: 18rpx;
+  background: #f1f1f1;
+  font-size: 30rpx;
+  border-radius: 5rpx;
+}
+.comment-btn {
+  height: 60rpx;
+  width: 120rpx;
+  background: #00cca2;
+  color: #ffffff;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 5rpx;
+  margin-left: 20rpx;
+}
+button::after {
+  border: none;
+}

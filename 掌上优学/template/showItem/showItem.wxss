@@ -1,0 +1,110 @@
+/* pages/template/showItem.wxss */
+.show-item {
+  background: #ffffff;
+  padding: 20rpx 32rpx 0;
+  margin-top: 20rpx;
+}
+.show-item:first-of-type {
+  margin-top: 0;
+}
+.shower-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.shower-others {
+  margin-left: 16rpx;
+}
+.shower-name {
+  font-size: 34rpx;
+  color: #333333;
+}
+.shower-gender {
+  width: 28rpx;
+  height: 28rpx;
+  margin: 0 22rpx;
+}
+.shower-distance,
+.time,
+.school {
+  font-size: 26rpx;
+  color: #888888;
+}
+.school {
+  margin-left: 20rpx;
+}
+.shower-avator {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.shower-avator image {
+  width: 100%;
+  height: 100%;
+}
+.collect {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46rpx;
+  height: 44rpx;
+}
+.collect image {
+  width: 100%;
+  height: 100%;
+}
+.show-words {
+  font-size: 30rpx;
+  color: #333333;
+  margin-top: 16rpx;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+
+}
+.show-img-box image {
+  display: block;
+  margin: 0 auto;
+}
+.current-subject {
+  color: #2194ed;
+}
+.reward {
+  color: #ed2121;
+}
+.interaction {
+  display: flex;
+  justify-content: space-between;
+  height: 88rpx;
+  align-items: center;
+  border-top: 1rpx solid #f1f1f1;
+  margin-top: 16rpx;
+}
+.interaction view {
+  display: flex;
+  align-items: center;
+}
+.interaction image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 16rpx;
+}
+.interaction text {
+  font-size: 36rpx;
+  color: #666666;
+}
+.location {
+  display: flex;
+  align-items: center;
+}
+.location image {
+  width: 22rpx;
+  height: 32rpx;
+}
+.place {
+  font-size: 30rpx;
+  color: #333333;
+  margin-left: 10rpx;
+}

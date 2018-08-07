@@ -1,0 +1,66 @@
+/* pages/tiePhone/tiePhone.wxss */
+button::after {
+  border: none;
+}
+input {
+  font-size: 26rpx;
+  margin-left: 26rpx;
+}
+.phone, .yzm {
+  display: flex;
+  height: 80rpx;
+  margin: 0 auto;
+  align-items: center;
+  border: 1rpx solid #cccccc;
+  border-radius: 40rpx;
+}
+.phone {
+  width: 572rpx;
+  padding-left: 48rpx;
+}
+.phone input {
+  width: 544rpx;
+}
+.yzm {
+  width: 540rpx;
+  padding: 0 32rpx 0 48rpx;
+  margin: 20rpx auto 58rpx;
+}
+.yzm input {
+  width: 350rpx;
+}
+.send-yzm {
+  font-size: 26rpx;
+  width: 140rpx;
+  text-align: center;
+  color: #00cca2;
+  padding: 0 4rpx;
+  background-color: #ffffff;
+}
+.errmsg {
+  margin: 20rpx 0 0 70rpx;
+  color: #ff0000;
+  font-size: 20rpx;
+}
+.send-yzm:disabled {
+  background-color: #ffffff; 
+}
+.phone image {
+  width: 28rpx;
+  height: 32rpx;
+}
+.yzm image {
+  width: 27rpx;
+  height: 33rpx;
+}
+.confirm-btn {
+  display: block;
+  width: 620rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  background: #00cca2;
+  color: #ffffff;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+}

@@ -1,0 +1,85 @@
+#banner{min-width: 1200px;}
+.votingtitle{
+	position: relative;
+	float: left;
+}
+.votingtitle span{
+	display: block;
+	font-size: 18px;
+	color: #fff;
+	position: absolute;
+	top:50%;
+	margin-top:-12px;
+	left:50%;
+	margin-left:-88px;
+	letter-spacing: 1px
+}
+
+.loadMore {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #E0E0E0;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin: 40px 0;
+}
+.bangdan_search_bg{background:url(bangdan/search_bg.gif) no-repeat; width:1200px; height:70px;margin:50px auto;border-radius: 18px;overflow: hidden;}
+.bangdan_search_bg .search_keyword{background:none; color:#999;font-size:18px; line-height:68px; text-indent:30px;float:left; width:1100px; height:70px;background: #fff;border:none;outline: none;}
+.bangdan_search_bg .search_submit{width:100px; height:70px;border:0;background-color:#004086;color:#FFF;font-size:20px;}
+.bangdan_list_box{width:1200px;margin:0 auto;min-height: 24vh;}
+.bangdan_list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.bangdan_list>li {
+	width: 380px;
+	height:290px;
+	position: relative;
+	float: left;
+    margin-bottom: 30px;
+}
+
+.bangdan_list .bg_color {
+	background: url(bangdan/box_bg_1.png) no-repeat;
+	width: 350px;
+	height:200px;
+	overflow: hidden;
+    border-radius: 18px;
+    overflow: hidden;
+}
+.bangdan_list .item-bottom {
+    height: 33px;
+    width: 360px;
+    background: #fff;
+    border-radius: 18px;
+    margin-left: 10px;
+    margin-top: -20px;
+    padding-top: 37px;
+}
+.bangdan_list .bg_white{
+	background: url(bangdan/box_bg_line.png) bottom no-repeat;
+	width: 280px;
+	height:160px;
+	margin:20px auto;
+}
+.bg_white .text_area{
+	width: 280px;
+	height:160px;
+	text-align:center;
+	font-size:16px;
+	color:#333333;
+	font-weight:bold;
+}
+.text_area strong{font-size:36px;line-height:122px;}
+
+.bangdan_list .cat_title{width:330px;margin:15px auto;color:#666;font-size:16px;}
+.bangdan_list .date,.bangdan_list .hits{font-size:16px;width:150px;line-height: 16px;}
+.bangdan_list .date {color: #353535;}
+.bangdan_list .hits {color: #888;}
+.bangdan_list .date{float:left;margin-left:20px;}
+.bangdan_list .hits{float:right;text-align:right;margin-right:20px;}

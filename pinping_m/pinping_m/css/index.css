@@ -1,0 +1,403 @@
+.wrap {
+  background-color: #f3f3f3;
+}
+
+/*头部搜索*/
+
+header {
+  position: fixed;
+  z-index: 999;
+  height: .6rem;
+  max-width: 6.4rem;
+  width: 100%;
+  padding: .15rem 0;
+}
+
+.head {
+  height: .6rem;
+  width: 5.8rem;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: .3rem;
+  box-shadow: 0 0 .05rem rgba(0, 0, 0, .3) inset;
+  overflow: hidden;
+}
+
+header .search-box {
+  width: .26rem;
+  height: .26rem;
+  margin-top: .175rem;
+  margin-left: .6rem;
+  position: relative;
+  background-image: url(../images/static/m_qita_icon.png);
+  background-size: 1.59rem .52rem;
+  background-position: 0 0;
+}
+
+header input {
+  position: absolute;
+  top: -.175rem;
+  outline: none;
+  border: none;
+  font-size: .24rem;
+  margin-left: .42rem;
+  height: .6rem;
+  width: 4.75rem;
+  background-color: transparent;
+}
+
+
+/*banner*/
+
+.banner {
+  width: 100%;
+  height: 3.2rem;
+  background-size: 100% 100%;
+}
+
+
+/*选项列表*/
+
+.option-lists {
+  background-color: #fff;
+  height: 3.64rem;
+  display: flex;
+  padding: .1rem 0;
+  flex-wrap: wrap;
+  font-size: .24rem;
+}
+
+.option-lists a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 1rem;
+  height: 1.44rem;
+  padding: .2rem .3rem;
+}
+
+.option-lists a i {
+  width: 1rem;
+  height: 1rem;
+  background-size: 4.3rem 2.1rem;
+  overflow: hidden;
+}
+
+.option-lists .brand-vote i {
+  background-position: 0 0;
+}
+
+.option-lists .product-vote i {
+  background-position: -1.1rem 0;
+}
+
+.option-lists .sign-up i {
+  background-position: -2.2rem 0;
+}
+
+.option-lists .brand-rank i {
+  background-position: -3.3rem 0;
+}
+
+.option-lists .product-rank i {
+  background-position: 0 -1.09rem;
+}
+
+.option-lists .news i {
+  background-position: -1.1rem -1.09rem;
+}
+
+.option-lists .help i {
+  background-position: -2.2rem -1.09rem;
+}
+
+.option-lists .client i {
+  background-position: -3.3rem -1.09rem;
+}
+
+
+/*广播循环*/
+
+.broadcast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 5.8rem;
+  padding: 0 .2rem;
+  height: .65rem;
+  overflow: hidden;
+  margin: .2rem auto 0;
+  border-radius: .1rem;
+  background-color: #fff;
+  font-size: .24rem;
+}
+
+.broadcast i {
+  width: .4rem;
+  height: .44rem;
+  background-size: 100% 100%;
+}
+
+.broadcast .scroll {
+  height: .65rem;
+}
+
+.broadcast li {
+  width: 4.4rem;
+  height: .65rem;
+  list-style: none;
+  line-height: .65rem;
+}
+
+.scroll {
+  height: 0.65rem;
+  width: 4.45rem;
+  overflow: hidden;
+  color: #565855;
+  float: left;
+  position: relative;
+}
+
+.scroll ul {
+  width: 4.45rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.scroll span {
+  font-size: 0.24rem;
+  height: 0.3rem;
+  color: #353535;
+}
+
+.scroll li {
+  height: 0.65rem;
+  line-height: 0.65rem;
+  font-size: 0.23rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.scroll ul li a {
+  color: #353535;
+  font-size: 0.24rem;
+  line-height: 0.65rem;
+  text-decoration: none;
+}
+
+.more {
+  position: relative;
+  color: #0261b1;
+}
+
+.more:before {
+  position: absolute;
+  top: 0;
+  left: -0.2rem;
+  width: 0;
+  height: .3rem;
+  border-left: 1px solid #353535;
+  content: "";
+}
+
+
+/*品牌分类*/
+
+.brand-lists,
+.recent-lists {
+  background-color: #fff;
+  padding: .3rem;
+  margin-top: .2rem;
+}
+
+.lists-title {
+  font-size: .36rem;
+  line-height: .36rem;
+  border-left: .08rem solid #0261b1;
+  padding-left: .22rem;
+}
+
+.brand-lists-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: .3rem;
+}
+
+.brand-lists-content a {
+  display: flex;
+  flex-direction: column;
+  width: 1.9rem;
+  height: .8rem;
+  justify-content: center;
+  align-items: center;
+  font-size: .22rem;
+  background-color: #f3f6f9;
+  margin-top: .05rem;
+  border-radius: .1rem;
+}
+
+.brand-lists-content a:nth-child(3n+2) {
+  margin-left: .05rem;
+  margin-right: .05rem;
+}
+
+.brand-lists-content i {
+  width: .3rem;
+  height: .3rem;
+  background-image: url(../images/static/m_fenlei1_icon.png);
+  background-size: 5.25rem .3rem;
+}
+
+.brand-lists-content .wujin i {
+  background-position: 0 0;
+}
+
+.brand-lists-content .jiafang i {
+  background-position: -.34rem 0;
+}
+
+.brand-lists-content .huaxue i {
+  background-position: -.68rem 0;
+}
+
+.brand-lists-content .fuzhuang i {
+  background-position: -1.02rem 0;
+}
+
+.brand-lists-content .jianshen i {
+  background-position: -1.38rem 0;
+}
+
+.brand-lists-content .jiaotong i {
+  background-position: -1.76rem 0;
+}
+
+.brand-lists-content .shenghuo i {
+  background-position: -2.13rem 0;
+}
+
+.brand-lists-content .dianqi i {
+  background-position: -2.51rem 0;
+}
+
+.brand-lists-content .shipin i {
+  background-position: -2.87rem 0;
+}
+
+.brand-lists-content .baihuo i {
+  background-position: -3.22rem 0;
+}
+
+.brand-lists-content .muying i {
+  background-position: -3.59rem 0;
+}
+
+.brand-lists-content .jidian i {
+  background-position: -3.96rem 0;
+  width: .32rem;
+}
+
+.brand-lists-content .huwai i {
+  background-position: -4.38rem 0;
+}
+
+.brand-lists-content .meizhuang i {
+  background-position: -4.7rem 0;
+}
+
+.brand-lists-content .dianzi i {
+  background-position: -4.95rem 0;
+}
+
+
+/*近期榜单*/
+
+.recent-lists>a {
+  display: block;
+}
+
+.recent-item {
+  border-radius: .1rem;
+  overflow: hidden;
+  margin-top: .3rem;
+  box-shadow: 0 0.01rem 0.05rem rgba(0, 0, 0, .5);
+}
+
+.recent-item .item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .2rem;
+}
+
+.recent-item .item-head .title {
+  font-size: .26rem;
+  color: #fff;
+  max-width: 3.4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recent-item .item-head .subtitle {
+  font-size: .2rem;
+  color: #fff;
+  margin-top: .1rem;
+  max-width: 4.4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recent-item .item-head .arrow {
+  width: .3rem;
+  height: .52rem;
+  background-image: url(../images/static/m_qita_icon.png);
+  background-size: 1.59rem .52rem;
+  background-position: -.88rem 0;
+}
+
+.recent-item .item-body {
+  padding: .22rem .2rem .4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recent-item .item-body .item-bar {
+  width: 1.6rem;
+  height: .84rem;
+  border: 1px solid #000;
+  border-radius: .1rem;
+}
+
+.recent-item .item-foot {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 .2rem .2rem;
+  font-size: .22rem;
+}
+
+.recent-item .item-foot .time {
+  color: #aaa;
+}
+
+.recent-item .item-foot .scan {
+  position: relative;
+  color: #aaa;
+}
+
+.recent-item .item-foot .scan:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: .34rem;
+  height: .22rem;
+  background-image: url(../images/static/m_qita_icon.png);
+  background-size: 1.59rem .52rem;
+  background-position: -1.25rem 0;
+  top: .03rem;
+  left: -.44rem;
+}

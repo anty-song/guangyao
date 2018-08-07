@@ -1,0 +1,97 @@
+<!--pages/template/showItem.wxml-->
+<template name='showItem'>
+  <view class='show-item'>
+    <!-- 发表人信息 -->
+    <view class='shower-info'>
+      <!-- 头像 -->
+      <view class='shower-avator'>
+        <image src='{{item.userimg}}'></image>
+      </view>
+      <!-- 其他信息 -->
+      <view class='shower-others'>
+        <view>
+          <!-- 姓名 -->
+          <text class='shower-name'>{{item.passport}}</text>
+          <!-- 性别 -->
+          <image wx:if="{{item.gender === '2'}}" class='shower-gender' src='../../images/index_girl_img.png'></image>
+          <image wx:else class='shower-gender' src='../../images/index_boy_img@2x.png'></image>
+          <!-- 距离 -->
+          <text class='shower-distance'>{{item.dis?item.dis+'km':''}}</text>
+        </view>
+        <view>
+          <!-- 发表时间 -->
+          <text class='time'>{{item.addtime}}</text>
+          <!-- 所在学校 -->
+          <text class='school'>{{item.myschoolname}}</text>
+        </view>
+      </view>
+      <!-- 收藏 -->
+      <view hidden='{{collectHide}}' bindtap='toggleCollect' class='collect'>
+        <image hidden='{{isCollected}}' src='../../images/index_shoucang_icon.png'></image>
+        <image hidden='{{!isCollected}}' src='../../images/index_shoucang_pressed.png'></image>
+      </view>
+    </view>
+    <!-- 发表内容 -->
+    <view class='show-info'>
+      <view class='show-words'>
+        <text class='current-subject'>【{{item.subject}}】</text>
+        <text wx:if='{{item.ismoney=="2"&&item.isadopt=="0"}}' class='reward'>【赏金：{{item.money}}元】</text>
+        <text wx:if='{{item.ismoney=="2"&&item.isadopt=="1"}}' style='color:#999999;' class='reward'>【赏金：{{item.money}}元】</text>
+        <text>{{item.introduce}}</text>
+      </view>
+      <!-- 发表内容中的图片 -->
+      <view
+        hidden='{{item.image.length ? false : true}}'
+        class='show-img-box'
+        style='margin: 16rpx 0;'>
+        <view wx:if='{{item.image.length == 1}}'>
+          <view wx:for='{{item.image}}' wx:for-item="image">
+          <image
+            catchtap='getInfo'
+            data-images='{{item.image}}'
+            mode='aspectFill'
+            src='{{image}}'></image></view>
+        </view>
+        <view wx:elif='{{item.image.length == 4}}' style='display:flex;flex-wrap:wrap;'>
+          <view wx:for='{{item.image}}' wx:for-item="image" style='width: 220rpx;height:220rpx;margin:6rpx 6rpx;'>
+          <image
+            catchtap='getInfo'
+            data-images='{{item.image}}'
+            mode='aspectFill'
+            src='{{image}}'
+            style='width:100%;height:100%'></image></view>
+        </view>
+        <view wx:else style='display:flex;flex-wrap:wrap;'>
+          <view wx:for='{{item.image}}' wx:for-item="image" style='width:216.6rpx;height:216.6rpx;margin:6rpx 6rpx;'>
+          <image
+            catchtap='getInfo'
+            data-images='{{item.image}}'
+            mode='aspectFill'
+            src='{{image}}'
+            style='width:100%;height:100%'></image></view>
+        </view>
+      </view>
+      <!-- 发表者所在位置 -->
+      <view hidden='{{!item.position}}' class='location'>
+        <image src='../../images/index_zuobiao_img.png'></image>
+        <text class='place'>{{item.position}}</text>
+      </view>
+      <!-- 点赞/收藏/评论 -->
+      <view class='interaction'>
+        <view>
+          <image src='../../images/index_fenxiang_icon.png'></image>
+          <text>{{item.shares}}</text>
+        </view>
+        <view>
+          <image src='../../images/index_pinglun_icon.png'></image>
+          <text>{{item.comments}}</text>
+        </view>
+        <view>
+          <image hidden='{{item.isagree}}' data-itemid='{{item.itemid}}' catchtap='likeComment' src='../../images/index_zan_icon.png'></image>
+          <image hidden='{{!item.isagree}}' data-itemid='{{item.itemid}}' catchtap='unLikeComment' src='../../images/index_zan_pressed.png'></image>
+          <text>{{item.agrees}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

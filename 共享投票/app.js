@@ -1,6 +1,7 @@
-//app.js
-const APP_ID = 'wx74dcbf65c74a69a3';//输入小程序appid  
-const APP_SECRET = 'b497f13291f63da34df6a6e6dd1bfcf6';
+// 获取API
+var URL = require('utils/interface.js');
+// 获取网络请求
+var Req = require("utils/request.js");
 var base64 = require('utils/base64.modified.js');
 App({
   onLaunch: function () {
@@ -22,47 +23,33 @@ App({
           })
         } else {
           var code = res.code;
-          wx.request({
-            url: 'https://api.weixin.qq.com/sns/jscode2session',
-            data: {
-              appid: APP_ID,
-              secret: APP_SECRET,
-              js_code: res.code,
-              grant_type: 'authorization_code'
+          Req.POST(URL.LOGIN, {
+            params: {
+              code: res.code
             },
-            method: 'GET',
             success: function (res) {
-              console.log(res)
-              self.globalData.sessionKey = res.data.session_key;
-              self.globalData.openId = res.data.openid;
-            },fail: function(res) {
-              console.log(res);
-            }
-          });
-        }
-      }
-    });
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              self.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (self.userInfoReadyCallback) {
-                self.userInfoReadyCallback(res)
-              }
-            }
+              self.globalData.voteCode = res.data.votecode;
+            },
+            fail: function () { },
+            complete: function () { }
           })
         }
       }
     });
+    wx.getUserInfo({
+      success: res => {
+        // 可以将 res 发送给后台解码出 unionId
+        self.globalData.userInfo = res.userInfo
+
+        // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+        // 所以此处加入 callback 以防止这种情况
+        if (self.userInfoReadyCallback) {
+          self.userInfoReadyCallback(res)
+        }
+      }
+    });
   },
+
   // 加密参数
   strencode: function (strings) {
     var key = '25e7cf05de3ebacde7c54152cca37dd6';

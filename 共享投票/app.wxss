@@ -1,13 +1,14 @@
 /**app.wxss**/
 @import "./template/bottomBar/bottomBar.wxss";
 @import "./template/header/header.wxss";
+@import "./template/actionSheet/actionSheet.wxss";
 @font-face {
   font-family: 'iconfont';  /* project id 619322 */
-  src: url('//at.alicdn.com/t/font_619322_qfntrbpt869zr529.eot');
-  src: url('//at.alicdn.com/t/font_619322_qfntrbpt869zr529.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_619322_qfntrbpt869zr529.woff') format('woff'),
-  url('//at.alicdn.com/t/font_619322_qfntrbpt869zr529.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_619322_qfntrbpt869zr529.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_619322_5mc04776t9iicnmi.eot');
+  src: url('//at.alicdn.com/t/font_619322_5mc04776t9iicnmi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_619322_5mc04776t9iicnmi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_619322_5mc04776t9iicnmi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_619322_5mc04776t9iicnmi.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -26,7 +27,11 @@
 .icon-plus-activity:before { content: "\e726"; }
 .icon-jiangbei:before { content: "\e603"; }
 .icon-touruguize:before { content: "\e6cd"; }
-
+.icon-yinle:before { content: "\e611"; }
+.icon-yinle2:before { content: "\e604"; }
+.icon-shangla:before { content: "\e616"; }
+.icon-xiala:before { content: "\e617"; }
+.icon-guanlian:before { content: "\e63a"; }
 .bgpic {
   position: fixed;
   top: 0;
@@ -45,4 +50,70 @@
   font-size: 20rpx;
   color: #ccc;
   text-align: center;
+}
+.share-img {
+  position: fixed;
+  bottom: 200rpx;
+  right: 0rpx;
+  width: 92rpx;
+  height: 92rpx;
+  z-index: 998;
+}
+.share-img image {
+  width: 100%;
+  height: 100%;
+}
+.corr-wrap {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 999;
+}
+.corr-wrap .corr-wrap-ctt {
+  width: 100%;
+}
+.corr-wrap .corr-wrap-ctt .corr-list {
+  background-color: #fff;
+  height: 526rpx;
+  padding: 0 12rpx;
+}
+.corr-wrap .corr-wrap-ctt .corr-list .corr-list-item {
+  display: inline-block;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 0 10rpx 10rpx -10rpx #000;
+  width: 350rpx;
+  margin-top: 24rpx;
+}
+.corr-wrap .corr-wrap-ctt .corr-list .corr-list-item:nth-child(2n) {
+  margin-left: 24rpx;
+}
+.corr-wrap .corr-wrap-ctt .corr-list .corr-list-item .corr-img {
+  width: 350rpx;
+  height: 176rpx;
+}
+.corr-wrap .corr-wrap-ctt .corr-list .corr-list-item .corr-img image {
+  width: 100%;
+  height: 100%;
+}
+.corr-wrap .corr-wrap-ctt .corr-list .corr-list-item .corr-item-tit {
+  width: 350rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #333333;
+  font-size: 22rpx;
+  line-height: 28rpx;
+}
+.jishuzhichi {
+  font-size: 28rpx;
+  text-align: center;
+}
+.jishuzhichi text {
+  font-size: 34rpx;
 }

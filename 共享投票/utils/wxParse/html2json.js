@@ -106,6 +106,8 @@ function html2json(html, bindName) {
 
             if (attrs.length !== 0) {
                 node.attr = attrs.reduce(function (pre, attr) {
+                    console.log(pre)
+                    console.log(attr)
                     var name = attr.name;
                     var value = attr.value;
                     if (name == 'class') {
@@ -119,6 +121,7 @@ function html2json(html, bindName) {
                         console.dir(value);
                         //  value = value.join("")
                         node.styleStr = value;
+                        console.log(node)
                     }
                     if (value.match(/ /)) {
                         value = value.split(' ');

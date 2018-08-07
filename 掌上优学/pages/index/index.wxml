@@ -1,0 +1,151 @@
+<!--index.wxml-->
+<import src='../../template/showItem/showItem.wxml' />
+<view class='index'>
+  <!-- 顶部 -->
+  <view class='topbar'>
+    <view class='scroll-wrap'>
+      <scroll-view scroll-left='{{scrollLeft}}' scroll-x class='scroll_H'>
+        <view 
+          wx:for='{{topbarList}}'
+          wx:key='index'
+          bindtap='switchTopBar'
+          style="{{index == currentTab ? 'color: #00cca2' : 'color: #333333'}}"
+          data-topbarItem='{{index}}'
+          class='top-item'>{{item.title}}</view>
+      </scroll-view>
+    </view>
+    <view class='stage-select'>
+      <picker
+        bindchange="bindStagePickerChange"
+        value="{{stageIndex}}"
+        range="{{stageArray}}">
+        <view class="stage-picker">#{{stageArray[stageIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+  <swiper
+    class='page-item'
+    current='{{currentTab}}'
+    bindchange='switchTab'>
+    <!-- 有问必答 -->
+    <swiper-item>
+      <scroll-view
+        id='scroll'
+        bindtouchstart='myTouchStart'
+        bindtouchend='myTouchEnd'
+        bindscrolltolower='reachDown'
+        class='topbar-panel'
+        scroll-y='true'
+        scroll-top='0'>
+      <!-- 学科 -->
+        <view hidden='{{isFriend}}' class='subjects'>
+          <scroll-view scroll-x class='scroll_H'>
+            <view
+              wx:for='{{subjectArray}}'
+              wx:key='index'
+              class='subject'
+              style="{{index==currentSubject?'color:#ffffff;background:#00cca2;':'color:#333333;background:#f1f1f1;'}}"
+              data-subjectItem='{{index}}'
+              data-subjectid='{{item.itemid}}'
+              bindtap='switchSubject'>{{item.subjectname}}</view>
+          </scroll-view>
+        </view>
+        <!-- 轮播 -->
+        <swiper
+          class='lunbo'
+          hidden='{{isFriend}}'
+          indicator-dots="true"
+          autoplay='true'
+          interval='3000'
+          duration='1000'
+          circular='true'
+          indicator-color='rgba(0,0,0,.3)'
+          indicator-active-color='#ffffff'>
+          <block wx:for='{{lunboArray}}'>
+            <swiper-item>
+              <navigator url='{{item.adurl}}' class='banner-wrap'>
+                <image src='{{item.thumb}}'></image>
+              </navigator>
+            </swiper-item>
+          </block>
+        </swiper>
+        <!-- 秀场 -->
+        <view class='show-content'>
+          <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showData}}' wx:for-index='idx'>
+            <template is='showItem' data='{{item,collectHide}}'></template>
+          </navigator>
+          <view class='loading' hidden='{{loadingHide}}'>加载中...</view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 同学圈 -->
+    <swiper-item>
+      <scroll-view
+        id='scroll'
+        bindtouchstart='myTouchStart'
+        bindtouchend='myTouchEnd'
+        bindscrolltolower='reachDown'
+        class='topbar-panel'
+        scroll-y>
+          <view class='show-content'>
+            <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showDataFriend}}'>
+              <template is='showItem' data='{{item,collectHide}}'></template>
+            </navigator>
+            <view class='loading' hidden='{{loadingHide}}'>加载中...</view>
+          </view>
+        </scroll-view>
+    </swiper-item>
+    <!-- 关注 -->
+    <swiper-item>
+      <scroll-view
+        id='scroll'
+        bindtouchstart='myTouchStart'
+        bindtouchend='myTouchEnd'
+        bindscrolltolower='reachDown'
+        class='topbar-panel'
+        hidden='{{!defaultAttentionHide}}'
+        scroll-y>
+        <view class='show-content'>
+          <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showDataAttention}}'>
+            <template is='showItem' data='{{item,collectHide}}'></template>
+          </navigator>
+          <view class='loading' hidden='{{loadingHide}}'>加载中...</view>
+        </view>
+      </scroll-view>
+      <!-- 未登录 -->
+      <view hidden='{{defaultAttentionHide}}' class='default-attention'>
+        <view class='attention-img' style='text-align:center;padding-top:200rpx;'>
+          <image style='width:265rpx;height:291rpx;' src='../../images/all_nothing_icon.png'></image>
+        </view>
+        <view class='attention-hint' style='text-align:center;font-size:30rpx;color:#888;margin-top:60rpx;'>请开启定位权限</view>
+        <button open-type='openSetting'>open</button>
+      </view>
+    </swiper-item>
+    <!-- 附近 -->
+    <swiper-item>
+      <scroll-view
+        id='scroll'
+        bindtouchstart='myTouchStart'
+        bindtouchend='myTouchEnd'
+        bindscrolltolower='reachDown'
+        class='topbar-panel'
+        hidden='{{!defaultNearbyHide}}'
+        scroll-y>
+        <view class='show-content'>
+          <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showDataNearby}}'>
+            <template is='showItem' data='{{item,collectHide}}'></template>
+          </navigator>
+          <view class='loading' hidden='{{loadingHide}}'>加载中...</view>
+        </view>
+      </scroll-view>
+      <!-- 未获得地理位置 -->
+      <view hidden='{{defaultNearbyHide}}' class='default-nearby'>
+        <view class='nearby-img' style='text-align:center;padding-top:200rpx;'>
+          <image style='width:267rpx;height:275rpx;' src='../../images/all_weizhi_img.png'></image>
+        </view>
+        <view class='nearby-hint' style='text-align:center;font-size:30rpx;color:#888;margin-top:60rpx;'>请开启定位权限</view>
+        <button open-type='openSetting'>open</button>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

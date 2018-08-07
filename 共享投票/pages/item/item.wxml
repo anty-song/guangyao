@@ -1,27 +1,42 @@
 <import src='../../template/bottomBar/bottomBar.wxml' />
 <import src='../../template/header/header.wxml' />
+<import src='../../template/actionSheet/actionSheet.wxml' />
+<!-- 分享图 -->
+ <view style='position:relative;'>
+  <canvas canvas-id="shareCanvas" style="position:absolute;top:0;left:-9999rpx;visibility:hidden;width:100%;height:{{windowHeight}}px"></canvas>
+</view>
 <view class='item-wrap'>
-  <image class='bgpic' src='{{bgPic}}'></image>
-  <template is='header' data='{{imgUrls,activeData,time,activeState,changeLeft}}'></template>
+   <view class='share-img' bindtap='showActionSheet'>
+    <image src='../../images/share_btn.png'></image>
+  </view>
+  <image class='bgpic' src='{{activeData.bgpic}}'></image>
+  <template is='header' data='{{activeData,activeState,time,changeLeft,audioHide,action,none,step,block,isCorrelation}}'></template>
   <view class='item-ctt' style='background-color:{{activeData.color}};'>
-    <view class='item-name'>{{list.num}}号 {{list.name}}</view>
-      <view class='img-box'>
-        <image src='{{list.imgs[0].img}}' mode='widthFix'></image>
-      </view> 
+    <view class='item-name'>{{list.num}}号 {{list.name}} {{list.group}}</view>
+    <!-- <video src='{{list.video}}' autoplay='true' muted='true' page-gesture='true'></video> -->
+    <view class='img-box' wx:for='{{list.imgs}}'>
+      <image src='{{item.img}}' mode='widthFix'></image>
+    </view>
   </view>
   <view class='item-vote'
         wx:if='{{activeData.votename == 1}}'
-        style='color:{{activeData.color}}'>当前票数：{{list.votes}}</view>
+        style='color:{{activeData.color?activeData.color:"transparent"}}'>当前票数：{{list.votes}}</view>
   <view class='item-vote'
         wx:elif='{{activeData.votename == 2}}'
-        style='color:{{activeData.color}}'>当前赞数：{{list.votes}}</view>
+        style='color:{{activeData.color?activeData.color:"transparent"}}'>当前赞数：{{list.votes}}</view>
   <view class='item-vote'
         wx:else
-        style='color:{{activeData.color}}'>当前支持数：{{list.votes}}</view>
-  <view class='item-rank' style='color:{{activeData.color}}'>当前排名：{{list.rank}}</view>
+        style='color:{{activeData.color?activeData.color:"transparent"}}'>当前支持数：{{list.votes}}</view>
+  <view hidden='{{!list.rank&&!list.grouprank}}'>
+    <view hidden='{{activeData.opengroup==="2"}}' class='item-rank' style='color:{{activeData.color?activeData.color:"transparent"}}'>当前排名：{{list.rank}}</view>
+    <view hidden='{{activeData.opengroup==="1"||activeData.allpai==="1"}}' class='item-rank' style='color:{{activeData.color?activeData.color:"transparent"}}'>总排名：{{list.rank}}</view>
+    <view hidden='{{activeData.opengroup==="1"}}' class='item-rank' style='color:{{activeData.color?activeData.color:"transparent"}}'>组内排名：{{list.grouprank}}</view>
+  </view>
   <view class='item-intro' hidden='{{hasIntro}}' style='border: 2rpx solid {{activeData.color}};'>
     <view class='item-intro-tit' style='color:{{activeData.color}};border-bottom: 2rpx solid {{activeData.color}};'>选手简介</view>
     <view class='item-intro-words'>{{list.introduce}}</view>
   </view>
+  <template is='actionSheet' data='{{actionSheetHidden}}'></template>
+  <view class='jishuzhichi' style='color:{{activeData.color?activeData.color:"transparent"}}'>由<text>共享投票(voteyun.com)</text>提供技术支持</view>
   <template is='bottomBar' data='{{activeData,selected,goList,goRank,goRules}}'></template>
 </view>

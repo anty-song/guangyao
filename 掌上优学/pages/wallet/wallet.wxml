@@ -1,0 +1,36 @@
+<!--pages/wallet/wallet.wxml-->
+<view class='property'>
+  <image src='../../images/qianbao_bg.png'></image>
+  <view class='money balance'>
+    <text class='money-name'>余额（元）</text>
+    <text class='sum'>{{walletData.money}}</text>
+    <view class='handle'>
+      <text bindtap='goChongzhi' class='chongzhi'>充值</text>
+      <text bindtap='getCash' class='tixian'>提现</text>
+    </view>
+  </view>
+  <view class='money reward'>
+    <text class='money-name'>赏金（元）</text>
+    <text class='sum'>{{walletData.reward}}</text>
+    <view class='handle'>
+      <text bindtap='getCash' class='r-tixian'>提现</text>
+    </view>
+  </view>
+</view>
+<view class='deal'>
+  <view class='title'>近期交易</view>
+  <view class='deal-item' wx:for='{{walletData.data}}'>
+    <view class='left'>
+      <view class='left-title'>{{item.content}}</view>
+      <view wx:if='{{item.isadopt == "1"}}' class='left-info'>{{item.adoptcontent}}</view>
+      <view wx:else class='left-info'>{{item.addtime}}</view>
+    </view>
+    <view wx:if='{{item.isadopt == "1"}}' class='right'>
+      <button hover-class='none'>分享</button>
+      <view class='btn-hint'>分享后才能得到赏金哟</view>
+    </view>
+    <view wx:else class='right'>
+      <text>{{item.amount}}</text>
+    </view>
+  </view>
+</view>

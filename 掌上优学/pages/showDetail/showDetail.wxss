@@ -1,0 +1,89 @@
+/* pages/showDetail/showDetail.wxss */
+@import '../../template/showItem/showItem.wxss';
+page {
+  background: #f1f1f1;
+}
+.show-detail {
+  padding-bottom: 98rpx;
+}
+/* 评论 */
+.comments {
+  margin-top: 20rpx;
+  background: #ffffff;
+  padding: 0 32rpx;
+}
+.comments .title {
+  font-size: 36rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #cccccc;
+}
+.comments .item {
+  position: relative;
+  margin-top: 15rpx;
+}
+.comments .like {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  right: 0;
+}
+.comments .like image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.comments .like text {
+  font-size: 30rpx;
+  color: #666666;
+  margin-left: 10rpx;
+}
+.comments .comment-words {
+  font-size: 30rpx;
+  color: #333333;
+  padding: 15rpx 0;
+  margin-left: 96rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+}
+.more-comments {
+  height: 60rpx;
+  background: #f1f1f1;
+  color: #00cca2;
+  padding-left: 15rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  margin-top: 15rpx;
+  border-radius: 10rpx;
+}
+.create-comment {
+  position: fixed;
+  height: 98rpx;
+  bottom: 0;
+  display: flex;
+  padding: 0 32rpx;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 10rpx 0 20rpx 0 rgba(0,0,0,.1);
+}
+.comment-input {
+  height: 60rpx;
+  width: 528rpx;
+  padding-left: 18rpx;
+  background: #f1f1f1;
+  font-size: 30rpx;
+  border-radius: 5rpx;
+}
+.comment-btn {
+  height: 60rpx;
+  width: 120rpx;
+  background: #00cca2;
+  color: #ffffff;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 5rpx;
+  margin-left: 20rpx;
+}
+button::after {
+  border: none;
+}

@@ -1,0 +1,77 @@
+/* pages/user/user.wxss */
+page {
+  background: #f1f1f1;
+}
+image {
+  width: 100%;
+  height: 100%;
+}
+.login-box {
+  padding: 20rpx 0 30rpx;
+  background: #ffffff;
+}
+.user-avator {
+  margin: 0 auto;
+  width: 208rpx;
+  height: 208rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.login-btn {
+  display: block;
+  width: 520rpx;
+  height: 80rpx;
+  background: #0ed3aa;
+  color: #ffffff;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin: 28rpx auto 0;
+}
+.username {
+  text-align: center;
+  font-size: 36rpx;
+  color: #333333;
+  margin: 30rpx 0 20rpx 0;
+}
+.userid {
+  text-align: center;
+  font-size: 26rpx;
+  color: #666666;
+}
+.wallet {
+  margin-top: 20rpx;
+}
+.user-option {
+  height: 100rpx;
+  background: #ffffff;
+  border-bottom: 1rpx solid #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 32rpx;
+  align-items: center;
+}
+.user-option .left {
+  display: flex;
+  align-items: center;
+}
+.user-option .left image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.user-option .left text {
+  font-size: 36rpx;
+  color: #333333;
+  margin-left: 30rpx;
+}
+.arrow {
+  width: 15rpx;
+  height: 26rpx;
+}
+.kefu {
+  font-size: 30rpx;
+  color: #666666;
+  margin-top: 32rpx;
+  text-align: center;
+}

@@ -53,11 +53,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 98rpx;
+  height: 102rpx;
   font-size: 26rpx;
   color: #4d4d4d;
   text-align: center;
-  margin: 0 16rpx 16rpx;
+  margin: 10rpx 16rpx;
 }
 .wrap .items .item .info {
   display: flex;

@@ -1,0 +1,129 @@
+<!--pages/showDetail/showDetail.wxml-->
+<import src='../../template/showItem/showItem.wxml' />
+<view class='show-detail'>
+  <!-- 个人秀 -->
+  <template is='showItem' data='{{item,isCollected,collectHide}}'></template>
+  <!-- 采纳答案 -->
+  <view hidden='{{bestCommentHide}}' class='comments'>
+    <view class='title'>采纳答案</view>
+    <navigator
+      url='../commentsDetail/commentsDetail'
+      data-commentdata='{{bestComment}}'
+      bindtap='transferData'
+      class='item'>
+      <view class='shower-info'>
+        <view class='shower-avator'>
+          <image src='{{bestComment.userimg}}'></image>
+        </view>
+        <view class='shower-others'>
+          <view>
+            <text class='shower-name'>{{bestComment.passport}}</text>
+            <image wx:if='{{bestComment.gender=="2"}}' class='shower-gender' src='../../images/index_girl_img.png'></image>
+            <image wx:else class='shower-gender' src='../../images/index_boy_img@2x.png'></image>
+            <text class='shower-distance'>{{bestComment.dis?bestComment.dis+'km':''}}</text>
+          </view>
+          <view>
+            <text class='time'>{{bestComment.addtime}}</text>
+            <text class='school'>{{bestComment.myschoolname}}</text>
+          </view>
+        </view>
+        <view class='accepted' style='width:106rpx;height:102rpx;position:absolute;top:8rpx;right:153rpx;'>
+          <image style='width:100%;height:100%;' src='../../images/index_caina_img.png'></image>
+        </view>
+        <view bindtap='toggleLike' class='like'>
+          <image hidden='{{isLike}}' src='../../images/index_zan_icon.png'></image>
+          <image hidden='{{!isLike}}' src='../../images/index_zan_pressed.png'></image>
+          <text>{{bestComment.agrees}}</text>
+        </view>
+      </view>
+      <view class='comment-words'>
+        <text>{{bestComment.content}}</text>
+        <view hidden='{{bestComment.childrencommentsnum=="0"?true:false}}' class='more-comments'>查看全部{{bestComment.childrencommentsnum}}条评论></view>
+      </view>
+    </navigator>
+  </view>
+  <!-- 热门评论 -->
+  <view hidden='{{hotCommentsHide}}' class='comments hot-comments'>
+    <view class='title'>热门评论</view>
+    <navigator
+      url='../commentsDetail/commentsDetail'
+      data-commentdata='{{item}}'
+      bindtap='transferData'
+      class='item'
+      wx:for='{{hotComments}}'>
+      <view class='shower-info'>
+        <view class='shower-avator'>
+          <image src='{{item.userimg}}'></image>
+        </view>
+        <view class='shower-others'>
+          <view>
+            <text class='shower-name'>{{item.passport}}</text>
+            <image wx:if='{{item.gender=="2"}}' class='shower-gender' src='../../images/index_girl_img.png'></image>
+            <image wx:else class='shower-gender' src='../../images/index_boy_img@2x.png'></image>
+            <text class='shower-distance'>{{item.dis?item.dis+'km':''}}</text>
+          </view>
+          <view>
+            <text class='time'>{{item.addtime}}</text>
+            <text class='school'>{{item.myschoolname}}</text>
+          </view>
+        </view>
+        <view bindtap='toggleLike' class='like'>
+          <image hidden='{{isLike}}' src='../../images/index_zan_icon.png'></image>
+          <image hidden='{{!isLike}}' src='../../images/index_zan_pressed.png'></image>
+          <text>{{item.agrees}}</text>
+        </view>
+      </view>
+      <view class='comment-words'>
+        <text>{{item.content}}</text>
+        <view hidden='{{item.childrencommentsnum=="0"?true:false}}' class='more-comments'>查看全部{{item.childrencommentsnum}}条评论></view>
+      </view>
+    </navigator>
+  </view>
+  <!-- 全部评论 -->
+  <view hidden='{{otherCommentsHide}}' class='comments all-comments'>
+    <view class='title'>其他评论 (<text>{{totalComments}}</text>)</view>
+    <navigator
+      url='../commentsDetail/commentsDetail'
+      data-commentdata='{{item}}'
+      bindtap='transferData'
+      class='item'
+      wx:for='{{otherComments}}'>
+      <view class='shower-info'>
+        <view class='shower-avator'>
+          <image src='{{item.userimg}}'></image>
+        </view>
+        <view class='shower-others'>
+          <view>
+            <text class='shower-name'>{{item.passport}}</text>
+            <image wx:if='{{item.gender=="2"}}' class='shower-gender' src='../../images/index_girl_img.png'></image>
+            <image wx:else class='shower-gender' src='../../images/index_boy_img@2x.png'></image>
+            <text class='shower-distance'>{{item.dis?item.dis+'km':''}}</text>
+          </view>
+          <view>
+            <text class='time'>{{item.addtime}}</text>
+            <text class='school'>{{item.myschoolname}}</text>
+          </view>
+        </view>
+        <view bindtap='toggleLike' class='like'>
+          <image hidden='{{isLike}}' src='../../images/index_zan_icon.png'></image>
+          <image hidden='{{!isLike}}' src='../../images/index_zan_pressed.png'></image>
+          <text>{{item.agrees}}</text>
+        </view>
+      </view>
+      <view class='comment-words'>
+        <text>{{item.content}}</text>
+        <view hidden='{{item.childrencommentsnum=="0"?true:false}}' class='more-comments'>查看全部{{item.childrencommentsnum}}条评论></view>
+      </view>
+    </navigator>
+  </view>
+  <!-- 发表评论 -->
+  <view class='create-comment'>
+    <input
+      class='comment-input'
+      bindinput='bindKeyInput'
+      type='text'
+      value='{{commentInputValue}}'
+      placeholder='评论...'></input>
+    <button bindtap='sendComments' class='comment-btn'>评论</button>
+  </view>
+</view>

@@ -50,6 +50,7 @@ Page({
   },
   onLoad: function(options){
     var that=this;
+    console.log(app.globalData)
     // 判断是否需要重新登录
     if(app.globalData.relogin){
       that.setData({
@@ -57,15 +58,15 @@ Page({
       });
     } else {
     // 判断是否具有登录信息
-    console.log(wx.getStorageSync('userAccount'));
-    if (wx.getStorageSync('userAccount') && wx.getStorageSync('userAccount').bindaccount=='1') {
-      that.setData({
-        isLogin: true,
-        userId: wx.getStorageSync('userAccount').ID,
-        nickName: wx.getStorageSync('userAccount').username,
-        userAvatar: wx.getStorageSync('userAccount').userimg
-      });
-    }
+      console.log(wx.getStorageSync('userAccount'));
+      if (wx.getStorageSync('userAccount') && wx.getStorageSync('userAccount').bindaccount=='1') {
+        that.setData({
+          isLogin: true,
+          userId: wx.getStorageSync('userAccount').ID,
+          nickName: wx.getStorageSync('userAccount').username,
+          userAvatar: wx.getStorageSync('userAccount').userimg
+        });
+      }
     }
   },
   goWallet: function(){

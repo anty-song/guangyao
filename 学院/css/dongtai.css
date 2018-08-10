@@ -1,0 +1,45 @@
+.dongtai-ctt {
+    padding-top: 20px;
+}
+.dongtai-ctt a {
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.left-item,
+.left-t {
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+}
+.left-item {
+    color: #333;
+    background: #f2f7ff;
+}
+.left-t {
+    color: #fff;
+    background: #2157ad;
+}
+.left-item-active {
+    color: #2157ad;
+}
+.locate {
+    line-height: 42px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.notice-item {
+	height: 60px;
+	line-height: 60px;
+}
+.notice-item {
+	display: flex;
+	justify-content: space-between;
+	font-size: 16px;
+	border-bottom: 1px dotted #f0f0f0;
+}
+.time {
+	white-space: nowrap;
+	margin-left: 20px;
+}

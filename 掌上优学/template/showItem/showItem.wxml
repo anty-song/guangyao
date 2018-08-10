@@ -26,9 +26,9 @@
         </view>
       </view>
       <!-- 收藏 -->
-      <view hidden='{{collectHide}}' bindtap='toggleCollect' class='collect'>
-        <image hidden='{{isCollected}}' src='../../images/index_shoucang_icon.png'></image>
-        <image hidden='{{!isCollected}}' src='../../images/index_shoucang_pressed.png'></image>
+      <view hidden='{{collectHide}}' class='collect'>
+        <image hidden='{{item.iscollection}}' bindtap='collect' src='../../images/index_shoucang_icon.png'></image>
+        <image hidden='{{!item.iscollection}}' bindtap='cancelCollect' src='../../images/index_shoucang_pressed.png'></image>
       </view>
     </view>
     <!-- 发表内容 -->

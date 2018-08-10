@@ -49,9 +49,6 @@
 	position:absolute;
 	left:50%;
 	top: 0;
-	width:36px;
-	height:30px;
-	margin-left:-18px;
 	cursor:pointer;
 	animation: myfirst 1.5s infinite;
 }

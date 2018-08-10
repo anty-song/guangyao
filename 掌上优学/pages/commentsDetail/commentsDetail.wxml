@@ -16,12 +16,12 @@
           <text class='school'>{{commentData.myschoolname}}</text>
         </view>
       </view>
-      <view class='accepted' style='width:106rpx;height:102rpx;position:absolute;top:8rpx;right:153rpx;'>
+      <view class='accepted' hidden='{{commentData.type!=1}}' style='width:106rpx;height:102rpx;position:absolute;top:8rpx;right:153rpx;'>
         <image style='width:100%;height:100%;' src='../../images/index_caina_img.png'></image>
       </view>
-      <view bindtap='toggleLike' class='like'>
-        <image hidden='{{isLike}}' src='../../images/index_zan_icon.png'></image>
-        <image hidden='{{!isLike}}' src='../../images/index_zan_pressed.png'></image>
+      <view class='like'>
+        <image hidden='{{commentData.isagree}}' data-commentid='{{commentData.commentid}}' data-type='{{commentData.type}}' catchtap='commentLike' src='../../images/index_zan_icon.png'></image>
+        <image hidden='{{!commentData.isagree}}' data-commentid='{{commentData.commentid}}' data-type='{{commentData.type}}' catchtap='commentUnLike' src='../../images/index_zan_pressed.png'></image>
         <text>{{commentData.agrees}}</text>
       </view>
     </view>
@@ -47,13 +47,13 @@
             <text class='school'>{{item.myschoolname}}</text>
           </view>
         </view>
-        <view bindtap='toggleLike' class='like'>
-          <image hidden='{{isLike}}' src='../../images/index_zan_icon.png'></image>
-          <image hidden='{{!isLike}}' src='../../images/index_zan_pressed.png'></image>
+        <view class='like'>
+          <image hidden='{{item.isagree}}' data-commentid='{{item.commentid}}' data-type='{{item.type}}' catchtap='commentChildLike' src='../../images/index_zan_icon.png'></image>
+        <image hidden='{{!item.isagree}}' data-commentid='{{item.commentid}}' data-type='{{item.type}}' catchtap='commentChildUnLike' src='../../images/index_zan_pressed.png'></image>
           <text>{{item.agrees}}</text>
         </view>
       </view>
-      <view class='comment-words'>
+      <view class='comment-words' data-otheruser='{{item.passport}}' bindtap='wakeUpInput'>
         <text>{{item.content}}</text>
       </view>
     </view>
@@ -64,7 +64,9 @@
       class='comment-input'
       bindinput='bindKeyInput'
       type='text'
-      placeholder='回复...'></input>
-    <button bindtap='sendComments' class='comment-btn'>回复</button>
+      focus='{{isfocus}}'
+      value='{{replyInputValue}}'
+      placeholder='回复{{atName?atName+":":"..."}}'></input>
+    <button bindtap='sendReply' class='comment-btn'>回复</button>
   </view>
 </view>

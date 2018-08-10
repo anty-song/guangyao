@@ -74,7 +74,8 @@
         <div class="down-tip">
             <div class="gradient">
                 <a href="#">
-                    <img class="arrow" style="width:36px;height:30px;" src="images/xxs_jiantou.png" alt="">
+                    <img class="arrow pc-arrow hidden-xs" style="width:36px;height:30px;margin-left:-18px;" src="images/xxs_jiantou.png" alt="">
+                    <img class="arrow m-arrow hidden-lg hidden-md hidden-sm" style="width:18px;height:15px;margin-left:-9px;" src="images/xxs_jiantou.png" alt="">
                 </a>
             </div>
             <div class="hidden-xs" style="display:flex;align-items:center;">
@@ -96,7 +97,20 @@
         <div class="recommend container">
             <div class="rec-tit">精彩推荐</div>
             <div class="col-md-4 col-sm-4">
-                <div class="rec-item">
+                <div class="rec-item pc-rec hidden-xs">
+                    <img src="images/xxs_img.png" alt="">
+                    <div class="rec-item-intro">
+                        大嫁风尚两款发动机上来打飞机时代峰峻第三方来看水电费
+                    </div>
+                    <div class="item-btm">
+                        <p>2018-07-31&nbsp;&nbsp;08:52</p>
+                        <p class="rec-like">
+                            <img style="width:20px;height:20px;" src="images/xxs_zanimg.png" alt="">
+                            <span style="margin-left:8px;margin-right:16px;">999</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="rec-item m-rec hidden-lg hidden-md hidden-sm">
                     <img src="images/xxs_img.png" alt="">
                     <div class="rec-item-intro">
                         大嫁风尚两款发动机上来打飞机时代峰峻第三方来看水电费
@@ -176,7 +190,7 @@
                 })
             }
         }
-        $('.showcode').on('click',function(){
+        $('.showcode,.pc-arrow,.pc-rec').on('click',function(){
             $('.qrcode-box').show();
         })
         $('.close-button, .qrcode-box').on('click',function(){

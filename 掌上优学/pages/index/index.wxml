@@ -71,8 +71,8 @@
         </swiper>
         <!-- 秀场 -->
         <view class='show-content'>
-          <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showData}}' wx:for-index='idx'>
-            <template is='showItem' data='{{item,collectHide,likeNum}}'></template>
+          <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showData}}'>
+            <template is='showItem' data='{{item,collectHide}}'></template>
           </navigator>
           <view class='loading' hidden='{{loadingHide}}'>加载中...</view>
         </view>

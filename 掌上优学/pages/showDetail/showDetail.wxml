@@ -30,9 +30,9 @@
         <view class='accepted' style='width:106rpx;height:102rpx;position:absolute;top:8rpx;right:153rpx;'>
           <image style='width:100%;height:100%;' src='../../images/index_caina_img.png'></image>
         </view>
-        <view bindtap='toggleLike' class='like'>
-          <image hidden='{{isLike}}' src='../../images/index_zan_icon.png'></image>
-          <image hidden='{{!isLike}}' src='../../images/index_zan_pressed.png'></image>
+        <view class='like'>
+          <image hidden='{{bestComment.isagree}}' data-commentid='{{bestComment.commentid}}' data-type='{{bestComment.type}}' catchtap='commentLike' src='../../images/index_zan_icon.png'></image>
+          <image hidden='{{!bestComment.isagree}}' data-commentid='{{bestComment.commentid}}' data-type='{{bestComment.type}}' catchtap='commentUnLike' src='../../images/index_zan_pressed.png'></image>
           <text>{{bestComment.agrees}}</text>
         </view>
       </view>
@@ -67,9 +67,9 @@
             <text class='school'>{{item.myschoolname}}</text>
           </view>
         </view>
-        <view bindtap='toggleLike' class='like'>
-          <image hidden='{{isLike}}' src='../../images/index_zan_icon.png'></image>
-          <image hidden='{{!isLike}}' src='../../images/index_zan_pressed.png'></image>
+        <view class='like'>
+          <image hidden='{{item.isagree}}' data-commentid='{{item.commentid}}' data-type='{{item.type}}' catchtap='commentLike' src='../../images/index_zan_icon.png'></image>
+          <image hidden='{{!item.isagree}}' data-commentid='{{item.commentid}}' data-type='{{item.type}}' catchtap='commentUnLike' src='../../images/index_zan_pressed.png'></image>
           <text>{{item.agrees}}</text>
         </view>
       </view>
@@ -104,9 +104,9 @@
             <text class='school'>{{item.myschoolname}}</text>
           </view>
         </view>
-        <view bindtap='toggleLike' class='like'>
-          <image hidden='{{isLike}}' src='../../images/index_zan_icon.png'></image>
-          <image hidden='{{!isLike}}' src='../../images/index_zan_pressed.png'></image>
+        <view class='like'>
+          <image hidden='{{item.isagree}}' data-commentid='{{item.commentid}}' data-type='{{item.type}}' catchtap='commentLike' src='../../images/index_zan_icon.png'></image>
+          <image hidden='{{!item.isagree}}' data-commentid='{{item.commentid}}' data-type='{{item.type}}' catchtap='commentUnLike' src='../../images/index_zan_pressed.png'></image>
           <text>{{item.agrees}}</text>
         </view>
       </view>

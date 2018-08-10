@@ -4,6 +4,7 @@ var API = require('../../utils/api.js');
 var Req = require("../../utils/request.js");
 // 获取小程序实例
 var app = getApp();
+var flag;
 Page({
   data: {
     scrollTop: 100,
@@ -64,6 +65,10 @@ Page({
   },
   // 这里只用作 手动设置位置权限后 小程序返回刷新的实现
   onShow: function(){
+    if(flag){
+      flag=false;
+      return;
+    }
     console.log('onshow')
     var that = this;
     switch (that.data.currentTab) {
@@ -146,7 +151,7 @@ Page({
       scrollTop: 1
     });
     Req.POST(API.SHOW_RECOMMEND, {
-      params: { page: 1, xiutype: 2 },
+      params: { userid: wx.getStorageSync('userAccount').userid, page: 1, xiutype: 2 },
       success: function (res) {
         that.setData({
           showDataFriend: res.data.data
@@ -201,6 +206,7 @@ Page({
         })
         Req.POST(API.SHOW_NEARBY, {
           params: {
+            userid: wx.getStorageSync('userAccount').userid,
             page: that.data.nearby_page,
             catid: that.data.currentStageId,
             weidu: res.latitude,
@@ -229,39 +235,102 @@ Page({
   likeComment: function(e){
     console.log('dianzan')
     var that=this;
-    // 时间戳
-    var timestamp = Date.parse(new Date()) / 1000;
-    // userid
-    var userid = wx.getStorageSync('userAccount').userid;
-    // 加密字符串
-    var auth = wx.getStorageSync('userAccount').auth;
-    var paramData = app.strencode(timestamp + ',' + userid + ',' + auth);
-    var itemData = e.currentTarget.dataset.itemdata;
-    Req.POST(API.LIKE, {
-      params: {
-        paramData: paramData,
-        itemid: itemData.itemid,
-        isagree: 1
-      },
-      success: function (res) {
-        console.log(res)
-        // 重新登录
-        if(res.data.status==2){
-          wx.showToast({
-            title: 'relogin',
-            icon: 'none'
-          });
-          app.globalData.relogin = true;
-          wx.switchTab({
-            url: '../user/user',
-          });
-          // 
-        } else {}
-      },
-      fail: function (res) { },
-      complete: function () { }
-    });
-    
+    if (wx.getStorageSync('userAccount')) {
+      // 时间戳
+      var timestamp = Date.parse(new Date()) / 1000;
+      // userid
+      var userid = wx.getStorageSync('userAccount').userid;
+      // 加密字符串
+      var auth = wx.getStorageSync('userAccount').auth;
+      var paramData = app.strencode(timestamp + ',' + userid + ',' + auth);
+      Req.POST(API.LIKE, {
+        params: {
+          paramData: paramData,
+          itemid: e.currentTarget.dataset.itemid,
+          isagree: 1
+        },
+        success: function (res) {
+          console.log(res)
+          // 重新登录
+          if(res.data.status==2){
+            wx.showToast({
+              title: 'relogin',
+              icon: 'none'
+            });
+            app.globalData.relogin = true;
+            wx.switchTab({
+              url: '../user/user',
+            });
+            // 不需重新登录
+          } else {
+            // 添加判断
+            var id = e.currentTarget.dataset.itemid;
+            switch (that.data.currentTab) {
+              case 0:
+                var showData = that.data.showData;
+                console.log(showData)
+                for (var i = 0; i < showData.length; i++) {
+                  if (showData[i]['itemid'] == id) {
+                    console.log(i)
+                    showData[i]['isagree'] = 1;
+                    showData[i]['agrees'] = showData[i]['agrees'] - 0 + 1;
+                    that.setData({
+                      showData: showData
+                    })
+                  }
+                }
+                break;
+              case 1:
+                var showDataFriend = that.data.showDataFriend;
+                for (var i = 0; i < showDataFriend.length; i++) {
+                  if (showDataFriend[i]['itemid'] == id) {
+                    showDataFriend[i]['isagree'] = 1;
+                    showDataFriend[i]['agrees'] = showDataFriend[i]['agrees'] - 0 + 1;
+                    that.setData({
+                      showDataFriend: showDataFriend
+                    })
+                  }
+                }
+                break;
+              case 2:
+                var showDataAttention = that.data.showDataAttention;
+                for (var i = 0; i < showDataAttention.length; i++) {
+                  if (showDataAttention[i]['itemid'] == id) {
+                    showDataAttention[i]['isagree'] = 1;
+                    showDataAttention[i]['agrees'] = showDataAttention[i]['agrees'] - 0 + 1;
+                    that.setData({
+                      showDataAttention: showDataAttention
+                    })
+                  }
+                }
+                break;
+              case 3:
+                var showDataNearby = that.data.showDataNearby;
+                for (var i = 0; i < showDataNearby.length; i++) {
+                  if (showDataNearby[i]['itemid'] == id) {
+                    showDataNearby[i]['isagree'] = 1;
+                    showDataNearby[i]['agrees'] = showDataNearby[i]['agrees'] - 0 + 1;
+                    that.setData({
+                      showDataNearby: showDataNearby
+                    })
+                  }
+                }
+            }
+          }
+        },
+        fail: function (res) { },
+        complete: function () { }
+      });
+    } else {
+      wx.showToast({
+        title: '请登录后操作',
+        icon: 'none'
+      });
+      app.globalData.relogin = true;
+      wx.switchTab({
+        url: '../user/user',
+      });
+    }
   },
   // 取消点赞
   unLikeComment: function (e) {
@@ -273,7 +342,6 @@ Page({
     // 加密字符串
     var auth = wx.getStorageSync('userAccount').auth;
     var paramData = app.strencode(timestamp + ',' + userid + ',' + auth);
-    var itemData = e.currentTarget.dataset.itemdata;
     Req.POST(API.LIKE, {
       params: {
         paramData: paramData,
@@ -291,7 +359,19 @@ Page({
           wx.switchTab({
             url: '../user/user',
           })
-        } else {}
+        } else {
+          var id = e.currentTarget.dataset.itemid;
+          var showData = that.data.showData;
+          for (var i = 0; i < showData.length; i++) {
+            if (showData[i]['itemid'] == id) {
+              showData[i]['isagree'] = 0;
+              showData[i]['agrees'] = showData[i]['agrees'] - 1;
+              that.setData({
+                showData: showData
+              })
+            }
+          }
+        }
       },
       fail: function (res) { },
       complete: function () { }
@@ -431,6 +511,7 @@ Page({
       var item = i.replace(/\.thumb\..*/,'');
       images.push(item);
     }
+    flag=true;
     wx.previewImage({ urls: images });
   },
   // scroll-view 组件中的原生事件 滚动到底部的钩子

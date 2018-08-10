@@ -1,0 +1,64 @@
+.carousel-inner>.item>a>img, .carousel-inner>.item>img {
+	margin: 0 auto;
+}
+.news-notice {
+	padding-top: 10px;
+}
+.title {
+	font-size: 20px;
+	border-bottom: 1px solid #ccc;
+}
+.title, .notice-item {
+	height: 52px;
+	line-height: 52px;
+}
+.title span {
+	position: relative;
+	padding-left: 12px;
+}
+.title span::before {
+	content: "";
+	display: block;
+	width: 4px;
+	height: 20px;
+	background-color: #2157ad;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.notice-item {
+	display: flex;
+	justify-content: space-between;
+	font-size: 16px;
+	border-bottom: 1px dotted #f0f0f0;
+}
+.time {
+	white-space: nowrap;
+	margin-left: 20px;
+}
+.news-notice a {
+	color: #333;
+	display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.honer {
+	padding-bottom: 30px;
+}
+.honer a {
+	color: #333;
+}
+.honer .col-md-3 {
+	text-align: center;
+	margin-top: 20px;
+}
+.honer .col-md-3 .img-box {
+	margin-bottom: 10px;
+}
+.honer .col-md-3 .img-box img {
+	margin: 0 auto;
+}
+.honer .col-md-3 span {
+	font-size: 20px;
+}

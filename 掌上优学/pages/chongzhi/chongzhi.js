@@ -20,7 +20,6 @@ Page({
     
   },
   getMoneyValue: function(e){
-    console.log(e)
   },
   pay: function(){
     var openid = app.globalData.openId;

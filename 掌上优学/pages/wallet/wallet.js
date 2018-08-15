@@ -30,7 +30,6 @@ Page({
     Req.POST(API.WALLET, {
       params: { paramData: paramData,page: 1},
       success: function (res) {
-        console.log(res)
         that.setData({
           walletData: res.data
         })

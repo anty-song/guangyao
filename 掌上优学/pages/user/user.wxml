@@ -32,7 +32,7 @@
   </view>
   <image class='arrow' src='../../images/myself_jiantou_icon.png'></image>
 </view>
-<view class='user-option download'>
+<view bindtap='goDownload' class='user-option download'>
   <view class='left'>
     <image src='../../images/myself_xiazai_icon.png'></image>
     <text>下载APP</text>

@@ -96,5 +96,11 @@ Page({
         icon: 'none'
       });
     }
+  },
+  goDownload: function() {
+    wx.showToast({
+      title: '下载APP更多精彩等着你',
+      icon: 'none'
+    });
   }
 })

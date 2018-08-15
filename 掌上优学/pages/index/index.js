@@ -476,7 +476,6 @@ Page({
         isagree: 0
       },
       success: function (res) {
-        console.log(res)
         if (res.data.status == 2) {
           wx.showToast({
             title: 'relogin',

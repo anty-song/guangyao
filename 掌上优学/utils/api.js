@@ -35,5 +35,7 @@ module.exports = {
   // 收藏/取消收藏
   COLLECT: COMMON_URL + 'setuser.php?action=collection',
   // 评论点赞/取消点赞
-  COMMENTLIKE: COMMON_URL + 'setuser.php?action=commentagree'
+  COMMENTLIKE: COMMON_URL + 'setuser.php?action=commentagree',
+  // 分享+1
+  SHARE: COMMON_URL + 'xiuchang.php?action=share'
 }

@@ -2,8 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/user/user",
+    "pages/create/create",
     "pages/tiePhone/tiePhone",
-    "pages/test/test",
     "pages/chongzhi/chongzhi",
     "pages/wallet/wallet",
     "pages/showDetail/showDetail",
@@ -30,7 +30,7 @@
       },
       {
         "text": " ",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/create/create",
         "iconPath": "images/all_fabiao_icon.png",
         "selectedIconPath": "images/all_fabiao_icon.png"
       },

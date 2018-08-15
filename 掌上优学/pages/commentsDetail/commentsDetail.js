@@ -15,7 +15,10 @@ Page({
     childCommentsData: null,
     replyInputValue: null,
     atName: '',
-    isfocus: false
+    isfocus: false,
+    currentid:null,
+    page:1,
+    hint:''
   },
 
   /**
@@ -24,20 +27,20 @@ Page({
   onLoad: function (options) {
     var that = this;
     // 获取上级页面秀的内容
-    console.log(app.globalData.commentData)
     that.setData({
       replyInputValue: null,
       commentData: app.globalData.commentData,
       atName: '',
-      isfocus: false
+      isfocus: false,
+      page:1,
+      hint:''
     });
     Req.POST(API.SHOW_CHILDCOMMENTS, {
       params: {
         commentid: app.globalData.commentData.commentid,
-        userid: wx.getStorageSync('userAccount').userid  
+        userid: wx.getStorageSync('userAccount').userid
       },
       success: function(res){
-        console.log(res);
         that.setData({
           commentData: res.data.comment,
           childCommentsData: res.data.data
@@ -47,11 +50,26 @@ Page({
       complete: function(){}
     })
   },
+  getCommentInfo: function (e) {
+    var images = [];
+    for (var i of e.target.dataset.images) {
+      var item = i.replace(/\.thumb\..*/, '');
+      images.push(item);
+    }
+    wx.previewImage({ urls: images });
+  },
+  getChildCommentInfo: function (e) {
+    var images = [];
+    for (var i of e.target.dataset.images) {
+      var item = i.replace(/\.thumb\..*/, '');
+      images.push(item);
+    }
+    wx.previewImage({ urls: images });
+  },
   // 评论点赞
   commentLike: function (e) {
     var that = this;
     var commentid = e.currentTarget.dataset.commentid;
-    console.log(commentid)
     var ctype = e.currentTarget.dataset.type;
     if (wx.getStorageSync('userAccount')) {
       // 时间戳
@@ -68,7 +86,6 @@ Page({
           isagree: 1
         },
         success: function (res) {
-          console.log(res)
           if (res.data.status == 2) {
             wx.showToast({
               title: 'relogin',
@@ -80,7 +97,6 @@ Page({
             });
           } else {
             var commentData = that.data.commentData;
-            console.log(commentData)
             commentData['isagree']=1;
             commentData['agrees'] = commentData['agrees']-0+1;
             that.setData({
@@ -121,7 +137,6 @@ Page({
         isagree: 0
       },
       success: function (res) {
-        console.log(res)
         if (res.data.status == 2) {
           wx.showToast({
             title: 'relogin',
@@ -133,7 +148,6 @@ Page({
           });
         } else {
           var commentData = that.data.commentData;
-          console.log(commentData)
           commentData['isagree'] = 0;
           commentData['agrees'] = commentData['agrees'] - 1;
           that.setData({
@@ -163,7 +177,6 @@ Page({
           isagree: 1
         },
         success: function (res) {
-          console.log(res)
           // 重新登录
           if (res.data.status == 2) {
             wx.showToast({
@@ -221,7 +234,6 @@ Page({
         isagree: 0
       },
       success: function (res) {
-        console.log(res)
         // 重新登录
         if (res.data.status == 2) {
           wx.showToast({
@@ -259,9 +271,8 @@ Page({
     })
   },
   // 回复
-  sendReply: function(){
+  sendReply: function(e){
     var that = this;
-    console.log(wx.getStorageSync('userAccount'))
     if (that.data.replyInputValue){
       // 判断是否登录
       if (wx.getStorageSync('userAccount')) {
@@ -271,34 +282,62 @@ Page({
         var userid = wx.getStorageSync('userAccount').userid;
         var auth = wx.getStorageSync('userAccount').auth;
         var paramData = app.strencode(timestamp + ',' + userid + ',' + auth);
-        console.log(paramData + '\n' + that.data.commentData.commentid + '\n' + that.data.replyInputValue)
-        Req.POST(API.SENDCOMMENT, {
-          params: {
-            paramData: paramData,
-            commentid: that.data.commentData.commentid,
-            comment: that.data.replyInputValue
-          },
-          success: function (res) {
-            if (res.data.status == 2) {
-              wx.showToast({
-                title: 'relogin',
-                icon: 'none'
-              });
-              app.globalData.relogin = true;
-              wx.switchTab({
-                url: '../user/user',
-              });
-            } else {
-              console.log(res);
-              that.setData({
-                replyInputValue: null
-              });
-              that.onLoad();
-            }
-          },
-          fail: function (res) { },
-          complete: function () { }
-        });
+        var currentid=that.data.currentid;
+        if(currentid){
+          Req.POST(API.SENDCOMMENT, {
+            params: {
+              paramData: paramData,
+              replycommentid: currentid,
+              comment: that.data.replyInputValue
+            },
+            success: function (res) {
+              if (res.data.status == 2) {
+                wx.showToast({
+                  title: 'relogin',
+                  icon: 'none'
+                });
+                app.globalData.relogin = true;
+                wx.switchTab({
+                  url: '../user/user',
+                });
+              } else {
+                that.setData({
+                  replyInputValue: null
+                });
+                that.onLoad();
+              }
+            },
+            fail: function (res) { },
+            complete: function () { }
+          });
+        } else {
+          Req.POST(API.SENDCOMMENT, {
+            params: {
+              paramData: paramData,
+              commentid: that.data.commentData.commentid,
+              comment: that.data.replyInputValue
+            },
+            success: function (res) {
+              if (res.data.status == 2) {
+                wx.showToast({
+                  title: 'relogin',
+                  icon: 'none'
+                });
+                app.globalData.relogin = true;
+                wx.switchTab({
+                  url: '../user/user',
+                });
+              } else {
+                that.setData({
+                  replyInputValue: null
+                });
+                that.onLoad();
+              }
+            },
+            fail: function (res) { },
+            complete: function () { }
+          });
+        }
       } else {
         wx.showToast({
           title: '请登录后操作',
@@ -319,29 +358,52 @@ Page({
   wakeUpInput: function(e){
     var that = this;
     var atName = e.currentTarget.dataset.otheruser;
+    var currentCommentid = e.currentTarget.dataset.currentid;
     that.setData({
+      currentid: currentCommentid,
       atName: atName,
       isfocus: true
     })
   },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  // 页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function () {
-  
+    var that = this;
+    that.onLoad();
+    wx.stopPullDownRefresh();
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  // 页面上拉触底事件的处理函数
+  onReachBottom: function (e) {
+    var that = this;
+    var page = that.data.page;
+    var childCommentsData = that.data.childCommentsData;
+    // 获取评论
+    Req.POST(API.SHOW_CHILDCOMMENTS, {
+      params: {
+        commentid: app.globalData.commentData.commentid,
+        userid: wx.getStorageSync('userAccount').userid,
+        page: page + 1
+      },
+      success: function (res) {
+        if (!res.data.data.length) {
+          // 添加无更多评论显示
+          that.setData({
+            hint: '到底了'
+          })
+        } else {
+          that.setData({
+            hint: '加载中',
+            page: page + 1
+          });
+          for (var i = 0; i < res.data.data.length; i++) {
+            childCommentsData.push(res.data.data[i]);
+          }
+          that.setData({
+            childCommentsData: childCommentsData
+          })
+        }
+      },
+      fail: function () { },
+      complete: function () { }
+    })
   }
 })

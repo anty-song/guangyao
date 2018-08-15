@@ -100,3 +100,8 @@ button {
   font-size: 36rpx;
   color: #f53110;
 }
+.loading{
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 50rpx;
+}

@@ -1,7 +1,7 @@
 <!--pages/chongzhi/chongzhi.wxml-->
 <view class='input-num'>
   <text>金额：</text>
-  <input placeholder='请输入充值金额' type='number'></input>
+  <input placeholder='请输入充值金额' type='number' bindinput='getMoneyValue'></input>
 </view>
 <view class='hint'>单笔最大充值金额为1000元</view>
-<button class='chongzhi-btn'>充值</button>
+<button class='chongzhi-btn' bindtap='pay'>充值</button>

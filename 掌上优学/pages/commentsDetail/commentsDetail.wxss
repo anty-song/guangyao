@@ -47,6 +47,9 @@ page {
   font-size: 26rpx;
   border-bottom: 1rpx solid #d1d1d1;
 }
+.reply-list {
+  padding-bottom: 98rpx;
+}
 /* 回复 */
 .create-comment {
   position: fixed;
@@ -79,4 +82,9 @@ page {
 }
 button::after {
   border: none;
+}
+.loading {
+  font-size:20rpx;
+  line-height:50rpx;
+  text-align:center;
 }

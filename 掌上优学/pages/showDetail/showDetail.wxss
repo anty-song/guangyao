@@ -87,3 +87,8 @@ page {
 button::after {
   border: none;
 }
+.cloading {
+  font-size:20rpx;
+  line-height:50rpx;
+  text-align:center;
+}

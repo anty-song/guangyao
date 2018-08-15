@@ -2,7 +2,7 @@
 <import src='../../template/showItem/showItem.wxml' />
 <view class='show-detail'>
   <!-- 个人秀 -->
-  <template is='showItem' data='{{item,isCollected,collectHide}}'></template>
+  <template is='showItem' data='{{item,detailPage,isCollected,collectHide,isVideo}}'></template>
   <!-- 采纳答案 -->
   <view hidden='{{bestCommentHide}}' class='comments'>
     <view class='title'>采纳答案</view>
@@ -112,10 +112,21 @@
       </view>
       <view class='comment-words'>
         <text>{{item.content}}</text>
+        <view wx:if='{{item.image.length}}' style='display:flex;flex-wrap:wrap;'>
+          <view wx:for='{{item.image}}' wx:for-item="image" style='width:180rpx;height:180rpx;margin-right:10rpx;'>
+            <image
+              catchtap='getCommentInfo'
+              data-images='{{item.image}}'
+              mode='aspectFill'
+              src='{{image}}'
+              style='width:100%;height:100%'></image>
+          </view>
+        </view>
         <view hidden='{{item.childrencommentsnum=="0"?true:false}}' class='more-comments'>查看全部{{item.childrencommentsnum}}条评论></view>
       </view>
     </navigator>
   </view>
+  <view class='cloading'>{{haveOtherComment}}</view>
   <!-- 发表评论 -->
   <view class='create-comment'>
     <input

@@ -65,7 +65,6 @@ Page({
         paramData: paramData
       },
       success: function(res){
-        console.log(res)
         clearInterval(timer);
         var timer = setInterval(function () {
           if (count > 0) {
@@ -104,7 +103,6 @@ Page({
         paramData: paramData
       },
       success: function (res) {
-        console.log(res);
         if(res.data.status==1){
           wx.navigateBack({
             delta:1

@@ -26,7 +26,7 @@
       <view wx:else class='left-info'>{{item.addtime}}</view>
     </view>
     <view wx:if='{{item.isadopt == "1"}}' class='right'>
-      <button hover-class='none'>分享</button>
+      <button hover-class='none' bindtap='walletShare'>分享</button>
       <view class='btn-hint'>分享后才能得到赏金哟</view>
     </view>
     <view wx:else class='right'>
@@ -34,3 +34,4 @@
     </view>
   </view>
 </view>
+<view class='loading' hidden='{{!hint}}'>{{hint}}</view>

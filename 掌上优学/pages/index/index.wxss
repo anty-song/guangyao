@@ -65,7 +65,7 @@ page {
   height: 60rpx;
   text-align: center;
   line-height: 60rpx;
-  font-size: 30rpx;
+  font-size: 24rpx;
   background: #f1f1f1;
   border-radius: 30rpx;
   margin-right: 20rpx;
@@ -94,4 +94,12 @@ page {
 /* 秀场 */
 .show-content {
   background: #f1f1f1;
+}
+.loading {
+  text-align: center;
+  font-size: 20rpx;
+  line-height: 50rpx;
+}
+.default-nearby button::after {
+  border: none;
 }

@@ -5,12 +5,14 @@ var API = require('../../utils/api.js');
 var Req = require("../../utils/request.js");
 // 获取小程序实例
 var app = getApp();
+var flag=false;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    detailPage: true,
     collectHide: false,
     item: null,
     bestComment:null,
@@ -20,21 +22,35 @@ Page({
     hotCommentsHide:false,
     otherCommentsHide:false,
     bestCommentHide:true,
-    commentInputValue: null
+    commentInputValue: null,
+    page:1,
+    haveOtherComment: '',
+    isVideo:true,
+    showid: null
   },
   // 初始化
-  onLoad: function(){
-    var that=this;
+  onLoad: function(opt){
+    var that = this;
+    // 分享
+    if(opt&&opt.share==1){
+      app.globalData.share=true;
+      var itemid=opt.itemid;
+      // 通过分享进入后 返回首页需要
+      app.globalData.itemid=itemid;
+    }else{
+      that.setData({
+        showid: app.globalData.showid
+      });
+    }
     that.setData({
-      item: app.globalData.itemData,
-      otherCommentsHide: false
+      otherCommentsHide: false,
+      page: 1,
+      haveOtherComment: ''
     });
-    console.log(that.data.item)
     // 获取评论
     Req.POST(API.SHOW_COMMENTS, {
-      params: { userid: wx.getStorageSync('userAccount').userid,itemid:that.data.item.itemid},
+      params: { userid: wx.getStorageSync('userAccount').userid,itemid: itemid?itemid:that.data.showid},
       success: function(res){
-        console.log(res)
         that.setData({
           item: res.data.detail,
           otherCommentsHide: false
@@ -49,7 +65,6 @@ Page({
             switch (comments[i].type) {
               case 0:
                 otherComments.push(comments[i]);
-                console.log(otherComments)
                 that.setData({
                   otherComments: otherComments,
                   totalComments: res.data.comments
@@ -77,7 +92,6 @@ Page({
           }
           // 没有其他评论 则隐藏该模块
           if (!otherComments.length) {
-            console.log('dddddd')
             that.setData({
               otherCommentsHide: true
             });
@@ -94,7 +108,26 @@ Page({
     })
   },
   onShow: function(){
+    if(flag){
+      flag=false;
+      return;
+    }
     this.onLoad()
+  },
+  // 页面卸载时
+  onUnload: function(){
+    if (app.globalData.home){
+      app.globalData.itemData = this.data.item;
+      app.globalData.home=null;
+    }
+    if (app.globalData.collect) {
+      app.globalData.collectItemData = this.data.item;
+      app.globalData.collect = null;
+    }
+    if (app.globalData.dongtai) {
+      app.globalData.mineItemData = this.data.item;
+      app.globalData.dongtai = null;
+    }
   },
   // 秀点赞
   likeComment: function (e) {
@@ -114,7 +147,6 @@ Page({
           isagree: 1
         },
         success: function (res) {
-          console.log(res)
           if (res.data.status == 2) {
             wx.showToast({
               title: 'relogin',
@@ -165,7 +197,6 @@ Page({
         isagree: 0
       },
       success: function (res) {
-        console.log(res)
         if (res.data.status == 2) {
           wx.showToast({
             title: 'relogin',
@@ -193,7 +224,6 @@ Page({
   commentLike: function(e){
     var that=this;
     var commentid = e.currentTarget.dataset.commentid;
-    console.log(commentid)
     var ctype = e.currentTarget.dataset.type;
     if (wx.getStorageSync('userAccount')) {
       // 时间戳
@@ -210,7 +240,6 @@ Page({
           isagree: 1
         },
         success: function (res) {
-          console.log(res)
           if (res.data.status == 2) {
             wx.showToast({
               title: 'relogin',
@@ -225,10 +254,8 @@ Page({
               // 普通评论
               case 0:
                 var otherComments = that.data.otherComments;
-                console.log(otherComments)
                 for(var i=0;i<otherComments.length;i++){
                   if(otherComments[i]['commentid']==commentid){
-                    console.log(i)
                     otherComments[i]['isagree']=1;
                     otherComments[i]['agrees'] = otherComments[i]['agrees']-0+1;
                     that.setData({
@@ -295,7 +322,6 @@ Page({
         isagree: 0
       },
       success: function (res) {
-        console.log(res)
         if (res.data.status == 2) {
           wx.showToast({
             title: 'relogin',
@@ -306,7 +332,6 @@ Page({
             url: '../user/user',
           });
         } else {
-          console.log(ctype)
           switch (ctype) {
             // 普通评论
             case 0:
@@ -367,7 +392,6 @@ Page({
         iscollection: 1
       },
       success: function (res) {
-        console.log(res)
         if (res.data.status == 2) {
           wx.showToast({
             title: 'relogin',
@@ -406,7 +430,6 @@ Page({
         iscollection: 0
       },
       success: function (res) {
-        console.log(res)
         if (res.data.status == 2) {
           wx.showToast({
             title: 'relogin',
@@ -437,51 +460,55 @@ Page({
   // 发表评论
   sendComments: function(){
     var that = this;
-    console.log(wx.getStorageSync('userAccount'))
-    // 判断是否登录
-    if (wx.getStorageSync('userAccount')) {
-      // 时间戳
-      var timestamp = Date.parse(new Date()) / 1000;
-      // userid
-      var userid = wx.getStorageSync('userAccount').userid;
-      var auth = wx.getStorageSync('userAccount').auth;
-      var paramData = app.strencode(timestamp + ',' + userid + ',' + auth);
-      console.log(paramData + '\n' + that.data.item.itemid + '\n' + that.data.commentInputValue)
-      Req.POST(API.SENDCOMMENT, {
-        params: {
-          paramData: paramData,
-          itemid: that.data.item.itemid,
-          comment: that.data.commentInputValue
-        },
-        success: function(res){
-          if(res.data.status==2){
-            wx.showToast({
-              title: 'relogin',
-              icon: 'none'
-            });
-            app.globalData.relogin = true;
-            wx.switchTab({
-              url: '../user/user',
-            });
-          } else {
-            console.log(res);
-            that.setData({
-              commentInputValue: null
-            });
-            that.onLoad();
-          }
-        },
-        fail: function(res){},
-        complete: function(){}
-      });
+    if (that.data.commentInputValue){
+      // 判断是否登录
+      if (wx.getStorageSync('userAccount')) {
+        // 时间戳
+        var timestamp = Date.parse(new Date()) / 1000;
+        // userid
+        var userid = wx.getStorageSync('userAccount').userid;
+        var auth = wx.getStorageSync('userAccount').auth;
+        var paramData = app.strencode(timestamp + ',' + userid + ',' + auth);
+        Req.POST(API.SENDCOMMENT, {
+          params: {
+            paramData: paramData,
+            itemid: that.data.item.itemid,
+            comment: that.data.commentInputValue
+          },
+          success: function(res){
+            if(res.data.status==2){
+              wx.showToast({
+                title: 'relogin',
+                icon: 'none'
+              });
+              app.globalData.relogin = true;
+              wx.switchTab({
+                url: '../user/user',
+              });
+            } else {
+              that.setData({
+                commentInputValue: null
+              });
+              that.onLoad();
+            }
+          },
+          fail: function(res){},
+          complete: function(){}
+        });
+      } else {
+        wx.showToast({
+          title: '请登录后操作',
+          icon: 'none'
+        });
+        app.globalData.relogin = true;
+        wx.switchTab({
+          url: '../user/user',
+        });
+      }
     } else {
       wx.showToast({
-        title: '请登录后操作',
+        title: '请输入回复内容',
         icon: 'none'
-      });
-      app.globalData.relogin = true;
-      wx.switchTab({
-        url: '../user/user',
       });
     }
   },
@@ -496,6 +523,76 @@ Page({
       var item = i.replace(/\.thumb\..*/, '');
       images.push(item);
     }
+    flag = true;
     wx.previewImage({ urls: images });
   },
+  getCommentInfo: function(e){
+    var images = [];
+    for (var i of e.target.dataset.images) {
+      var item = i.replace(/\.thumb\..*/, '');
+      images.push(item);
+    }
+    flag=true;
+    wx.previewImage({ urls: images });
+  },
+  // 页面相关事件处理函数--监听用户下拉动作
+  onPullDownRefresh: function(){
+    var that=this;
+    that.onLoad();
+    wx.stopPullDownRefresh();
+  },
+  // 页面上拉触底事件的处理函数
+  onReachBottom: function (e) {
+    var that=this;
+    var page=that.data.page;
+    // 获取评论
+    Req.POST(API.SHOW_COMMENTS, {
+      params: {
+        userid: wx.getStorageSync('userAccount').userid,
+        itemid: that.data.item.itemid,
+        page: page+1
+      },
+      success: function (res) {
+        if (!res.data.data.length) {
+          // 添加无更多评论显示
+          that.setData({
+            haveOtherComment: '到底了'
+          })
+        } else {
+          that.setData({
+            haveOtherComment: '加载中'
+          });
+          that.setData({page:page+1})
+          var otherComments = that.data.otherComments;
+          var hotComments = that.data.hotComments;
+          var comments = res.data.data;
+          for (var i = 0; i < comments.length; i++) {
+            switch (comments[i].type) {
+              case 0:
+                otherComments.push(comments[i]);
+                that.setData({
+                  otherComments: otherComments,
+                  totalComments: res.data.comments
+                });
+                break;
+              case 1:
+                var bestComment = comments[i]
+                that.setData({
+                  bestComment: bestComment
+                });
+                break;
+              case 2:
+                hotComments.push(comments[i]);
+                that.setData({
+                  hotComments: hotComments
+                });
+                break;
+            }
+          }
+        }
+      },
+      fail: function () { },
+      complete: function () { }
+    })
+  }
 })

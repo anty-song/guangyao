@@ -1,2 +1,7 @@
 /* pages/dongtai/dongtai.wxss */
 @import '../../template/showItem/showItem.wxss';
+.loading{
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 50rpx;
+}

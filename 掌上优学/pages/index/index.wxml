@@ -29,15 +29,20 @@
     bindchange='switchTab'>
     <!-- 有问必答 -->
     <swiper-item>
+      <!-- topLoading -->
+      <view class='loading' hidden='{{isTopLoading}}'>加载中</view>
       <scroll-view
         id='scroll'
+        bindscroll='scroll'
+        upper-threshold='-1'
+        bindscrolltoupper='goTop'
         bindtouchstart='myTouchStart'
         bindtouchend='myTouchEnd'
         bindscrolltolower='reachDown'
         class='topbar-panel'
         scroll-y='true'
         scroll-top='0'>
-      <!-- 学科 -->
+        <!-- 学科 -->
         <view hidden='{{isFriend}}' class='subjects'>
           <scroll-view scroll-x class='scroll_H'>
             <view
@@ -71,34 +76,44 @@
         </swiper>
         <!-- 秀场 -->
         <view class='show-content'>
-          <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showData}}'>
-            <template is='showItem' data='{{item,collectHide}}'></template>
+          <navigator url='../showDetail/showDetail' data-index='{{index}}' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showData}}'>
+            <template is='showItem' data='{{item,collectHide,isVideo,index}}'></template>
           </navigator>
-          <view class='loading' hidden='{{loadingHide}}'>加载中...</view>
+          <view class='loading' hidden='{{isBottomLoading}}'>{{bottomLoadingHint}}</view>
         </view>
       </scroll-view>
     </swiper-item>
     <!-- 同学圈 -->
     <swiper-item>
+      <!-- topLoading -->
+      <view class='loading' hidden='{{isTopLoading}}'>加载中</view>
       <scroll-view
         id='scroll'
+        bindscroll='scroll'
+        upper-threshold='-1'
+        bindscrolltoupper='goTop'
         bindtouchstart='myTouchStart'
         bindtouchend='myTouchEnd'
         bindscrolltolower='reachDown'
         class='topbar-panel'
         scroll-y>
           <view class='show-content'>
-            <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showDataFriend}}'>
-              <template is='showItem' data='{{item,collectHide}}'></template>
+            <navigator url='../showDetail/showDetail' data-index='{{index}}' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showDataFriend}}'>
+              <template is='showItem' data='{{item,collectHide,isVideo,index}}'></template>
             </navigator>
-            <view class='loading' hidden='{{loadingHide}}'>加载中...</view>
+            <view class='loading' hidden='{{isBottomLoading}}'>{{bottomLoadingHint}}</view>
           </view>
         </scroll-view>
     </swiper-item>
     <!-- 关注 -->
     <swiper-item>
+      <!-- topLoading -->
+      <view class='loading' hidden='{{isTopLoading}}'>加载中</view>
       <scroll-view
         id='scroll'
+        bindscroll='scroll'
+        upper-threshold='-1'
+        bindscrolltoupper='goTop'
         bindtouchstart='myTouchStart'
         bindtouchend='myTouchEnd'
         bindscrolltolower='reachDown'
@@ -106,10 +121,10 @@
         hidden='{{!defaultAttentionHide}}'
         scroll-y>
         <view class='show-content'>
-          <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showDataAttention}}'>
-            <template is='showItem' data='{{item,collectHide}}'></template>
+          <navigator url='../showDetail/showDetail' data-index='{{index}}' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showDataAttention}}'>
+            <template is='showItem' data='{{item,collectHide,isVideo,index}}'></template>
           </navigator>
-          <view class='loading' hidden='{{loadingHide}}'>加载中...</view>
+          <view class='loading' hidden='{{isBottomLoading}}'>{{bottomLoadingHint}}</view>
         </view>
       </scroll-view>
       <!-- 未登录 -->
@@ -117,14 +132,18 @@
         <view class='attention-img' style='text-align:center;padding-top:200rpx;'>
           <image style='width:265rpx;height:291rpx;' src='../../images/all_nothing_icon.png'></image>
         </view>
-        <view class='attention-hint' style='text-align:center;font-size:30rpx;color:#888;margin-top:60rpx;'>请开启定位权限</view>
-        <button open-type='openSetting'>open</button>
+        <view class='attention-hint' style='text-align:center;font-size:30rpx;color:#888;margin-top:60rpx;'>你还没有关注的人哟</view>
       </view>
     </swiper-item>
     <!-- 附近 -->
     <swiper-item>
+      <!-- topLoading -->
+      <view class='loading' hidden='{{isTopLoading}}'>加载中</view>
       <scroll-view
         id='scroll'
+        bindscroll='scroll'
+        upper-threshold='-1'
+        bindscrolltoupper='goTop'
         bindtouchstart='myTouchStart'
         bindtouchend='myTouchEnd'
         bindscrolltolower='reachDown'
@@ -132,10 +151,10 @@
         hidden='{{!defaultNearbyHide}}'
         scroll-y>
         <view class='show-content'>
-          <navigator url='../showDetail/showDetail' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showDataNearby}}'>
-            <template is='showItem' data='{{item,collectHide}}'></template>
+          <navigator url='../showDetail/showDetail' data-index='{{index}}' data-itemdata='{{item}}' bindtap='transferData' wx:for='{{showDataNearby}}'>
+            <template is='showItem' data='{{item,collectHide,isVideo,index}}'></template>
           </navigator>
-          <view class='loading' hidden='{{loadingHide}}'>加载中...</view>
+          <view class='loading' hidden='{{isBottomLoading}}'>{{bottomLoadingHint}}</view>
         </view>
       </scroll-view>
       <!-- 未获得地理位置 -->
@@ -143,8 +162,7 @@
         <view class='nearby-img' style='text-align:center;padding-top:200rpx;'>
           <image style='width:267rpx;height:275rpx;' src='../../images/all_weizhi_img.png'></image>
         </view>
-        <view class='nearby-hint' style='text-align:center;font-size:30rpx;color:#888;margin-top:60rpx;'>请开启定位权限</view>
-        <button open-type='openSetting'>open</button>
+        <button class='nearby-hint' style='display:block;width:250rpx;text-align:center;background:#00cca2;font-size:30rpx;color:#fff;margin:60rpx auto 0;' open-type='openSetting'>开启定位权限</button>
       </view>
     </swiper-item>
   </swiper>

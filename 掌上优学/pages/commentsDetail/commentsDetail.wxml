@@ -27,6 +27,16 @@
     </view>
     <view class='comment-words'>
       <text>{{commentData.content}}</text>
+      <view wx:if='{{commentData.image.length}}' style='display:flex;flex-wrap:wrap;'>
+        <view wx:for='{{commentData.image}}' wx:for-item="image" style='width:180rpx;height:180rpx;margin-right:10rpx;'>
+          <image
+            catchtap='getCommentInfo'
+            data-images='{{commentData.image}}'
+            mode='aspectFill'
+            src='{{image}}'
+            style='width:100%;height:100%'></image>
+        </view>
+      </view>
     </view>
   </view>
   <view class='reply-list'>
@@ -53,10 +63,22 @@
           <text>{{item.agrees}}</text>
         </view>
       </view>
-      <view class='comment-words' data-otheruser='{{item.passport}}' bindtap='wakeUpInput'>
-        <text>{{item.content}}</text>
+      <view class='comment-words' data-currentid='{{item.commentid}}' data-otheruser='{{item.passport}}' bindtap='wakeUpInput'>
+        <view wx:if='{{item.replyerusername}}'>回复<text style='color:#1b8adf;'>@{{item.replyerusername}}</text>：{{item.content}}</view>
+        <view wx:else>{{item.content}}</view>
+        <view wx:if='{{item.image.length}}' style='display:flex;flex-wrap:wrap;'>
+          <view wx:for='{{item.image}}' wx:for-item="image" style='width:160rpx;height:160rpx;margin-right:20rpx;'>
+            <image
+              catchtap='getChildCommentInfo'
+              data-images='{{item.image}}'
+              mode='aspectFill'
+              src='{{image}}'
+              style='width:100%;height:100%'></image>
+          </view>
+        </view>
       </view>
     </view>
+    <view class='loading' hidden='{{!hint}}'>{{hint}}</view>
   </view>
   <!-- 创建回复内容 -->
   <view class='create-comment'>

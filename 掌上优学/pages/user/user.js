@@ -28,7 +28,6 @@ Page({
         paramData: paramData
       },
       success: function(res){
-        console.log(res)
         if (res.data.bindaccount=='0'){
           wx.navigateTo({
             url: '../tiePhone/tiePhone',
@@ -50,15 +49,14 @@ Page({
   },
   onLoad: function(options){
     var that=this;
-    console.log(app.globalData)
+    that.setData({
+      isLogin: false
+    });
     // 判断是否需要重新登录
     if(app.globalData.relogin){
-      that.setData({
-        isLogin: false
-      });
+      return;
     } else {
     // 判断是否具有登录信息
-      console.log(wx.getStorageSync('userAccount'));
       if (wx.getStorageSync('userAccount') && wx.getStorageSync('userAccount').bindaccount=='1') {
         that.setData({
           isLogin: true,

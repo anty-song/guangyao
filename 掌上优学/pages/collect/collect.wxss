@@ -1,2 +1,7 @@
 /* pages/collect/collect.wxss */
-@import '../index/index'
+@import '../index/index';
+.loading{
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 50rpx;
+}

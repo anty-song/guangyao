@@ -1,0 +1,43 @@
+.student-ctt {
+    padding-top: 20px;
+}
+.student-ctt a {
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.left-item,
+.left-t {
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+}
+.left-item {
+    color: #333;
+    background: #f2f7ff;
+}
+.left-t {
+    color: #fff;
+    background: #2157ad;
+}
+.left-item-active {
+    color: #2157ad;
+}
+.locate {
+    line-height: 42px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.student-ctt .works .col-sm-4 {
+    text-align: center;
+}
+.student-ctt .works img {
+    margin: 0 auto;
+}
+.student-ctt .works .col-sm-4 span {
+    font-size: 20px;
+    color: #333;
+    line-height: 60px;
+    margin-bottom: 10px;
+}

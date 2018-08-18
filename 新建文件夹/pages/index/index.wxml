@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<swiper
+  class='lunbo'
+  indicator-dots="true"
+  autoplay='true'
+  interval='3000'
+  duration='1000'
+  circular='true'
+  indicator-color='rgba(0,0,0,.3)'
+  indicator-active-color='#ffffff'>
+  <block>
+    <swiper-item>
+      <image src='../../images/banner_1.jpg'></image>
+    </swiper-item>
+  </block>
+  <block>
+    <swiper-item>
+      <image src='../../images/banner_2.jpg'></image>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='advisory'>
+  <button class='online' open-type='contact'>立即咨询</button>
+  <button class='phone' bindtap='phoneCall'>电话咨询</button>
+</view>
+<view class='part-1'>
+  <view class='part-tit'>
+    <view>模块标题</view>
+    <view>in english</view>
+  </view>
+  <view class='part-1-ctt'>
+    <view class='part-1-item'>
+      <image></image>
+      <view>item</view>
+    </view>
+    <view class='part-1-item'>
+      <image></image>
+      <view>item</view>
+    </view>
+    <view class='part-1-item'>
+      <image></image>
+      <view>item</view>
+    </view>
+    <view class='part-1-item'>
+      <image></image>
+      <view>item</view>
+    </view>
+    <view class='part-1-item'>
+      <image></image>
+      <view>item</view>
+    </view>
+    <view class='part-1-item'>
+      <image></image>
+      <view>item</view>
+    </view>
+  </view>
+</view>
+<view class='part-2'>
+  <view class='part-tit'>
+    <view>模块标题</view>
+    <view>in english</view>
+  </view>
+</view>

@@ -1,0 +1,259 @@
+page {
+  background: #f3f3f3;
+  
+}
+.page {
+  padding: 30rpx 10rpx 0;
+  position: relative;
+}
+.pics {
+  position: relative;
+  border-radius: 10rpx;
+  background: #fff;
+  height: 410rpx;
+  width: 730rpx;
+  padding-top: 30rpx;
+}
+.picbox {
+  position: relative;
+  width: 380rpx;
+  height: 380rpx;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.picbox image {
+  position: absolute;
+  width: 380rpx;
+  height: 380rpx;
+}
+.reviewpic,
+.edit {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit {
+  right: 20rpx;
+  top: 20rpx;
+  width: 200rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  background: #0e58a8;
+  border-radius: 20rpx;
+  color: #fff;
+  box-shadow: 0 0 10rpx 0 #0e58a8;
+}
+.edit image {
+  display: block;
+  width: 37rpx;
+  height: 37rpx;
+  margin-right: 16rpx;
+}
+.reviewpic {
+  right: 30rpx;
+  bottom: 30rpx;
+  width: 160rpx;
+  height: 62rpx;
+  font-size: 22rpx;
+  background: rgba(0,0,0,.5);
+  border-radius: 20rpx;
+  color: #fff;
+}
+.reviewpic image {
+  display: block;
+  height: 26rpx;
+  width: 26rpx;
+  margin-right: 8rpx;
+}
+.description {
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 30rpx 20rpx;
+  margin-top: 20rpx;
+}
+.desc-title {
+  font-size: 46rpx;
+  color: #000;
+}
+.slogan {
+  font-size: 28rpx;
+  color: #999;
+  margin: 20rpx 0;
+}
+.keywords,
+.intro {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 50rpx;
+}
+.keywords {
+  margin: 20rpx 0;
+}
+.trade {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 60rpx;
+  display: flex;
+}
+.tradeitem {
+  width: 156rpx;
+  height: 60rpx;
+  margin-left: 30rpx;
+  background: #0066d4;
+  color: #fff;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+}
+/* 词条统计 */
+scroll-view {
+  margin-top: 20rpx;
+  white-space: nowrap;
+}
+.total {
+  display: inline-block;
+  vertical-align: top;
+  height: 220rpx;
+  width: 310rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  padding: 30rpx;
+}
+.about {
+  display: inline-block;
+  vertical-align: top;
+  height: 220rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  margin-left: 20rpx;
+  padding: 30rpx;
+}
+.total_1 {
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+.total_2 {
+  margin: 30rpx 0;
+}
+.total_2,
+.total_3,
+.about {
+  font-size: 28rpx;
+  color: #666;
+}
+.about_2 {
+  margin-top: 24rpx;
+}
+.about_3 {
+  margin: 24rpx 0;
+}
+.story,
+.honor {
+  background: #fff;
+  padding: 30rpx 20rpx;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+.title {
+  position: relative;
+  font-size: 32rpx;
+  color: #333;
+  padding-left: 28rpx;
+  margin-bottom: 10rpx;
+}
+.title::before {
+  position: absolute;
+  top: 8rpx;
+  left: 0;
+  content: "";
+  width: 12rpx;
+  height: 30rpx;
+  background: #0261b1;
+  border-radius: 6rpx;
+}
+.honoritem {
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+.storyctt {
+  font-size: 30rpx;
+  line-height: 50rpx;
+  text-indent: 60rpx;
+}
+.catalogbtn,
+.gotopbtn {
+  z-index: 9;
+  position: fixed;
+  right: 20rpx;
+  width: 90rpx;
+  height: 90rpx;
+  background: rgba(255, 255, 255, .8);
+  box-shadow: 0 0 10rpx 0 rgba(0, 0, 0, .3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.catalogbtn {
+  top: 900rpx;
+  color: #333;
+  font-size: 30rpx;
+}
+.gotopbtn {
+  top: 1050rpx;
+}
+.gotopbtn image {
+  width: 42rpx;
+  height: 35rpx;
+}
+.catalogwrap {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, .7);
+}
+.closehint {
+  color: #fff;
+  font-size: 20rpx;
+  margin-left:10%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.closehint image {
+  height: 64rpx;
+  width: 64rpx;
+}
+.catalog {
+  position: fixed;
+  z-index: 11;
+  right: -440rpx;
+  top: 0;
+  width: 440rpx;
+  height: 100%;
+  background:#fff;
+}
+.catalogtit,
+.catalog-item {
+  display: flex;
+  align-items: center;
+  padding-left: 42rpx;
+  height: 100rpx;
+  font-size: 30rpx;
+}
+.catalogtit {
+  background: #fafafa;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.catalog-item image {
+  margin-left: 30rpx;
+  width: 21rpx;
+  height: 26rpx;
+}

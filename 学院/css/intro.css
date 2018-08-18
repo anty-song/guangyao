@@ -1,0 +1,37 @@
+.intro-ctt {
+    padding-top: 20px;
+}
+.intro-ctt a {
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.left-item,
+.left-t {
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+}
+.left-item {
+    color: #333;
+    background: #f2f7ff;
+}
+.left-t {
+    color: #fff;
+    background: #2157ad;
+}
+.left-item-active {
+    color: #2157ad;
+}
+.locate {
+    line-height: 42px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.intro p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 24px;
+    text-indent: 28px;
+}

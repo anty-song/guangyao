@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/service/service"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTextStyle": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#b3b3b3",
+    "selectedColor": "#4aa1de",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index_icon.png",
+        "selectedIconPath": "images/index_icon_active.png"
+      },
+      {
+        "text": "服务",
+        "pagePath": "pages/service/service",
+        "iconPath": "images/info_icon.png",
+        "selectedIconPath": "images/info_icon_active.png"
+      }
+    ]
+  }
+}

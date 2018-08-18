@@ -1,0 +1,34 @@
+/**index.wxss**/
+.lunbo image {
+  width: 750rpx;
+  height: 400rpx;
+}
+.advisory {
+  height: 180rpx;
+  width: 690rpx;
+  box-shadow: 0 5rpx 10rpx 0 rgba(0,0,0,.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx auto 0;
+}
+.advisory button {
+  padding: 0;
+  margin: 0;
+}
+.advisory button {
+  width: 200rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+.advisory .online {
+  background: blue
+}
+.advisory .phone {
+  background: red;
+  margin-left: 90rpx;
+}

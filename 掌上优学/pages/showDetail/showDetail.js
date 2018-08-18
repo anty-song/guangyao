@@ -26,7 +26,8 @@ Page({
     page:1,
     haveOtherComment: '',
     isVideo:true,
-    showid: null
+    showid: null,
+    pagehidden: true
   },
   // 初始化
   onLoad: function(opt){
@@ -45,7 +46,8 @@ Page({
     that.setData({
       otherCommentsHide: false,
       page: 1,
-      haveOtherComment: ''
+      haveOtherComment: '',
+      pagehidden: true
     });
     // 获取评论
     Req.POST(API.SHOW_COMMENTS, {
@@ -53,7 +55,8 @@ Page({
       success: function(res){
         that.setData({
           item: res.data.detail,
-          otherCommentsHide: false
+          otherCommentsHide: false,
+          pagehidden: false
         });
         if(res.data.data==[]){
           // 添加无评论显示

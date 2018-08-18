@@ -1,0 +1,47 @@
+<view class='banner'>
+  <image src='../../images/ppbk_banner_img.png'></image>
+  <view class='create-btn' bindtap='createItem'>
+    <image src='../../images/ppbk_cjct_bg.png'></image>
+    <view>创建词条</view>
+  </view>
+</view>
+<view class='wiki-ctt'>
+  <view class='search-box'>
+    <input placeholder='请输入您查询的品牌'></input>
+    <view class='search-btn'>搜索</view>
+  </view>
+  <view class='hot'>
+    <view class='title'>热搜词条</view>
+    <view class='hotlist'>
+      <view class='hotitem' bindtap='goItem' style='background:#f3f3f3;'>
+        <view class='itemtitle'>
+          <text>爱奇艺</text>
+          <image src='../../images/ppbk_ss_icon.png'></image>
+        </view>
+        <view class='itemintro'>dsdfsdf</view>
+      </view>
+      <view class='hotitem' style='background:#f3f3f3;'>
+        <view class='itemtitle'>
+          <text>爱奇艺杀戮空间东方单独</text>
+          <image src='../../images/ppbk_ss_icon.png'></image>
+        </view>
+        <view class='itemintro'>杀戮空间东方时空纠纷立刻就爱福利三，收到了焚枯食淡撒的发生上来看记录快车空间才能IC你那面试流程处理水电费撒的发生发东方饭店所所所所所所所所所所所所所所所所</view>
+      </view>
+      <view class='hotitem' style='background:#f3f3f3;'>
+        <view class='itemtitle'>
+          <text>爱奇艺</text>
+          <!-- <image src='../../images/ppbk_ss_icon.png'></image> -->
+        </view>
+        <view class='itemintro'>dsdfsdf</view>
+      </view>
+      <view class='hotitem' style='background:#f3f3f3;'>
+        <view class='itemtitle'>
+          <text>爱奇艺</text>
+          <!-- <image src='../../images/ppbk_ss_icon.png'></image> -->
+        </view>
+        <view class='itemintro'>dsdfsdf</view>
+      </view>
+    </view>
+  </view>
+</view>
+

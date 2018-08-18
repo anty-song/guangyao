@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/wiki/wiki",
+    "pages/wikiItem/wikiItem",
     "pages/brand/brand",
     "pages/braVote/braVote",
     "pages/braRank/braRank",
@@ -28,20 +30,20 @@
       {
         "text": "十大品牌",
         "pagePath": "pages/brand/brand",
-        "iconPath": "images/brand.png",
-        "selectedIconPath": "images/brand_active.png"
+        "iconPath": "images/q_tp_n.png",
+        "selectedIconPath": "images/q_tp_s.png"
       },
       {
         "text": "发现",
         "pagePath": "pages/find/find",
-        "iconPath": "images/find.png",
-        "selectedIconPath": "images/find_active.png"
+        "iconPath": "images/q_sy_n.png",
+        "selectedIconPath": "images/q_sy_s.png"
       },
       {
-        "text": "十佳产品",
-        "pagePath": "pages/product/product",
-        "iconPath": "images/product.png",
-        "selectedIconPath": "images/product_active.png"
+        "text": "品牌百科",
+        "pagePath": "pages/wiki/wiki",
+        "iconPath": "images/q_pp_n.png",
+        "selectedIconPath": "images/q_pp_s.png"
       }
     ]
   }

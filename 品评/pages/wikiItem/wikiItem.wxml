@@ -1,0 +1,91 @@
+<view class='page' id='page'>
+  <view class='catalogbtn' bindtap='showSide'>目录</view>
+  <view hidden='{{floorstatus}}' class='gotopbtn' bindtap='goTop'>
+    <image src='../../images/baike_top_icon.png'></image>
+  </view>
+  <!-- 图册 -->
+  <view class='pics' id='pics'>
+    <view class='picbox'>
+      <image src='http://img3.imgtn.bdimg.com/it/u=1349217170,3670712141&fm=15&gp=0.jpg'></image>
+      <image src='http://photocdn.sohu.com/20070921/Img252290486.jpg'></image>
+      <image src='http://img2.imgtn.bdimg.com/it/u=1502144705,796352457&fm=15&gp=0.jpg'></image>
+    </view>
+    <view class='edit'>
+      <image src='../../images/baike_edit_icon.png'></image>
+      <text>编辑词条</text>
+    </view>
+    <view bindtap='previewPic' class='reviewpic'>
+      <image src='../../images/baike_pic_icon.png'></image>
+      <text>图册</text>
+    </view>
+  </view>
+  <!-- 品牌简介 -->
+  <view class='description'>
+    <view class='desc-title'>达利园</view>
+    <view class='slogan'>达利园，用心创品质</view>
+    <view class='intro'>
+      是单独的多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多哒哒哒哒哒哒多多多多多多多多多多多多多
+    </view>
+    <view class='keywords'>关键词：可比克、蛋黄派、和其正、乐虎</view>
+    <view class='trade'>行业:
+      <view class='tradeitem'>饼干糕点</view>
+      <view class='tradeitem'>八宝粥</view>
+    </view>
+  </view>
+  <!-- 词条 -->
+  <scroll-view scroll-x='true'>
+    <view class='total'>
+      <view class='total_1'>词条统计</view>
+      <view class='total_2'>浏览次数：54541次</view>
+      <view class='total_3'>最近更新：2018.06.20</view>
+    </view>
+    <view class='about'>
+      <view class='about_1'>公司名：随时随地多所打算的十大十大</view>
+      <view class='about_2'>格言：</view>
+      <view class='about_3'>成立时间：</view>
+      <view class='about_4'>官方网站：</view>
+    </view>
+  </scroll-view>
+  <!-- 荣誉 -->
+  <view class='honor'>
+    <view class='title'>品牌荣誉</view>
+    <view class='honoritem'>荣获是单独的多多多多多多多多多多多</view>
+    <view class='honoritem'>荣获是单独的多多多多多多多多多多多</view>
+    <view class='honoritem'>荣获是单独的多多多多多多多多多多多</view>
+    <view class='honoritem'>荣获是单独的多多多多多多多多多多多</view>
+  </view>
+  <!-- 故事 -->
+  <view class='story'>
+    <view class='title'>品牌故事</view>
+    <view class='storyctt'>荣获是单独的多多多多多多多多多多多荣获是单独的多多多多多多多多多多多荣获是单独的多多多多多多多多多多多荣获是单独的多多多多多多多多多多多荣获是单独的多多多多多多多多多多多荣获是单独的多多多多多多多多多多多荣获是单独的多多多多多多多多多多多荣获是单独的多多多多多多多多多多多荣获是单独的多多多多多多多多多多多荣获是单独的多多多多多多多多多多多荣获是单独的多多多多多多多多多多多</view>
+  </view>
+</view>
+<view class='catalogwrap' bindtap='hideSide' hidden='{{hideSide}}'>
+  <view class='closehint'>
+    <view>点击关闭目录</view>
+    <image src='../../images/finger.png'></image>
+  </view>
+</view>
+<view class='catalog' animation="{{animation}}">
+  <view class='catalogtit'>品牌目录</view>
+  <view class='catalog-item'>
+    <text>品牌介绍</text>
+    <image src='../../images/baike_seat_icon.png'></image>
+  </view>
+  <view class='catalog-item'>
+    <text>品牌介绍</text>
+    <image src='../../images/baike_seat_icon.png'></image>
+  </view>
+  <view class='catalog-item'>
+    <text>品牌介绍</text>
+    <image src='../../images/baike_seat_icon.png'></image>
+  </view>
+  <view class='catalog-item'>
+    <text>品牌介绍</text>
+    <image src='../../images/baike_seat_icon.png'></image>
+  </view>
+  <view class='catalog-item'>
+    <text>品牌介绍</text>
+    <image src='../../images/baike_seat_icon.png'></image>
+  </view>
+</view>

@@ -1,4 +1,5 @@
 <!--pages/showDetail/showDetail.wxml-->
+<view hidden="{{pagehidden}}">
 <import src='../../template/showItem/showItem.wxml' />
 <view class='show-detail'>
   <!-- 个人秀 -->
@@ -137,4 +138,5 @@
       placeholder='评论...'></input>
     <button bindtap='sendComments' class='comment-btn'>评论</button>
   </view>
+</view>
 </view>

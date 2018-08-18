@@ -1,0 +1,122 @@
+/* pages/wiki/wiki.wxss */
+page{
+  background: #f2f3f6;
+}
+.banner>image {
+  display: block;
+  width: 750rpx;
+  height: 250rpx;
+}
+.banner {
+  position: relative;
+}
+.create-btn {
+  position: absolute;
+  top: 140rpx;
+  left: 346rpx;
+  width: 190rpx;
+  height: 72rpx;
+}
+.create-btn image {
+  width: 100%;
+  height: 100%;
+}
+.create-btn view {
+  position: absolute;
+  font-size: 26rpx;
+  line-height: 62rpx;
+  top: 0;
+  left: 42rpx;
+}
+.wiki-ctt {
+  padding: 0 20rpx;
+}
+.search-box {
+  display: flex;
+  height: 80rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.search-box input {
+  background: #fff;
+  font-size: 22rpx;
+  height: 80rpx;
+  width: 560rpx;
+  padding-left: 30rpx;
+}
+.search-btn {
+  height: 80rpx;
+  width: 120rpx;
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  background: #003f82;
+}
+/* 热搜 */
+.hot {
+  margin-top: 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+}
+.title {
+  position: relative;
+  font-size: 28rpx;
+  color: #4e381f;
+  padding-left: 28rpx;
+}
+.title::before {
+  position: absolute;
+  top: 4rpx;
+  left: 0;
+  content: "";
+  width: 12rpx;
+  height: 30rpx;
+  background: #0261b1;
+  border-radius: 6rpx;
+}
+.hotlist {
+  margin-top: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.hotitem {
+  width: 285rpx;
+  height: 170rpx;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+}
+.itemtitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.itemtitle text {
+  font-size: 26rpx;
+  max-width: 234rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
+  color: #353535;
+}
+.itemtitle image {
+  display: block;
+  width: 22rpx;
+  height: 28rpx;
+}
+.itemintro {
+  font-size: 20rpx;
+  line-height: 36rpx;
+  margin-top: 8rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hotitem:nth-child(2n) {
+  margin-left: 20rpx;
+}

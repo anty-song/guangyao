@@ -1,0 +1,25 @@
+.part-subtit {
+    line-height: 28px;
+}
+@media (min-width:768px){
+    .wiki {
+        padding: 75px 0;
+    }
+    .part-tit {
+        margin-bottom: 40px;
+    }
+    .wiki-part2 {
+        margin-top: 80px;
+    }
+    .wiki-part2 img {
+        margin: 0 auto;
+    }
+}
+@media (max-width: 767px){
+    .wiki {
+        padding: 30px 0;
+    }
+    .wiki-part2 img {
+        margin: 15px auto 0;
+    }
+}

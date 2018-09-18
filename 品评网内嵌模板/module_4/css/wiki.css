@@ -1,0 +1,28 @@
+.wiki-part {
+    padding: 70px 0;
+}
+.wiki-part {
+    font-size: 14px;
+    color: #666;
+    line-height: 28px;
+}
+.part-tit {
+    margin: 10px 0 20px;
+}
+.wiki-part img {
+    float: left;
+    margin: 0 20px 20px 0;
+}
+.wiki-part-p1-tit,
+.wiki-part-p2-tit {
+    font-size: 20px;
+    font-weight: bold;
+}
+.wiki-part-p1-ctt,
+.wiki-part-p2-ctt {
+    font-size: 16px;
+    margin-top: 25px;
+}
+.wiki-part-p2-tit {
+    margin-top: 40px;
+}

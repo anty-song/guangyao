@@ -1,0 +1,18 @@
+.brand a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+@media (min-width:768px){
+    .brand {
+        padding: 75px 0;
+    }
+    .brand .part-tit {
+        margin-bottom: 90px;
+    }
+}
+@media (max-width: 767px){
+    .brand {
+        padding: 30px 0;
+    }
+}

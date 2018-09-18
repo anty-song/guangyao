@@ -1,0 +1,33 @@
+.intro-part1 {
+    padding: 55px 0;
+}
+.intro-part1-ctt {
+    font-size: 16px;
+    color: #353535;
+    line-height: 24px;
+    margin-top: 60px;
+}
+.intro-part1-p1-tit,
+.intro-part1-p2-tit {
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+.intro-part1-p2-tit {
+    margin-top: 45px;
+}
+.intro-part2 {
+    padding: 60px 0;
+    background: #f6f7f9;
+}
+.intro-part2-item {
+    font-size: 16px;
+    color: #353535;
+    line-height: 36px;
+}
+.intro-part2 .part-head {
+    margin-bottom: 60px;
+}
+.people {
+    letter-spacing: 5.3px;
+}

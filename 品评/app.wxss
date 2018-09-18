@@ -1,29 +1,43 @@
 /**app.wxss**/
-.share-img,
-.service-img {
-  position: fixed;
-  right: 0;
-  width: 136rpx;
-  height: 136rpx;
-}
-.service-img {
-  background-color: transparent;
-}
-.service-img image {
-  width: 136rpx;
-  height: 136rpx;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
 .share-img {
-  bottom: 150rpx;
+  width: 66rpx;
+  height: 66rpx;
+}
+.share {
+  position:fixed;
+  z-index:9;
+  right:0;
+  top:650rpx;
+  height:148rpx;
+  width:140rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  background-color: rgba(255,255,255,.9);
+}
+.service-img {
+  position:fixed;
+  z-index:9;
+  right:0;
+  top:800rpx;
+  height:148rpx;
+  width:140rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  background-color: rgba(255,255,255,.9);
+  border-radius: 0;
 }
 .btn-group button::after {
   border: none;
 }
-.service-img {
-  bottom: 25rpx;
+.service-img image {
+  width: 66rpx;
+  height: 54rpx;
+  margin-top:-30rpx;
+
 }
 .action-sheet {
   position: fixed;
@@ -55,16 +69,14 @@
 }
 .signup {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 61rpx;
-  height: 101rpx;
-  padding: 0 20rpx;
-  border-radius: 50%;
-  background-color: #fff;
+  width: 140rpx;
+  height: 148rpx;
+  background-color: rgba(255,255,255,.9);
   position: fixed;
-  right: 20rpx;
-  bottom: 300rpx;
-  box-shadow: 0 0 25rpx #888;
-  font-size: 30rpx;
+  right: 0;
+  top: 500rpx;
   color: #0261b1;
+  justify-content: center;
 }

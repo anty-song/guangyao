@@ -1,0 +1,20 @@
+.page-ctt {
+    text-align: center;
+}
+.contact {
+    display: inline-block;
+}
+.contact p {
+    text-align: left;
+    font-size: 14px;
+    line-height: 30px;
+    color: #666;
+}
+p.name {
+    font-size: 20px;
+    margin-top: 30px;
+}
+p.hotline {
+    color: #ff1919;
+    font-size: 16px;
+}

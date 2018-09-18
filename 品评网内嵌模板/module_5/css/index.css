@@ -1,0 +1,121 @@
+.adv-item-ico {
+    border-radius: 50%;
+    background: #d3eafb;
+    text-align: center;
+    color: #2395ed;
+    margin: 0 auto;
+}
+.adv-item-name {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 20px;
+    text-align: center;
+}
+.about {
+    background: #f6f6f6;
+}
+.about .img-responsive {
+    margin: 0 auto;
+}
+.news-item {
+    max-width: 270px;
+    margin: 15px auto 0;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.3);
+}
+.new-tit {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 20px 15px;
+}
+.new-ctt {
+    font-size: 16px;
+    color: #999;
+    line-height: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding: 0 10px 15px;
+}
+.new-ctt span {
+    color: #2395ed;
+}
+.about-p1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #d4d4d4;
+}
+.about-p2 {
+    font-size: 16px;
+    color: #d4d4d4;
+    margin-top: 15px;
+}
+.about-shortline {
+    width: 100px;
+    height: 6px;
+    background: #2395ed;
+}
+.about-p3 {
+    font-size: 26px;
+    color: #2395ed;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.about-p4 {
+    font-size: 14px;
+    color: #333;
+}
+.about-more {
+    display: block;
+    width: 106px;
+    height: 42px;
+    border: 2px solid #2395ed;
+    border-radius: 4px;
+    line-height: 42px;
+    text-align: center;
+    color: #2395ed;
+    font-size: 18px;
+}
+.about-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+@media (min-width:768px) {
+    .part-tit {
+        margin-bottom: 80px;
+    }
+    .advantage,
+    .news {
+        padding: 60px 0;
+    }
+    .adv-item-ico {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+    }
+    .adv-item-ico .iconfont {
+        font-size: 50px;
+    }
+    .about .container {
+        display: flex;
+    }
+}
+@media (max-width:767px) {
+    .advantage,
+    .news {
+        padding: 30px 0;
+    }
+    .adv-item-ico {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .adv-item-ico .iconfont {
+        font-size: 30px;
+    }
+}

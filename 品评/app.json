@@ -1,8 +1,10 @@
 {
   "pages":[
+    "pages/test/test",
+    "pages/brand/brand",
     "pages/wiki/wiki",
     "pages/wikiItem/wikiItem",
-    "pages/brand/brand",
+    
     "pages/braVote/braVote",
     "pages/braRank/braRank",
     "pages/braRankItem/braRankItem",
@@ -34,13 +36,13 @@
         "selectedIconPath": "images/q_tp_s.png"
       },
       {
-        "text": "发现",
+        "text": "榜单",
         "pagePath": "pages/find/find",
         "iconPath": "images/q_sy_n.png",
         "selectedIconPath": "images/q_sy_s.png"
       },
       {
-        "text": "品牌百科",
+        "text": "品评百科",
         "pagePath": "pages/wiki/wiki",
         "iconPath": "images/q_pp_n.png",
         "selectedIconPath": "images/q_pp_s.png"

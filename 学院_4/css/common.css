@@ -1,0 +1,158 @@
+.logo {
+	display: flex;
+	align-items: center;
+	padding: 10px 0;
+}
+.logo:hover,
+.logo:focus {
+	text-decoration: none;
+
+}
+.navbar-brand:hover span,
+.navbar-brand:focus span {
+	color: #fff;
+}
+.logo img {
+	width: 70px;
+	height: 70px;
+	margin-right: 15px;
+}
+.logo span {
+	font-size: 30px;
+	color: #2157ad;
+}
+.navbar-brand {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+}
+.navbar-brand span {
+	font-size: 12px;
+	margin-left: 8px;
+}
+.navbar-brand > img {
+	height: 100%;
+}
+.navbar {
+	background: #2157ad;
+	margin-bottom: 0;
+}
+.navbar-toggle .icon-bar {
+	background: #fff;
+}
+.dropdown-menu {
+	min-width: 0;
+	border: none;
+	border-radius: 0;
+	background-color: #f2f7ff;
+}
+.dropdown-menu>li>a {
+	padding: 15px;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+	background-color: #2157ad;
+	color: #fff;
+}
+
+
+/* 912新增 */
+body {
+	display: flex;
+	display: -webkit-flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+.except-foot {
+	flex: 1;
+}
+.head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.hotline {
+	display: flex;
+	align-items: center;
+}
+.hotline .iconfont {
+	font-size: 40px;
+	color: #2157ad;
+	padding-right: 9px;
+}
+.t4-bread {
+	padding-top: 20px;
+}
+.t4-bread a:focus, .t4-bread a:hover {
+	text-decoration: none;
+}
+a.t4-bread-active {
+	color: #2157ad;
+	position: relative;
+	
+}
+.img-responsive {
+	margin: 0 auto;
+}
+.qrcode {
+	max-width: 100px;
+	max-height: 100px;
+	margin: 0 auto;
+}
+.foot {
+	background: #2157ad;
+	color: #fff;
+}
+.foot>.container {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.qrcode img {
+	width: 100%;
+	height: 100%;
+}
+.code-hint {
+	text-align: center;
+	font-size: 12px;
+}
+.bottom {
+	font-size: 12px;
+	text-align: center;
+	background: #143d7d;
+	padding: 15px 0;
+}
+@media (min-width:768px){
+	.t4-bread a {
+		font-size: 20px;
+		color: #999;
+		margin-right: 70px;
+		padding-bottom: 10px;
+	}
+	a.t4-bread-active {
+		border-bottom: 4px solid #2157ad;
+	}
+	.foot>.container {
+		display: flex;
+		align-items: center;
+	}
+	.foot .col-md-4>div {
+		text-align: center;
+	}
+	.foot .shcool-name {
+		font-size: 36px;
+	}
+	.foot .contact-lists {
+		font-size: 14px;
+		line-height: 28px;
+	}
+}
+@media (max-width:767px){
+	.t4-bread a {
+		font-size: 14px;
+		color: #999;
+		margin-right: 30px;
+		padding-bottom: 4px;
+	}
+	a.t4-bread-active {
+		border-bottom: 2px solid #2157ad;
+	}
+}

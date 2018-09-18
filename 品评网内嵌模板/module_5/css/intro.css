@@ -1,0 +1,14 @@
+@media(min-width:768px){
+    
+    .page-ctt {
+        padding: 30px 170px;
+    }
+}
+@media (max-width:767px){
+    .intro .part-head {
+        margin-bottom: 60px !important;
+    }
+    .page-ctt {
+        padding: 30px;
+    }
+}

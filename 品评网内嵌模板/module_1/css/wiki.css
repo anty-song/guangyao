@@ -1,0 +1,26 @@
+.wiki-part2 {
+    background: #f6f7f9;
+}
+.wiki-part1,
+.wiki-part2 {
+    padding: 55px 0;
+}
+.wiki-part1-ctt {
+    text-indent: 32px;
+}
+.wiki-part1-ctt,
+.wiki-part2-ctt {
+    font-size: 16px;
+    color: #353535;
+    line-height: 24px;
+    margin-top: 60px;
+}
+.wiki-part2-p1-tit,
+.wiki-part2-p2-tit {
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+.wiki-part2-p2-tit {
+    margin-top: 45px;
+}

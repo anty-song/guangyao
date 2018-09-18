@@ -1,0 +1,408 @@
+@media (min-width: 768px) {
+    .section-tit {
+        font-size: 30px;
+        text-align: center;
+    }
+    .service {
+        padding-top: 150px;
+        padding-bottom: 176px;
+    }
+    .service-head {
+        margin-bottom: 40px;
+    }
+    .about-tit {
+        text-align: left;
+        color: #fff;
+    }
+    .about,
+    .team {
+        display: flex;
+    }
+    .team {
+        align-items: center;
+    }
+    .category {
+        padding-top: 198px;
+        padding-bottom: 180px;
+    }
+    .advantage-left {
+        margin-top: 100px;
+    }
+    .team {
+        padding-top: 160px;
+        padding-bottom: 160px;
+    }
+    .service-subtit {
+        margin-bottom: 150px;
+    }
+    .category-subtit {
+        margin-bottom: 70px;
+    }
+    .about-more-btn {
+        height: 56px;
+        line-height: 56px;
+        align-self: flex-end;
+    }
+    .advantage-tit {
+        color: #569aff;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    .advantage-right-item {
+        display: flex;
+        align-items: center;
+    }
+    .ad-right-left {
+        margin-right: 38px;
+    }
+    .right-item-2 {
+        margin: 80px 0;
+    }
+    .team-tit {
+        text-align: left;
+        color: #fff;
+    }
+    .team-body {
+        line-height: 28px;
+        margin-top: 30px;
+        color: #fff;
+    }
+    .contact-tit,
+    .contact-subtit {
+        color: #fff;
+        text-align: left !important;
+    }
+    label {
+        color: #fff;
+    }
+    .hint {
+        color: #fff;
+        font-size: 14px;
+        margin: 20px 0 10px;
+    }
+    input {
+        width: 220px;
+        color: #fff;
+        background: transparent;
+        border: 1px solid #fff;
+    }
+    textarea {
+        color: #fff;
+        resize: none;
+        border: 1px solid #fff;
+        width: 80%;
+        height: 80px;
+        background: transparent;
+    }
+    .contact {
+        display: flex;
+        padding-bottom: 80px;
+    }
+    .col-right {
+        display: flex;
+        justify-content: center;
+    }
+    .contact-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+    }
+}
+@media (min-width: 992px) {
+    .team-left {
+        padding-right: 150px;
+    }
+}
+@media (max-width: 767px) {
+    .section-tit {
+        font-size: 22px;
+        text-align: center;
+    }
+    .category .col-md-4,
+    .category .col-md-6 {
+        margin-top: 30px;
+    }
+    .service,
+    .category,
+    .team,
+    .contact {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .service-subtit,
+    .category-subtit {
+        margin-bottom: 50px;
+    }
+    .service-head {
+        margin-bottom: 10px;
+        margin-top: 15px;
+    }
+    .about-tit {
+        margin-top: 10px;
+    }
+    .about-more-btn {
+        height: 40px;
+        line-height: 40px;
+        align-self: center;
+    }
+    .advantage-tit {
+        color: #569aff;
+        margin-bottom: 10px;
+    }
+    .ad-right-left {
+        margin: 15px auto 10px;
+    }
+    .advantage-right-item {
+        text-align: center;
+    }
+    .team-body {
+        line-height: 28px;
+    }
+    .contact {
+        background: rgb(52, 140, 252);
+    }
+    input,
+    textarea {
+        border: none;
+    }
+    .contact-right {
+        text-align: center;
+    }
+    .submit {
+        margin-bottom: 15px;
+    }
+    .gotop {
+        transform: scale(.6);
+        margin-right: -5%;
+    }
+}
+.section-tit {
+    font-weight: bold;
+}
+.section-subtit {
+    font-size: 16px;
+    text-align: center;
+}
+.section-body {
+    font-size: 14px;
+}
+.img-responsive {
+    margin: 0 auto;
+}
+/* 服务 */
+.service-tit {
+    color: #569aff;
+}
+.service-subtit {
+    position: relative;
+    
+    color: #999;
+}
+.service-subtit::after {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin-left: -23px;
+    content: "";
+    display: block;
+    width: 46px;
+    height: 2px;
+    background-color: #569aff;
+}
+.service-head {
+    display: flex;
+    align-items: center;
+}
+.service-head .zh {
+    font-size: 16px;
+    color: #333;
+}
+.service-head .en {
+    font-size: 14px;
+    color: #999;
+}
+.service-body {
+    color: #666;
+    line-height: 28px;
+}
+.service_1,
+.service_2,
+.service_3 {
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/index_icon.png);
+}
+.service_1 {
+    background-position: -10px -100px;
+}
+.service_2 {
+    background-position: -70px -100px;
+}
+.service_3 {
+    background-position: -130px -100px;
+}
+/* 关于我们 */
+.about .col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.about-tit {
+    color: #fff;
+}
+.about-body {
+    line-height: 36px;
+    color: #fff;
+}
+.about-more {
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.about-more-btn {
+    width: 192px;
+    background: #fff;
+    color: #00a2ff;
+    display: flex;
+    justify-content: center;
+}
+.category-tit {
+    color: #fff;
+}
+.category-subtit {
+    position: relative;
+    color: #fff;
+}
+.category-subtit::after {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin-left: -23px;
+    content: "";
+    display: block;
+    width: 46px;
+    height: 2px;
+    background-color: #fff;
+}
+.ad-right-left {
+    width: 80px;
+    height: 80px;
+    background-image: url(../images/index_icon.png);
+}
+.ad-right-1-left {
+    background-position: -10px -10px;
+}
+.ad-right-2-left {
+    background-position: -100px -10px;
+}
+.ad-right-3-left {
+    background-position: -190px -10px;
+}
+.advantage-body {
+    color: #666;
+    line-height: 28px;
+}
+.right-item-tit {
+    font-size: 20px;
+    color: #333;
+}
+.right-item-word {
+    font-size: 14px;
+    color: #666;
+    margin-top: 14px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+}
+.ico {
+    margin: 0 auto;
+    background-image: url(../images/index_icon.png);
+}
+.phone .ico {
+    width: 25px;
+    height: 19px;
+    background-position: -10px -166px;
+}
+.email .ico {
+    width: 25px;
+    height: 19px;
+    background-position: -45px -166px;
+}
+.address .ico {
+    width: 19px;
+    height: 23px;
+    background-position: -83px -162px;
+}
+.page-bottom {
+    height: 50px;
+    background-color: #242e39;
+    text-align: center;
+    line-height: 50px;
+    color: #818991;
+    font-size: 14px;
+}
+.submit {
+    display: block;
+    height: 44px;
+    width: 232px;
+    color: #0ca4fb;
+    text-align: center;
+    line-height: 44px;
+    background-color: #fff;
+    border: none;
+    margin-left: 45px;
+}
+.gotop {
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,.4);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrow {
+    width: 36px;
+    height: 20px;
+    background-image: url(../images/index_icon.png);
+    background-position: -115px -160px;
+}
+.more-arrow {
+    width: 21px;
+    height: 9px;
+    background-image: url(../images/index_icon.png);
+    background-position: -161px -160px;
+    margin-left: 20px;
+}
+.nav-active a {
+    background: -webkit-linear-gradient(#4f7dff,#4da4ff);
+    background: -o-linear-gradient(#4f7dff,#4da4ff);
+    background: -moz-linear-gradient(#4f7dff,#4da4ff);
+    background: linear-gradient(#4f7dff,#4da4ff);
+    color: #fff;
+}
+.kefu {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    width: 50px;
+    height: 60px;
+    background: rgba(0,0,0,.4);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+}
+.kefu .qq {
+    width: 26px;
+    height: 30px;
+    background-image: url(../images/index_icon.png);
+    background-position: -190px -100px;
+    margin-left: 14px;
+}

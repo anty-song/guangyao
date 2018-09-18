@@ -1,0 +1,55 @@
+.contact-part1,
+.contact-part2 {
+    padding: 60px 0;
+}
+.contact-part1 .part-head {
+    margin-bottom: 80px;
+}
+.contact-part2 .part-head {
+    margin-bottom: 70px;
+}
+.contact-item {
+    font-size: 16px;
+    color: #353535;
+    line-height: 36px;
+}
+.people {
+    letter-spacing: 5.3px;
+}
+.contact-part2 {
+    background-image: url(../images/two_lxfs_bg.png);
+    color: #fff;
+}
+.btns {
+    text-align: center;
+}
+.btn {
+    width: 120px;
+    height: 40px;
+}
+.submit {
+    background: #fff;
+    color: #000;
+}
+.submit:hover {
+    color: #000;
+}
+.reset {
+    background: transparent;
+    border: 1px solid #fff;
+}
+.reset:hover {
+    color: #fff;
+}
+.form-control {
+    background-color: transparent;
+    color: #fff;
+}
+@media (min-width:768px){
+    .submit {
+        margin-right: 120px;
+    }
+    .btns {
+        margin-top: 80px;
+    }
+}

@@ -1,0 +1,43 @@
+.contact-part1,
+.contact-part2 {
+    padding: 60px 0;
+}
+.contact-part1 .part-head {
+    margin-bottom: 80px;
+}
+.contact-part2 .part-head {
+    margin-bottom: 70px;
+}
+.contact-item {
+    font-size: 16px;
+    color: #353535;
+    line-height: 36px;
+}
+.people {
+    letter-spacing: 5.3px;
+}
+.contact-part2 {
+    background: #f6f7f9;
+}
+.btns {
+    text-align: center;
+}
+.btn {
+    width: 120px;
+    height: 40px;
+}
+.submit {
+    background: #004f9f;
+    color: #fff;
+}
+.submit:hover {
+    color: #fff;
+}
+@media (min-width:768px){
+    .submit {
+        margin-right: 120px;
+    }
+    .btns {
+        margin-top: 80px;
+    }
+}

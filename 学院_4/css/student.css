@@ -1,0 +1,82 @@
+.t4-zuopin,
+.t4-student {
+    margin-top: 30px;
+}
+.t4-zuopin .col-md-3 {
+    text-align: center;
+}
+.zuopin-item {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.zuopin-mark {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px 0;
+}
+.zuopin-name {
+    font-size: 20px;
+}
+.zuopin-info {
+    font-size: 14px;
+    margin-top: 10px;
+}
+.t4-student .col-md-6 {
+    margin-bottom: 30px;
+}
+.t4-student .student-item {
+    padding: 25px;
+    height: 100%;
+    background: rgba(33,87,173, .2);
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+.t4-student .student-img {
+    border-radius: 50%;
+    float: left;
+    margin-right: 24px;
+}
+.t4-student .student-name {
+    font-size: 24px;
+    color: #333;
+}
+.t4-student .student-academy {
+    font-size: 14px;
+    color: #90abd6;
+}
+.t4-student .student-info {
+    font-size: 14px;
+    color: #666;
+    line-height: 26px;
+    margin-top: 16px;
+}
+@media (min-width:768px){
+    .t4-student .col-md-6 {
+        min-height: 270px;
+    }
+    .zuopin-mark {
+        display: none;
+    }
+    .zuopin-item:hover .zuopin-mark {
+        display: block;
+    }
+    .t4-student {
+        display: flex;
+    }
+    .t4-student .student-img {
+        width: 180px;
+    }
+}
+@media (max-width:767px){
+    .t4-student .student-img {
+        width: 80px;
+    }
+}

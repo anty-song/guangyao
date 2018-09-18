@@ -1,0 +1,41 @@
+.intro p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 24px;
+    text-indent: 28px;
+}
+.honor-item {
+    text-align: center;
+}
+@media (min-width:768px){
+    .honor-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+    }
+    .honor-time,
+    .honor-info {
+        font-size: 20px;
+    }
+    .honor-time {
+        color: #666;
+        padding: 0 15px;
+    }
+}
+@media (max-width:767px){
+    .honor {
+        padding-bottom: 30px;
+    }
+    .honor-item {
+        margin-top: 30px;
+    }
+    .honor-time,
+    .honor-info {
+        font-size: 14px;
+    }
+    .honor-time {
+        color: #666;
+        padding: 10px 0;
+    }
+}

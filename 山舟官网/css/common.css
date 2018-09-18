@@ -1,0 +1,74 @@
+.navbar {
+    margin-bottom: 0;
+}
+.navbar-header {
+    display: flex;
+    justify-content: space-between;
+}
+.navbar-brand {
+    height: auto;
+}
+.logo img {
+    width: 490px;
+    height: 80px;
+}
+.navbar-toggle .icon-bar {
+    background-color: #000;
+}
+.navbar-nav {
+    margin: 0;
+}
+.errormsg {
+    position: fixed;
+    display: flex;
+    padding: 10px 20px;
+    top: 50%;
+    left: 50%;
+    z-index: 9;
+    align-items: center;
+    background: #e8f2ff;
+    opacity: .6;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.3);
+}
+.errormsg .hints {
+    color: #368dfb;
+    margin-right: 24px;
+}
+.errormsg img {
+    width: 12px;
+    height: 12px;
+}
+@media (min-width: 768px) {
+    .daohang {
+        height: 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-collapse {
+        height: 42px !important;
+    }
+    .navbar-nav {
+        display: flex;
+    }
+    .navbar-nav>li {
+        width: 100px;
+        height: 42px;
+    }
+    .navbar-nav>li>a {
+        line-height: 42px;
+        text-align: center;
+        border-radius: 21px;
+    }
+}
+@media (max-width: 767px) {
+    .navbar-nav>li {
+        margin: 0 -15px;
+    }
+    .navbar-nav>li>a {
+        padding-left: 15px;
+    }
+    .navbar-collapse {
+        background: #eee;
+    }
+}

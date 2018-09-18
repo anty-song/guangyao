@@ -1,0 +1,17 @@
+.zuopin-item,
+.student-item {
+    margin-top: 30px;
+}
+.student-item {
+    text-align: center;
+}
+.zuopin-name,
+.student-name {
+    font-size: 20px;
+    color: #333;
+}
+.zuopin-info,
+.student-info {
+    font-size: 14px;
+    color: #666;
+}

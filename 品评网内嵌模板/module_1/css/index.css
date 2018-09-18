@@ -1,0 +1,315 @@
+.company {
+    
+    color: #353535;
+}
+.tag {
+    position: relative;
+    font-size: 14px;
+    color: #004f9f;
+    padding-left: 18px;
+}
+.tag::before {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    content: "";
+    display: block;
+    width: 0;
+    height: 10px;
+    border-left: 4px solid #004f9f;
+    border-right: 4px solid #ffd200;
+}
+.company-detail {
+    font-size: 14px;
+    color: #555;
+    line-height: 24px;
+    text-indent: 28px;
+}
+.more {
+    display: block;
+    width: 110px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    color: #555;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+}
+.more:hover {
+    background: #004f9f;
+    box-shadow: 0 0 10px 0 rgba(0,79,159,.7);
+    border: none;
+    color: #fff;
+}
+
+.part2 .container {
+    position: relative; /* 试试 不加这一句 */
+}
+.part2-tit {
+    color: #fff;
+    text-align: center;
+}
+.adv-list {
+    background: #fff;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.3);
+}
+.adv-item-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.adv-item-box:hover .adv-item-ico-box {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    background: rgba(0,79,159,1);
+    box-shadow: 0 5px 20px 0 rgba(0,79,159,.5);
+}
+.adv-item-box:hover .adv-item-word {
+    color: #004f9f;
+}
+.adv-item-ico-box {
+    border-radius: 50%;
+    background: rgba(0,79,159,.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
+}
+.ico {
+    background-image: url(../images/oindex_qt_img.png);
+}
+.ico1 {
+    width: 71px;
+    height: 71px;
+    background-position: -1px 0;
+}
+.ico2 {
+    width: 70px;
+    height: 66px;
+    background-position: -82px 0;
+}
+.ico3 {
+    width: 71px;
+    height: 63px;
+    background-position: -162px -3px;
+}
+.ico4 {
+    width: 71px;
+    height: 66px;
+    background-position: 0 -81px;
+}
+.adv-item-word {
+    color: #353535;
+    transition: all .3s;
+}
+.part3-head,
+.part3-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.part3-item {
+    color: #555;
+    border-bottom: 1px dashed #555;
+}
+.news-left {
+    position: relative;
+}
+.news-left::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    border: 1px solid #555;
+    background-image: url(../images/oindex_qt_img.png);
+    background-position: -92px -73px;
+}
+.part3-item:hover .news-left::before {
+    border: none;
+    background-color: #004f9f;
+    box-shadow: 0 5px 20px 0 rgba(0,79,159,.5);
+    background-position: -74px -72px;
+}
+.part3 .col-md-7 {
+    overflow: hidden;
+}
+.part3 .col-md-5 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+@media (min-width:768px) {
+    .part1 {
+        margin: 120px 0 60px;
+    }
+    .img-responsive {
+        position: relative;
+    }
+    .part1 .col-md-5 .img-box {
+        z-index: 1;
+    }
+    .img-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        display: block;
+        width: calc(100% - 30px);
+        height: 100%;
+        background: rgba(0,79,159,.2);
+        margin-left: 15px;
+    }
+    .company {
+        font-size: 36px;
+        margin: 20px 0;
+    }
+    .company-detail {
+        margin: 30px 0;
+    }
+    .more {
+        width: 110px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .more:hover {
+        background: #004f9f;
+        box-shadow: 0 0 10px 0 rgba(0,79,159,.7);
+        border: none;
+        color: #fff;
+    }
+    .part1 .col-md-10,.col-md-offset-2 .img-box {
+        z-index: 2;
+    }
+    .col-md-10,.col-md-offset-2 {
+        margin-top: -230px;
+        padding: 45px 30px;
+        background: rgba(255,255,255,.8);
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.3)
+    }
+    .part2 .container {
+        margin-top: -280px;
+    }
+    .part2-tit {
+        font-size: 40px;
+    }
+    .adv-list {
+        padding: 80px 0;
+        margin-top: 40px;
+    }
+    .adv-item-ico-box {
+        width: 130px;
+        height: 130px;
+    }
+    .adv-item-word {
+        font-size: 18px;
+        margin-top: 25px;
+    }
+    .part3 {
+        margin: 80px 0 175px;
+    }
+    .part3 .col-md-7 {
+        max-height: 450px;
+    }
+    .part3-tit {
+        font-size: 40px;
+        color: #353535;
+    }
+    .part3-item {
+        height: 68px;
+        font-size: 16px;
+    }
+    .news-left {
+        padding-left: 30px;
+    }
+}
+@media (max-width:1200px) {
+    .col-md-10, .col-md-offset-2 {
+        margin-top: -130px;
+    }
+    .part2 .container{
+        margin-top: -80px;
+    }
+}
+@media (max-width:992px) {
+    .col-md-10, .col-md-offset-2 {
+        margin-top: 30px;
+    }
+    .part2 .container{
+        margin-top: -80px;
+    }
+    .part3 .img-responsive {
+        margin: 15px auto 0;
+    }
+}
+@media (max-width:767px) {
+    .part1 {
+        margin: 30px 0;
+    }
+    .company {
+        font-size: 24px;
+    }
+    .tag {
+        margin: 15px 0;
+    }
+    .company-detail {
+        margin-bottom: 10px;
+    }
+    .col-md-10,.col-md-offset-2 {
+        padding: 15px;
+        background: rgba(255,255,255,.8);
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.3)
+    }
+    .part1 .more {
+        margin: 15px auto 0;
+    }
+    .part2 .container {
+        margin-top: -50px;
+    }
+    .part2-tit {
+        font-size: 24px;
+    }
+    .adv-item-ico-box {
+        width: 70px;
+        height: 70px;
+    }
+    .adv-list {
+        padding: 15px 0;
+        margin-top: 10px;
+    }
+    .ico {
+        transform: scale(.4)
+    }
+    .adv-item-word {
+        margin-top: 10px;
+    }
+    .part3 {
+        margin: 30px 0;
+    }
+    .part3 .col-md-7 {
+        max-height: 192px;
+    }
+    .part3-tit {
+        font-size: 24px;
+        color: #353535;
+    }
+    .part3-item {
+        height: 38px;
+        font-size: 14px;
+    }
+    .news-left {
+        padding-left: 20px;
+    }
+    .news-left::before {
+        transform: scale(.7);
+    }
+    .part3 .img-responsive {
+        margin-top: 15px;
+    }
+}

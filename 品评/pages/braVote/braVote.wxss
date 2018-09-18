@@ -1,6 +1,7 @@
 /* pages/voting/voting.wxss */
 page{
   background-color: #f3f3f3;
+  position: relative;
 }
 .container {
   padding-top: 10rpx;

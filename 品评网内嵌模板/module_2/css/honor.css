@@ -1,0 +1,28 @@
+.honor-part {
+    padding: 60px 0;
+    background: #f6f7f9;
+}
+.zizhi-item {
+    background: #fff;
+    display: flex;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.zizhi-item .left {
+    height: 178px;
+    width: 240px;
+    background: #353535;
+}
+.zizhi-item .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.right-item {
+    font-size: 16px;
+    color: #555;
+}
+.right-item .right-item-name {
+    font-size: 20px;
+    color: #353535;
+}

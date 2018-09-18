@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>目录列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .wrap {
+            width: 70%;
+            margin: 50px auto 0;
+        }
+        .ico-block {
+            width: 30px;
+            height: 30px;
+        }
+        .ico-block img {
+            width: 100%;
+            height: 100%;
+        }
+        .list-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+        }.dir-name {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="list-item" data-flag='1' onclick="handler();">
+            <div class="ico-block">
+                <img src="dir.png" alt="">
+            </div>
+            <div class="dir-name">去百度密码123</div>
+        </div>
+        <div class="list-item" data-flag='1' onclick="handler();">
+            <div class="ico-block">
+                <img src="dir.png" alt="">
+            </div>
+            <div class="dir-name">去百度密码123</div>
+        </div>
+    </div>
+    <script>
+        // 函数中的参数分别为 cookie 的名称、值以及过期天数
+        // function setCookie(c_password, value, expiredays) {
+        //     var exdate = new Date();
+        //     exdate.setDate(exdate.getDate() + expiredays);
+        //     document.cookie = c_password + "=" + escape(value) +
+        //         ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+        // }
+        // setCookie('name', 'song', 1); // cookie过期时间为1天。
+
+        // 函数中的参数为，要判断的cookie名称
+        function checkCookie(c_password) {
+            dirpassword = getCookie(c_password);
+            if (dirpassword != null && dirpassword != "") {
+                // 如果cookie值存在，执行下面的操作。
+                return true;
+            } else {
+                return false;
+            }
+        }
+        // 如果要设置过期时间以秒为单位
+        function setCookie(c_password, value, expireseconds) {
+            var exdate = new Date();
+            exdate.setTime(exdate.getTime() + expireseconds * 1000);
+            document.cookie = c_password + "=" + escape(value) +
+                ((expireseconds == null) ? "" : ";expires=" + exdate.toGMTString())
+        }
+        // 函数中的参数为 要获取的cookie键的名称。
+        function getCookie(c_password) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_password + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_password.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) {
+                        c_end = document.cookie.length;
+                    }
+                    return unescape(document.cookie.substring(c_start, c_end));
+                }
+            }
+            return "";
+        }
+        //清除cookie
+        function clearCookie(name) {
+            setCookie(name, "", -1);
+        }
+        // 操作函数
+        function handler() {
+            if(checkCookie('dirpassword')){
+                location.href='https://www.baidu.com';
+            }else{
+                dirpassword = prompt('请输入密码:', "");
+                if (dirpassword != null && dirpassword != "") {
+                    if (dirpassword == '123') {
+                        //重新设置cookie。
+                        setCookie('dirpassword', dirpassword, 60)
+                        location.href = 'https://www.baidu.com';
+                    } else {
+                        alert('密码错误');
+                    }
+                } else {
+                    alert("密码不能为空");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

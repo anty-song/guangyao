@@ -1,0 +1,176 @@
+.carousel-inner>.item>a>img, .carousel-inner>.item>img {
+	margin: 0 auto;
+}
+.faculty {
+	background-image: url(../images/Template_5_bgs.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	
+}
+.faculty .col-md-7 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.teacher-item {
+	text-align: center;
+	padding: 0 15px;
+}
+.more {
+	display: block;
+	text-align: center;
+	border: 1px solid #fff;
+	border-radius: 6px;
+}
+.teacher-name {
+	font-size: 20px;
+	color: #fff;
+	margin: 8px 0;
+}
+.teacher-post {
+	font-size: 18px;
+	color: #ccc;
+}
+.news-item {
+	position: relative;
+	padding: 10px 0;
+	border-bottom: 1px dashed #f1f1f1;
+}
+.new-left {
+	position: absolute;
+	left: 0;
+	background: blueviolet;
+	width: 150px;
+	height: 150px;
+}
+.new-right-head {
+	display: flex;
+	justify-content: space-between;
+}
+.new-tit {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: #333;
+}
+.new-time {
+	white-space: nowrap;
+	color: #999;
+	padding-left: 15px;
+}
+.new-right-body {
+	color: #999;
+	line-height: 24px;
+	margin-top: 10px;
+}
+.contact {
+	background-image: url(../images/Template_5_bgcall.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	color: #fff;
+}
+@media (min-width:768px) {
+	.part-head {
+		padding-bottom: 80px;
+	}
+	.campus-intro {
+		padding: 70px 0 130px;
+	}
+	.campus-intro .container {
+		display: flex;
+		align-items: center;
+	}
+	.faculty {
+		padding: 65px 0;
+	}
+	.faculty-part-head {
+		line-height: 50px;
+		border-bottom: 1px solid #fff;
+	}
+	.faculty-part-tit {
+		font-size: 38px;
+		color: #fff;
+	}
+	.faculty-part-subtit {
+		font-size: 18px;
+		color: #ccc;
+	}
+	.teacher-info {
+		font-size: 18px;
+		color: #ccc;
+		line-height: 36px;
+		margin: 20px 0;
+	}
+	.faculty .container {
+		display: flex;
+	}
+	.faculty .col-md-5 {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.news {
+		padding: 70px 0;
+	}
+	.new-tit {
+		font-size: 20px;
+	}
+	.contact-ctt {
+		width: 50%;
+		float: right;
+		padding: 90px 0 90px 75px;
+	}
+	.contact-tit {
+		font-size: 38px;
+	}
+	.contact-info {
+		font-size: 20px;
+		line-height: 46px;
+		color: #f7f7f7;
+	}
+	.more {
+		width: 140px;
+		height: 40px;
+		line-height: 40px;
+	}
+}
+@media (max-width:767px){
+	.part-head {
+		padding-bottom: 15px;
+	}
+	.campus-intro .col-md-7 {
+		text-indent: 28px;
+		line-height: 28px;
+		margin-top: 15px;
+	}
+	.campus-intro,
+	.faculty,
+	.news,
+	.contact-ctt {
+		padding: 30px 0;
+	}
+	.new-tit {
+		font-size: 16px;
+	}
+	.faculty .part-tit {
+		color: #fff;
+	}
+	.teacher-info {
+		color: #fff;
+		text-indent: 28px;
+		line-height: 28px;
+		margin-bottom: 15px;
+	}
+	.more {
+		width: 100px;
+		height: 30px;
+		line-height: 30px;
+		margin: 15px auto 0;
+	}
+	.contact-ctt {
+		margin-left: 30px;
+	}
+	.contact-tit {
+		font-size: 20px;
+	}
+}

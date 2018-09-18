@@ -1,0 +1,129 @@
+a,
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+a:hover {
+    color: #004f9f;
+}
+.pc-head {
+    height: 40px;
+    background: #353535;
+    color: #fff;
+    font-size: 12px;
+    line-height: 40px;
+}
+.head-left,
+.head-right {
+    display: inline-block;
+    position: relative;
+}
+.head-right::before {
+    position: absolute;
+    top: 10px;
+    left: -27px;
+    content: "";
+    width: 18px;
+    height: 21px;
+    background-image: url(../images/oindex_qt_img.png);
+    background-position: -81px -98px;
+}
+.navbar {
+    margin-bottom: 0;
+}
+.navbar-toggle .icon-bar {
+    background: #000;
+}
+.part-head {
+    position: relative;
+}
+.part-head::before,
+.part-head::after {
+    position: absolute;
+    top: 30px;
+    display: block;
+    content: "";
+    height: 0;
+    width: 47%;
+    border-top: 1px solid #353535;
+}
+.part-head::before {
+    left: 0;
+}
+.part-head::after {
+    right: 0;
+}
+.plane {
+    width: 32px;
+    height: 33px;
+    display: block;
+    margin: 0 auto;
+}
+.part-tit {
+    text-align: center;
+    font-size: 30px;
+    color: #353535;
+    font-weight: bold;
+}
+.foot {
+    background: #353535;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+.foot a {
+    color: #00bcff;
+}
+@media (min-width:768px) {
+    .page-head {
+        text-align: center;
+        padding: 11px 0;
+        border-bottom: 1px solid #ccc;
+    }
+    .page-head .company-name {
+        font-size: 30px;
+        color: #003aa5;
+        line-height: 48px;
+    }
+    .page-head .company-info {
+        font-size: 14px;
+        color: #888;
+        line-height: 32px;
+    }
+    .navbar-nav {
+        float: none;
+    }
+    .nav>li {
+        width: 14.2857%;
+        height: 70px;
+        text-align: center;
+    }
+    .nav>li>a {
+        position: relative;
+        display: inline-block;
+        height: 66px;
+        line-height: 70px;
+        font-size: 18px;
+    }
+    .nav .active-navitem a::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 4px;
+        background: #004f9f;
+        border-radius: 2px;
+    }
+    .foot {
+        line-height: 50px;
+    }
+}
+@media (max-width:767px) {
+    .foot {
+        line-height: 30px;
+    }
+    .nav>li>a {
+        padding-left: 15px;
+    }
+}

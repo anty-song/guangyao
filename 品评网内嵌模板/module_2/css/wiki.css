@@ -1,0 +1,20 @@
+.wiki-part {
+    padding: 60px 0;
+    background: #f6f7f9;
+}
+.part-head {
+    margin-bottom: 60px;
+}
+.wiki-part-p1-tit,
+.wiki-part-p2-tit {
+    font-size: 20px;
+    font-weight: bold;
+}
+.wiki-part-p1-ctt,
+.wiki-part-p2-ctt {
+    font-size: 16px;
+    margin-top: 25px;
+}
+.wiki-part-p2-tit {
+    margin-top: 40px;
+}

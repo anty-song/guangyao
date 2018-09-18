@@ -1,0 +1,58 @@
+
+.contact-item {
+    display: flex;
+    align-items: center;
+}
+.contact-ico {
+    border: 1px solid #f13a3a;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 20px;
+    color: #f13a3a;
+}
+.iconfont {
+    font-size: 30px;
+}
+.contact-ctt {
+    font-size: 14px;
+    color: #333;
+}
+@media (min-width:768px){
+.contact {
+    padding: 75px 0;
+}
+.contact .part-tit {
+    margin-bottom: 100px;
+}
+.map {
+    height: 360px;
+    max-width: 1200px;
+}
+.contact-item {
+    margin-bottom: 75px;
+}
+.contact-ico {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+}
+.iconfont {
+    font-size: 30px;
+}
+}
+@media (max-width:767px){
+.contact {
+    padding: 30px 0;
+}
+.contact-item {
+    margin-bottom: 20px;
+}
+.contact-ico {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+.iconfont {
+    font-size: 20px;
+}
+}

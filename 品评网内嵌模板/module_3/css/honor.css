@@ -1,0 +1,36 @@
+
+.item-name {
+    font-size: 20px;
+}
+.item-info {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+@media (min-width:768px){
+    .honor {
+        padding: 75px 0;
+    }
+    .honor-item {
+        color: #666;
+        display: flex;
+        align-items: center;
+    }
+    .honor-detail-left {
+        text-align: right;
+    }
+    .honor-detail-right {
+        text-align: left;
+    }
+    .honor-item img {
+        margin: 0 auto;
+    }
+}
+@media (max-width:767px){
+    .honor {
+        padding: 30px 0;
+    }
+    .honor .img-responsive {
+        margin: 15px 0;
+    }
+}

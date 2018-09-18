@@ -1,0 +1,53 @@
+/* pages/test/test.wxss */
+image {
+  display: block;
+}
+.wrap {
+  position: relative;
+}
+.banner {
+  width: 750rpx;
+  height: 290rpx;
+}
+.banner image {
+  width: 100%;
+  height: 100%;
+}
+.champion {
+  position: relative;
+  width: 690rpx;
+  height: 260rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #fff;
+  margin-top: 30rpx;
+}
+.a_bg {
+  position: absolute;
+  width: 750rpx;
+  height: 386rpx;
+}
+button::after {
+  border: none;
+}
+button {
+  width: 166rpx;
+  padding: 0;
+  height:67rpx;
+  background:transparent;
+  border:1rpx solid #fff;
+  color:#fff;
+  font-size:30rpx;
+  line-height:67rpx;
+  margin-top: 34rpx;
+}
+.a_img_l {
+  width: 83rpx;
+  height:123rpx;
+}
+.a_img_m {
+  width: 214rpx;
+  height:112rpx;
+}

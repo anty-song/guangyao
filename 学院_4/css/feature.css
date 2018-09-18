@@ -1,0 +1,25 @@
+.t4-teacher {
+    margin-top: 30px;
+}
+.t4-environment img {
+    width: 100%;
+}
+.t4-environment .container {
+    padding-right: 25px;
+}
+.t4-environment .picC{
+    padding: 0;
+    width:100%;
+    margin:50px auto;
+    -webkit-column-count:3;
+    -moz-column-count:3;
+    column-count:3;
+    -webkit-column-gap:20px;
+    -moz-column-gap:20px;
+    -column-gap:20px;
+    list-style:none;
+}   
+.t4-environment .picC li{
+    margin-top:10px;
+    margin-right: -10px;
+}

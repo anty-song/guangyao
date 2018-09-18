@@ -1,0 +1,19 @@
+.brand-part {
+    padding-top: 60px;
+}
+.brand-box {
+    margin: 60px 0;
+}
+.brand-part a {
+    display: block;
+    margin: 0 auto;
+}
+.brand-part img  {
+    margin: 35px auto 0;
+}
+.brand-item-name {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    line-height: 52px;
+}

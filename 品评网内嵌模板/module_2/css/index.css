@@ -1,0 +1,240 @@
+.part-tit {
+    position: relative;
+    color: #353535;
+    text-align: center;
+}
+.part-tit::after {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    margin-left: -35px;
+    content: "";
+    width: 70px;
+    height: 0;
+    border-top: 2px solid #c70909;
+}
+.adv-items {
+    display: flex;
+}
+.adv-item {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #c70909;
+    
+}
+.adv-item-ico {
+    background-image: url(../images/tindex_qt_img.png);
+}
+.ico1 {
+    width: 52px;
+    height: 51px;
+    background-position: 0 0;
+}
+.ico2 {
+    width: 53px;
+    height: 49px;
+    background-position: -62px 0;
+}
+.ico3 {
+    width: 57px;
+    height: 49px;
+    background-position: -125px 0;
+}
+.ico4 {
+    width: 53px;
+    height: 50px;
+    background-position: -192px 0;
+}
+.adv-item-name {
+    position: relative;
+    color: #fff;
+}
+.adv-item-name::before {
+    position: absolute;
+    content: "";
+    width: 60px;
+    height: 0;
+    border-bottom: 1px solid #fff;
+    left: 50%;
+    margin-left: -30px;
+}
+.about {
+    background: #f7f4f4;
+}
+.about-ctt {
+    font-size: 14px;
+    color: #555;
+    line-height: 24px;
+    text-indent: 28px;
+}
+@media (min-width:768px) {
+    .adv-item {
+        height: 199px;
+    }
+    .part-tit {
+        font-size: 40px;
+        margin: 50px 0 100px;
+    }
+    .advantage {
+        padding: 80px 0;
+    }
+    .part-tit .more {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .adv-item-name {
+        font-size: 18px;
+        margin-top: 60px;
+    }
+    .adv-item-name::before {
+        top: -30px;
+    }
+    .about {
+        padding: 148px 0 60px;
+    }
+    .about .container {
+        background: #fff;
+    }
+    .about .part-tit {
+        margin: 90px;
+    }
+    .about-ctt {
+        padding-left: 40px;
+    }
+    .about-btn {
+        float: right;
+        margin: 50px 0 80px;
+    }
+    .news {
+        padding-bottom: 80px;
+    }
+    .new-ctt {
+        -webkit-line-clamp: 3;
+        font-size: 12px;
+    }
+    .new-time {
+        margin: 20px 0;
+    }
+    .more {
+        width: 78px;
+        height: 38px;
+        line-height: 38px;
+        margin-top: 30px;
+    }
+}
+@media (max-width:767px) {
+    .adv-item {
+        height: 114px;
+    }
+    .part-tit {
+        font-size: 28px;
+        margin: 0 0 45px 0;
+    }
+    .advantage {
+        padding: 60px 0;
+    }
+    .adv-item-name {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+    .adv-item-ico {
+        transform: scale(.6);
+    }
+    .adv-item-name::before {
+        top: -14px;
+    }
+    .about {
+        padding: 60px 0;
+    }
+    .about-btn {
+        margin: 20px auto 0;
+    }
+    .about .col-md-6 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background: #fff;
+    }
+    .news {
+        padding-bottom: 55px;
+        padding-top: 50px;
+    }
+    .new-ctt {
+        -webkit-line-clamp: 2;
+        font-size: 12px;
+    }
+    .more {
+        width: 70px;
+        height: 24px;
+        line-height: 24px;
+        margin-top: 10px;
+    }
+    .news-item {
+        margin-bottom: 20px;
+    }
+}
+.about-btn {
+    width: 40px;
+    height: 40px;
+    background-color: #c70909;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.arrow {
+    width: 16px;
+    height: 28px;
+    background-image: url(../images/tindex_qt_img.png);
+    background-position: -255px -12px;
+}
+.about .col-md-5,
+.about .col-md-7 {
+    padding: 0;
+}
+.about .col-md-5 .img-responsive {
+    margin-top: -80px;
+}
+.about .col-md-7 .img-responsive {
+    margin-top: 40px;
+}
+
+
+.news-item {
+    border: 1px solid #eee;
+}
+.news-item .col-md-5 {
+    padding-right: 0;
+}
+.new-tit {
+    font-size: 16px;
+    color: #353535;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.new-time {
+    font-size: 14px;
+    color: #888;
+}
+.new-ctt {
+    color: #555;
+    line-height: 24px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.news-item {
+    display: flex;
+    align-items: center;
+}
+.more {
+    display: block;
+    border: 1px solid #888;
+    text-align: center;
+}

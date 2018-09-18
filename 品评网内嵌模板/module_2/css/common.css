@@ -1,0 +1,120 @@
+a,
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+a:hover {
+    color: #c70909;
+}
+.navbar {
+    width: 100%;
+    margin-bottom: 0;
+    background: rgba(255, 255, 255, .9);
+}
+.navbar-brand {
+    height: auto;
+}
+.brand-p1 {
+    color: #c70909;
+}
+.brand-p2 {
+    font-size: 12px;
+    color: #888;
+    margin-top: 20px;
+}
+.navbar-toggle .icon-bar {
+    background-color: #000;
+}
+.navbar-nav {
+    margin: 0;
+}
+.active-navitem a {
+    background: #c70909;
+    color: #fff;
+}
+.foot {
+    background: #353535;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+.foot a {
+    color: #00bcff;
+}
+@media (min-width: 768px) {
+    .navbar {
+        position: absolute;
+    }
+    .brand-p1 {
+        font-size: 30px;
+    }
+    .container {
+        padding: 0;
+    }
+    .daohang {
+        height: 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-collapse {
+        height: 42px !important;
+    }
+    .navbar-nav {
+        display: flex;
+    }
+    .navbar-nav>li {
+        width: 100px;
+        height: 42px;
+    }
+    .navbar-nav>li>a {
+        line-height: 42px;
+        text-align: center;
+        border-radius: 21px;
+        font-size: 18px;
+    }
+    .foot {
+        line-height: 50px;
+    }
+    .part-head {
+        margin-bottom: 90px;
+    }
+    .part-head .zh {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .part-head .en {
+        font-size: 24px;
+        color: #c70909;
+        margin-left: 20px;
+    }
+}
+@media (max-width: 767px) {
+    .brand-p1 {
+        font-size: 20px;
+    }
+    .navbar-nav>li {
+        margin: 0 -15px;
+    }
+    .navbar-nav>li>a {
+        padding-left: 15px;
+    }
+    .navbar-collapse {
+        background: #eee;
+    }
+    .foot {
+        line-height: 30px;
+    }
+    .part-head {
+        margin-bottom: 30px !important;
+    }
+    .part-head .zh {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .part-head .en {
+        font-size: 18px;
+        color: #c70909;
+        margin-left: 20px;
+    }
+}

@@ -5,7 +5,7 @@
 </view>
 <view class="container">
   <view class='banner'>
-    <image src='../../images/brand_list_banner.png'></image>
+    <image src='../../images/sdtpy_banner_img.png'></image>
   </view>
   <view class="wrap">
     <view class="bg-color champion">
@@ -124,10 +124,17 @@
     </view>
   </view>
   <view class='btn-group'>
-    <view class='signup' bindtap='showtips'>点击报名</view>
-    <image class='share-img' src='../../images/share_active.png' bindtap='showActionSheet'></image>
+    <view class='signup' bindtap='showtips'>
+      <image style='width:54rpx;height:56rpx;' src='../../images/bm_icon.png'></image>
+      <text style='font-size:24rpx;color:#ffb400;'>报名</text>
+    </view>
+    <view class='share' bindtap='showActionSheet'>
+      <image class='share-img' src='../../images/fx_icom.png'></image>
+      <text style='font-size:24rpx;color:#0261b1;'>分享</text>
+    </view>
     <button class='service-img' hover-class='none' open-type='contact'>
-      <image src='../../images/kefu.png'></image>
+      <image src='../../images/kf_icon.png'></image>
+      <text style='font-size:24rpx;color: #48bd1c;position:absolute;bottom:20rpx;'>客服</text>
     </button>
   </view>
   <view bindtap='hideActionSheet' hidden='{{actionSheetHidden}}' class='action-sheet'>

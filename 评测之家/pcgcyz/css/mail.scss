@@ -1,0 +1,466 @@
+//all
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        h2{margin:0};
+        .yz{width:800px;height: 658px;background-color: #fff;position: absolute;top:50%;left: 50%;transform: translate(-50%,-50%);box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+            @media  screen and (max-width: 468px) { position: static; padding-bottom:20px;transform:inherit;width:95%;margin: 10px auto;height: auto;}
+            
+            h2{font-size: 28px;line-height:90px;font-weight:400;color: #2e2e2e;text-align: center;border-bottom:1px solid #ebebeb;}
+            .schedule{margin-top: 70px;font-weight: 400;
+                ul.wz{font-size: 12px;color:#CFCFCF;width:100%;margin:0 auto;
+                    li{text-align: center;
+                        &:nth-child(1){width:23%;}
+                        &:nth-child(2){width:25%;}
+                        &:nth-child(3){width:25%;}
+                        &:nth-child(4){width:23%;}
+                        &.choose{color:#ea6457;}
+                    }
+                }
+                ul.line{color:#ea6457;width:75%;margin: 20px auto 0 auto;
+                    li{width:30%;height:1px;background-color:#CFCFCF;position:relative; margin-right:14px;
+                        @media  screen and (max-width: 468px) { width:28%; }
+                        @media  screen and (max-width: 320px) { width:27%; }
+                        &:before{content:"";width:7px;height:7px;background-color:#CFCFCF;position:absolute;top:-4px;right:-10px;display:block;border-radius: 50%;}
+                        
+                        &:nth-child(1){width:0;margin:0;
+                            &:before{content:"";width:7px;height:7px;position:absolute;top:-4px;right:3px;display:block;background-color: #EA6457;border-radius: 50%;}
+                        }
+                    }
+                    .active{background-color: #EA6457;
+                        &:before{background-color: #EA6457;}
+                    }
+                }
+            }
+        }
+    }
+}
+
+//mail 1
+
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .yz{
+            .mail1{
+                ul.yzbd{width: 390px;margin:35px auto 0 auto;
+                    @media  screen and (max-width: 468px) { width:95%; }
+                    
+                  li{float: none;
+                        h4{font-size: 14px;color: #2e2e2e;font-weight: 400;line-height: 25px;}
+                        input[type="text"]{width:100%;height:40px;padding-left:15px;border:1px solid #cfcfcf;border-radius: 5px;font-size: 14px;}
+                        input[type="text"]:-input-placeholder{font-size: 14px;color: #cbcbcb;}
+                        input[type="text"]:-ms-input-placeholder{font-size: 14px;color: #CBCBCB;}
+                        input[type="text"]::-webkit-input-placeholder{font-size: 14px;color: #CBCBCB;}    /* 使用webkit内核的浏览器 */
+                        input[type="text"]:-moz-placeholder{font-size: 14px;color: #CBCBCB;}                  /* Firefox版本4-18 */
+                        input[type="text"]::-moz-placeholder{font-size: 14px;color: #CBCBCB;} /* Firefox版本19+ */
+                        input[type="submit"]{width:390px;height: 40px;border-radius:5px;margin-top:40px;background-color: #EA6457;color: #fff;border: none;
+                            @media  screen and (max-width: 468px) { width:100%; }
+                        }                 
+                        input[type="text"].yzm{width:285px;height: 40px;display: inline-block;
+                            @media  screen and (max-width: 468px) { width:68%; vertical-align: bottom;}
+                        }
+                        .yzdata{width:100px;height:40px;display: inline-block;
+                            @media  screen and (max-width: 468px) { width:30%; }
+                            img{width:100%;height: 100%;}
+                        }
+                        .messageyz{position:relative;height: 44px;
+                            input[type="text"]{position: absolute;}
+                            span{width:90px;height: 30px;position:absolute;right:8px;top:5px;line-height:30px;text-align: center;background-color:#f5f5f5;display:inline-block;border-radius:5px;font-size:12px ;}
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+//mail 2
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .yz{
+            .mail2{
+                ul.yzbd{width: 390px;margin:35px auto 0 auto;
+                  @media  screen and (max-width: 468px) { width:95%; }
+                  li{float: none;
+                        h4{font-size: 14px;color: #2e2e2e;font-weight: 400;line-height: 25px;}
+                        input[type="text"]{width:100%;height:40px;padding-left:15px;border:1px solid #cfcfcf;border-radius: 5px;font-size: 14px;}
+                        input[type="text"]:-input-placeholder{font-size: 14px;color: #cbcbcb;}
+                        input[type="text"]:-ms-input-placeholder{font-size: 14px;color: #CBCBCB;}
+                        input[type="text"]::-webkit-input-placeholder{font-size: 14px;color: #CBCBCB;}    /* 使用webkit内核的浏览器 */
+                        input[type="text"]:-moz-placeholder{font-size: 14px;color: #CBCBCB;}                  /* Firefox版本4-18 */
+                        input[type="text"]::-moz-placeholder{font-size: 14px;color: #CBCBCB;} /* Firefox版本19+ */
+                        input[type="submit"]{width:390px;height: 40px;border-radius:5px;margin-top:40px;background-color: #EA6457;color: #fff;border: none;
+                            @media  screen and (max-width: 375px) { width:100%; }
+                        }                 
+                    }
+                }
+                ul.wb{width: 520px;margin:30px auto 0 auto;
+                    @media  screen and (max-width: 468px) { width:95%; }
+                
+                    li{font-size: 12px;color: #a4a4a4;line-height: 26px;float:none;
+                        &:nth-child(1){font-size: 16px;color: #585858;font-weight: 400; margin:10px auto;
+                          span{vertical-align: text-bottom;padding-right:5px;font-size: 26px;color: #95D3E2;}  
+                        }
+                        &:last-child{margin-top: 20px;}
+                        input[type="submit"]{width:146px;height: 30px;border-radius:5px;background-color: #EA6457;color: #fff;border: none;}
+                        i{    vertical-align: initial;}                 
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+//mail 3
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .yz{
+            .mail3{
+                ul.yzbd{width: 390px;margin:35px auto 0 auto;
+                  @media  screen and (max-width: 468px) { width:95%; }
+                  li{float: none;
+                        h4{font-size: 14px;color: #2e2e2e;font-weight: 400;line-height: 25px;}
+                        input[type="text"]{width:100%;height:40px;padding-left:15px;border:1px solid #cfcfcf;border-radius: 5px;font-size: 14px;}
+                        input[type="text"]:-input-placeholder{font-size: 14px;color: #cbcbcb;}
+                        input[type="text"]:-ms-input-placeholder{font-size: 14px;color: #CBCBCB;}
+                        input[type="text"]::-webkit-input-placeholder{font-size: 14px;color: #CBCBCB;}    /* 使用webkit内核的浏览器 */
+                        input[type="text"]:-moz-placeholder{font-size: 14px;color: #CBCBCB;}                  /* Firefox版本4-18 */
+                        input[type="text"]::-moz-placeholder{font-size: 14px;color: #CBCBCB;} /* Firefox版本19+ */
+                        input[type="submit"]{width:390px;height: 40px;border-radius:5px;margin-top:40px;background-color: #EA6457;color: #fff;border: none;
+                            @media  screen and (max-width: 375px) { width:100%; }
+                        }                 
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//mail 4
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .yz{
+            .success{margin-top: 40px;
+                .img{width:119px;height: 90px;margin:0 auto;
+                    img{width:100%;height: 100%;}
+                }
+                h3{font-size: 28px;color: #585858;text-align: center;}
+            }
+        }
+    }
+}
+
+//Security center
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .security{width:900px;height: 672px;background-color: #fff;position: absolute;top:50%;left: 50%;transform: translate(-50%,-50%);box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+            @media  screen and (max-width: 468px) {position: static; transform:inherit;width:95%;margin: 10px auto;height: auto; }
+            h2{font-size: 28px;line-height:90px;font-weight:400;color: #2e2e2e;text-align: center;border-bottom:1px solid #ebebeb;}
+            .plist{padding:20px 40px;border-bottom: 1px solid #ebebeb;
+                @media  screen and (max-width: 468px) {text-align: center;}
+                h4{font-size: 16px;color: #2e2e2e;}
+                ul.con{margin-top:20px;
+                    li{height:53px;line-height:53px;  
+                        @media  screen and (max-width: 468px) {height:42px;line-height:40px;margin:0 auto;float: none; }
+                        &:nth-child(1){width:53px;height: 53px;
+                            img{width:100%;height: 100%;}
+                        } 
+                        &:nth-child(2){width:13%;margin-left: 2%;
+                            @media  screen and (max-width: 468px){width:100%;margin-left: 0;}
+                        }
+                        &:nth-child(4){float: right;
+                            @media  screen and (max-width: 468px) {float: none; }
+                            a{width:110px;height:30px;border:1px solid #EA6457;border-radius:5px;color: #EA6457;font-size: 14px;display: inline-block;text-align: center;line-height: 30px;}
+                        }
+                       
+                        
+                        h4{font-size: 16px;margin:0;color: #2e2e2e;display: inline-block;
+                            @media  screen and (max-width: 468px){text-align: center;}
+                        }
+                        p{font-size: 12px;color: #878787;}
+                    }
+                }
+                &:last-child{border: none;}
+            }
+        }
+    }
+}          
+
+
+
+
+
+
+
+//changepass
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        h2{margin:0};
+        .changepass{width:800px;height: 658px;background-color: #fff;position: absolute;top:50%;left: 50%;transform: translate(-50%,-50%);box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+            @media  screen and (max-width: 468px) { position: static; padding-bottom:20px;transform:inherit;width:95%;margin: 10px auto;height: auto;}
+            h2{font-size: 28px;line-height:90px;font-weight:400;color: #2e2e2e;text-align: center;border-bottom:1px solid #ebebeb;}
+            .schedule{width:96%;margin: 70px auto 0 auto;font-weight: 400;
+                ul.wz{font-size: 12px;color:#CFCFCF;width:100%;margin:0 auto;
+                    li{text-align: center;
+                        &:nth-child(1){width:24%;}
+                        &:nth-child(2){width:50%;}
+                        &:nth-child(3){width:24%;}
+                        &.choose{color:#ea6457;}
+                    }
+                }
+                ul.line{color:#ea6457;width:75%;margin: 20px auto 0 auto;
+                    li{width:45%;height:1px;background-color:#CFCFCF;position:relative; margin-right:14px; 
+                        @media  screen and (max-width: 468px) { width:45%; }
+                        @media  screen and (max-width: 320px) { width:42%; }
+                        &:before{content:"";width:7px;height:7px;background-color:#CFCFCF;position:absolute;top:-4px;right:-10px;display:block;border-radius: 50%;}
+                        
+                        &:nth-child(1){width:0;margin:0;
+                            &:before{content:"";width:7px;height:7px;position:absolute;top:-4px;right:3px;display:block;background-color: #EA6457;border-radius: 50%;}
+                        }
+                    }
+                    .active{background-color: #EA6457;
+                        &:before{background-color: #EA6457;}
+                    }
+                }
+            }
+        }
+    }
+}
+
+//change1
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .changepass{
+            .change1{
+                ul.yzbd{width: 390px;margin:35px auto 0 auto;
+                  @media  screen and (max-width: 468px) { width:95%; }
+                  li{float: none;
+                        h4{font-size: 14px;color: #2e2e2e;font-weight: 400;line-height: 25px;}
+                        input[type="text"]{width:100%;height:40px;padding-left:15px;border:1px solid #cfcfcf;border-radius: 5px;font-size: 14px;}
+                        input[type="text"]:-input-placeholder{font-size: 14px;color: #cbcbcb;}
+                        input[type="text"]:-ms-input-placeholder{font-size: 14px;color: #CBCBCB;}
+                        input[type="text"]::-webkit-input-placeholder{font-size: 14px;color: #CBCBCB;}    /* 使用webkit内核的浏览器 */
+                        input[type="text"]:-moz-placeholder{font-size: 14px;color: #CBCBCB;}                  /* Firefox版本4-18 */
+                        input[type="text"]::-moz-placeholder{font-size: 14px;color: #CBCBCB;} /* Firefox版本19+ */
+                        input[type="submit"]{width:390px;height: 40px;border-radius:5px;margin-top:40px;background-color: #EA6457;color: #fff;border: none;
+                            @media  screen and (max-width: 468px) { width:100%; }
+                        }                 
+                        input[type="text"].yzm{width:285px;height: 40px;display: inline-block;
+                            @media  screen and (max-width: 468px) { width:68%; vertical-align: bottom;}
+                        }
+                        .yzdata{width:100px;height:40px;display: inline-block;
+                            @media  screen and (max-width: 468px) { width:30%; }
+                            img{width:100%;height: 100%;}
+                        }
+                        .messageyz{position:relative;height: 44px;
+                            input[type="text"]{position: absolute;}
+                            span{width:90px;height: 30px;position:absolute;right:8px;top:5px;line-height:30px;text-align: center;background-color:#f5f5f5;display:inline-block;border-radius:5px;font-size:12px ;}
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+//change2
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .changepass{
+            .change2{
+                ul.yzbd{width: 390px;margin:35px auto 0 auto;
+                  @media  screen and (max-width: 468px) { width:95%; }
+                  li{float: none;
+                        h4{font-size: 14px;color: #2e2e2e;font-weight: 400;line-height: 25px;}
+                        input[type="text"]{width:100%;height:40px;padding-left:15px;border:1px solid #cfcfcf;border-radius: 5px;font-size: 14px;}
+                        input[type="text"]:-input-placeholder{font-size: 14px;color: #cbcbcb;}
+                        input[type="text"]:-ms-input-placeholder{font-size: 14px;color: #CBCBCB;}
+                        input[type="text"]::-webkit-input-placeholder{font-size: 14px;color: #CBCBCB;}    /* 使用webkit内核的浏览器 */
+                        input[type="text"]:-moz-placeholder{font-size: 14px;color: #CBCBCB;}                  /* Firefox版本4-18 */
+                        input[type="text"]::-moz-placeholder{font-size: 14px;color: #CBCBCB;} /* Firefox版本19+ */
+                        input[type="submit"]{width:390px;height: 40px;border-radius:5px;margin-top:40px;background-color: #EA6457;color: #fff;border: none;
+                            @media  screen and (max-width: 468px) { width:100%; }
+                        }                 
+                        
+                        
+                    }
+                }
+            }
+        }
+    }
+}   
+
+//change3
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .changepass{
+            .change3{
+                .wb{width:80%;margin:60px auto 0 auto;
+                    p{color: #585858;text-align: center;float: none;margin-bottom:30px;font-size: 14px;font-weight: 400;line-height: 28px;}
+                    a{width:146px;height: 30px;color: #FFF;border-radius: 5px;background-color: #EA6457;display: inline-block;line-height: 30px;text-align: center;}
+                }
+            }
+        }
+    }
+}   
+
+
+//all
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        h2{margin:0};
+        .back{width:800px;height: 658px;background-color: #fff;position: absolute;top:50%;left: 50%;transform: translate(-50%,-50%);box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+            @media  screen and (max-width: 468px) { position: static; padding-bottom:20px;transform:inherit;width:95%;margin: 10px auto;height: auto;}
+            
+            h2{font-size: 28px;line-height:90px;font-weight:400;color: #2e2e2e;text-align: center;border-bottom:1px solid #ebebeb;}
+            .schedule{margin-top: 70px;font-weight: 400;
+                ul.wz{font-size: 12px;color:#CFCFCF;width:100%;margin:0 auto;
+                    li{text-align: center;
+                        &:nth-child(1){width:23%;}
+                        &:nth-child(2){width:25%;}
+                        &:nth-child(3){width:25%;}
+                        &:nth-child(4){width:23%;}
+                        &.choose{color:#ea6457;}
+                    }
+                }
+                ul.line{color:#ea6457;width:75%;margin: 20px auto 0 auto;
+                    li{width:30%;height:1px;background-color:#CFCFCF;position:relative; margin-right:14px;
+                        @media  screen and (max-width: 468px) { width:28%; }
+                        @media  screen and (max-width: 320px) { width:27%; }
+                        &:before{content:"";width:7px;height:7px;background-color:#CFCFCF;position:absolute;top:-4px;right:-10px;display:block;border-radius: 50%;}
+                        
+                        &:nth-child(1){width:0;margin:0;
+                            &:before{content:"";width:7px;height:7px;position:absolute;top:-4px;right:3px;display:block;background-color: #EA6457;border-radius: 50%;}
+                        }
+                    }
+                    .active{background-color: #EA6457;
+                        &:before{background-color: #EA6457;}
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//back 1
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .back{
+            .findpass1{
+                ul.yzbd{width: 390px;margin:35px auto 0 auto;
+                  @media  screen and (max-width: 468px) { width:95%; }
+                    
+                  li{float: none;
+                        h4{font-size: 14px;color: #2e2e2e;font-weight: 400;line-height: 25px;}
+                        input[type="text"]{width:100%;height:40px;padding-left:15px;border:1px solid #cfcfcf;border-radius: 5px;font-size: 14px;}
+                        input[type="text"]:-input-placeholder{font-size: 14px;color: #cbcbcb;}
+                        input[type="text"]:-ms-input-placeholder{font-size: 14px;color: #CBCBCB;}
+                        input[type="text"]::-webkit-input-placeholder{font-size: 14px;color: #CBCBCB;}    /* 使用webkit内核的浏览器 */
+                        input[type="text"]:-moz-placeholder{font-size: 14px;color: #CBCBCB;}                  /* Firefox版本4-18 */
+                        input[type="text"]::-moz-placeholder{font-size: 14px;color: #CBCBCB;} /* Firefox版本19+ */
+                        input[type="submit"]{width:390px;height: 40px;border-radius:5px;margin-top:40px;background-color: #EA6457;color: #fff;border: none;
+                            @media  screen and (max-width: 468px) { width:100%; }
+                        }                 
+                        input[type="text"].yzm{width:285px;height: 40px;display: inline-block;
+                            @media  screen and (max-width: 468px) { width:68%; vertical-align: bottom;}
+                        }
+                        .yzdata{width:100px;height:40px;display: inline-block;
+                            @media  screen and (max-width: 468px) { width:30%; }
+                            img{width:100%;height: 100%;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//back 2
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .back{
+            .findpass2{
+                .wb{width:80%;margin:60px auto 0 auto;
+                    p{color: #585858;text-align: center;float: none;margin-bottom:0px;font-size: 14px;font-weight: 400;line-height: 28px;
+                        a{color: #EA6457;
+                            &:hover{text-decoration: underline!important;}
+                        }
+                    }
+                    ul.con{width: 60%; margin: 20px auto 0 auto;
+                        li{height:53px;line-height:53px;  
+                            @media  screen and (max-width: 468px) {height:42px;line-height:40px;margin:10px auto;float: none; }
+                            &:nth-child(1){width:53px;height: 53px;
+                                img{width:100%;height: 100%;}
+                            } 
+                            &:nth-child(2){width:35%;margin-left: 2%;
+                                @media  screen and (max-width: 468px){width:100%;margin-left: 0;}
+                            }
+                            &:nth-child(3){float: right;
+                                @media  screen and (max-width: 468px) {float: none; }
+                                a{width:146px;height: 30px;color: #FFF;border-radius: 5px;background-color: #EA6457;display: inline-block;line-height: 30px;text-align: center;}
+                            }
+                           
+                            
+                            h4{font-size: 16px;margin:0;color: #2e2e2e;display: inline-block;
+                                @media  screen and (max-width: 468px){text-align: center;}
+                            }
+                            p{font-size: 12px;color: #878787;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//back 3
+
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .back{
+            .findpass3{
+                ul.yzbd{width: 390px;margin:35px auto 0 auto;
+                    @media  screen and (max-width: 468px) { width:95%; }
+                    
+                  li{float: none;
+                        h4{font-size: 14px;color: #2e2e2e;font-weight: 400;line-height: 25px;}
+                        input[type="text"]{width:100%;height:40px;padding-left:15px;border:1px solid #cfcfcf;border-radius: 5px;font-size: 14px;}
+                        input[type="text"]:-input-placeholder{font-size: 14px;color: #cbcbcb;}
+                        input[type="text"]:-ms-input-placeholder{font-size: 14px;color: #CBCBCB;}
+                        input[type="text"]::-webkit-input-placeholder{font-size: 14px;color: #CBCBCB;}    /* 使用webkit内核的浏览器 */
+                        input[type="text"]:-moz-placeholder{font-size: 14px;color: #CBCBCB;}                  /* Firefox版本4-18 */
+                        input[type="text"]::-moz-placeholder{font-size: 14px;color: #CBCBCB;} /* Firefox版本19+ */
+                        input[type="submit"]{width:390px;height: 40px;border-radius:5px;margin-top:40px;background-color: #EA6457;color: #fff;border: none;
+                            @media  screen and (max-width: 468px) { width:100%; }
+                        }                 
+                        
+                        .messageyz{position:relative;height: 44px;
+                            input[type="text"]{position: absolute;}
+                            span{width:90px;height: 30px;position:absolute;right:8px;top:5px;line-height:30px;text-align: center;background-color:#f5f5f5;display:inline-block;border-radius:5px;font-size:12px ;}
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//back 4
+html{height: 100%;
+    body{height: 100%;background-color: #f9f9f9;position: relative;
+        .back{
+            .findpass4{
+                .wb{width:80%;margin:60px auto 0 auto;
+                    p{color: #585858;text-align: center;float: none;margin-bottom:30px;font-size: 14px;font-weight: 400;line-height: 28px;}
+                    a{width:146px;height: 30px;color: #FFF;border-radius: 5px;background-color: #EA6457;display: inline-block;line-height: 30px;text-align: center;}
+                }
+            }
+        }
+    }
+}   

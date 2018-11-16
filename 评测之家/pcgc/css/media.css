@@ -1,0 +1,139 @@
+@media (min-width: 1200px){
+	.container {width: 1200px;}
+}
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+	.content section .tit h2{font-size: 0.2rem;}
+	.content section .tit a.more{font-size: 0.14rem;}
+	
+	.content section.picbanner .left{width:5.5rem;height: 4rem;}
+	.content section.picbanner .left .tit h1{font-size: 0.2rem;}
+	.content section.picbanner .left .pic{width:5.5rem;height: 4rem;}
+	.content section.picbanner .right{width:4.2rem;height: 4rem;}
+	.content section.picbanner .right .img{width:2rem;height: 1.98rem;}
+	
+	.content section.new ul.newlist li .img{width:1.5rem;height: 1.25rem;}
+	.content section.new ul.newlist li .wb{width:7.7rem}
+	.content section.new ul.newlist li .wb h2{font-size: 0.2rem;}
+	.content section.new ul.newlist li .wb p{font-size: 0.14rem;    letter-spacing: 0.01rem;}
+	.content section.new ul.newlist li .wb .bz{margin-top:0.25rem;}
+	.content section.new ul.newlist li .wb .bz ul.right li{font-size: 0.14rem;}
+	.content section.new ul.newlist li .wb .bz ul.right li span{font-size: 0.22rem;}
+	.content section.new ul.newlist li .wb .bz .left .author{font-size: 0.14rem;}
+	.content section.new ul.newlist li .wb .bz .left .time{font-size: 0.14rem;}
+	
+	.content section.exclusive ul.exclist li .con{width:95%;    height: 3.7rem;}
+	.content section.exclusive ul.exclist li .con .img{width:100%;height: auto;}
+	.content section.exclusive ul.exclist li .con .wb h2{font-size: 0.2rem;}
+	.content section.exclusive ul.exclist li .con .wb .bz .left .author{font-size: 0.12rem;}
+	.content section.exclusive ul.exclist li .con .wb .bz .left .time{font-size: 0.12rem;}
+	.content section.exclusive ul.exclist li .con .wb .bz ul.right li{font-size: 0.12rem;}
+	.content section.exclusive ul.exclist li .con .wb .bz ul.right li span{font-size: 0.14rem; margin: 0 0.04rem 0 0.03rem;}
+	.content section.popular ul.poplist li .con .gz{top:0.2rem;right: 0.16rem;}
+	.content section.popular ul.poplist li .con ul.wb li ul.rank li{width:0.2rem;height: 0.2rem;}
+	.content section.popular ul.poplist li .con{width:97%;}
+	footer ul.nav li a{font-size: 0.14rem;}
+	footer p{font-size: 0.14rem;}
+}
+@media screen and (max-width:1024px){
+	.content .top{width:1rem;height: 0.84rem;}
+	.content section .tit h2{font-size: 0.2rem;}
+	.content section .tit a.more{font-size: 0.14rem;}
+	
+	.content section.picbanner .left{width:5.5rem;height: 4rem;}
+	.content section.picbanner .left .tit h1{font-size: 0.2rem;}
+	.content section.picbanner .left .pic{width:5.5rem;height: 4rem;}
+	.content section.picbanner .right{width:4.2rem;height: 4rem;}
+	.content section.picbanner .right .img{width:2rem;height: 1.98rem;}
+	
+	.content section.new ul.newlist li .img{width:1.5rem;height: 1.25rem;}
+	.content section.new ul.newlist li .wb{width:7.7rem}
+	.content section.new ul.newlist li .wb h2{font-size: 0.2rem;}
+	.content section.new ul.newlist li .wb p{font-size: 0.14rem;    letter-spacing: 0.01rem;}
+	.content section.new ul.newlist li .wb .bz{margin-top:0.25rem;}
+	.content section.new ul.newlist li .wb .bz ul.right li{font-size: 0.14rem;}
+	.content section.new ul.newlist li .wb .bz ul.right li span{font-size: 0.22rem;}
+	.content section.new ul.newlist li .wb .bz .left .author{font-size: 0.14rem;}
+	.content section.new ul.newlist li .wb .bz .left .time{font-size: 0.14rem;}
+	
+	.content section.exclusive ul.exclist li .con{width:95%;    height: 3.7rem;}
+	.content section.exclusive ul.exclist li .con .img{width:100%;height: auto;}
+	.content section.exclusive ul.exclist li .con .wb h2{font-size: 0.2rem;}
+	.content section.exclusive ul.exclist li .con .wb .bz .left .author{font-size: 0.12rem;}
+	.content section.exclusive ul.exclist li .con .wb .bz .left .time{font-size: 0.12rem;}
+	.content section.exclusive ul.exclist li .con .wb .bz ul.right li{font-size: 0.12rem;}
+	.content section.exclusive ul.exclist li .con .wb .bz ul.right li span{font-size: 0.14rem; margin: 0 0.04rem 0 0.03rem;}
+	
+	.content section.popular ul.poplist li .con .gz{top:0.2rem;right: 0.16rem;}
+	.content section.popular ul.poplist li .con ul.wb li ul.rank li{width:0.2rem;height: 0.2rem;}
+	.content section.popular ul.poplist li .con{width:97%;}
+	footer ul.nav li a{font-size: 0.14rem;padding: 0.1rem 0.15rem;}
+	footer p{font-size: 0.14rem;}
+}
+@media(max-width: 991px) and (min-width: 768px){
+	.container {width: 780px;}
+	.content section.picbanner .left{width:4rem;height: 3.5rem;}
+	.content section.picbanner .left .tit h1{font-size: 0.2rem;}
+	.content section.picbanner .left .pic{width:4rem;height: 3.5rem;}
+	.content section.picbanner .right{width:3.5rem;height: 3.5rem;}
+	.content section.picbanner .right .img{width:1.7rem;height: 1.73rem;}
+	
+	.content section.new ul.newlist li .img{display: inherit;margin: 0 auto;}
+}
+@media screen and (max-width: 768px) {
+	.container {width: 750px;}
+	.content section.exclusive ul.exclist li .con .wb .bz ul.right{float: left;margin-top:0.1rem}
+	
+	.content section.new ul.newlist li .wb{width:98%;}
+	.content section.new ul.newlist li .img{width:3.5rem;height: 2.25rem;display: inherit;margin: 0 auto;}
+}
+@media(max-width: 766px) and (min-width: 468px){
+	.container {width: 500px;}
+	
+}
+@media screen and (max-width: 468px) {
+	.container{width:400px;}
+	.content section.new ul.newlist li .wb .bz ul.right li span{vertical-align: initial;}
+	.content section.picbanner .left{display: inherit;margin:0 auto;}
+	.content section.picbanner .right{width:5.5rem;height:4.5rem;display: inherit;margin:0 auto;}
+	.content section.picbanner .right .img{width:2.7rem}
+	.content section.picbanner .right .img:nth-child(1){margin:0.1rem 0 ;}
+	.content section.picbanner .right .img:nth-child(2){margin:0.1rem 0 0.1rem 0.1rem;}
+	.content section.picbanner .right .img:nth-child(3){margin:0 0.1rem 0 0;}
+	.content section.picbanner .left .tit{height: 1.5rem;padding:0.25rem}
+	
+	.content section.exclusive ul.exclist li .con{height: 5rem;margin-bottom: 0.5rem;}
+	.content section.exclusive ul.exclist li .con .wb .bz ul.right{float: left;margin-top:0.1rem}
+
+	.content section.popular ul.poplist li .con{height: 2rem;}
+	.content section.popular ul.poplist li .con .infor{margin:0.2rem 0 0 0.2rem}
+	.content section.popular ul.poplist li .con ul.wb li:nth-child(1){margin:0.1rem 0 0.3rem 0;}
+	.content section.popular ul.poplist li .con .gz a{font-size: 0.16rem;padding:0.08rem 0.49rem}
+	.content section.popular ul.poplist li .con .infor .img{width:1.13rem;height: 1.13rem;padding:0.03rem}
+	.content section.popular ul.poplist li .con ul.wb li h2{font-size: 0.2rem;}
+	.content section.popular ul.poplist li .con ul.wb li p{font-size: 0.14rem;}
+	
+	
+}
+@media screen and (max-width: 375px){
+	.container{width:350px}
+	.content .mask .dl{width:360px}
+	.content .mask .dl .dllist li{width:300px!important;}
+	.content .mask .dl .dxdl li{width:300px!important;}
+	.content .mask .dl .zc li{width:300px!important;}
+	.content section.new ul.newlist li .wb .bz .left{display: inherit;}
+	.content section.new ul.newlist li .wb .bz ul.right{float: left;margin-top:0.1rem}
+	.content section.new ul.newlist li .wb .bz ul.right li {margin-right: 0.2rem;}
+	.content section.new ul.newlist li .wb .bz ul.right li span{margin:0 0.2rem 0 0;}
+}
+@media screen and (max-width: 320px){
+	.container{width:300px}
+	.content .mask .dl{width:310px}
+	.content .mask .dl .zc li:nth-child(4) input[type="text"]{width:67%!important;}
+	.content .mask .dl .dxdl li input[type="text"]{width:67%!important;}
+	/*.content .dl .dllist li{width:300px;}*/
+	
+	
+	.content section.picbanner .left .tit p{margin:0px;}
+	.content section.exclusive ul.exclist li .con{height: 5.5rem;}
+	.content section.exclusive ul.exclist li .con .wb h2{margin:0.3rem 0 0.2rem 0;}
+}

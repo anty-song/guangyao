@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		
+.pc-navbar {
+  -webkit-box-shadow:0px 0px 3px rgba(0,0,0,0.13);
+          box-shadow:0px 0px 3px rgba(0,0,0,0.13);
+  .container {
+    &::before {
+      display: none;
+      contain: none;
+    }
+    &::after {
+      display: none;
+      contain: none;
+    }
+    // padding: 0;
+    height: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    .w-left {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      .logo-wrap {
+        a {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          height: 80px;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          margin-right: 30px;
+        }
+      }
+      .page-link {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        .nav-item {
+          height: 80px;
+          a {
+            padding: 0 30px;
+            color: #4E4E4E;
+            font-size: 16px;
+            height: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            &.router-link-exact-active {
+              background: #f9f9f9;
+              color: #191919;
+              border-bottom: 3px solid #191919;
+              -webkit-box-sizing: content-box;
+                      box-sizing: content-box;
+            }
+          }
+        }
+      }
+    }
+    .w-right {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      .search-wrap {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        width: 190px;
+        height: 30px;
+        border: 1px solid #DEDEDE;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+        img {
+          width: 16px;
+          height: 16px;
+          margin: 0 8px 0 11px;
+        }
+        input {
+          border: none;
+          outline: none;
+          font-size: 12px;
+          color: #dedede;
+          width: 100%;
+          background: transparent;
+        }
+      }
+      .page-options {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 12px;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        .auth-handle {
+          margin: 0 25px;
+          .pc-login,.pc-register {
+            cursor: pointer;
+          }
+          .vertical-line1 {
+            margin: 0 6px;
+          }
+        }
+        .vertical-line2 {
+          width: 0;
+          height: 19px;
+          border-left: 1px solid #E1E1E1;
+        }
+        .user-msg {
+          color: #989898;
+          margin: 0 25px;
+          cursor: pointer;
+        }
+        .upload {
+          color: #989898;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+	</style>
+	 <nav class="pc-navbar">
+      <div class="container">
+        <div class="w-left">
+          <div class="logo-wrap">
+            <router-link to="/">
+              <img src="../assets/logo@2x.png" alt="评测工厂logo" class="img-responsive"/>
+            </router-link>
+          </div>
+          <div class="page-link">
+            <div class="nav-item">
+              <router-link to="/">首页</router-link>
+            </div>
+            <div class="nav-item">
+              <router-link to="/report">报告库</router-link>
+            </div>
+            <div class="nav-item">
+              <router-link to="/genius">英才仓</router-link>
+            </div>
+            <div class="nav-item">
+              <router-link to="/task">任务园</router-link>
+            </div>
+          </div>
+        </div>
+        <div class="w-right">
+          <div class="search-wrap">
+            <img src="../assets/images/search.png" alt="" class="img-responsive">
+            <input type="text" placeholder="搜索">
+          </div>
+          <div class="page-options">
+            <div class="auth-handle">
+              <span class="pc-login">登录</span>
+              <span class="vertical-line1">|</span>
+              <span class="pc-register">注册</span>
+            </div>
+            <span class="vertical-line2" />
+            <div class="user-msg">消息</div>
+            <div class="upload">上传</div>
+          </div>
+        </div>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <!-- <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#pingcenav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <router-link to="/" class="navbar-brand">
+            <img src="../assets/logo.png" alt="评测工厂logo" class="img-responsive">
+          </router-link>
+        </div> -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- <div class="collapse navbar-collapse" id="pingcenav">
+          <ul class="nav navbar-nav">
+            <li>
+              <router-link to="/">首页</router-link>
+            </li>
+            <li>
+              <router-link to="/report">报告库</router-link>
+            </li>
+            <li>
+              <router-link to="/genius">英才仓</router-link>
+            </li>
+            <li>
+              <router-link to="/task">任务园</router-link>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><i class="iconfont icon-zhanghu"/><span>登录</span>|<span>注册</span></li>
+            <li><i class="iconfont icon-xiaoxi"/>消息</li>
+            <li><i class="iconfont icon-shangchuan"/>上传</li>
+          </ul>
+        </div> -->
+      </div>
+    </nav>
+</body>
+</html>

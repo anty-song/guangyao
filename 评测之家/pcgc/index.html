@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" href="css/content.css" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/media.css"/>
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/window.js" type="text/javascript" charset="utf-8"></script>
+	<title>评测工厂</title>
+</head>
+<body>
+
+	<div class="content">
+		<div class="container">
+			<div class="mask">
+				<div class="dl" style="display: none;">
+					<form action="">
+						<ul class="dllist">
+							<li><span class="glyphicon glyphicon-remove-circle"> </span></li> 
+							<li>
+								<div class="logo"><img src="images/logo.png" alt="" /></div>
+								<h2>欢迎登录评测工场</h2>
+							</li>
+							<li><input type="text" placeholder="请输入手机号/邮箱"/></li>
+							<li><input type="text" placeholder="请输入密码"/></li>
+							<li>忘记密码？</li>
+							<li><input type="submit" value="登录"/></li>
+							<li><a href="#"style="color:#535353;">账号登录</a>|<a href="#" style="color:#ea6457;">立即注册</a></li>
+						</ul>
+					</form>
+				</div>
+				<div class="dl dxdlbk" style="display: none;">
+					<form action="">
+						<ul class="dllist dxdl">
+							<li><span class="glyphicon glyphicon-remove-circle"> </span></li> 
+							<li>
+								<div class="logo"><img src="images/logo.png" alt="" /></div>
+								<h2>欢迎登录评测工场</h2>
+							</li>
+							<li><span>+86</span><input type="text" placeholder="手机号"/></li>
+							<li><input type="text" placeholder="请输入短信验证码"/> <span>获取验证码</span></li>
+							<li><input type="submit" value="登录"/></li>
+							<li><a href="#"style="color:#535353;">账号登录</a>|<a href="#" style="color:#ea6457;">立即注册</a></li>
+						</ul>
+					</form>
+				</div>
+				<div class="dl zcbk"style="display: block;">
+					<form action="">
+						<ul class="dllist zc">
+							<li><span class="glyphicon glyphicon-remove-circle"> </span></li> 
+							<li>
+								<div class="logo"><img src="images/logo.png" alt="" /></div>
+								<h2>免费注册评测工场</h2>
+							</li>
+							<li><input type="text" placeholder="请输入手机号/邮箱"/></li>
+							<li><input type="text" placeholder="请输入短信验证码"/> <span>获取验证码</span></li>
+							<li><input type="text" placeholder="密码由6-20位字母、数字和符号组合"/></li>
+							<li><input type="text" placeholder="请再次输入上面的密码"/></li>
+							<li><span class="glyphicon glyphicon-ok-sign"></span><p>同意《用户协议》《隐私政策》</p></li>
+							<li><input type="submit" value="立即注册"/></li>
+							<li>已经拥有账户？<a href="#" style="color:#ea6457;">立即登录</a></li>
+						</ul>
+					</form>
+				</div>
+			</div>
+			<div class="top"><img src="images/1230.png"/></div>
+			<script type="text/javascript">
+				$(window).scroll(function(){
+			    if($(window).scrollTop()>200){    //垂直滚动条钓offset 大于90时。
+			    	$(".top").css("display","block");
+			        $(".top").click(function(event) {
+					/* Act on the event */
+						$("html,body").animate({
+							scrollTop:"0px"},
+							666
+							)
+					});
+			    }else{
+			       $(".top").css("display","none");
+			    }
+			});
+				
+			</script>
+			<section class="picbanner">
+				<div class="left">
+					<div class="pic"><a href="#" target=""><img src="images/1219.png" alt="" /></a></div>
+					<div class="bf"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></div>
+					<div class="tit">
+						<p><span>评测</span>&nbsp;|&nbsp;张小果&nbsp;&nbsp;15小时前</p>
+						<h1><a href="#" target="">三星也要推智能机械混合手表：另类概念只为搞垮苹果</a></h1>
+					</div>
+				</div>
+				<div class="right">
+					<div class="img"><img src="images/43.png"/></div>
+					<div class="img"><img src="images/25.png"/></div>
+					<div class="img"><img src="images/36.png"/></div>
+					<div class="img"><img src="images/44.png"/></div>
+				</div>
+			</section>
+			
+			<section class="new">
+				<div class="tit">
+					<h2>新品首测</h2>
+					<a href="#" target="" class="more">查看更多></a>
+					<div class="hr">
+						<hr style="width:90px;height:0;border: 1px solid rgba(234,100,87,1);display: inline-block;"/>
+						<hr style="width:100%;height:0;border: 1px solid rgba(229,229,229,1);display: inline-block;"/>
+					</div>
+				</div>
+				<ul class="newlist">
+					<li class="col-lg-12 col-md-12">
+						<div class="img">
+								<img src="images/9.png"/>
+						</div>
+						<div class="wb">
+							<h2>鲜货 | 这次不用你迁就灯，让戴森Lightcycle迁就你试试！</h2>
+							<p>如果你现在需要购买一台吸尘器，是选择插哪吸哪的有线吸尘器呢还是充电两小时，吸吸两分钟的无绳吸尘器？相对来说，虽然有线吸尘器使用起来不够灵活，使用的范围也有所局限，至少不会在我们吸着吸着就突然“嗝屁”了！</p>
+							<div class="bz">
+								<div class="left">
+									<div class="author">By/张小花</div>
+									<div class="time">2018-05-15</div>
+								</div>
+								<ul class="right">
+									<li><span class="glyphicon glyphicon-eye-open"></span>10W+</li>
+									<li><span class="glyphicon glyphicon-heart"></span>100</li>
+									<li><span class="glyphicon glyphicon-comment"></span>89678</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="col-lg-12 col-md-12">
+						<div class="img"><img src="images/12.png"/></div>
+						<div class="wb">
+							<h2>鲜货 | 这次不用你迁就灯，让戴森Lightcycle迁就你试试！</h2>
+							<p>如果你现在需要购买一台吸尘器，是选择插哪吸哪的有线吸尘器呢还是充电两小时，吸吸两分钟的无绳吸尘器？相对来说，虽然有线吸尘器使用起来不够灵活，使用的范围也有所局限，至少不会在我们吸着吸着就突然“嗝屁”了！</p>
+							<div class="bz">
+								<div class="left">
+									<div class="author">By/张小花</div>
+									<div class="time">2018-05-15</div>
+								</div>
+								<ul class="right">
+									<li><span class="glyphicon glyphicon-eye-open"></span>10W+</li>
+									<li><span class="glyphicon glyphicon-heart"></span>100</li>
+									<li><span class="glyphicon glyphicon-comment"></span>89678</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="col-lg-12 col-md-12">
+						<div class="img sp" >
+								<div class="bf"><span class="glyphicon glyphicon-play-circle"></span></div>
+								<img src="images/1228.png"/>
+						</div>
+						<div class="wb">
+							<h2>鲜货 | 这次不用你迁就灯，让戴森Lightcycle迁就你试试！</h2>
+							<p>如果你现在需要购买一台吸尘器，是选择插哪吸哪的有线吸尘器呢还是充电两小时，吸吸两分钟的无绳吸尘器？相对来说，虽然有线吸尘器使用起来不够灵活，使用的范围也有所局限，至少不会在我们吸着吸着就突然“嗝屁”了！</p>
+							<div class="bz">
+								<div class="left">
+									<div class="author">By/张小花</div>
+									<div class="time">2018-05-15</div>
+								</div>
+								<ul class="right">
+									<li><span class="glyphicon glyphicon-eye-open"></span>10W+</li>
+									<li><span class="glyphicon glyphicon-heart"></span>100</li>
+									<li><span class="glyphicon glyphicon-comment"></span>89678</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					
+					<div class="clear"></div>
+				</ul>
+			</section>
+			<section class="exclusive">
+				<div class="tit">
+					<h2>专属频道</h2>
+					<a href="#" target="" class="more">换一换</a>
+					<div class="hr">
+						<hr style="width:90px;height:0;border:1px solid rgba(234,100,87,1);display: inline-block;"/>
+						<hr style="width:100%;height:0;border: 1px solid rgba(229,229,229,1);display: inline-block;"/>
+					</div>
+				</div>
+				<ul class="exclist">
+					<li class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+						<div class="con">
+							<div class="img">
+								<img src="images/62.png"/>
+							</div>
+							<div class="wb">
+								<h2>潜心打磨，全力之作，王自如是一个有有有有</h2>
+								<div class="bz">
+									<div class="left">
+										<div class="author">By/张小花</div>
+										<div class="time">2018-05-15</div>
+									</div>
+									<ul class="right">
+										<li><span class="glyphicon glyphicon-eye-open"></span>10W+</li>
+										<li><span class="glyphicon glyphicon-heart"></span>100</li>
+										<li><span class="glyphicon glyphicon-comment"></span>89678</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class=" col-lg-4 col-md-4 col-sm-4 col-xs-6">
+						<div class="con">
+							<div class="img sp" >
+								<div class="bf"><span class="glyphicon glyphicon-play-circle"></span></div>
+								<img src="images/1 – 1.png"/>
+							</div>
+							<div class="wb">
+								<h2>潜心打磨，全力之作，王自如是一个有有有有</h2>
+								<div class="bz">
+									<div class="left">
+										<div class="author">By/张小花</div>
+										<div class="time">2018-05-15</div>
+									</div>
+									<ul class="right">
+										<li><span class="glyphicon glyphicon-eye-open"></span>10W+</li>
+										<li><span class="glyphicon glyphicon-heart"></span>100</li>
+										<li><span class="glyphicon glyphicon-comment"></span>89678</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class=" col-lg-4 col-md-4 col-sm-4 col-xs-6">
+						<div class="con"> 
+							<div class="img" >
+								<img src="images/63.png"/>
+							</div>
+							<div class="wb">
+								<h2>潜心打磨，全力之作，王自如是一个有有有有</h2>
+								<div class="bz">
+									<div class="left">
+										<div class="author">By/张小花</div>
+										<div class="time">2018-05-15</div>
+									</div>
+									<ul class="right">
+										<li><span class="glyphicon glyphicon-eye-open"></span>10W+</li>
+										<li><span class="glyphicon glyphicon-heart"></span>100</li>
+										<li><span class="glyphicon glyphicon-comment"></span>89678</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<div class="clear"></div>
+				</ul>
+			</section>
+			<section class="popular">
+				<div class="tit">
+					<h2>人气场主</h2>
+					<a href="#" target="" class="more">查看更多></a>
+					<div class="hr">
+						<hr style="width:90px;height:0;border:1px solid rgba(234,100,87,1);display: inline-block;"/>
+						<hr style="width:100%;height:0;border: 1px solid rgba(229,229,229,1);display: inline-block;"/>
+					</div>
+				</div>
+				<ul class="poplist">
+					<li class="col-lg-6 col-md-6 col-xs-12">
+						<div class="con">
+							<div class="triangle"></div>
+							<div class="gz"><a href="#" target="">关注</a></div>
+							<div class="infor">
+								<div class="img"><img src="images/226.png" alt="" /></div>
+								<ul class="wb">
+									<li>
+										<h2>布丁和小城</h2> 
+										<ul class="rank">
+											<li><img src="images/230.png"/></li>
+											<li><img src="images/230.png"/></li>
+										</ul>
+									</li>
+									<li><p>创办国内第一家视频测评机构ZEALER</p></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="col-lg-6 col-md-6 col-xs-12">
+						<div class="con">
+							<div class="triangle"></span></div>
+							<div class="gz"><a href="#" target="">关注</a></div>
+							<div class="infor">
+								<div class="img"><img src="images/226.png" alt="" /></div>
+								<ul class="wb">
+									<li>
+										<h2>布丁和小城</h2> 
+										<ul class="rank">
+											<li><img src="images/230.png"/></li>
+											<li><img src="images/230.png"/></li>
+										</ul>
+									</li>
+									<li><p>创办国内第一家视频测评机构ZEALER</p></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="col-lg-6 col-md-6 col-xs-12">
+						<div class="con">
+							<div class="triangle"></div>
+							<div class="gz"><a href="#" target="">关注</a></div>
+							<div class="infor">
+								<div class="img"><img src="images/226.png" alt="" /></div>
+								<ul class="wb">
+									<li>
+										<h2>布丁和小城</h2> 
+										<ul class="rank">
+											<li><img src="images/396.png"/></li>
+											<li><img src="images/230.png"/></li>
+											<li><img src="images/230.png"/></li>
+										</ul>
+									</li>
+									<li><p>创办国内第一家视频测评机构ZEALER</p></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="col-lg-6 col-md-6 col-xs-12">
+						<div class="con">
+							<div class="triangle"></div>
+							<div class="gz"><a href="#" target="">关注</a></div>
+							<div class="infor">
+								<div class="img"><img src="images/226.png" alt="" /></div>
+								<ul class="wb">
+									<li>
+										<h2>布丁和小城</h2> 
+										<ul class="rank">
+											<li><img src="images/230.png"/></li>
+											<li><img src="images/230.png"/></li>
+										</ul>
+									</li>
+									<li><p>创办国内第一家视频测评机构ZEALER</p></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<div class="clear"></div>
+				</ul>
+			</section>
+			
+		</div>
+	</div>
+	
+	<footer>
+		<div class="container">
+			<ul class="nav">
+				<li><a href="#">关于我们</a></li>
+				<li><a href="#">友情链接</a></li>
+				<li><a href="#">帮助中心</a></li>
+				<li><a href="#">意见反馈</a></li>
+			</ul>
+			<p>All rights reserved © 2016 pianke.me /黔ICP备17008875号-1</p>
+		</div>
+	</footer>
+	
+	
+</body>
+</html>

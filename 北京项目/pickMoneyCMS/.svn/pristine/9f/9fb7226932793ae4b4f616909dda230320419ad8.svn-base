@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <link rel="stylesheet" href="/static/dist/animate.min.css">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="/static/css/hbdt.css">
+    <script src="/static/dist/jquery-2.1.1.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/js/rem.js"></script>
+    <title>趣味游戏</title>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <i></i>
+            <span>{$title}</span>
+        </div>
+        <div class="imgwrapper">
+            <div class="withe_mark"></div>
+            <div class="timer">
+                <div>
+                    <canvas id="c1" width="600" height="300">
+                        您的浏览器不支持Canvas标签！
+                    </canvas>
+                </div>
+                <span>8</span>
+            </div>
+            <div class="title_wrapper">
+                <span class="s1" style="float: left;"></span>
+                <span class="s2" style="float: right;">答对<span class="counts">0</span>题</span>
+            </div>
+            <div class="question">
+                <p></p>
+            </div>
+            <div class="response"></div>
+        </div>
+        <div class="tips">
+            <span class="ckgz" style="float: left;">规则</span>
+            <span class="my-price" style="float: right;">我的奖品</span>
+        </div>
+        <div class="marsker"></div>
+        <!--领红包-->
+        <div class="result1 animated zoomIn">
+            <div style="position: absolute;top: 0;right: .5rem;">
+                <img class="clo clo1" src="/static/images/Answer/Close@2x.png" alt="">
+            </div>
+            <img class="advimg" src="/static/images/Answer/hb.png" alt="">
+            <p class="ad_title"></p>
+            <img class="receive1 pulse" src="/static/images/Answer/Correct_Receive@2x.png">
+        </div>
+        <!--首次进入页面弹框-->
+        <div class="result3 animated zoomIn">
+            <div style="position: absolute;top: 0;right: .5rem;">
+                <img class="clo3" src="/static/images/Answer/Close@2x.png" alt="">
+            </div>
+            <img class="advimg" src="/static/images/Answer/hb.png" alt="">
+            <p class="ad_title"></p>
+            <img class="receive1 pulse" src="/static/images/Answer/Correct_Receive@2x.png">
+        </div>
+        <!--未中奖-->
+        <div class="result2 animated fadeIn">
+            <div style="position: absolute;top: -1rem;right: 0;">
+                <img class="clo clo2" src="/static/images/Answer/Close@2x.png" alt="">
+            </div>
+            <img style="height: 2.7rem;" class="advimg" src="/static/images/Answer/hb.png">
+            <img class="receive2" src="/static/images/Answer/Wronganswer_Cartoon@2x.png" alt="">
+            <p>答错了,加油啊!</p>
+            <img src=""  class="aduu" alt="">
+            <input type="hidden" class="delay" value="">
+        </div>
+    </div>
+    <div class="dialog dialog_again animated slideInDown" style="top: 0;">
+        <div class="close close_again"></div>
+        <div class="dialog_body" style="position: relative;">
+            <button class="refuse" id="refuse">残忍拒绝</button>
+            <button class="againBtn" id="againBtn">继续玩</button>
+        </div>
+    </div>
+    <!--活动规则-->
+    <div class="dialog dialog_rules animated zoomIn">
+        <div class="dialog_body">
+            <div class="rules_con">
+                <div class="text">
+                    <p class="title" style="margin: 0 auto;"><i></i>活动规则<i></i></p>
+                    <div>
+                        <div>
+                            <p>活动说明：</p>
+                            <p>参与活动即有机会获得幸运奖~每天抽奖机会8次免费。此活动为概率中奖，奖品数量有限，祝好运！</p>
+                            <p>惊喜一：iPhoneXs max</p>
+                            <p>惊喜二：iPhoneXR</p>
+                            <p>惊喜三：华为p10</p>
+                            <p>惊喜四：Beats 3</p>
+                            <p>惊喜五：小米9号</p>
+                            <p>惊喜六：50~100红包</p>
+                            <p>惊喜七：0~10红包</p>
+                            <p>惊喜八：福利袋</p>
+                            <p>重要声明</p>
+                            <p>1.奖品将在中奖后5-10个工作日安排发放，请耐心等待</p>
+                            <p>2.请兑换后仔细阅读使用流程，如有疑问，可直接联系qq:3451211984或qq:1092394513(工作日9:00-12:00  13:30-18:00)</p>
+                            <p>3.通过非法途径获得奖品的，主办方有权不提供奖品</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="rules_close" id="rulesClose"></button>
+        </div>
+    </div>
+    <img class="nextgame animated rotateIn" src="/static/images/Answer/redpack_logo.png" alt="" />
+</div>
+<script src="/static/dist/crypto.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/encode.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/hbdt/config.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/tipError.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/public.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/hbdt/js.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

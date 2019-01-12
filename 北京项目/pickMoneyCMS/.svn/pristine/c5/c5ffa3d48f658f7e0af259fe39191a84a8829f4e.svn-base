@@ -1,0 +1,93 @@
+{extend name="public/base" /}
+
+{block name="title"}
+工作管理 - 功能
+{/block}
+
+{block name="body"}
+
+<table width="90%" border="1" align="center">
+  <tr>
+    <td><table width="90%" border="1" align="center">
+      <tr>
+        <td>ID</td>
+        <td>项目</td>
+        <td>模块</td>
+        <td>任务</td>
+        <td>描述</td>
+        <td>负责人</td>
+        <td>添加时间</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="90%" height="406" border="1" align="center">
+  <tr>
+    <td>
+      <form id="form1" name="form1" method="post" action="" class="layui-form">
+      <table width="800" height="194" border="1" align="center">
+        <tr>
+          <td width="150">项目</td>
+          <td width="200" height="30">
+            <select name="action" lay-filter="action">
+              <option value="0">-&#45;&#45; 请选择 -&#45;&#45;</option>
+			{volist name="arr_api_list" id="vo"}
+				<option value="{$vo['7']}">{$vo['0']}</option>
+			{/volist}
+            </select>          </td>
+          <td height="30">&nbsp;</td>
+        </tr>
+        <tr>
+          <td rowspan="5">任务</td>
+          <td height="14">
+            <p>模块</p>            </td>
+          <td><input name="textfield242" type="text" size="30" /></td>
+        </tr>
+        <tr>
+          <td height="14">任务名称</td>
+          <td><input name="textfield243" type="text" size="30" /></td>
+        </tr>
+        <tr>
+          <td height="30">功能描述</td>
+          <td><textarea name="textfield22" cols="50" rows="3"></textarea></td>
+        </tr>
+        <tr>
+          <td height="30">负责人</td>
+          <td><select name="select" lay-filter="action">
+            <option value="0">-&#45;&#45; 请选择 -&#45;&#45;</option>
+            
+			{volist name="arr_api_list" id="vo"}
+				
+            <option value="{$vo['7']}">{$vo['0']}</option>
+            
+			{/volist}
+            
+          </select></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        
+        <tr>
+          <td height="50" colspan="3"><div align="center">
+            <input type="submit" name="Submit" value="提交" /> 
+            <input type="reset" name="Submit2" value="重置" />
+          </div></td>
+          </tr>
+      </table>
+      </form>
+    </td>
+  </tr>
+</table>
+
+{/block}

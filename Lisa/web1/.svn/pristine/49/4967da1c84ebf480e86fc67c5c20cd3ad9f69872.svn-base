@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/idangerous.swiper.css" />
+		<link rel="stylesheet" type="text/css" href="css/content.css"/>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/stylexq.css" />
+		<link rel="stylesheet" type="text/css" href="css/media.css"/>
+	</head>
+	<body>
+		<div id="contactus">
+			<div class="main">
+				<header>
+					<div class="logo logo1 hidden-sm hidden-xs">
+						<div class="container">
+							<div class="logo_wb">
+								<div class="logolf">
+									<!-- <div class="logoimg"><img src="images/logo.png" alt="" /></div> -->
+									<div class="logoimg"><img :src="logo.logo_imgurl" alt="" /></div>
+									<div class="logowz">
+										<h3>{{logo.company}}</h3>
+										<span>{{logo.website}}</span>
+									</div>
+								</div>
+								<div class="logort wz">{{logo.company}}欢迎你</div>
+							</div>
+						</div>
+					</div>
+					<nav class="navbar navbar-default" role="navigation">
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+									<span class="sr-only">切换导航</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<div class="logo hidden-lg hidden-md">
+										<div class="logo_wb">
+											<div class="logoimg"><img :src="logo.logo_imgurl" alt="" /></div>
+											<div class="logowz">
+												<h3>{{logo.company}}</h3>
+												<span>{{logo.website}}</span>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="collapse navbar-collapse" id="example-navbar-collapse">
+								<ul class="nav navbar-nav">
+									<li><a href="index.html" target="">首页</a></li>
+									<li><a href="fwxm.html" target="">服务项目</a></li>
+									<li><a href="news.html" target="">新闻中心</a></li>
+									<li><a href="alzs.html" target="">案例展示</a></li>
+									<li class="active"><a href="contactus.html" target="">联系我们</a></li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</header>
+				<section class="bannerxq"><img src="images/lxwm_banner_img.png" alt=""></section>
+				
+				<section class="contactus">
+					<div class="container">
+						<div class="tit">
+							<div class="titone"><hr class="tit_hr" /><h2>联系我们</h2><hr class="tit_hr" /></div>
+							<p>微信电话多个联系人的联系方式</p>
+						</div>
+						<ul class="conulist">
+							<li class="col-lg-3 col-sm-4 col-xs-6" v-for="item in contindata">
+								<div class="all">
+									<div class="bj"></div>
+									<div class="con">
+										<span>微信二维码</span>
+										<div class="erweima"><img :src="item.imgurl" alt="" /></div>
+										<h4>{{item.lxrname}}</h4>
+										<div class="tel"><i></i><a :href="'tel:'+item.phone">{{item.phone}}</a></div>
+										
+									</div>
+								</div>
+							</li>
+							<!-- <li class="col-lg-3 col-sm-4 col-xs-6">
+								<div class="all">
+									<div class="bj"></div>
+									<div class="con">
+										<span>微信二维码</span>
+										<div class="erweima"><img src="images/index_erweim_img.png" alt="" /></div>
+										<h4>联系人名字</h4>
+										<div class="tel"><i></i><a href="tel">13546213486</a></div>
+										
+									</div>
+								</div>
+							</li>-->
+							<div class="clear"></div>
+						</ul>
+						
+					</div>
+				</section>
+			</div>
+			<section class="songmask">
+				<div id="preloader_1">
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     
+				</div>
+			</section>
+			<div class="qq"><a href=""><img src="images/QQ_btn.png"/></a></div>
+			<footer>
+				<div class="container">
+					<p>Copyright © 2018XXXXXXXX ®</p>
+				</div>
+			</footer>
+		</div>
+		<style type="text/css">
+			.pagination {
+			  position: absolute;
+			  z-index: 20;
+			  bottom: 10px;
+			  width: 100%;
+			  text-align: center;
+			}
+			.pagination2 {
+			  position: absolute;
+			  z-index: 20;
+			  bottom: 10px;
+			  width: 100%;
+			  text-align: center;
+			}
+			.swiper-pagination-switch {
+			  display: inline-block;
+			  width: 8px;
+			  height: 8px;
+			  border-radius: 8px;
+			  background: #555;
+			  margin: 0 5px;
+			  opacity: 0.8;
+			  border: 1px solid #fff;
+			  cursor: pointer;
+			}
+			.swiper-active-switch {
+			  background: #fff;
+			}
+			.swiper-button-prev{
+				position: absolute;
+			    width: 60px;
+			    height: 60px;
+			    top: 50%;
+			    left: 0;
+			    transform: translate(0%,-50%);
+		    }
+			.swiper-button-next{
+				position: absolute;
+			    width: 60px;
+			    height: 60px;
+			    top: 50%;
+			    right:0;
+			    transform: translate(0%,-50%);
+				}
+			.swiper-button-prev img{width:100%;height: 100%;}
+			.swiper-button-next img{width:100%;height: 100%;}
+		</style>	
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/window.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/idangerous.swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/vue.min.js"></script>
+		<script src="config/config.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			window.onload = function() {
+			  var mySwiper = new Swiper('.swiper-container',{
+				    loop: true,
+				    mode:'horizontal',
+				    resizeReInit : true,
+				    calculateHeight : true,
+				    autoplay: 0,
+				    speed: 300,
+				   	pagination : '.pagination',
+					createPagination :true,
+					
+					onInit: function(swiper){
+				      swiper.swipeNext()
+				    }
+				    //其他设置
+				});  
+				
+//				$('.swiper-button-prev').click(function(){
+//					mySwiper.swipePrev(); 
+//				})
+//				
+//				$('.swiper-button-next').click(function(){
+//					mySwiper.swipeNext(); 
+//				})
+			}
+		</script>
+		<script>
+			var config = new Config();
+			new Vue({
+				el: "#contactus",
+				data: {
+					logo:{},
+					contindata: {}
+				},
+				created: function () {
+					var that = this;
+					$.ajax({
+						type:config.contactslist.type,
+						url: config.contactslist.url,
+						data:{
+							action:"contacts_list"
+						},
+						async:true,
+						dataType: "json",
+						success: function (res) {
+							var slideshow = res.data.logo.slideshow;
+							console.log(typeof slideshow);
+							console.log(res);
+							that.contindata =res.data.contacts;
+							console.log(res.data);
+							that.logo = res.data.logo;
+						},
+						complete: function(data) {
+							setTimeout(function() {
+								$(".songmask").remove();
+							}, 500);
+						},
+						error: function() {
+							
+						}
+					})
+				}
+			})
+		</script>
+	</body>
+</html>

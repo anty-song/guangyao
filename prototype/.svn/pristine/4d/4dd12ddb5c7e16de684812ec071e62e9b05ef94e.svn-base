@@ -1,0 +1,152 @@
+{extend name="common/base" /}
+
+{block name="head"}{__block__}{/block}
+{block name="body"}
+    <link rel="stylesheet" href="/static/style/prototype/font/iconfont.css">
+    <script src="/static/style/prototype/js/oaList.js"></script>
+    <input type="hidden" name="__token__" value="{$Request.token}" />
+    <!--后台列表主体-->
+    <div class="oaMain">
+        <!--功能项-->
+            <ul class="oaMain_fun">
+                <!--如果不是登陆用户，不展示操作功能-->
+                {empty name="username"}
+                    <li><a href="/"><img src="/static/style/prototype/images/upload.png" alt="">上传</a></li>
+                    <li data-downUrl="{:url('/downloadfolder')}"><a href="javascript:;"><img src="/static/style/prototype/images/download.png" alt="">下载</a></li>
+                    <li data-delUrl="{:url('/deleteFolder')}"><a href="javascript:;"><img src="/static/style/prototype/images/del.png" alt="">删除</a></li>
+                    <li data-addUrl="{:url('/addNewFolder')}"><a href="javascript:;"><img src="/static/style/prototype/images/newbag.png" alt="">新建</a></li>
+                    <li><a href="javascript:;"><img src="/static/style/prototype/images/movebag.png" alt="">移动</a></li>
+                {/empty}
+            </ul>
+        <!--前进后退与搜索的菜单栏-->
+        <div class="oaMain_menu">
+            <a href="javascript:;" id="backBtn"><img src="/static/style/prototype/images/back.png" alt=""></a>
+            <a href="javascript:;" id="gosBtn"><img src="/static/style/prototype/images/gos.png" alt=""></a>
+            <b></b>
+            <!-- 如果是登陆用户则展示我的原型，否则展示userid的原型-->
+            {empty name="username"}
+                <p><a href="{:url('/index')}">我的原型</a>{$str}</p>
+            {else /}
+                <p><a href="{:url('/index/') . '?userid=' . $userid}">{$username['username']}的原型</a>{$str}</p>
+            {/empty}
+            <!--右侧搜索-->
+            <div class="oaMain_menu_search">
+                <img src="/static/style/prototype/images/search.png" alt="">
+                <form action="{:url('/index')}" id="searchForm" method="get">
+                    {notempty name="title"}
+                    <input type="text" name="title" placeholder="搜索想要的原型" value="{$title}">
+                    {/notempty}
+                    {empty name="title"}
+                    <input type="text" name="title" placeholder="搜索想要的原型">
+                    {/empty}
+                </form>
+            </div>
+        </div>
+
+        <!--表头-->
+        <div class="oaMain_title">
+            <!--全选-->
+            <p>
+                <label>
+                    <i class="iconfont icon-danxuanweixuan"></i>
+                    <input type="checkbox" name="allchecked">
+                </label>
+                文件名
+            </p>
+            <em>原型链接</em>
+            <b>密码</b>
+            {if condition="$order != 2"}
+                <span><i><a href="{$url . $pid . '&title=' . $title}">修改时间</a></i><img src="/static/style/prototype/images/downjt.png" alt=""></span>
+            {else /}
+                <span><i><a href="{$url . $pid . '&title=' . $title}">修改时间</a></i><img src="/static/style/prototype/images/upjt.png" alt=""></span>
+            {/if}
+        </div>
+
+        <!--内容-->
+        <div class="oaMain_list">
+            {notempty name="list"}
+                {foreach name="list" item="vo"}
+                    {if condition="$vo['type'] == 1"}
+                        <div class="oaMainBox" itemid="{$vo['itemid']}">
+                            <!--选择框-->
+                            <label>
+                                <i class="iconfont icon-danxuanweixuan"></i>
+                                <input type="checkbox" name="smchecked" value="{$vo['itemid']}">
+                            </label>
+                            <span><img src="/static/style/prototype/images/bags.png" alt=""><a href="{$url . $vo['itemid']}">{$vo['title']}</a></span>
+                            <!--地址-->
+                            <em></em>
+                            <!--密码-->
+                            <b></b>
+                            <!--时间-->
+                            <i>{$vo['addtime']|date='Y-m-d H:i:s',###}</i>
+                        </div>
+                    {else /}
+                        <div class="oaMainBox" itemid="{$vo['itemid']}">
+                            <!--选择框-->
+                            <label>
+                                <i class="iconfont icon-danxuanweixuan"></i>
+                                <input type="checkbox" name="smchecked" value="OA">
+                            </label>
+                            <span><img src="/static/style/prototype/images/links.png" alt=""><a target="_blank" href="http://{$vo['pro_url']}">{$vo['title']}</a></span>
+                            <!--地址-->
+                            <em><a target="_blank" href="http://{$vo['pro_url']}">http://{$vo['pro_url']}<input
+                                    type="text" readonly><b>复制</b></a>
+                            </em>
+                            <!--密码-->
+                            <b>{$vo['password_show']}</b>
+                            <!--时间-->
+                            <!--<span class="download"><a href="http://{:APP_URL . 'zip/' . $vo['url'] . '.zip'}">下载</a></span>-->
+                            <i>{$vo['addtime']|date='Y-m-d H:i:s',###}</i>
+                        </div>
+                    {/if}
+                {/foreach}
+            {/notempty}
+            {empty name="list"}
+                <h1>暂无连接</h1>
+                <img src="/static/style/prototype/images/nullBox.png" alt="">
+            {/empty}
+        </div>
+
+    </div>
+
+    <!--删除窗口-->
+    <div class="oaMain_del">
+        <div class="del_window">
+            <p>删除确认<a href="javascript:;">X</a></p>
+            <span><i>!</i>确定要删除吗？</span>
+            <button id="delYesBtn">确认</button>
+            <button id="delNoBtn">取消</button>
+        </div>
+    </div>
+
+    <!--移动到窗口-->
+    <div class="oaMain_move">
+        <div class="move_window">
+            <p>移动确认<a href="javascript:;">X</a></p>
+            <!--移动主体-->
+            <div class="moveMain"></div>
+            <!--按钮选项-->
+            <button data-addUrl="{:url('/addNewFolder')}" id="moveAddBtn">新建</button>
+            <button id="moveYesBtn" data-moveUrl="{:url('/moveFolder')}">确认</button>
+            <button id="moveNoBtn">取消</button>
+        </div>
+    </div>
+
+    <div class="oaMain_loading">
+        <img src="/static/style/prototype/images/loadinging.png" alt="">
+    </div>
+
+<!--<div class="mylayer2 admin2">-->
+    <!--<img class="close-layer" src="/static/style/prototype/images/link_generation_tc_close@2x.png" alt="">-->
+    <!--<p class="h2">修改密码</p>-->
+    <!--<input type="text" class="layui-input oldpassword" name="uname" placeholder="原密码" autocomplete='new-password' lay-verify="required">-->
+    <!--<input type="password" class="layui-input newpassword" name="upassword" placeholder="新密码" autocomplete="off" lay-verify="required">-->
+    <!--<button type="button" class="cancel" style="margin-right: .3rem;">取消</button>-->
+    <!--<button type="button" class="sure">确认</button>-->
+<!--</div>-->
+{/block}
+
+{block name="foot"}
+{__block__}
+{/block}

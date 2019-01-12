@@ -1,0 +1,97 @@
+.brand_title {padding:10px 10px 0 10px;}
+.brand_info {margin:0 10px 0 10px;padding:5px 10px 15px 15px;line-height:22px;}
+.brand_info li {line-height:28px;height:28px;}
+.brand_logo {border:#EEEEEE 1px solid;padding:5px;margin:0 0 10px 0;}
+.brand_video {text-align:center;padding:15px 0 15px 0;}
+.brand_pdt {border-top:#DDDDDD 1px dotted;height:10px;font-size:1px;}
+/*投票失败弹窗样式*/
+/*品牌*/
+.ui_brandlist {
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 6px;
+}
+.ui_brandlist_title {
+	width: 290px;
+	height: 22px;
+	position: relative;
+	margin: 0 5px;
+}
+.ui_brandlist_title img,.ui_brandlist_one_img img {
+	width: 100%;
+	height: 100%;
+}
+.ui_brandlist_title span {
+	display: block;
+	position: absolute;
+	top: -3px;
+	left:50%;
+	margin-left: -24px;
+	font-size: 12px;
+	color: #fff;
+}
+.ui_brandlist_content {
+	width: 300px;
+	margin-top: 10px;
+}
+.ui_brandlist_one {
+	width: 88px;
+	height: 84px;
+	border: 1px solid #e0e0e0;
+	font-size: 12px;
+	float: left;
+	cursor: pointer;
+	margin: 0 5px 10px 5px;
+}
+.ui_brandlist_one_img {
+	width: 74px;
+	height: 40px;
+	margin: 4px auto;
+}
+.ui_brandlist_one span{
+	display: block;
+	text-align: center;
+	font-size: 12px;
+	color: #666;
+	height: 18px;
+	line-height: 18px;
+}
+.ui_brandlist_more,.ui_catlist_more {
+	font-family: 微软雅黑;
+	clear: both;
+	display: block;
+	width: 290px;
+	height: 28px;
+	background: #f5f5f5;
+	font-size: 12px;
+	color: #8f8f8f !important;
+	text-decoration: none;
+	text-align: center;
+	line-height: 28px;
+	margin: 0px 5px 6px 5px;
+}
+/*行业*/
+.ui_catlist {
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 16px;
+	clear: both;
+	overflow: hidden;
+}
+.ui_catlist_content {
+	width: 300px;
+	margin-top: 10px;
+}
+.ui_catlist_content a {
+	display: block;
+	margin: 0 5px 10px 5px;
+	float: left;
+	width: 88px;
+	color: #666 !important;
+	border: 1px solid #e0e0e0;
+	font-size: 12px;
+	text-align: center;
+	height: 34px;
+	line-height: 34px;
+}
+/*投票失败弹窗样式结束/

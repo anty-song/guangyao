@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>共享集市</title>
+    <link rel="stylesheet" href="./share.css">
+</head>
+<body>
+    <div class="share-wrap">
+        <!-- 顶部租主信息 -->
+        <div class="share-top">
+            <div class="owner">
+                <div class="owner-img">
+                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537968414547&di=65b1543f056b895fed1e856f2034238d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb3b7d0a20cf431ad833169564036acaf2fdd98f9.jpg" alt="">
+                </div>
+                <div class="owner-about">
+                    <div class="owner-nickname">租主人昵称</div>
+                    <div class="owner-info">
+                        <span class="owner-time">42分钟前发布</span>
+                        <span class="owner-position">石家庄 长安区</span>
+                    </div>
+                </div>
+            </div>
+            <a class="chat" href="#">聊一聊</a>
+        </div>
+        <!-- 轮播图 -->
+        <div class="device">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"> <img src="./images/slider1-1.png"> </div>
+                    <div class="swiper-slide"> <img src="./images/slider1-2.png"> </div>
+                    <div class="swiper-slide"><img src="./images/slider1-1.png"></div>
+                </div>
+            </div>
+            <div class="pagination"></div>
+        </div>
+        <!-- 商品信息 -->
+        <div class="good-info">
+            <div class="good-info-head">
+                <p class="good-name"><span>图书</span><span>【首发】天才在左疯子在右</span></p>
+                <p class="good-price"><span>¥</span><span>10.00</span><span>/月</span></p>
+            </div>
+            <div class="good-info-body">
+                <div class="good-info-item">
+                    <span>押金：50.00元</span>
+                    <span class="note">短信通知</span>
+                </div>
+                <div class="good-info-item">
+                    共享时间：2017-04-20~2018-04-20
+                </div>
+                <div class="good-info-item">
+                    <div style="display:flex;align-items: center;">
+                        <img class="location-ico" src="./images/detail_location_icon.png" alt="">
+                        <span>河北省石家庄长安区嘉和广场</span>
+                    </div>
+                    <img class="arrow-ico" src="./images/detail_into_btn.png" alt="">
+                </div>
+            </div>
+            <div class="good-info-foot">
+                <div class="owner1">
+                    <div class="owner1-img">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537968414547&di=65b1543f056b895fed1e856f2034238d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb3b7d0a20cf431ad833169564036acaf2fdd98f9.jpg"
+                            alt="">
+                    </div>
+                    <div class="owner1-about">
+                        <div class="owner1-nickname">
+                            <span>东家</span>
+                            <img class="dongjia" src="./images/detail_dongjia_img.png" alt="">
+                        </div>
+                        <div class="owner1-info">
+                            <span class="owner1-jointime">加入集市230天</span>
+                            <span class="owner1-deal">成功交易23笔</span>
+                        </div>
+                    </div>
+                </div>
+                <a class="chat1" href="#">聊天</a>
+            </div>
+        </div>
+        <!-- 切换面板 -->
+        <div class="panel-block">
+            <div class="switch-btns">
+                <div class="switch-btn active">物品详情</div>
+                <div class="switch-btn" id="red">传递记录</div>
+                <div class="switch-btn">互动专区</div>
+            </div>
+            <div class="panel">
+                <div class="panel1 panel-item block">
+                    <div class="panel-heading">物品详情</div>
+                    <div class="panel-body">
+                        1900年6月，“八国联军”侵略中国。1901年9月，清政府被迫签订《辛丑条约》，赔偿白银4.5亿两，史称“庚子赔款”。1904年美国表示所得赔款“原属过多”，可用于“退款办学”。经中美双方多次商谈，于1908年确定退款办学相关事宜。美国伊利诺伊大学校长詹姆士1906年给美国总统《备忘录》中的一段话反映了美国退款办学的真实目的：“我们现在一定能够使用最圆满和巧妙的方式，控制中国的发展——这就是说，使用那从知识上与精神上支配中国领袖的方式。”“商业追随精神上的支配，比追随军旗更可靠。”
+                    </div>
+                </div>
+                <div class="panel2 panel-item none">
+                    <div class="panel-heading">传递记录</div>
+                    <div class="panel-body">
+                        <div class="record">
+                            <div class="record-left">
+                                <img class="record-avatar" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537968414547&di=65b1543f056b895fed1e856f2034238d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb3b7d0a20cf431ad833169564036acaf2fdd98f9.jpg"
+                                    alt="">
+                                <span class="record-name">昵称</span>
+                                <span class="record-state">租用中</span>
+                            </div>
+                            <div class="record-right">
+                                <span class="record-time">2018-10-1</span>
+                                <img class="record-arrow" src="./images/detail_into_btn.png" alt="">
+                            </div>
+                        </div>
+                        <div class="record">
+                            <div class="record-left">
+                                <img class="record-avatar" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537968414547&di=65b1543f056b895fed1e856f2034238d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb3b7d0a20cf431ad833169564036acaf2fdd98f9.jpg"
+                                    alt="">
+                                <span class="record-name">昵称</span>
+                            </div>
+                            <div class="record-right">
+                                <span class="record-time">2018-10-1</span>
+                                <img class="record-arrow" src="./images/detail_into_btn.png" alt="">
+                            </div>
+                        </div>
+                        <div class="record">
+                            <div class="record-left">
+                                <img class="record-avatar" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537968414547&di=65b1543f056b895fed1e856f2034238d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb3b7d0a20cf431ad833169564036acaf2fdd98f9.jpg"
+                                    alt="">
+                                <span class="record-name">昵称</span>
+                            </div>
+                            <div class="record-right">
+                                <span class="record-time">2018-10-1</span>
+                                <img class="record-arrow" src="./images/detail_into_btn.png" alt="">
+                            </div>
+                        </div>
+                        <div class="record">
+                            <div class="record-left">
+                                <img class="record-avatar" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537968414547&di=65b1543f056b895fed1e856f2034238d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb3b7d0a20cf431ad833169564036acaf2fdd98f9.jpg"
+                                    alt="">
+                                <span class="record-name">昵称</span>
+                            </div>
+                            <div class="record-right">
+                                <span class="record-time">2018-10-1</span>
+                                <img class="record-arrow" src="./images/detail_into_btn.png" alt="">
+                            </div>
+                        </div>
+                        <div class="record">
+                            <div class="record-left">
+                                <img class="record-avatar" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537968414547&di=65b1543f056b895fed1e856f2034238d&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb3b7d0a20cf431ad833169564036acaf2fdd98f9.jpg"
+                                    alt="">
+                                <span class="record-name">昵称</span>
+                            </div>
+                            <div class="record-right">
+                                <span class="record-time">2018-10-1</span>
+                                <img class="record-arrow" src="./images/detail_into_btn.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-record">
+                        <span>更多记录</span>
+                        <img class="record-down-btn" src="./images/detail_down3_btn.png" alt="">
+                    </div>
+                </div>
+                <div class="panel3 panel-item none">
+                    <div class="panel-heading">互动专区</div>
+                    <div class="panel-body">
+                        <p>13</p>
+                        <p>1</p>
+                        <p>1</p>
+                    </div>
+                </div>
+            </div>
+                <!-- <div class="panel">
+                    <div class="panel-item" style="display:block;">
+                        <div class="panel-heading">物品详情</div>
+                        <div class="panel-body">
+                            <p>1</p>
+                            <p>1</p>
+                            <p>1</p>
+                        </div>
+                    </div>
+                    <div class="panel-item" style="display:none;">
+                        <div class="panel-heading">传递记录</div>
+                        <div class="panel-body">
+                            <p>1</p>
+                            <p>1</p>
+                            <p>1</p>
+                        </div>
+                    </div>
+                    <div class="panel-item" style="display:none;">
+                        <div class="panel-heading">互动专区</div>
+                        <div class="panel-body">
+                            <p>1</p>
+                            <p>1</p>
+                            <p>1</p>
+                        </div>
+                    </div>
+                </div> -->
+        </div>
+        <!-- 租借 -->
+        <div class="torent">
+            <a href="#">我要租借</a>
+        </div>
+    </div>
+    <script src="./js/flexible.js"></script>
+    <script src="./js/jquery-1.10.1.min.js"></script>
+    <script src="./js/idangerous.swiper.min.js"></script>
+    <script>
+        // 轮播图初始化设置
+        var mySwiper = new Swiper('.swiper-container', {
+            pagination: '.pagination', // 绑定分页器
+            loop: true, // 循环控制
+            grabCursor: true, // 手势控制
+            paginationClickable: true // 可点击分页器
+        });
+    </script>
+    <script>
+        // 底部面板切换
+        
+        $('.switch-btn').on('click',function(e){
+            var index = $(this).index();
+            if($(this).hasClass('active')) {
+                return;
+            } else {
+                $(this).addClass("active").siblings(".switch-btn").removeClass("active");
+                $(".panel-item").addClass('none');
+                $(".panel-item").eq(index).removeClass("none").addClass("block");
+            }
+        })
+    </script>
+</body>
+</html>

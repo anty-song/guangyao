@@ -1,0 +1,3 @@
+$(function () {
+    $('.header>.topItem>ul>li').eq(0).addClass('on').siblings().removeClass('on');
+})

@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a:hover,
+a:active,
+a:focus,
+a{
+    text-decoration: none;
+}
+ul, li {
+    list-style: none;
+}
+.bangdan_list_box {
+    width: 1200px;
+    margin: 0 auto;
+}
+.bangdan_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

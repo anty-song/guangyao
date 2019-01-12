@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+html {
+    background-image: url("../img/heijing.png");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+}
+a{
+    text-decoration: none;
+}
+a,img,button,input,textarea{
+    -webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+.content{
+
+    margin:  0 auto;
+    width: 100%;
+    height: 100%;
+
+}
+.heijing{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background:rgba(255,255,255,1);
+}
+.wenzi-h{
+    width: 6rem;
+    height: 2.5rem;
+    margin: 0 auto;
+}
+.wenzi{
+    width: 6rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 0.8rem;
+}
+.ch-h{
+    width: 5rem;
+    height: 6rem;
+    margin: 0 auto;
+}
+
+.ch{
+    width: 5rem;
+    height: 6rem;
+    position: absolute;
+    top:3.1rem;
+}
+.bt1-h{
+    height: 1.37rem;
+    width: 4.32rem;
+    margin: 0 auto;
+}
+.bt1{
+    height: 1.37rem;
+    width: 4.32rem;
+    position: relative;
+    top:1rem;
+}

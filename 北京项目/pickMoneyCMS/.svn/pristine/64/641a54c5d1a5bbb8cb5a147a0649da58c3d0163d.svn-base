@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>用户管理-信息库配置</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div>
+        <!-- 内容主体区域 -->
+        <div class="layui-fluid xxkpz">
+            <blockquote class="layui-elem-quote" style="margin: 20px 0;"><span>用户信息配置库</span><button class="layui-btn layui-btn adduser" style="float: right;margin-top: -8px;">新增</button></blockquote>
+            <form action="">
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" placeholder="按昵称查找" autocomplete="off">
+                    </div>
+                    <div class="layui-input-inline">
+                        <button class="layui-btn layui-btn-primary">搜索</button>
+                    </div>
+                </div>
+            </form>
+            <table class="layui-table" lay-even>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>编号</th>
+                        <th>头像</th>
+                        <th>昵称</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>1</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>2</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>3</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>4</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>5</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>6</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>7</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>8</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>9</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>10</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>11</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>12</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>13</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>14</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="1" class="delInput"></td>
+                        <td>15</td>
+                        <td><img src="__ADMINIMG__/120332641.png" alt=""></td>
+                        <td>王晨露</td>
+                        <td>
+                            <form class="layui-form" action="">
+                                <div class="layui-input-block" style="margin-left: 0;">
+                                    <input type="checkbox" name="switch" value="" lay-skin="switch" lay-filter="status" lay-text="启用|停用" checked>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="" class="deltr">删除</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="easy-shuttle">
+                <input type="checkbox" name="1" class="totaltr">
+                <span style="margin: 0 20px 0 10px;">全选</span>
+                <button class="layui-btn layui-btn-primary" data-num="1">启用</button>
+                <button class="layui-btn layui-btn-primary" data-num="2">禁用</button>
+                <button class="layui-btn layui-btn-primary" data-num="9">一键删除</button>
+            </p>
+            <div id="demo11" style="text-align: center;"></div>
+        </div>
+    </div>
+    <div class="create-question">
+        <img class="closeModel" src="__ADMINIMG__/Close@2x.png" alt="">
+        <p>新增用户信息库配置</p>
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">题目名称</label>
+                <div class="layui-input-block" style="margin-left: 115px;">
+                  <input type="text" name="title" required="" lay-verify="required" placeholder="请输入题目名称" autocomplete="off" class="layui-input" style="width: 80%;">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">答案1</label>
+                <div class="layui-input-inline">
+                  <input type="text" name="answer1" required="" lay-verify="required" placeholder="请输入答案1" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-inline">
+                    <input type="checkbox" class="layui-input"><div class="layui-unselect layui-form-checkbox"><i class="layui-icon layui-icon-ok"></i></div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">答案2</label>
+                <div class="layui-input-inline">
+                  <input type="text" name="answer2" required="" lay-verify="required" placeholder="请输入答案2" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-inline">
+                    <input type="checkbox" class="layui-input"><div class="layui-unselect layui-form-checkbox"><i class="layui-icon layui-icon-ok"></i></div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">答案3</label>
+                <div class="layui-input-inline">
+                  <input type="text" name="answer3" required="" lay-verify="required" placeholder="请输入答案3" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-inline">
+                    <input type="checkbox" class="layui-input"><div class="layui-unselect layui-form-checkbox"><i class="layui-icon layui-icon-ok"></i></div>
+                </div>
+            </div>
+            <button class="layui-btn createUpload" lay-submit="" lay-filter="formDemo">确定</button>
+            <button type="reset" class="layui-btn layui-btn-normal">重置</button>
+        </form>
+    </div>
+    <div class="mark"></div>
+    {load href="/static/admin/layui/layui.js" /}
+    {load href="/static/admin/js/user.js" /}
+</body>
+</html>

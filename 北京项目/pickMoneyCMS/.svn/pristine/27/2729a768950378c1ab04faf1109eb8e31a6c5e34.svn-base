@@ -1,0 +1,191 @@
+{extend name="common:index_new"}
+{block name="main"}
+            <div class="content_right fl clearfix">
+                <div class="dboxs clearfix">
+                    <div class="notice clearfix">
+                        <div class="notice_news font12 colorf fl">
+                            最新公告
+                        </div>
+                        <div class="str1 str_wrap fl font12 color98">
+                            <span class="font12 color98 mr14">[10-31]</span>北京玛林梵多智能美业管理系统2018改版升级，迎来新功能，欢迎体验试用！（新版体验日期2018一月至二月）
+                        </div>
+                        <div class="notice_more fr clearfix">
+                            <a href="#">
+                                <span class=" font12 colorde fl">更多</span>
+                                <span class="fl"><img src="__IMAGE__/info.png" art=""></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="day_time clearfix">
+                        <div class="fl color1a font16 day">单项管理</div>
+                        <div class="fl new-built">
+                            <a href="{:url('store/product/project_add')}" class="clearfix">
+                                <span class="fl add"><img src="__IMAGE__/brands_icon.png" alt=""></span>
+                                <span class="fl font12 colorf">新建单项</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="query_cons">
+                        <form action="" method="get" name="form1">
+                        <div class="inquiry_con pl35 clearfix">
+                            <div class="fl mr43 clearfix">
+                                <span class="font12  color80 fl mr14">项目分类：</span>
+                                <div class="fl">
+                                    <select class="nice-select" name="p_type" id="p_type" style="float: left">
+                                        <option value="0" {if condition="empty($s_type) eq true"}selected="selected"{/if}>所有分类</option>
+                                        {volist name="data_type" id="vo"}
+                                        <option value="{$vo['id']}" {if condition="$s_type eq $vo['id']"}selected="selected"{/if}>{$vo['t_title']}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="fl mr43 clearfix">
+                                <span class="font12  color80 fl mr14">项目名称：</span>
+                                <input type="text" class="num_phone" name="title" value="{$s_title}" placeholder="项目名称">
+                            </div>
+                            <div class="row clearfix fl  mlr" >
+                                <div class="col">
+                                    <button class="btn" style="width:100%; vertical-align:-2px;border:0;background:#65d3e0;bordesr-radius:2px;color:#fff;vertical-align: 0px; "><i class="gicon-search white"></i>搜索</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        </form>
+                        <div class="clearfix mt15 pl35">
+                            <div class="fl mr21"><span class="font12 colord5 fontwt">总计：</span><span class="font12 colord5 fontwt">{$count}</span></div>
+                        </div>
+                    </div>
+                    <div class="brands_con clearfix">
+
+                        <div class="wxtables clearfix">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <colgroup>
+                                    <col width="20%">
+                                    <col width="20%">
+                                    <col width="20%">
+                                    <col width="20%">
+                                    <col width="20%">
+                                </colgroup>
+                                <thead class="thead_nav">
+                                <tr>
+                                    <th class="font12 fontwt color80">ID</th>
+                                    <th class="font12 fontwt color80">产品名称</th>
+                                    <th class="font12 fontwt color80">图片</th>
+                                    <th class="font12 fontwt color80">排序</th>
+                                    <th class="font12 fontwt color80">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody class="tbody_con">
+                                {volist name="data" id="list"}
+                                <tr>
+                                    <td class="font12 fontwt color4d">{$list.project_id}</td>
+                                    <td>
+                                        <div class="font12 fontwt color4d" >{$list.title}</div>
+                                        <div class="font12 fontwt color4d">￥{$list.price}</div>
+                                    </td>
+                                    <td><img src="{$list.img}" alt="" class="imgs"></td>
+                                    <td class="font12 fontwt color4d">{$list.sort}</td>
+                                    <td class="clearfix">
+                                        <a href="{:url('store/product/project_edit',['id'=>$list['project_id']])}" class="btn font12 colorf" id="btn_editor" style="color:#fff;">编辑</a>
+                                        <a href="javascript:;" class="btn font12 colorf j-del" id="btn_remove" data-id="{$list.project_id}" style="color:#fff;">删除</a>
+                                    </td>
+                                </tr>
+                                {/volist}
+
+                                </tbody>
+                            </table>
+                            <div class="page_con clearfix">
+                                <div class="tcdPageCode clearfix fr">
+                                    <div class="fl clearfix" style="height:26px;line-height:26px;">
+                                        <div class="fl mr21">
+                                            <span class="font12 color4d fontwt">总记录:</span>
+                                            <span class="font12 color4d fontwt ml7">{$count}</span>
+                                        </div>
+                                        <div class="fl mr21">
+                                            <span class="font12 color4d fontwt">当前:</span>
+                                            <span class="font12 color4d fontwt ml7">{$page}</span>
+                                        </div>
+                                    </div>
+                                    <!--<div id="pageNav" class="fl">-->
+
+                                    <!--</div>-->
+                                    <div class="tables-btmctrl fl  clearfix">
+                                        <div class="mgt10">
+                                            <div class="paginate">
+                                                {notempty name="data"}
+                                                {$data->render()}
+                                                {/notempty}
+                                            </div>
+                                            <!-- end paginate -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+{/block}
+{block name="js"}
+<link rel="stylesheet" href="__JS__/component.js">
+<script>
+
+    //        文字左右滚动
+    $('.str1').liMarquee();
+    $('[name="nice-select"]').click(function(e){
+        $('[name="nice-select"]').find('.nice_con').hide();
+        $(this).find('.nice_con').show();
+        e.stopPropagation();
+    });
+    $('[name="nice-select"] .nice_con div').hover(function(e){
+        $(this).toggleClass('on');
+        e.stopPropagation();
+
+    });
+    $('[name="nice-select"] .nice_con div').click(function(e){
+        var val = $(this).text();
+        $(this).parents('[name="nice-select"]').find('input').val(val);
+        $('[name="nice-select"] .nice_con').hide();
+        e.stopPropagation();
+    });
+    $(document).click(function(){
+        $('[name="nice-select"] .nice_con').hide();
+    });
+</script>
+<script src="__JS__/lib-min.js"></script>
+<script src="__PLUGIN__/jbox/jbox.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".j-del").click(function() {
+            var i = $(this),
+                t = i.data("id");
+            return $.jBox.show({
+                width: 300,
+                title: "删除单项？",
+                content: "确认要删除该单项吗？",
+                btnOK: {
+                    onBtnClick: function(i) {
+                        $.jBox.close(i), $.ajax({
+                            url: "{:url('store/product/project_delete')}",
+                            type: "post",
+                            dataType: "json",
+                            data: {
+                                id: t
+                            },
+                            beforeSend: function() {
+                                $.jBox.showloading()
+                            },
+                            success: function(i) {
+                                1 == i.status ? (alert("删除单项成功！"), setTimeout(function() {
+                                    window.location.reload()
+                                }, 1e3)) : alert("删除单项失败：" + i.msg), $.jBox.hideloading()
+                            }
+                        })
+                    }
+                }
+            }), !1
+        })
+    });
+</script>
+{/block}

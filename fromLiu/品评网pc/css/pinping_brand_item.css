@@ -1,0 +1,10 @@
+.m1024 {
+    width: 1200px;
+    margin: 0 auto;
+}
+.brandList {
+    width: 184px;
+    height: 258px;
+    border-radius: 10px;
+    float: left;
+}

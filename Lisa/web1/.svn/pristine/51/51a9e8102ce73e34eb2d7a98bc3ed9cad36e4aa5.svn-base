@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新闻中心</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+
+		<link rel="stylesheet" type="text/css" href="css/content.css"/>
+		<link rel="stylesheet" type="text/css" href="css/pagination.css"/>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/stylexq.css" />
+		<link rel="stylesheet" type="text/css" href="css/media.css"/>
+	</head>
+	<body>
+		<div id="news">
+			<div class="main">
+				<header>
+					<div class="logo logo1 hidden-sm hidden-xs">
+						<div class="container">
+							<div class="logo_wb">
+								<div class="logolf">
+									<!-- <div class="logoimg"><img src="images/logo.png" alt="" /></div> -->
+									<div class="logoimg"><img :src="logo.logo_imgurl" alt="" /></div>
+									<div class="logowz">
+										<h3>{{logo.company}}</h3>
+										<span>{{logo.website}}</span>
+									</div>
+								</div>
+								<div class="logort wz">{{logo.company}}欢迎你</div>
+							</div>
+						</div>
+					</div>
+					<nav class="navbar navbar-default" role="navigation">
+						<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+								<span class="sr-only">切换导航</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<div class="logo hidden-lg hidden-md">
+									<div class="logo_wb">
+										<div class="logoimg"><img :src="logo.logo_imgurl" alt="" /></div>
+										<div class="logowz">
+											<h3>{{logo.company}}</h3>
+											<span>{{logo.website}}</span>
+										</div>
+									</div>
+								</div>
+						</div>
+						<div class="collapse navbar-collapse" id="example-navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li><a href="index.html" target="">首页</a></li>
+								<li><a href="fwxm.html" target="">服务项目</a></li>
+								<li class="active"><a href="news.html" target="">新闻中心</a></li>
+								<li><a href="alzs.html" target="">案例展示</a></li>
+								<li><a href="contactus.html" target="">联系我们</a></li>
+							</ul>
+						</div>
+						</div>
+					</nav>
+				</header>
+				<!--<section class="banner">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="images/index_banner_img.png" alt=""></div>
+							<div class="swiper-slide"><img src="images/index_banner_img.png" alt=""></div>
+							<div class="swiper-slide"><img src="images/index_banner_img.png" alt=""></div>
+					
+						</div>
+						<div class="pagination"></div>
+					
+					</div>
+				</section>-->
+				
+				<section class="news">
+					<div class="container">
+						<div class="white">
+						<div class="newstit"><h2>新闻中心</h2> <span>news</span></div>
+							<ul class="newslist">
+								<li v-for="item in newsdata">
+									<a :href="'./newsxq.html?a='+item.newsid" target=""><h1>{{item.articletitle}}</h1></a>
+									<a href=""><time>{{item.addtime}}</time></a>
+								</li>
+								<div class="clear"></div>
+							</ul>
+							<div class="box" id="wrap1">
+								<ul class="pagination-wrap" style="display: inline-block;">
+									<li class="pagination-btn" @click="prePage()">上一页</li>
+									<li class="pagination-btn" v-for="item in pageNum" @click="changePage(item)">{{item}}</li>
+									<li class="pagination-btn" style="width:56px" @click="nextPage()">下一页</li>
+									<div class="clear"></div>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<section class="songmask">
+				<div id="preloader_1">
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     
+				</div>
+			</section>
+			<div class="qq"><a href=""><img src="images/QQ_btn.png"/></a></div>
+
+			<footer>
+				<div class="container">
+					<p>{{logo.copyright_logo}}</p>
+				</div>
+			</footer>
+		</div>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/window.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/idangerous.swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/vue.min.js"></script>
+		<script src="config/config.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+			var config = new Config();
+			var news = new Vue({
+				el: "#news",
+				data: {
+					logo: {},
+					newsdata: {},
+					pageNum: [],
+					// 当前页
+					currentPage: 0
+				},
+				created: function () {
+					this.pageInit();
+					this.addBtnStyle(1);
+				},
+				methods: {
+					// 初始化
+					pageInit: function () {
+						var that = this;
+						$.ajax({
+							type: config.newslist.type,
+							url: config.newslist.url,
+							data: {
+								action: "news_list",
+								page: 1
+							},
+							async: true,
+							dataType: "json",
+							success: function (res) {
+								console.log(res);
+								that.newsdata = res.data.newsdata;
+								that.logo = res.data.logo;
+								that.currentPage = res.data.page;
+								var totalpage = res.data.totalPage;
+								var pageNum = [];
+								for (var i = 0; i < totalpage; i++) {
+									pageNum.push(i + 1);
+								}
+								that.pageNum = pageNum;
+								console.log(pageNum)
+							},
+							complete: function (data) {
+								setTimeout(function () {
+									$(".songmask").remove();
+								}, 500);
+							},
+							error: function () {
+
+							}
+						})
+					},
+					// 获取数据
+					getData: function(page) {
+						var that = this;
+						$.ajax({
+							type: config.newslist.type,
+							url: config.newslist.url,
+							data: {
+								action: "news_list",
+								page: page
+							},
+							async: true,
+							dataType: "json",
+							success: function (res) {
+								console.log(res);
+								that.newsdata = res.data.newsdata;
+								that.logo = res.data.logo;
+								that.currentPage = res.data.page;
+								that.addBtnStyle(that.currentPage);
+							}
+						})
+					},
+					// 切换页面
+					changePage: function(page) {
+						this.getData(page);
+					},
+					// 上一页
+					prePage: function() {
+						var currentPage = this.currentPage;
+						console.log(currentPage);
+						if(currentPage == 1) {
+							return;
+						} else {
+							this.currentPage = currentPage - 1;
+							this.getData(currentPage - 1)
+						}
+					},
+					// 下一页
+					nextPage: function() {
+						var currentPage = this.currentPage;
+						console.log(currentPage);
+						if (currentPage == this.pageNum.length) {
+							return;
+						} else {
+							this.currentPage = currentPage + 1;
+							this.getData(currentPage + 1)
+						}
+					},
+					addBtnStyle: function(index) {
+						$(".pagination-btn").eq(index).addClass("pagination-current").siblings().removeClass("pagination-current");
+					}
+				}
+			})
+
+		</script>
+	</body>
+</html>

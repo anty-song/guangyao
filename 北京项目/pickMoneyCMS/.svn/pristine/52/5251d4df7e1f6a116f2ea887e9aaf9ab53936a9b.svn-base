@@ -1,0 +1,212 @@
+<?php
+/**
+ * 百万红包model
+ * User: zhushengli
+ * Date: 18/9/18
+ * Time: 上午9:08
+ */
+namespace app\admin\model;
+
+use think\Db;
+
+class MillionsModel extends BaseModel
+{
+
+    protected $activity_table = 'b_millions_activity';
+    protected $config_table = 'b_millions_config';
+    protected $task_table = 'b_millions_task_u';
+    protected $user_list_table = 'b_1_user_list';
+    protected $millions_list_table = 'b_millions_guide_list';
+    protected function initialize()
+    {
+        parent::initialize();
+    }
+
+    /**
+     * 获取百万红包活动列表
+     * @param int $status [活动状态]
+     * @return array|false|\PDOStatement|string|\think\Collection
+     */
+    public function getActivityList($status = 1)
+    {
+        $where['status'] = $status;
+        return Db::table($this->activity_table)->where($where)->field('id,a_title')->select();
+    }
+
+    /**
+     * 获取百万红包一条活动信息
+     * @param int $id [活动ID]
+     * @param string $field [请求字段，默认所有字段]
+     * @return array|false|null|\PDOStatement|string|\think\Model
+     */
+    public function getActivityInfo($id,$field = '*')
+    {
+        $where['id'] = $id;
+        return Db::table($this->activity_table)->field($field)->where($where)->find();
+    }
+
+    /**
+     * 更新活动数据
+     * @param int $id [活动ID]
+     * @param array $data [需要更新的数据]
+     * @return int|string
+     */
+    public function upActivityById($id,$data)
+    {
+        $where['id'] = $id;
+        return Db::table($this->activity_table)->where($where)->data($data)->update();
+    }
+
+    /************以下为活动红包配置***************/
+
+    /**
+     * 获取对应活动红包配置
+     * @param int $id [活动ID]
+     * @param int $status [红包状态]
+     * @param string $field [返回字段，默认所有字段]
+     * @return array|false|null|\PDOStatement|string|\think\Model
+     */
+    public function getConfigList($id,$status = 1,$field = '*')
+    {
+        $where['c_act_id'] = $id;
+        $where['status'] = $status;
+        return Db::table($this->config_table)->field($field)->where($where)->select();
+    }
+
+    /**
+     * 设置对应红包配置状态
+     * @param int $id [红包配置ID]
+     * @param $status [状态]
+     * @return int|string
+     */
+    public function setConfigStatus($id,$status)
+    {
+        $where['id'] = $id;
+        $data['status'] = $status;
+        return Db::table($this->config_table)->where($where)->data($data)->update();
+    }
+
+
+    /**
+     * 删除红包配置
+     * @param int $c_id [红包配置ID]
+     * @return int
+     */
+    public function delConfig($c_id)
+    {
+        $where['id'] = $c_id;
+        return Db::table($this->config_table)->where($where)->delete();
+    }
+
+    /**
+     * 添加活动红包配置
+     * @param $data [红包配置数据]
+     * @return int|string
+     */
+    public function addConfig($data)
+    {
+        return Db::table($this->config_table)->data($data)->insert();
+    }
+
+    /**
+     * 更新活动红包配置
+     * @param array $data [需要更新的数据,包含主键ID]
+     * @return int|string
+     */
+    public function upConfig($data)
+    {
+        return Db::table($this->config_table)->update($data);
+    }
+
+    /**
+     * 发送引导红包
+     * @param $data [需要添加的数据]
+     * @return int|string
+     */
+    public function sendRedPack($data)
+    {
+        return Db::table($this->millions_list_table)->data($data)->insert();
+    }
+
+
+    /**
+     * 拆包记录列表
+     * @param int $table_id [分表ID]
+     * @param int $act_id [活动ID]
+     * @param string $status [用户状态]
+     * @param string $start_time [开始时间]
+     * @param string $end_time [结束时间]
+     * @param string $uid [使用t_uid查询]
+     * @param int $page_size [每页显示条数]
+     * @param array $order [排序]
+     * @return mixed
+     */
+    public function getTaskListByPage($table_id = 0,$act_id = 1,$status = '',$start_time = '',$end_time = '',$uid = '',$page_size = 15,$order = [])
+    {
+        //用户状态（1未帮拆 3拆中 4已拆完待提现 6已提现  8已过期 9删除)
+        if (!empty($status)) {
+            $where[] = ['status','=',$status];
+        }
+        //时间筛选
+        if (!empty($start_time) && !empty($end_time)) {
+            $where[] = ['addtime','between',"$start_time,$end_time"];
+        }
+        //uid为C层匹配到用户昵称返回的数据
+        if (!empty($uid)) {
+            $where[] = ['t_uid','=',$uid];
+        }
+        $where[] = ['t_act_id','=',$act_id];
+        $config = [
+            //'type'     => 'Bootstrap',
+            //'var_page' => 'page',
+            //使用jqery 无刷新分页
+            //'path'=>'javascript:AjaxPage([PAGE]);',
+            //第一种方法，使用数组方式传入参数
+            //'query' => ['keyword'=>$keyword],
+            //第二种方法，使用函数助手传入参数
+            'query' => request()->param(),
+        ];
+        $list = Db::table($this->task_table.$table_id)
+            ->where($where)
+            ->order($order)
+            ->paginate($page_size,false,$config);
+        $page = $list->render();
+        $page = !empty($page) ? $page : '';
+        $data['list'] = $list->items();
+        $data['page'] = $page;
+        return $data;
+    }
+
+    /**
+     * 获取所有用户昵称列表信息
+     * @return array|false|\PDOStatement|string|\think\Collection
+     */
+    public function getUserList()
+    {
+        return Db::table($this->user_list_table)->cache('nickname_list',60)->field('uid,nickname')->select();
+    }
+
+    public function getTaskInfo($table_id,$act_id,$config_id,$uid)
+    {
+        return Db::table($this->task_table.$table_id)
+            ->alias('t')
+            ->join('')
+            ->select();
+    }
+
+    /**
+     * 获取对应活动的用户总数和邀请总数
+     * @param $act_id [活动ID]
+     * @return array|false|null|\PDOStatement|string|\think\Model
+     */
+    public function getNumById($act_id)
+    {
+        $where[] = ['c_act_id','=',$act_id];
+        return Db::table($this->config_table)
+            ->where($where)
+            ->field("sum(`c_all_friend_num`) as `all_friend_num`,sum(`c_all_share_num`) as `all_share_num`")
+            ->find();
+    }
+
+
+}

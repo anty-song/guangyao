@@ -1,0 +1,81 @@
+$(function(){
+    initialize();
+    function initialize(){
+        // $.ajax({
+        //     type:'GET',
+        //     uel:'',
+        //     data:{page:1},
+        //     dataType:'json',
+        //     success:function(data){
+        //         console.log(data);
+        layui.use(['element','form','laypage','layer','laydate','upload'],function(){
+            var element=layui.element;
+            var form=layui.form;
+            var laypage=layui.laypage;
+            var layer=layui.layer;
+            var laydate=layui.laydate;
+            var upload=layui.upload;
+            //监听面板折叠状态
+            element.on('collapse(test)', function(data){
+                layer.msg('展开状态：'+ data.show);
+            });
+        })
+    }
+    // 广告管理-广告管理部分，点击编辑进行更改
+    $('.gggl .edit').click(function(){
+        if($(this).text()=='编辑'){
+            $(this).parents('.layui-colla-content').find('input').removeAttr('disabled');
+            // $(this).parents('.layui-colla-content').find('input').removeAttr('disabled').next().removeClass('layui-unselect').removeClass('layui-radio-disbaled').removeClass('layui-disabled');
+            $(this).parents('.layui-colla-content').find('select').removeAttr('disabled');
+            $(this).text('保存').removeClass('edit').removeClass('layui-btn-normal').addClass('layui-btn-success').addClass('resave');
+            $(this).parent().prev().css('display','block');
+            layui.form.render();
+            layui.element.init();
+        }else{
+            $(this).parents('.layui-colla-content').find('input').attr('disabled','disabled');
+            // $(this).parents('.layui-colla-content').find('input').attr('disabled','disabled').next().addClass('layui-unselect').addClass('layui-radio-disbaled').addClass('layui-disabled');
+            $(this).parents('.layui-colla-content').find('select').attr('disabled','disabled');
+            $(this).text('编辑').removeClass('resave').removeClass('layui-btn-success').addClass('layui-btn-normal').addClass('edit');
+            $(this).parent().prev().css('display','none');
+            layui.form.render();
+            layui.element.init();
+        }
+    });
+    // 添加广告
+    $('.gggl').on('click','.addadver',function(){
+        var count=parseInt($(this).parents('.layui-colla-item').find('.layui-form-item:last-child').attr('data-num'))+1;
+        console.log(count);
+        var html=
+            '<div class="layui-form-item" data-num="'+count+'">'+
+                '<label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>'+
+                '<div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">'+
+                    '<label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告'+count+'：</label>'+
+                    '<div class="layui-input-inline layui-col-md2 layui-col-xs4 layui-col-xs6">'+
+                        '<select name="city" lay-verify="required">'+
+                            '<option value=""></option>'+
+                            '<option value="0">千元名表免费拿</option>'+
+                            '<option value="1">100元红包到你手</option>'+
+                            '<option value="2">最高借贷10万，3分钟审核放款</option>'+
+                        '</select>'+
+                    '</div>'+
+                    '<label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重：</label>'+
+                    '<div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs-3">'+
+                        '<input type="text" class="layui-input">'+
+                    '</div>'+
+                    '<div class="layui-form-mid layui-word-aux layui-col-md-1 layui-col-sm-2 layui-col-xs-3 deladver">删除</div>'+
+                '</div>'+
+            '</div>';
+        $(this).parents('.layui-colla-content').find('form').append(html);
+        layui.form.render();
+        layui.element.init();
+        count++;
+    });
+    // 广告删除
+    $('.gggl').on('click','.deladver',function(){
+        if($(this).prev().find('input').attr('disabled')!='disabled'){
+            $(this).parents('.layui-form-item').remove();
+            layui.form.render();
+            layui.element.init();
+        }
+    });
+});

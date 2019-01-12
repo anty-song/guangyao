@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>脱单不用愁，测试你的专属神秘装备</title>
+    <link rel="stylesheet" href="/static/question_style/css/download.css">
+    <link rel="stylesheet" href="/static/question_style/css/animate.min.css">
+</head>
+<body>
+<div class="content">
+	<input type="hidden" id="ajax_url" value="{:url('h5/question.question/download_btn')}">
+    <input type="hidden" id="back" value="{$back}">
+    <div class="wenzi-h"><img class="wenzi" src="/static/question_style/img/wenzi.png" /></div>
+    <div class="ch-h"><img class="ch" src="/static/question_style/img/ch.png" /></div>
+    <div class="bt1-h"> <a href="javascript:;" onclick="download_btn();"><img class="bt1 animated pulse infinite" src="/static/question_style/img/bt1.png" /></a></div>
+</div>
+<script src="/static/question_style/js/jquery.min.js"></script>
+<script src="/static/question_style/js/flexible.js"></script>
+<script src="/static/question_style/js/download.js"></script>
+<script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script>
+	$(function(){ 
+        if(sessionStorage.getItem("open_down_window")=="1"){
+            // location.href="";
+        }else{
+            var back = $("#back").val();
+            // 1 closewindow //else back home
+            if(back==1){
+                sessionStorage.setItem("open_down_window","1");
+                pushHistory(); 
+                window.addEventListener("popstate", function(e) { 
+                    WeixinJSBridge.call('closeWindow');
+                }, false); 
+                function pushHistory() { 
+                    var state = { 
+                    title: "来捡钱", 
+                    url: "#"
+                    }; 
+                    window.history.pushState(state, "title", "#"); 
+                } 
+            }else{
+                pushHistory(); 
+                window.addEventListener("popstate", function(e) { 
+                    window.location.href = "{:url('h5/question.question/home')}";
+                }, false); 
+                function pushHistory() { 
+                    var state = { 
+                    title: "来捡钱", 
+                    url: "#"
+                    }; 
+                    window.history.pushState(state, "title", "#"); 
+                } 
+            }
+        }
+    
+    });
+
+    var urll=location.href.split('#')[0];
+    $.get("{:url('h5/question.question/get_signature')}", 
+        {"url":urll}).done(function (data) {
+        // 注意这里的url，一定要这样写，也就是动态获取，不然也不会成功的。
+            // console.log(data);
+            if (data) {
+                var wx_info = JSON.parse(data);
+                // console.log(wx_info.appid);
+                if (wx_info.signature != null) {
+                    // 配置
+                    wx.config({
+                        debug: false,   // 测试阶段，可以写为true，主要是为了测试是否配置成功
+                        appId: wx_info.appid,
+                        timestamp: wx_info.timestamp,
+                        nonceStr: wx_info.nonceStr,
+                        signature: wx_info.signature,
+                        jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage']
+                    });
+
+                    var title = "脱单不用愁，测试你的专属神秘装备";
+                    var desc = "光棍节脱单装备大曝光，亲测有效！快来测一测你的脱单幸运物究竟是何方神器";
+                    // 分享的图片，最好是正方形，不是也没关系，但是一定是http模式，即绝对路径，而不是服务器路劲
+                    var domain = document.domain;
+                    var imgUrl = "http://" + domain + "/uploads/share_thumb.png";
+                    // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    var link = window.location.href;
+
+                    // 分享给朋友
+                    var shareData = {
+                        "imgUrl": imgUrl,
+                        "title": title,
+                        "desc": desc,
+                        'link': link
+                    };
+                    // 分享到朋友圈
+                    var shareToTimeline = {
+                        "imgUrl": imgUrl,
+                        "title": title, 
+                        'link': link
+                    }
+                    wx.ready(function() {
+                        wx.onMenuShareTimeline(shareToTimeline);
+                        wx.onMenuShareAppMessage(shareData);
+
+                        wx.error(function(res) {
+                            // alert(res.errMsg);
+                        });
+                    });
+                }
+            }
+}).fail(function (msg) {
+        console.log("error:" + msg);
+});
+</script>
+<script>
+    $(function () {
+        var windowHeight = $(window).height();
+        console.log(windowHeight);
+        if(windowHeight > 736){
+            // do something
+            $('.content').css('position','relative');
+            $('.content').css('margin-top','1.5rem');
+        }
+
+    })
+</script>
+</body>
+</html>

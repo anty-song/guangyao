@@ -6,9 +6,14 @@
         data-itemid='{{item.itemid}}'
         data-title='{{item.title}}'>
     <view class='item-name'>
-      <image src='../../images/braRank_item_bg.png'></image>
-      <view class='tit'>{{item.title}}</view>
-      <view class='subtit'>{{item.title2}}</view>
+      <image wx:if="{{(index+1)%4===1}}" src='../../images/found_bg1_img.png'></image>
+      <image wx:if="{{(index+1)%4===2}}" src='../../images/found_bg2_img.png'></image>
+      <image wx:if="{{(index+1)%4===3}}" src='../../images/found_bg3_img.png'></image>
+      <image wx:if="{{(index+1)%4===0}}" src='../../images/found_bg4_img.png'></image>
+      <view class='tit-box'>
+        <view class='subtit'>{{item.title2}}</view>
+        <view class='tit'>{{item.title}}</view>
+      </view>
     </view>
     <view class='item-info'>
       <text class='time'>{{item.addtime}}</text>

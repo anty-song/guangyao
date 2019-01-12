@@ -1,0 +1,24 @@
+/*
+*识别移动设备
+*检测相应的设备
+*/ 
+
+//获取屏幕大小
+function getViewPort() {
+	var viewHeight = window.innerHeight||document.documentElement.clientHeight,
+		viewWidth = window.innerWidth||document.documentElement.clientWidth;
+		document.body.style.width = viewWidth;
+		canWidth = viewWidth;
+		canHeight = viewHeight - 48;
+
+}
+
+getViewPort();
+
+//设置尺寸
+
+//绘制背景
+function drawBackground(){
+    ctxBg.drawImage(bgPic, 0, 0, canWidth, canHeight);
+}
+

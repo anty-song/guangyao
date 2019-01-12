@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>活动管理-百万红包-红包规则设置</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .config-empty{display: block;width: 70px;margin: 10px auto}
+        .layui-form-label{overflow: visible}
+    </style>
+</head>
+<body>
+<div>
+    <!-- 内容主体区域 -->
+    <div class="layui-fluid bwhb">
+            <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title">
+                    <li class="layui-this"><a href="{:url('admin/millions/config','id='.$id)}">红包规则设置</a></li>
+                    <li><a href="{:url('admin/millions/content_config','id='.$id)}">内容配置</a></li>
+                    <li><a href="{:url('admin/millions/task','id='.$id)}">拆包记录</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <input type="hidden" id="act_id" value="{$id}">
+                    <div class="layui-tab-item layui-show">
+                        <blockquote class="layui-elem-quote">红包设定</blockquote>
+                        <div class="layui-input-inline" style="height: 38px">
+                            <p>用户每日拆红包上限设置<input type="number" value="{$a_user_limit}" class="layui-input-inline ee" required="" name="user_limit" lay-verify="required" autocomplete="off" title="次数上限" disabled style="margin: 0 5px;width: 25px;text-align: center;border: none;">次</p>
+                        </div>
+                        <button class="layui-btn layui-btn-normal" style="margin-top: -5px;float: right;" id="upUserLimit">编辑</button>
+                        <blockquote class="layui-elem-quote">红包配置</blockquote>
+                        <div class="layui-collapse" lay-accordion>
+                            {volist name="act_config_list" id="vo" key="k" empty="$empty"}
+                            <div class="layui-colla-item">
+                                <p class="layui-colla-title">{$vo.c_title}<span class="per">{$vo.c_radio}%</span><span style="float: right;">(不可编辑，根据其他红包的设定递减) 红包比重</span></p>
+                                <div class="layui-colla-content {if $k == 1}layui-show{/if}">
+                                    <form class="layui-form layui-row">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">领取金额：</label>
+                                            <div class="layui-input-inline layui-col-md10 layui-col-sm10 layui-col-xs7 fanwei">
+                                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">
+                                                    <input type="number" value="{$vo.c_money_down}" class="layui-input range_min ee" required name="keyword" lay-verify="required" autocomplete="off" disabled>
+                                                </div>
+                                                <div class="layui-input-inline">~</div>
+                                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">
+                                                    <input type="number" value="{$vo.c_money_up}" class="layui-input range_max ee" required name="keyword" lay-verify="required" autocomplete="off" disabled>
+                                                </div>
+                                                <div class="layui-input-inline layui-form-mid">元 (金额大于1元，精确到0.01)</div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">邀请人数：</label>
+                                            <div class="layui-input-inline layui-col-md10 layui-col-sm-9 layui-col-xs7 fanwei">
+                                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">
+                                                    <input type="number" value="{$vo.c_invite_num}" class="layui-input ee" required name="keyword" lay-verify="required" autocomplete="off" disabled>
+                                                </div>
+                                                <div class="layui-form-mid">人</div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label layui-col-md1 layui-col-sm2 layui-col-xs4">金额衰减：</label>
+                                            <div class="layui-input-inline layui-col-md10 layui-col-sm9 layui-col-xs8 fanwei">
+                                                {volist name="vo.c_invite_value" id="voo" key="kk"}
+                                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4">
+                                                    <input type="number" value="{$voo}" class="layui-input ee" required name="keyword" lay-verify="required" autocomplete="off" disabled>
+                                                </div>
+                                                {if $kk == $vo.invite_value_count }
+                                                    <div class="layui-form-mid">%</div>
+                                                {else /}
+                                                    <div class="layui-form-mid">%-</div>
+                                                {/if}
+                                                {/volist}
+                                            </div>
+                                        </div>
+                                        <p>
+                                            <span>拆包统计</span>
+                                            <span>拆包次数：<i>{$vo.c_all_friend_num}</i>次</span>
+                                            <span>邀请人数：<i>{$vo.c_all_share_num}</i>次</span>
+                                            <span>拆包成功率：<i>{$vo.open_rate}</i>%</span>
+                                        </p>
+                                    </form>
+                                    <div class="layui-btn-container">
+                                        <button class="layui-btn layui-btn-danger delpz" data-id="{$vo.id}">删除</button>
+                                        <button class="layui-btn layui-btn-normal reset" data-id="{$vo.id}">编辑</button>
+                                    </div>
+                                </div>
+                            </div>
+                            {/volist}
+                        </div>
+                        <button class="layui-btn layui-btn-normal" style="margin-top: 10px;float: right;" id="add_config">新增</button>
+                        <div id="add_config_content" style="display: none;margin-top: 10px">
+                            <form action="" class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">红包名称：</label>
+                                        <div class="layui-input-inline" style="width: 100px;">
+                                            <input type="text" name="title" autocomplete="off" class="layui-input" lay-verify="required">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">领取金额：</label>
+                                        <div class="layui-input-inline" style="width: 100px;">
+                                            <input type="text" name="price_min" autocomplete="off" class="layui-input" lay-verify="required">
+                                        </div>
+                                        <div class="layui-form-mid">~</div>
+                                        <div class="layui-input-inline" style="width: 100px;">
+                                            <input type="text" name="price_max" autocomplete="off" class="layui-input" lay-verify="required">
+                                        </div>
+                                        <div class="layui-form-mid layui-word-aux">元 (金额大于1元，精确到0.01)</div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">邀请人数：</label>
+                                        <div class="layui-input-inline" style="width: 100px;">
+                                            <input type="text" id="invite_num" name="invite_num" autocomplete="off" class="layui-input" lay-verify="required" onkeyup="onlyNum(this)" onblur="returnVal(this)">
+                                        </div>
+                                        <div class="layui-form-mid layui-word-aux">人</div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">红包比重：</label>
+                                        <div class="layui-input-inline" style="width: 100px;">
+                                            <input maxlength="3" type="text" name="radio" autocomplete="off" class="layui-input" lay-verify="required" onkeyup="onlyNum(this)" onblur="returnVal(this)">
+                                        </div>
+                                        <div class="layui-form-mid layui-word-aux">%</div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline" id="invite_contet">
+                                        <label class="layui-form-label">金额衰减：</label>
+                                        <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4" style="width: 100px;">
+                                            <input maxlength="2" type="text" name="invite_value[]" autocomplete="off" class="layui-input invite_value" lay-verify="required" onkeyup="onlyNum(this)" onblur="returnVal(this)">
+                                        </div>
+                                        <div class="layui-form-mid layui-word-aux" id="invite_end">%</div>
+                                        <span class="layui-btn layui-btn-normal" id="add_invite">添加</span>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item" style="text-align: center">
+                                    <div class="layui-input-block">
+                                        <button class="layui-btn" lay-submit lay-filter="addConfig">提交</button>
+                                        <button type="reset" class="layui-btn layui-btn-primary" onclick="location.reload()">重置</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div style="margin: 20px 10px;clear:both;">
+                            <!--<p>管理日志</p>-->
+                            <!--<p>2018-08-12 19:12:36<span class="whoname"> admin </span>删除了<span class="whatname"> 红包名称2</span></p>-->
+                        </div>
+                       <!-- <div class="layui-collapse">
+                            <div class="layui-colla-item">
+                                <p class="layui-colla-title">红包名称2<span class="per">30%</span><span style="float: right;">红包比重</span></p>
+                                <div class="layui-colla-content layui-show">
+                                <form class="layui-form layui-row">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">领取金额：</label>
+                                        <div class="layui-input-inline layui-col-md10 layui-col-sm10 layui-col-xs7 fanwei">
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4">
+                                                <input type="text" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                            </div>
+                                            <div class="layui-input-inline">~</div>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4">
+                                                <input type="text" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                            </div>
+                                            <div class="layui-input-inline layui-form-mid">元 (金额大于1元，精确到0.01)</div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">邀请人数：</label>
+                                        <div class="layui-input-inline layui-col-md10 layui-col-sm-9 layui-col-xs7 fanwei">
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">
+                                                <input type="text" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                            </div>
+                                            <div class="layui-form-mid">人</div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-col-md1 layui-col-sm2 layui-col-xs4">金额衰减：</label>
+                                        <div class="layui-input-inline layui-col-md10 layui-col-sm9 layui-col-xs8 fanwei">
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4">
+                                                <input type="text" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                            </div>
+                                            <div class="layui-form-mid">%-</div>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4">
+                                                <input type="text" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                            </div>
+                                            <div class="layui-form-mid">%-</div>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4">
+                                                <input type="text" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                            </div>
+                                            <div class="layui-form-mid">%-</div>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4">
+                                                <input type="text" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                            </div>
+                                            <div class="layui-form-mid">%-</div>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4">
+                                                <input type="text" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                            </div>
+                                            <div class="layui-form-mid">%-</div>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4">
+                                                <input type="text" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                            </div>
+                                            <div class="layui-form-mid">%</div>
+                                            </div>
+                                        </div>
+                                    <p>
+                                        <span>拆包统计</span>
+                                        <span>拆包次数：<i>1234</i>次</span>
+                                        <span>邀请人数：<i>1234</i>次</span>
+                                        <span>拆包成功率：<i>80</i>%</span>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {load href="/static/admin/layui/layui.js" /}
+    {load href="/static/admin/js/activity.js" /}
+    <script>
+        layui.use('form',function () {
+            var form = layui.form,
+                layer = layui.layer;
+            form.on('submit(addConfig)',function (data) {
+                var inviteArr = [];
+                var inputArr = $(".invite_value");
+                for (var i = 0; i < inputArr.length; i++) {
+                    inviteArr.push(inputArr.eq(i).val());
+                }
+                data.field.id = $('#act_id').val();
+                data.field.invite = inviteArr;
+                var url = "{:url('admin/millions/add_config')}";
+                $.post(url,data.field,function (result) {
+                    if (result.status == 1) {
+                        layer.msg(result.msg);
+                        setTimeout(function () {
+                            window.location.reload();
+                        },2000);
+                    } else {
+                        form.render();
+                        return layer.msg(result.msg);
+                    }
+                },'json');
+                return false;
+            });
+
+            //每日拆红包上限设置
+            $("#upUserLimit").on('click',function () {
+                var that=$(this);
+                if(that.text()=='编辑'){
+                    layer.msg('请填写红包上限设置');
+                    var t=$('input[name="user_limit"]').val();
+                    $('input[name="user_limit"]').removeClass('ee').addClass('ff').removeAttr('disabled').val('').focus().val(t);
+                    that.text('确定').removeClass('layui-btn-normal').addClass('layui-btn-success');
+                    layui.form.render();
+                    layui.element.init();
+                }else{
+                    var limit = $("input[name='user_limit']").val(),
+                        id = $('#act_id').val(),
+                        up_limit_url = "{:url('admin/millions/do_up_limit')}";
+                    if (limit.length == 0) {
+                        return layer.msg('请填写红包上限设置');
+                    } else {
+                        $.post(up_limit_url,{id:id,user_limit:limit},function (result) {
+                            if (result.status == 1) {
+                                layer.msg(result.msg);
+                                $("input[name='user_limit']").removeClass('ff').addClass('ee').attr('disabled','disabled');
+                                that.text('编辑').removeClass('layui-btn-success').addClass('layui-btn-normal');
+                            } else {
+                                return layer.msg(result.msg);
+                            }
+                        },'json');
+                    }
+                }
+
+            });
+
+            //增加红包配置
+            $("#add_config").on('click',function (){
+                layer.open({
+                    type: 1,
+                    title: '新增红包配置',
+                    area: '800px',
+                    content: $("#add_config_content")
+                });
+            });
+
+            //增加金额衰减
+            $("#add_invite").on('click',function () {
+                var inputNum = $(".invite_value").length;
+                var invite_num = $("#invite_num").val();//邀请人数
+                var num;
+                if(invite_num == null || invite_num == "" || invite_num == undefined){
+                    num = 3;
+                } else {
+                    num = Number(invite_num);
+                }
+                // var num = (!Number(invite_num).length == 0) ? 3 : Number(invite_num);
+                if (inputNum > num) {
+                    return layer.msg('请修改邀请人数');
+                } else {
+                    $("#add_invite").before('<div class="add-input" style="display: inline-flex;"><div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4" style="width: 100px;"><input type="text" maxlength="2" name="invite_value[]" autocomplete="off" class="layui-input invite_value" lay-verify="required" onkeyup="onlyNum(this)" onblur="returnVal(this)"><i class="layui-icon layui-icon-close-fill" onclick="delInput(this)" style="font-size: 20px;color:#c2c2c2;cursor:pointer;position: relative;top:-48px;right: -90px" title="删除"></i></div><div class="layui-form-mid layui-word-aux">%</div></div>');
+                }
+            });
+
+        });
+
+        //限制只能输入数字
+        function onlyNum(that) {
+            that.value = that.value.replace(/[^0-9-]+/,'');
+        }
+
+        function returnVal(that) {
+            that.value;
+        }
+
+        //删除新增的金额衰减
+        function delInput(that) {
+            $(that).parents('.add-input').remove();
+        }
+    </script>
+</body>
+</html>

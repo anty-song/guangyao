@@ -1,0 +1,88 @@
+      //五个题答案的参数[A,B,C,B,A]
+      var sum=[];
+    $('.honme_btn_button').on('click',function (e) {
+        e.stopPropagation();
+        $('.first').css('display','none');
+        $('.subject').css('display','block')
+        $('.tim:eq(0) ul li').on('click',function () {
+            $('.tim:eq(0)').css('display','none')
+            $('.tim:eq(1)').css('display','block')
+            sum.push($(this ).attr('data-id'));
+        })
+        $('.tim:eq(1) ul li').on('click',function () {
+            $('.tim:eq(1)').css('display','none')
+            $('.tim:eq(2)').css('display','block')
+            sum.push($(this ).attr('data-id'));
+        })
+        $('.tim:eq(2) ul li').on('click',function () {
+            $('.tim:eq(2)').css('display','none')
+            $('.tim:eq(3)').css('display','block')
+            sum.push($(this ).attr('data-id'));
+        })
+        $('.tim:eq(3) ul li').on('click',function () {
+            $('.tim:eq(3)').css('display','none')
+            $('.tim:eq(4)').css('display','block')
+            sum.push($(this ).attr('data-id'));
+        })
+        $('.tim:eq(4) ul li').on('click',function () {
+            $('body').css('background','#ffffff');
+            $('.subject').css('display','none');
+            $('.tim:eq(4)').css('display','none');
+            sum.push($(this ).attr('data-id'));
+            xh();
+            sub();
+        })
+    })
+     //进度条
+    var i=0;
+function add(i){
+    var tiao =$(".tiao");
+    tiao.css("width",i+"%");
+}
+function xh(){
+    $('.staus').css('display','block');
+    if(i>100){
+        $('.staus').css('display','none');
+        $('.re1').css('display','block');
+        // sub();
+    }
+    if(i<=100){
+        setTimeout("xh()",30)
+        add(i);
+        i++;
+    }
+}
+//提交题目答案返回数据
+function sub() {
+    // console.log(sum);
+    //sum是参数
+    var ajax_url = $("#ajax_url").val();
+    $.ajax({
+        type: "POST",
+        url: ajax_url,
+        data:{sum:sum},
+        dataType: "json",
+        success: function(data){
+            // console.log(data);
+            if(data){
+                $('.result img').attr('src',data);
+            }
+        },   
+        error:function(e){
+             console.log(e);
+        }
+    });
+}
+$(function(){
+    var windowHeight = $(window).height();
+    console.log(windowHeight);
+    if(windowHeight > 736){
+      // do something
+      $('.topic').css('padding-bottom','0.9rem');
+      $('.topic').css('padding-top','0.7rem');
+      $('.title').css('top','1rem');
+      $('.number_one').css('padding-top','0.7rem');
+      $('.subject').css('margin-top','1.1rem');
+      $('.first').css('margin-top','0.8rem');
+    }
+});

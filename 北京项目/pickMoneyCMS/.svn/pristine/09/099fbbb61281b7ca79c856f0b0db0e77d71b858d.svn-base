@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @Author: "Hulkzero"
+ * @Date:   2018-10-22 13:53:21
+ * @Email: "hulkzero@163.com"
+ * @Last Modified time: 2018-10-22 14:47:48
+ */
+
+namespace app\h5\controller\check;
+
+use think\Controller;
+use think\facade\Request;
+
+
+class CheckOut extends Controller
+{
+	
+	public function home()
+	{
+		return view('check/CheckOut/home');
+	}
+
+	public function check()
+	{
+        $request_value = Request::param();      // 获取全部的request变量（经过过滤）
+
+		return var_dump($request_value);
+	}
+
+}

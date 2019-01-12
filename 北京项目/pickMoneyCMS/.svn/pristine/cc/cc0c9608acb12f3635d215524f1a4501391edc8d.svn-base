@@ -1,0 +1,26 @@
+var game_type,enable,game_url;
+window.onload=function(){
+	$.ajax({
+		type:"",
+		url:"",
+		data:"",
+		success:function(){
+
+		},
+		error:function(){
+
+		}
+	});
+}
+
+$("button").click(function(){
+	if(enable){
+
+	}else{
+
+	}
+})
+
+function goBack(){
+	window.location.href="/h5/game.game_lobby/home";
+}

@@ -1,0 +1,43 @@
+<?php
+/**
+ * 三方游戏-广告
+ * Author: Jason
+ * Date: 18/10/26
+ * Time: 下午3:30
+ */
+
+namespace app\h5\controller\ad;
+
+use think\Controller;
+use app\h5\model\ad\AdvConfig;
+
+class AdCount extends Controller
+{
+    protected $m_AdvConfig;
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    //三方游戏跳转和数据统计
+    public function index()
+    {
+
+        $this->m_AdvConfig = new \app\h5\model\ad\AdvConfig();
+        //游戏ID
+        $login_type = $this->request->param('login');
+        $uid = $this->request->param('uid');
+        $gid = $this->request->param('gid');
+        $time = $this->request->param('t');
+        $sign = $this->request->param('sign');
+        if ($sign != md5($login_type.'-'.$uid.'-'.$gid.'-'.$time)) {
+            die('校验错误');
+        }
+        $field = 'ad_url'.$login_type;
+        $one_url = $this->m_AdvConfig->getUrl($gid,$login_type);
+        $url = $one_url["$field"];
+        //埋点统计
+        $this->m_AdvConfig->updateClick($gid);
+        header("Location: {$url}");
+    }
+}

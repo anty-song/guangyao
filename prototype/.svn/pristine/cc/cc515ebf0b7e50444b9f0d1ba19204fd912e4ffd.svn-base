@@ -1,0 +1,72 @@
+---------------------------------------------------------------
+[ 2018-09-12T14:19:15+08:00 ] 192.168.1.189 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.157260s][吞吐率：6.36req/s] [内存消耗：1,386.33kb] [文件加载：43]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.6726.400 QQBrowser/10.2.2265.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; passWord=Aa123456; userName=13693159601; cgg_auth=faa9ExMZpzP4VZLkEoHsOGHx1O1Naz4cVnMzAVPp1-S-4-P-SiBQtI9Ud1p7cL7Z5c-S-nAUxDoSRtrVvKULgTqc0lUO8zZ-S-g; cgg_username=13693159601',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-12T14:19:15+08:00 ] 192.168.1.189 GET /login
+[ info ] 192.168.1.189:9001/login [运行时间：0.058546s][吞吐率：17.08req/s] [内存消耗：1,352.05kb] [文件加载：42]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.6726.400 QQBrowser/10.2.2265.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; passWord=Aa123456; userName=13693159601; cgg_auth=faa9ExMZpzP4VZLkEoHsOGHx1O1Naz4cVnMzAVPp1-S-4-P-SiBQtI9Ud1p7cL7Z5c-S-nAUxDoSRtrVvKULgTqc0lUO8zZ-S-g; cgg_username=13693159601; PHPSESSID=g9i5chb62rvv0tn9tmocre85o4',
+)
+[ info ] [ PARAM ] array (
+  '/login' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File

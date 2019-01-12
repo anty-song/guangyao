@@ -1,0 +1,244 @@
+<?php
+/**
+ * 数据统计
+ * Date: 18/9/14
+ * Time: 下午1:43
+ */
+
+namespace app\admin\controller;
+
+use app\admin\model\StatisticsModel;
+use think\Controller;
+use app\admin\controller\BaseController;
+
+class Statistics extends BaseController
+{
+    protected $statistics_model;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->statistics_model = new StatisticsModel();
+    }
+
+    public function home()
+    {
+        return 'home';
+    }
+
+    //百万红包数据统计
+    public function million_count()
+    {
+        $data = $this->request_param;
+        //开始时间
+        if (empty($data['start_time'])) {
+            $start_time = 1539360000;//2018-09-13
+        } else {
+            $start_time = get_time($data['start_time'].' 00:00:00');;
+        }
+        //结束时间
+        if (empty($data['end_time'])) {
+            $end_time = get_time();
+        } else {
+            $end_time = get_time($data['end_time'].' 23:59:59');
+        }
+
+        $million_count_res = $this->statistics_model->getMillionCount($start_time,$end_time);
+
+        //每个档位红包拆包成功率
+        $successRateList = [];
+        foreach ($million_count_res['successRes'] as $k=>$v){
+            if ($v['c_all_task_success'] == 0 || $v['c_all_task_num'] == 0) {
+                $successRateList[] = ['name'=>'红包'.($k+1),'rate'=>0];
+            } else {
+                $successRateList[] = ['name'=>'红包'.($k+1),'rate'=>round(($v['c_all_task_success']/$v['c_all_task_num'])*100,2)];
+            }
+        }
+
+        $this->assign('openRed',$million_count_res['openRed'][0]['b']);
+        $this->assign('openRedMoney',$million_count_res['openRedMoney'][0]['b']/10000);
+        $this->assign('clickCount',$million_count_res['clickCount'][0]['b']);
+        $this->assign('inviteSuccess',$million_count_res['inviteSuccess'][0]['b']);
+        $this->assign('successRateList',$successRateList);
+        $this->assign('start_time',date('Y-m-d',$start_time));
+        $this->assign('end_time',date('Y-m-d',$end_time));
+
+        return $this->fetch('million');
+    }
+
+    //广告数据统计
+    public function ad_count()
+    {
+        $data = $this->request_param;
+        $today = strtotime(date('Y-m-d',get_time())) - 1;
+
+        //开始时间
+        if (empty($data['start_time'])) {
+            $start_time = 1539360000;//2018-09-13
+        } else {
+            $start_time = get_time($data['start_time'].' 00:00:00');;
+        }
+        //结束时间
+        if (empty($data['end_time'])) {
+            $end_time = get_time();
+        } else {
+            $end_time = get_time($data['end_time'].' 23:59:59');
+        }
+
+        if ($start_time > $today) {
+            $start_time = $today;
+        }
+
+        if ($end_time > $today) {
+            $end_time = $today;
+        }
+
+        if ( $start_time < 1539360000) {
+            $start_time = 1539360000;
+        }
+
+        if ( $start_time > $end_time) {
+            $start_time = $end_time;
+        }
+
+
+        $ad_count_res = $this->statistics_model->getAdCount($start_time,$end_time);
+
+        $this->assign('adPersons',$ad_count_res['ad_all_show']);//[0]['all_num']
+        $this->assign('adShow',$ad_count_res['ad_list_show']);
+        $this->assign('start_time',date('Y-m-d',$start_time));
+        $this->assign('end_time',date('Y-m-d',$end_time));
+
+        return $this->fetch('adver');
+    }
+
+    //趣味游戏数据统计
+    public function game_count()
+    {
+        $data = $this->request_param;
+        //开始时间
+        if (empty($data['start_time'])) {
+            $start_time = 1539360000;//2018-09-13
+        } else {
+            $start_time = get_time($data['start_time'].' 00:00:00');;
+        }
+        //结束时间
+        if (empty($data['end_time'])) {
+            $end_time = get_time();
+        } else {
+            $end_time = get_time($data['end_time'].' 23:59:59');
+        }
+        $game_count_res = $this->statistics_model->getGameCount($start_time,$end_time);
+
+        $this->assign('noReceived',$game_count_res['noReceived'][0]['all_num']);
+        $this->assign('received',$game_count_res['received'][0]['all_num']);
+        $this->assign('totalUse',$game_count_res['totalUse'][0]['all_num']);
+        $this->assign('gamePersons',$game_count_res['gamePersons'][0]['all_num']);
+        $this->assign('start_time',date('Y-m-d',$start_time));
+        $this->assign('end_time',date('Y-m-d',$end_time));
+        return $this->fetch('home');
+    }
+
+    //双11活动数据统计
+    public function question_count()
+    {
+        $data = $this->request_param;
+        //开始时间
+        if (empty($data['start_time'])) {
+            $start_time = 1541001600;//2018-11-01
+        } else {
+            $start_time = get_time($data['start_time'].' 00:00:00');;
+        }
+        //结束时间
+        if (empty($data['end_time'])) {
+            $end_time = get_time();
+        } else {
+            $end_time = get_time($data['end_time'].' 23:59:59');
+        }
+
+        $question_count_res = $this->statistics_model->getQuestionCount($start_time,$end_time);
+
+        //每种装备的生成人数、识别人数
+        $list = $question_count_res['res'];
+       
+        $enter_num = Intval($question_count_res['enter_num']);
+        $layer_num = Intval($question_count_res['layer_num']);
+        $download_open_num = Intval($question_count_res['download_open_num']);
+        $download_down_num = Intval($question_count_res['download_down_num']);
+        $quit_rate = $question_count_res['quit_rate'];
+        $this->assign('enter_num',$enter_num);
+        $this->assign('layer_num',$layer_num);
+        $this->assign('download_open_num',$download_open_num);
+        $this->assign('download_down_num',$download_down_num);
+        $this->assign('quit_rate',$quit_rate);
+
+        $this->assign('list',$list);
+        $this->assign('start_time',date('Y-m-d',$start_time));
+        $this->assign('end_time',date('Y-m-d',$end_time));
+        $this->assign('empty','<tr><td colspan="8">暂无数据</td></tr>');
+        return $this->fetch('question');
+    }
+
+    //双11活动数据统计 - 每日装备生成数据统计
+    public function reward_log_list()
+    {
+        $reward_id = $this->request->param('reward_id',0,'intval');
+
+        if(empty($reward_id)){
+            $this->error('缺少参数:ID');
+        }
+
+        $data = $this->request_param;
+        //开始时间
+        if (empty($data['start_time'])) {
+            $start_time = 1541001600;//2018-11-01
+        } else {
+            $start_time = get_time($data['start_time'].' 00:00:00');
+        }
+        //结束时间
+        if (empty($data['end_time'])) {
+            $end_time = get_time();
+        } else {
+            $end_time = get_time($data['end_time'].' 23:59:59');
+        }
+
+        if (empty($data['type'])) {
+            $type = 1;//生成人数
+        } else {
+            $type = $data['type'];//识别人数
+        }
+
+        $res = $this->statistics_model->getRewardList($reward_id,$start_time,$end_time,$type);
+        // 神秘装备每日生成/识别人数记录
+        $list = $res['res'];
+
+        // 神秘装备名称
+        $title = $res['title'];
+        $this->assign('list',$list);
+        $this->assign('reward_id',$reward_id);
+        $this->assign('title',$title);
+        $this->assign('type',$type);
+        $this->assign('start_time',date('Y-m-d',$start_time));
+        $this->assign('end_time',date('Y-m-d',$end_time));
+        $this->assign('empty','<tr><td colspan="8">暂无数据</td></tr>');
+
+        return $this->fetch('reward_log_list');
+    }
+
+    //初始化30天统计数据
+    public function init_adv_count_day()
+    {
+        $data = $this->request_param;
+		$day_1 = strtotime('2018-10-10');
+		$day_2 = strtotime(date('Y-m-d',get_time())) - 60*60*24;
+        $day1 = isset($data['day1']) && !empty($data['day1']) ? strtotime($data['day1']) : $day_1;
+		$day2 = isset($data['day2']) && !empty($data['day2']) ? strtotime($data['day2']) : $day_2;
+		if($day1 < $day_1){
+			$day1 = $day_1;
+		}
+		if($day2 > $day_2){
+			$day2 = $day_2;
+		}
+        $this->statistics_model->initThirty($day1,$day2);
+        return json(['status'=>1,'msg'=>"初始化{$day1}_{$day2}成功",'time'=>get_time()]);
+    }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>公司新闻</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/stylexq.css" />
+		<link rel="stylesheet" href="css/content.css" />
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/media.css" />
+		<link rel="stylesheet" href="css/pagination.css">
+
+	</head>
+	<body>
+		<header class="fir">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#example-navbar-collapse">
+							<span class="sr-only">切换导航</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a href="index.html">
+							<div class="logo">
+								<div class="logoimg"><img src="images/logo.gif" alt="" /></div>
+								<span class="company">logo</span>
+							</div>
+							
+						</a>
+					</div>
+					<div class="collapse navbar-collapse" id="example-navbar-collapse">
+						<ul class="nav navbar-nav navlist">
+							<li><a href="index.html" target="">首页</a></li>
+							<li><a href="index.html#ywfw" target="">业务范围</a></li>
+							<li><a href="index.html#contactus" target="">联系我们</a></li>
+							<li><a href="news.html" target="" class="lihov">新闻</a></li>
+						</ul>
+					</div>
+			   </div>
+			</nav>
+			<div class="banner">
+				<img src="images/news_banner_img.png" alt="" class="hidden-xs">
+				<img src="images/news_banner_img.png" alt="" class="hidden-md hidden-lg hidden-sm">
+			</div>
+		</header>
+		
+		<section class="content">
+			<div class="container">
+				<ul class="newslist">
+					正在加载中......
+
+				</ul>
+				
+
+				<div class="box" id="wrap1">
+
+				</div>
+			</div>
+			
+		</section>
+		
+		<footer>
+			<div class="container">
+				<p>Copyright @ 2018.All rights reserved.</p>
+			</div>
+			
+		</footer>
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/window.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/pagination.js"></script>
+		<script src="js/logo.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+		    $("ul.nav>li>a").click(function(){
+				$(this).addClass("lihov").parents("li").siblings("li").find("a").removeClass("lihov");
+			});
+				var needHide = document.getElementById("example-navbar-collapse");
+				document.ontouchmove=function(){
+					
+					needHide.setAttribute("class", "navbar-collapse collapse")
+		event.stopPropagation();
+					
+					
+				}
+	    </script>
+	    
+
+	</body>
+	<script src="config/config.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/newlist.js" type="text/javascript" charset="utf-8"></script>
+</html>

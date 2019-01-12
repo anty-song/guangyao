@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>广告管理-商家广告管理</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/page.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="adDetail">
+    <!-- 内容主体区域 -->
+    <div class="adver-model">
+        <blockquote class="layui-elem-quote" style="font-size: 18px;">
+            广告详情
+        </blockquote>
+        <form action="" class="layui-form" id="adverDetail">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>广告主姓名：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="name" lay-verify="required" autocomplete="off" class="layui-input" value="{$ad_res.advertiser_name}" disabled>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">广告主所在公司：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="company" autocomplete="off" class="layui-input" value="{$ad_res.advertiser_company}" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>广告主电话：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input" value="{$ad_res.advertiser_phone}" disabled>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>广告的名称：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" lay-verify="required" autocomplete="off" class="layui-input" value="{$ad_res.ad_title}" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                       <label class="layui-form-label"><span style="color: #FF5722">*</span>广告文字叙述：</label>
+                       <div class="layui-input-inline">
+                           <input type="text" name="narrate" lay-verify="required" autocomplete="off" value="{$ad_res.ad_info}" class="layui-input" disabled>
+                       </div>
+                </div>
+           </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>广告展示位置：</label>
+                    <div class="layui-input-inline">
+                        <select name="position" id="position" lay-verify="required" disabled>
+                            <option value="">请选择位置</option>
+                            {notempty name="ad_config_list['2']"}
+                            {volist name="ad_config_list['2']" id="position"}
+                            <option value="{$position.id}" {if $position.id == $ad_res.ad_position} selected {/if} >{$position.title}</option>
+                            {/volist}
+                            {/notempty}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+                
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>投放类型：</label>
+                    <div class="layui-input-inline">
+                        <select name="type" id="type" lay-verify="required" lay-filter="type" disabled>
+                            <option value="">请选择投放类型</option>
+                            {notempty name="ad_config_list['3']"}
+                            {volist name="ad_config_list['3']" id="type"}
+                            <option value="{$type.id}" {if $type.id == $ad_res.ad_type} selected {/if}>{$type.title}</option>
+                            {/volist}
+                            {/notempty}
+                        </select>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item app_down" style="display: none">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>IOS下载链接：</label>
+                    <div class="layui-input-inline" style="min-width: 535px;">
+                        <input type="text" name="ios_url" autocomplete="off" class="layui-input" value="{$ad_res.ad_url2}" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item app_down" style="display: none">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>Andriod下载链接：</label>
+                    <div class="layui-input-inline" style="min-width: 535px;">
+                        <input type="text" name="android_url" autocomplete="off" class="layui-input" value="{$ad_res.ad_url1}" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item image_ad" style="display: none">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>广告链接地址：</label>
+                    <div class="layui-input-inline" style="min-width: 535px;">
+                        <input type="text" name="ad_url" autocomplete="off" class="layui-input" value="{$ad_res.ad_url1}" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>投放渠道：</label>
+                    <div class="layui-input-inline">
+                        <select name="channel" id="channel" lay-verify="required" disabled>
+                            <option value="">请选择投放类型</option>
+                            {notempty name="ad_config_list['4']"}
+                            {volist name="ad_config_list['4']" id="channel"}
+                            <option value="{$channel.id}" {if $channel.id == $ad_res.ad_channel} selected {/if}>{$channel.title}</option>
+                            {/volist}
+                            {/notempty}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>展示图片：</span></label>
+                    <div class="layui-input-inline">
+                        <p>（尺寸：80*80）<span style="color: #aaa;">支持JPEG、JPG、PNG、GIF格式，文件不能超过2M</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"></label>
+                <div class="layui-input-inline" style="position: relative;width: 150px;height:150px;line-height:150px;text-align: center;border: 1px solid #ddd;font-size: 0;">
+                    <img src="{$ad_res.ad_img}" id="show1" alt="" style="max-width: 150px;max-height: 150px;">
+                    <input type="file" id="file1" name="img" onchange="changepic1()" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 10;opacity: 0;" lay-verify="required">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>开始时间：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="start_time" class="layui-input" id="startTime" readonly lay-verify="required" value="{$ad_res.start_time|date='Y-m-d H:i'}" disabled>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">结束时间：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="end_time" class="layui-input" id="endTime" readonly value="{$ad_res.end_time|date='Y-m-d H:i'}" disabled>
+                    </div>
+                    <!--<input type="checkbox" value="1" name="is_keep" title="长期" lay-skin="primary" checked>-->
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">当前状态：</label>
+                    <div class="layui-input-inline">
+                        <input type="radio" name="status" value="1" title="上线" {if $ad_res.status ==1} checked {/if} class="layui-input">
+                        <input type="radio" name="status" value="8" title="下线" {if $ad_res.status ==8} checked {/if} class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label"><span style="color: #FF5722">*</span>出价方式：</label>
+                    <div class="layui-input-inline">
+                        <select name="way" id="way" lay-verify="required" disabled>
+                            <option value="">请选择投放类型</option>
+                            {notempty name="ad_config_list['5']"}
+                            {volist name="ad_config_list['5']" id="way"}
+                            <option value="{$way.id}" {if $way.id == $ad_res.ad_way} selected {/if}>{$way.title}</option>
+                            {/volist}
+                            {/notempty}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">议价说明：</label>
+                    <div class="layui-input-inline">
+                        <textarea name="price_explain" id="description" cols="80" rows="10" placeholder="在这里填写议价说明~" disabled>{$ad_res.ad_price_explain}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <button class="layui-btn layui-btn-normal add-adver-sure close" style="width: 10%;margin-left: 30%;">关闭</button>
+            </div>
+        </form>
+    </div>
+</div>
+{load href="/static/admin/layui/layui.js" /}
+{load href="/static/admin/js/index.js" /}
+{load href="/static/admin/js/advertisement.js" /}
+<script>
+    $(function () {
+        var type = '{$ad_res.ad_type}';
+        if(type == 14) {
+            $(".app_down").css('display','block');
+            $(".image_ad").css('display','none');
+        } else {
+            $(".app_down").css('display','none');
+            $(".image_ad").css('display','block');
+        }
+        $(".close").on('click',function () {
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
+        });
+    });
+</script>
+</body>
+</html>

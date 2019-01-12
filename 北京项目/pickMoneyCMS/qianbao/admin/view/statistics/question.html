@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>数据统计-双11活动数据统计</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/page.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body layadmin-themealias="default">
+<div class="layui-fluid staticList">
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+            <li><a href="{:url('admin/statistics/game_count')}">趣味游戏统计</a></li>
+            <li><a href="{:url('admin/statistics/million_count')}">百万红包统计</a></li>
+            <li><a href="{:url('admin/statistics/ad_count')}">广告数据统计</a></li>
+            <li class="layui-this"><a href="{:url('admin/statistics/question_count')}">双11活动数据统计</a></li>
+        </ul>
+        <a href="{:url('admin/statistics/question_count')}"><i class="layui-icon layui-icon-refresh"></i></a>
+    </div>
+    <div class="layui-card">
+        <div class="layui-card-header">数据统计</div>
+        <form class="layui-form" action="{:url('admin/statistics/question_count')}" method="post">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">活动日期：</label>
+                    <div class="layui-input-inline">
+                        <input name="start_time" value="{$start_time}" type="text" class="layui-input" id="staticStart1" placeholder="开始日期" lay-key="1" autocomplete="off">
+                    </div>
+                    <div class="layui-form-mid">-</div>
+                    <div class="layui-input-inline">
+                        <input name="end_time" value="{$end_time}" type="text" class="layui-input" id="staticEnd1" placeholder="结束日期" lay-key="2" autocomplete="off">
+                    </div>
+                    <button class="layui-btn layui-btn-normal beSure" type="submit">确定</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+        <div class="layui-card-body">
+            <div class="layui-row layui-col-space10 staticItem">
+                <div class="layui-col-xs12 layui-col-sm4">
+                    <div class="layuiadmin-cart-text">
+                        <p class="layui-text-top">进入活动人数</p>
+                        <p class="layui-text-center">{$enter_num}</p>
+                    </div>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm4">
+                    <div class="layuiadmin-cart-text">
+                        <p class="layui-text-top">弹层打开人数</p>
+                        <p class="layui-text-center">{$layer_num}</p>
+                    </div>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm4">
+                    <div class="layuiadmin-cart-text">
+                        <p class="layui-text-top">下载页打开人数</p>
+                        <p class="layui-text-center">{$download_open_num}</p>
+                    </div>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm4">
+                    <div class="layuiadmin-cart-text">
+                        <p class="layui-text-top">下载按钮点击人数</p>
+                        <p class="layui-text-center">{$download_down_num}</p>
+                    </div>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm4">
+                    <div class="layuiadmin-cart-text">
+                        <p class="layui-text-top">活动首页退出率</p>
+                        <p class="layui-text-center">{$quit_rate}%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-card">
+        <div class="layui-card-header">每种装备的生成人数、识别人数</div>
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <thead>
+                <tr>
+                    <th>装备名称</th>
+                    <th>累计生成人数</th>
+                    <th>累计识别人数</th>
+                    <th>每日记录</th>
+                </tr>
+                </thead>
+                <tbody>
+                {volist name="list" id="vo" empty="$empty"}
+                <tr>
+                    <td>{$vo.title}</td>
+                    <td>{$vo.generate_num}</td>
+                    <td>{$vo.identify_num}</td>
+                    <td><a href="{:url('admin/statistics/reward_log_list',array('reward_id'=>$vo['reward_id']))}">点击查看</a></td>
+                </tr>
+                {/volist}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{load href="/static/admin/layui/layui.js" /}
+{load href="/static/admin/js/index.js" /}
+{load href="/static/admin/js/statistics/statistics.js" /}
+</body>
+</html>

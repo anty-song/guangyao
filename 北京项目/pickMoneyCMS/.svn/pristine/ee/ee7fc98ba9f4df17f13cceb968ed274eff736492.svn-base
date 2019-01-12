@@ -1,0 +1,138 @@
+<?php /*a:1:{s:49:"D:\WWW\tp_test\qianbao\h5\view\question\home.html";i:1541400196;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神秘“装备”拯救单身狗</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/question_style/css/index.css">
+</head>
+<body>
+<!--*******************开始界面***********-->
+<div class="first" style="display: block">
+    <img src="/static/question_style/img/frame.png"/>
+    <a class="packet" href="<?php echo url('h5/question.question/download'); ?>"><img src="/static/question_style/img/packet.png" /></a>
+    <div class="home_headline"><img src="/static/question_style/img/home_headline.png" /></div>
+    <div class="home_img_treasure"><img src="/static/question_style/img/home_img_treasure.png"/></div>
+    <div class="honme_btn_button" ><a href="#"><img src="/static/question_style/img/honme_btn_button.png" /></a></div>
+</div>
+<!-- ******************答题界面***************-->
+ <div class="subject" style="display: none;" >
+    <img src="/static/question_style/img/frame.png" />
+     <div class="packet"><a  href="<?php echo url('h5/question.question/download'); ?>"><img src="/static/question_style/img/packet.png" /></a></div>
+        <div class="tim" style="display: block">
+            <div class="number_one"><img src="/static/question_style/img/number_one.png" /></div>
+            <div class="topic">
+                <img src="/static/question_style/img/topic.png" >
+                <p class="title">你等的最多的人是谁？</p>
+            </div>
+            <div class="slt">
+                <ul >
+                    <li data-id="A"><p class="num"><img src="/static/question_style/img/A .png" /></p><div class="txt"><img src="/static/question_style/img/single.png" /><p class="vl">男/女朋友</p></div></li>
+                    <li data-id="B"><p class="num"><img src="/static/question_style/img/B.png"/></p><div class="txt"><img src="/static/question_style/img/single.png" /><p class="vl">快递小哥/外卖小哥</p></div></li>
+                    <li data-id="C"><p class="num"><img src="/static/question_style/img/C.png" /></p><div class="txt1"><img src="/static/question_style/img/check.png" class="img2" /><p class="vl">每天都在等我的首富爸爸来接我</p></div></li>
+                </ul>
+            </div>
+        </div>
+     <div class="tim" style="display: none">
+         <div class="number_one"><img src="/static/question_style/img/number_two.png" /></div>
+         <div class="topic">
+             <img src="/static/question_style/img/topic.png" >
+             <p class="title">今年双十一的你和去年双十一的你有什么区别呢？</p>
+         </div>
+         <div class="slt">
+             <ul >
+                 <li data-id="A"><p class="num" ><img src="/static/question_style/img/A .png" /></p><div class="txt"><img src="/static/question_style/img/single.png" /><p class="vl">今年比去年更穷</p></div></li>
+                 <li data-id="B"><p class="num"><img src="/static/question_style/img/B.png"/></p><div class="txt"><img src="/static/question_style/img/single.png" /><p class="vl">没有TA但有它</p></div></li>
+                 <li data-id="C"><p class="num"><img src="/static/question_style/img/C.png" /></p><div class="txt"><img src="/static/question_style/img/check.png" class="img2" /><p class="vl">日日复年年，年年复此生</p></div></li>
+             </ul>
+         </div>
+     </div>
+     <div class="tim" style="display: none">
+         <div class="number_one"><img src="/static/question_style/img/number_three.png" /></div>
+         <div class="topic">
+             <img src="/static/question_style/img/topic.png" >
+             <p class="title">一个人无聊的时候会做什么？</p>
+         </div>
+         <div class="slt">
+             <ul >
+                 <li data-id="A"><p class="num" ><img src="/static/question_style/img/A .png" /></p><div class="txt"><img src="/static/question_style/img/single.png" /><p class="vl">撩TA</p></div></li>
+                 <li data-id="B"><p class="num" ><img src="/static/question_style/img/B.png"/></p><div class="txt"><img src="/static/question_style/img/single.png" /><p class="vl">无目的刷手机</p></div></li>
+                 <li data-id="C"><p class="num"><img src="/static/question_style/img/C.png" /></p><div class="txt"><img src="/static/question_style/img/check.png" class="img2" /><p class="vl">我能睡48小时</p></div></li>
+             </ul>
+         </div>
+     </div>
+     <div class="tim" style="display: none">
+         <div class="number_one"><img src="/static/question_style/img/number_four.png" /></div>
+         <div class="topic">
+             <img src="/static/question_style/img/topic.png" >
+             <p class="title">你与别人交谈时，陷入冷场，你会？</p>
+         </div>
+         <div class="slt">
+             <ul >
+                 <li data-id="A"><p class="num" ><img src="/static/question_style/img/A .png" /></p><div class="txt"><img src="/static/question_style/img/single.png" /><p class="vl">我爱你爱你</p></div></li>
+                 <li data-id="B"><p class="num" ><img src="/static/question_style/img/B.png"/></p><div class="txt"><img src="/static/question_style/img/single.png" /><p class="vl">TA可能要去睡觉</p></div></li>
+                 <li data-id="C"><p class="num"><img src="/static/question_style/img/C.png" /></p><div class="txt1"><img src="/static/question_style/img/check.png" class="img2" /><p class="vl">爸爸要去打游戏了，你跪安吧</p></div></li>
+             </ul>
+         </div>
+     </div>
+     <div class="tim" style="display: none">
+         <div class="number_one"><img src="/static/question_style/img/number_five.png" /></div>
+         <div class="topic">
+             <img src="/static/question_style/img/topic.png" >
+             <p class="title">你与别人交谈时，陷入冷场，你会？</p>
+         </div>
+         <div class="slt">
+             <ul >
+                 <li data-id="A"><p class="num"><img src="/static/question_style/img/A .png" /></p><div class="txt"><img src="/static/question_style/img/single.png" /><p class="vl">哈哈哈</p></div></li>
+                 <li data-id="B"><p class="num" ><img src="/static/question_style/img/B.png"/></p><div class="txt"><img src="/static/question_style/img/single.png" /><p class="vl">沉默是金，我在攒金子</p></div></li>
+                 <li data-id="C"><p class="num" ><img src="/static/question_style/img/C.png" /></p><div class="txt"><img src="/static/question_style/img/check.png" class="img2" /><p class="vl">谁先开口谁是狗</p></div></li>
+             </ul>
+         </div>
+     </div>
+     </div>
+<!-- ******************计算结果状态***************-->
+<div class="staus" style="display: none">
+    <img src="/static/question_style/img/dongxiao.gif" />
+    <div class="box">
+        <div class="tbox">
+            <div class="tiao"></div>
+        </div>
+        <div class="loding">loding...</div>
+    </div>
+</div>
+<!-- ******************结果页面***************-->
+<div class="re1"  style="display: none">
+    <a class="img-box"  href="<?php echo url('h5/question.question/download'); ?>"><img class="packet1" src="/static/question_style/img/packet.png" /></a>
+<div class="result">
+    <img src="/static/question_style/img/bg.png" height="1010" width="678"/>
+</div>
+    <div class="footer">
+        <ul>
+            <li><img src="/static/question_style/img/zuojiantou.png" /></li>
+            <li>长按图片保存后，分享到朋友圈</li>
+            <li><img src="/static/question_style/img/youjiantou.png" /></li>
+            </ul>
+    </div>
+</div>
+<script src="/static/question_style/js/flexible.js"></script>
+<script src="/static/question_style/js/jquery.min.js"></script>
+<script src="/static/question_style/js/index.js"></script>
+<script>
+    $(function(){ 
+    pushHistory(); 
+    window.addEventListener("popstate", function(e) { 
+        // alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 
+        window.location.href = "<?php echo url('h5/question.question/download'); ?>";
+    }, false); 
+    function pushHistory() { 
+        var state = { 
+        title: "title", 
+        url: "#"
+        }; 
+        window.history.pushState(state, "title", "#"); 
+    } 
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+.news-body {
+  padding: 30px 0 10px;
+}
+.news-body .newitem {
+  margin-bottom: 58px;
+}
+.news-body .new-head {
+  font-size: 18px;
+  margin-top: 30px;
+}
+.news-body .new-tit {
+  font-weight: bold;
+}
+.news-body .new-body {
+  font-size: 14px;
+  line-height: 26px;
+  text-indent: 18px;
+  margin-top: 50px;
+}
+
+/* 单个新闻详情页 */
+.new-detail-body {
+  padding: 38px 0 60px;
+}
+.new-detail-body img {
+  margin-bottom: 30px;
+}
+.new-detail-tit,
+.new-detail-info {
+  font-size: 18px;
+  text-align: center;
+}
+.new-detail-tit {
+  font-weight: bold;
+}
+.new-detail-info {
+  margin: 24px 0 38px;
+}
+.new-detail-time {
+  margin-right: 36px;
+}
+.new-detail-paragraph {
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 26px;
+  text-indent: 28px;
+}
+.img-responsive {
+  margin: 0 auto;
+}

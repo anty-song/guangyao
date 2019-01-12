@@ -1,0 +1,35 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"E:\xampp\htdocs\demo\tp5\public/../application/prototype\view\login\index.html";i:1535451699;s:68:"E:\xampp\htdocs\demo\tp5\application\prototype\view\common\base.html";i:1535452368;}*/ ?>
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+        <title>OA后台系统</title>
+        <!-- <link rel="stylesheet" type="text/css" href="/static/oa/layui/css/layui.css" />
+        <link rel="stylesheet" type="text/css" href="/static/oa/css/index.css" />
+        <script type="text/javascript" src="/static/oa/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/oa/js/index.js"></script> -->
+    </head>
+
+
+
+
+<form action="/prototype/dologin" method="post">
+    <?php echo token(); ?>
+	用户名：<input type="" name="username"><br>
+	密码：<input type="" name="password">
+	<button class="layui-btn submit" type="">确定</button>
+</form>
+
+
+
+
+
+
+
+    </html>
+
+
+

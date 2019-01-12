@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>加密与解密</title>
+</head>
+<body>
+	<h1>这个是加密与解密</h1>
+	<form action="check" method="post" >
+		方法Action名称:	<input type="text" name="action" value="{$Request.token}">
+		<br>
+		Web或是APP请求:	<input type="text" name="reqType" value="{$Request.token}"">
+		<br>
+		用户ID：			<input type="text" name="uid" value="{$Request.token}">
+		<br>
+		<input type="submit" name="提交">
+	</form>
+</body>
+</html>

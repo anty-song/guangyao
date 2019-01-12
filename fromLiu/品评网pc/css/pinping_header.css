@@ -1,0 +1,956 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.pinping_header{
+    width:100%;
+    height:150px;
+    box-shadow: 4px 4px 21px 1px rgba(0,0,0,0.15);
+    z-index:100;
+}
+
+.pinping_header_top{
+    width:100%;
+    height:40px;
+    background: #353535;
+}
+
+.pinping_header_top_inner{
+    width:1200px;
+    height:40px;
+    margin:0 auto;
+  }
+
+.pinping_header_bottom{
+    background: #ffffff;
+}
+
+.pinping_header_bottom_inner{
+    height:110px;
+    width:1200px;
+    margin:0 auto;
+}
+
+.pinping_tel:after{
+    content:'';
+    display:block;
+    clear:both;
+}
+
+.pinping_tel{
+    float:left;
+    height:40px;
+    margin-left:18px;
+}
+
+.pinping_tel img{
+    float:left;
+    border:none;
+    display:block;
+    margin-top:11px;
+}
+.pinping_tel p{
+    float:left;
+    font-size:12px;
+    line-height:40px;
+    color:#fff;
+    margin-left:12px;
+}
+
+.pinping_log_register_forget:after{
+    content:'';
+    clear:both;
+    display:block;
+}
+
+.pinping_log_register_forget{
+    height:40px;
+    float:right;
+}
+
+.log_button_register{
+    float:right;
+    height:40px;
+}
+
+.log_button_register:after{
+    clear:both;
+    content:'';
+    display:block;
+}
+
+.please{
+    font-size:14px;
+    color:#fff!important;
+    text-decoration: none!important;
+    line-height:40px;
+    display:block;
+    float:left;
+}
+
+.log_button_register span{
+    color:#fff;
+    display:block;
+    float:left;
+    margin:0  6px;
+    line-height:40px;
+    font-size:14px;
+}
+.forget_password{
+    font-size:14px;
+    color:#fff!important;
+    text-decoration: none!important;
+    line-height:40px;
+    display:block;
+    float:right;
+    margin-left:30px;
+}
+
+.please_log{
+    color:#8dc4ff!important;
+}
+
+.pinping_logo{
+        display:block;
+    border:none;
+    float:left;
+    margin-top:26px;
+ }
+.pinping_header_ul{
+    float:right;
+    margin-top:31px;
+}
+
+.pinping_header_ul li {
+    list-style:none;
+    float:left;
+    width:110px;
+    border-radius:25px;
+    height:50px;
+    margin-left:21px;
+
+}
+
+.pinping_header_ul li a{
+    display:block;
+    width:110px;
+    height:50px;
+    border-radius:25px;
+    line-height:50px;
+    text-decoration: none!important;
+    font-size:16px;
+    color:#353535;
+    text-align:center
+}
+
+.pinping_header_ul li a:hover{
+    background: #003f82;
+    color:#fff;
+}
+
+.background_color{
+    background: #003f82;
+    color:#fff!important;
+}
+
+
+
+
+.pinping_header_ul li:nth-child(3){
+    position:relative;
+}
+
+#bc_member{
+    float:right;
+    font-size:12px;
+    color:#fff;
+}
+
+#bc_member a{
+    color:#fff;
+    text-decoration: none!important;
+    line-height:40px;
+}
+
+#bc_member a:nth-child(2){
+    color:#8dc4ff!important;
+}
+
+
+.pinping_new_small{
+    display:block;
+    border:none;
+    position:absolute;
+    right:-1px;
+    top:-1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

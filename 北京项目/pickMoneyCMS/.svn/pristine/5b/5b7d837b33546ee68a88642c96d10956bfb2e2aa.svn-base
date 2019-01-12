@@ -1,0 +1,25 @@
+var hbdtConfig = function() {
+	this.load = {//进入页面时候调用的接口
+		url: PATH_WEB+"/index.php/api/game/index",
+		type: "post",
+		data: {}
+	};
+	this.correct = {//进入页面判断当前用户是否中奖接口
+		url: PATH_WEB+"/index.php/api/game/index",
+		type: "post",
+		data: {}
+	};
+	this.end = {//点击最后一题时向后台提交
+		url: PATH_WEB+"/index.php/api/game/index",
+		type: "post",
+		data: {}
+	};
+	this.result = { //红包答题结果页面获取结果
+		url: PATH_WEB+"/index.php/api/game/index",
+		type: "post",
+		data: {}
+	};
+	this.winner = null; //当前用户是不是能获奖
+	this.image_src = "images";//配置图片路径
+	this.gameover = null; //这个是判断是否次数用完
+};

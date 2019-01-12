@@ -1,0 +1,222 @@
+*{padding: 0;margin: 0;}
+body{background: rgba(254,66,71,1);width: 100%;height: 100vh;position: relative;}
+.header{width: 100%;margin-top: 0.3rem;}
+.header img{width: 100%;height:3.5rem;}
+.content{
+	width: 7.5rem;
+	height: 4.2rem;
+	background: url("../images/Lottery/game_bg.png") no-repeat;
+	-webkit-background-size: 100% auto;
+	background-size: 100% 104%;
+	overflow: visible;
+	margin-top: -0.6rem;
+    position: relative;
+}
+.game_wrap{
+    /* width: 6.5rem; */
+    /* height: 3.1rem; */
+    width: 6.5rem;
+    height: 2.8rem;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%,-43%);
+    -webkit-transform: translate(-50%,-43%);
+    -moz-transform: translate(-50%,-43%);
+    -o-transform: translate(-50%,-43%);
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+#canvas{
+    width: 6.5rem;
+    height: 2.8rem;
+}
+
+.start{
+    position: absolute;
+    z-index: 10;
+    width: 107%;
+    height: 130%;
+    border-radius: 0.45rem;
+    border: none;
+    outline: none;
+    left: 50%;
+    top: 64%;
+    transform: translate(-50%,-63%);
+    -webkit-transform: translate(-50%,-63%);
+    -moz-transform: translate(-50%,-63%);
+    -o-transform: translate(-50%,-63%);
+    background: url(../images/Lottery/startBtn.png) center center no-repeat;
+    -webkit-background-size: 3.2rem 0.9rem;
+    background-size: 3.2rem 0.9rem;
+    transition: top.5s;
+}
+.start_tips_box{
+    height: .55rem;
+    width: 100%;
+    background: #F12B31;
+}
+.start_tips{
+    font-size: .24rem;
+    text-align: center;
+    color: #FFF;
+}
+.start_tips strong{
+   margin: 0 .04rem;
+}
+.redpack_logo{
+    position: absolute;
+    width: 24%;
+    right: 0;
+    top: 8.8rem;
+    z-index: 99;
+    display: none;
+    animation: mymove 3s infinite linear;
+}
+.redpack_logo img{
+    width: 100%;
+}
+
+.menus{
+    position: relative;
+}
+
+.menus .head_img{
+    position: absolute;
+    top: -0.26rem;
+    z-index: 2;
+    left: 0px;
+    width: 0.8rem;
+}
+
+.menus .head_img img{
+    width: 100%;
+}
+
+.menus .swiper-container{
+    padding: 0.3rem 0.27rem;
+}
+
+.menus .swiper-container .swiper-wrapper{
+
+}
+
+.menus .swiper-container .swiper-wrapper .swiper-slide{
+    width: 2rem;
+    height: 2.3rem;
+    margin-right: 0.2rem;
+    border: 0.05rem solid #c22428;
+    -webkit-border-radius: 0.1rem;
+    -moz-border-radius: 0.1rem;
+    border-radius: 0.1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.menus .slide_image{
+    width: 100%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    margin: auto;
+    text-align: center;
+    background:#fff;
+}
+
+.menus .slide_image img{
+    max-width: 75%;
+    max-height: 1.4rem;
+    vertical-align: middle;
+}
+
+.menus .swiper-slide .slide_text{
+    width:110%;
+    position: absolute;
+    text-align: center;
+    left: -5%;
+    right: -5%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    background: #fe4247;
+}
+
+.menus .swiper-slide .slide_text p{
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+}
+
+.rules{
+    position: absolute;
+    top: 63px;
+    left: 20px;
+    padding: 6px 18px;
+    background: rgba(255,255,255,.5);
+    color: #FFFFFF;
+    font-size: 12px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    z-index: 5;
+}
+.my-price{
+    width: 1.4rem;
+    position: absolute;
+    right: 0rem;
+    top: 48px;
+    z-index: 5;
+}
+.my-price img{
+    width: 100%;
+}
+.price_wrapper {
+    height: 100%;
+    overflow-x: scroll;
+    padding: .3rem;
+}
+.price_list{
+    width: 16.7rem;
+    font-size: 0;
+}
+.price_item{
+    display: inline-block;
+    width: 1.88rem;
+    height: 2.2rem;
+    border: 0.05rem solid #c22428;
+    -webkit-border-radius: 0.1rem;
+    -moz-border-radius: 0.1rem;
+    border-radius: 0.1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-right: .2rem;
+}
+.price_item .slide_image{
+    width: 100%;
+    height: 1.7rem;
+    background: #fff;
+}
+.price_item .slide_text{
+    height: .4rem;
+    line-height: .5rem;
+    font-size: .28rem;
+    color: #fff;
+    text-align: center;
+}
+.notice{width: 4.98rem;height: .74rem;margin:-.15rem auto 0;padding: 0 0 .32rem;background: url(../images/Lottery/notice_bg.png) no-repeat center/100%;overflow: hidden;}
+.notice_box{position: relative;height: .74rem;width: 100%;overflow: hidden;}
+.notice_list{position: absolute;margin: 0;padding: 0;width: 100%;height:1.26rem;left: 0;top: 0;font-size: 0;}
+.notice_item{width: 100%;height:.74rem;display: inline-block;}
+.notice p{line-height: .8rem;margin: 0;text-align: center;font-size: .26rem;color: #f56447;white-space: nowrap;}
+
+@keyframes mymove {
+    0%  {right:-.33rem;}
+    1%  {right:-.33rem;transform: rotate(-20deg)}
+    40% {right: -.33rem;transform: rotate(-20deg)}
+    41% {right: -.33rem;transform: rotate(0deg)}
+    60% {right: .5rem;transform: rotate(0deg)}
+    65% {right: .5rem;transform: rotate(-20deg)}
+    70% {right: .5rem;transform: rotate(20deg)}
+    75% {right: .5rem;transform: rotate(-20deg)}
+    80% {right: .5rem;transform: rotate(0deg)}
+    100% {right: -.33rem;transform: rotate(0deg)}
+}

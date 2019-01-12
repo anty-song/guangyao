@@ -1,14 +1,14 @@
 {
   "pages":[
-    "pages/test/test",
+    "pages/find/find",
     "pages/brand/brand",
     "pages/wiki/wiki",
     "pages/wikiItem/wikiItem",
-    
+    "pages/test/test",
     "pages/braVote/braVote",
     "pages/braRank/braRank",
     "pages/braRankItem/braRankItem",
-    "pages/find/find",
+    
     "pages/product/product",
     "pages/proVote/proVote",
     "pages/proRank/proRank",

@@ -1,0 +1,43 @@
+<?php
+/**
+ * 后台首页
+ * Date: 18/9/14
+ * Time: 上午10:22
+ */
+namespace app\admin\controller;
+
+use app\admin\model\MillionsModel;
+
+class Index extends BaseController
+{
+    protected $millions_model;
+    protected function initialize()
+    {
+        parent::initialize();
+        $this->millions_model = new MillionsModel();
+    }
+
+    //后台首页
+    public function home()
+    {
+        //百万红包活动列表
+        $millions_activit_list = $this->millions_model->getActivityList();
+        
+        $this->assign('millions_activit_list',$millions_activit_list);
+        //登录管理员信息（userid,username）
+        $this->assign('admin_info',json_decode(session('admin_info'),true));
+        return $this->fetch();
+    }
+
+    public function delAllMem()
+    {
+        $mem = get_memcache();
+        $mem->flush();
+
+    }
+
+    public function main()
+    {
+        return 'main';
+    }
+}

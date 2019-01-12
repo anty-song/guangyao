@@ -1,0 +1,23 @@
+{include file='public/header' /}
+
+{block name='head'}
+
+{/block}
+
+{block name='nav'}
+<table width="95%" border="1" align="center">
+  <tr>
+    <td>计划</td>
+    <td>需求任务</td>
+    <td>产品</td>
+    <td>部门</td>
+    <td>人员</td>
+  </tr>
+</table>
+{/block}
+
+{block name='body'}
+
+{/block}
+
+{include file='public/footer' /}

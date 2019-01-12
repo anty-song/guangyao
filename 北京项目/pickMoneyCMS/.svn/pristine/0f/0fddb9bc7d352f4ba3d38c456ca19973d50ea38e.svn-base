@@ -1,0 +1,269 @@
+<?php
+
+/**
+ * @Author: "Hulkzero"
+ * @Date:   2018-09-08 11:06:38
+ * @Email: "hulkzero@163.com"
+ * @Last Modified time: 2018-10-11 15:29:26
+ * @explain 答题游戏相关接口
+ */
+
+namespace app\api\controller\game;
+
+use app\api\controller\game\GameLobby;
+
+use app\api\model\game\GameQuestionBank;
+
+
+class Answer extends GameLobby
+{	
+	protected $m_GameQuestionBank;														//答题游戏题库
+	public $gID;
+
+	// 初始化函数
+	public function __construct()
+    {
+        parent::__construct();
+        $this->m_GameQuestionBank = new GameQuestionBank();								//实例化 答题游戏题库 模型
+    }
+
+	/**
+	 * 在游戏大厅进入答题游戏时的判断
+	 * @Author   Hulkzero
+	 * @DateTime 2018-09-19T18:21:30+0800
+	 * @Email    hulkzero@163.com
+	 * @return   [type]                   [description]
+	 */
+	public function entry_answer()
+	{	
+		$request_param	  = $this->request_param;										//获取paramData中的值
+        $uid 			  = $this->uid;	
+        $g_id 			  = 1;															//游戏id
+
+		//同一天内（凌晨为界限）再次点击脑都答题游戏直接进入5秒倒计时广告页面，
+		//若玩完一轮游戏返回之后，第二天凌晨以后再次点击脑洞答题游戏直接进入答题游戏主页
+		$redis = get_memcache();
+		$now_time = get_time();	
+		$redis_day = date('Y_m_d', $now_time);											//每天一次，有效期1天
+		$redis_game_str =  'redis_answer_num_'.$redis_day.'_'.$uid.'_'.$g_id;			//定义缓存名称
+		$redis_valid_time = 60 * 60 * 3;												//设置缓存有效时间
+
+		if ($redis->get($redis_game_str) !== false) {
+			// 已经存在，判断次数，为0时表示次数用完
+			$get_redis_str = $redis->get($redis_game_str);
+			$redis->set($redis_game_str, $get_redis_str + 1, false, $redis_valid_time);
+			$arr_data = [
+							'answer_jump_url'	=>	config('server_domain').'h5/game.answer/home.html',
+							'jump_status'		=>	'2'									//是否进行跳转 ，2 前端交互，跳转淘宝客
+						];
+			web_return($this->auth, $arr_data, 1, '获取成功');
+		} else {
+			$redis->set($redis_game_str, 1, false, $redis_valid_time);
+			$arr_data = [
+							'answer_jump_url'	=>	config('server_domain').'h5/game.answer/home.html',
+							'jump_status'		=>	'1'									//是否进行跳转 ，1跳转进入游戏
+						];
+			web_return($this->auth, $arr_data, 1, '获取成功');
+		}
+	}
+
+	/**
+	 * Web获取答题列表
+	 * @Author   Hulkzero
+	 * @DateTime 2018-09-10T19:54:36+0800
+	 * @Email    hulkzero@163.com
+	 * @return   [type]                   [description]
+	 */
+	public function get_question_list()
+	{
+		$request_param	  = $this->request_param;										//获取paramData中的值
+        $uid 			  = $this->uid;	
+        $g_id 			  = 1;															//游戏id
+		// 获取列表，每次均不一样,先弹出广告(随机和权重)，后是题目						
+		$get_answer_ad_popout = $this->get_game_ad_popout($uid,$g_id);
+        $ad_id = $get_answer_ad_popout['id'];
+		// 存储未领取的广告信息
+		$this->save_my_uncollect_ad($uid, $g_id, $ad_id);
+
+		// 获取随机题目，暂时定为8
+        $question_count = 8;//后期数据库中获取 8道题
+        $question_sec = 10;//后期数据库中获取 10s
+		$question_data = $this->m_GameQuestionBank->getQuestionList('b_game_question_bank',$question_count);
+
+		$output_question_data = [];
+		$i = 0;
+		foreach($question_data as $v){
+			$i++;
+		    $new_v['id'] 				= $v['id'];										//序号
+		    $new_v['q_id'] 				= $i;											//序号
+		    $new_v['q_title'] 			= $v['q_title'];								//标题
+		    $new_v['q_option'] 			= json_decode($v['q_option']);					//选项
+		    $new_v['q_option_answer'] 	= $v['q_option_answer'];						//答案
+		    $new_v['q_tip'] 	        = $v['q_tip'];						            //脑洞提示
+
+			$output_question_data[] = $new_v;
+		}
+		$arr_data = [
+						'get_answer_ad_popout'	=>	$get_answer_ad_popout,
+						'question_data'			=>	$output_question_data,
+						'question_sec'			=>	$question_sec,
+                        'question_count'	    =>	$question_count,
+					];
+		// 把题目设置到缓存中，每次根据数组编号读取相应的题目信息。先返出第一题
+		web_return($this->auth, $arr_data, 1, '获取成功');
+	}
+
+	/**
+	 * 获取下一题，主要是获取弹框广告，好另类
+	 * @Author   Hulkzero
+	 * @DateTime 2018-09-10T20:06:32+0800
+	 * @Email    hulkzero@163.com
+	 * @return   [type]                   [description]
+	 */
+	public function get_next_question()
+	{
+		$uid 			  = $this->uid;
+        $g_id = 1;
+		$get_answer_ad_popout = $this->get_game_ad_popout($uid,$g_id);							//获取弹窗广告
+		// 将奖品信息存储到用户对应的奖品表
+		$ad_id = $get_answer_ad_popout['id'];
+		// 存储未领取的广告信息
+		$res = $this->save_my_uncollect_ad($uid, $g_id, $ad_id);
+		if ($res) {
+			web_return($this->auth, $get_answer_ad_popout, 1, '获取成功');
+		} else {
+			web_return($this->auth, '', 0, '领取失败');
+		}
+	}
+
+	/**
+	 * 提交最后一题的跳转接口
+	 * @Author   Hulkzero
+	 * @DateTime 2018-09-13T20:03:59+0800
+	 * @Email    hulkzero@163.com
+	 * @return   [type]                   [description]
+	 */
+	public function get_answer_last_jump()
+	{
+		// 获取传递的数据
+		$request_param 	= $this->request_param;
+        $uid 			= $this->uid;
+        // 时间戳
+        $times_tamp			= isset($request_param['times_tamp']) ? intval($request_param['times_tamp']) : 0;
+        //题目的总数量
+        $answer_all_num 	= isset($request_param['answer_all_num']) ? intval($request_param['answer_all_num']) : 10;
+        //正确的数量		
+        $answer_right_num 	= isset($request_param['answer_right_num']) ? intval($request_param['answer_right_num']) : 10;	
+  		// 提交的加密串
+  		$answer_result_sign	= isset($request_param['answer_result_sign']) ? intval($request_param['answer_result_sign']) : 0;
+
+  		if ($answer_result_sign == md5($times_tamp.md5($uid.$answer_all_num.$answer_right_num))) {
+	  		// 计算分数
+	  		$get_score = ceil($answer_right_num/$answer_all_num*100);
+	  		// 判断是成功还是失败
+	  		if ($get_score >= 90) {
+	  			$is_success = 1;
+	  			$roll_msg = '传说叫兽';
+	  		} elseif (80 <= $get_score && $get_score < 90) {
+	  			$is_success = 1;
+	  			$roll_msg = '史诗学霸';
+	  		} elseif (70 <= $get_score && $get_score < 80) {
+	  			$is_success = 1;
+	  			$roll_msg = '普通学酥';
+	  		} elseif (60 <= $get_score && $get_score < 70) {
+	  			$is_success = 1;
+	  			$roll_msg = '一般学弱';
+	  		} else {
+	  			$is_success = 0;
+	  			$roll_msg = '神坑学渣';
+	  		}
+	  		// 返出一个加密串  规则  MD5(时间戳MD5(uid_总数_答对数))
+	  		// 
+	  		$answer_result_sign= md5($times_tamp.md5($uid.$answer_all_num.$answer_right_num));
+			$get_answer_ad_popout = $this->get_game_ad_popout($uid,1);						//获取弹窗广告
+			// 在用户表中进行查询，如果没有头像就返出默认。
+			$this->m_GameQuestionBank->setTableName('b_1_user_list');
+			$user_where = ['uid'=>$uid];
+			$user_res = $this->m_GameQuestionBank->getInfo($user_where);
+			if (empty($user_res['avatar'])) {											//没有头像
+				// $avatar = config('server_avatar').config('folder_avatar').'0000/9ba2b207ef7d75bb9099a5435c982578.jpg';
+				$avatar = 'http://obj.yuanmakj.com/qb2/up_img/weixin/0000/9ba2b207ef7d75bb9099a5435c982578.jpg';
+			} else {
+				$avatar = config('server_avatar').config('folder_avatar').get_user_avatar($uid, 2);
+			}
+			
+
+			$answer_last_result   =	[
+										'avatar'		=> 	$avatar,					//头像
+										'roll_msg'		=> 	$roll_msg,					//滚动字
+										'score'			=> 	$get_score,					//分数
+										'right_num'		=> 	$answer_right_num,			//答对的题目
+										'answer_result_sign'	=>	$answer_result_sign,//加密串
+										'is_success'	=> 	$is_success,				//1 成功 ，2失败
+										'get_answer_ad_popout'	=>	$get_answer_ad_popout,
+									];
+			web_return($this->auth, $answer_last_result, 1, '获取成功');
+  		} else {
+			web_return($this->auth, '', 3, '验证错误');
+  		}
+	}
+
+
+	/**
+	 * 获取最后的结果
+	 * @Author   Hulkzero
+	 * @DateTime 2018-09-13T20:03:59+0800
+	 * @Email    hulkzero@163.com
+	 * @return   [type]                   [description]
+	 */
+	public function get_answer_last_result()
+	{
+		// 获取传递的数据
+		$request_param 	= $this->request_param;
+        $uid 			= $this->uid;
+        // 时间戳
+        $times_tamp		= get_time();
+        //题目的总数量
+        $answer_all_num = isset($request_param['answer_all_num']) ? intval($request_param['answer_all_num']) : 10;
+        //正确的数量		
+        $answer_right_num = isset($request_param['answer_right_num']) ? intval($request_param['answer_right_num']) : 10;	
+  		
+  		// 计算分数
+  		$get_score = ceil($answer_right_num/$answer_all_num*100);
+  		// 判断是成功还是失败
+  		if ($get_score >= 60) {
+  			$is_success = 1;
+  			$roll_msg = '斗皇圣者';
+  		} else {
+  			$is_success = 0;
+  			$roll_msg = '三段斗者';
+  		}
+
+  		// 返出一个加密串  规则  MD5(时间戳MD5(uid_总数_答对数))
+  		$answer_result_sign= md5($times_tamp.md5($uid.$answer_all_num.$answer_right_num));
+		$get_answer_ad_popout = $this->get_game_ad_popout($uid,1);							//获取弹窗广告
+		// 暂时先定好，后期修改2018.09.21
+		// 去用户表中查询头像信息
+		$avatar = config('server_avatar').config('folder_avatar').get_user_avatar($uid, 2);
+
+		$answer_last_result   =	[
+									'avatar'		=> 	$avatar,						//头像
+									'roll_msg'		=> 	$roll_msg,						//滚动字
+									'score'			=> 	$get_score,						//分数
+									'right_num'		=> 	$answer_right_num,				//答对的题目
+									'answer_result_sign'	=>	$answer_result_sign,	//加密串
+									'times_tamp'	=>	$times_tamp,					//用来加密时间戳
+									'is_success'	=> 	$is_success,					//1 成功 ，2失败
+								];
+		$arr_data = [
+						'answer_last_result'	=>	$answer_last_result
+					];
+		web_return($this->auth, $arr_data, 1, '获取成功');
+	}
+
+	function index()
+	{
+		return 'index';
+	}
+	
+}

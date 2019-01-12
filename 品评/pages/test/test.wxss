@@ -1,4 +1,7 @@
 /* pages/test/test.wxss */
+page {
+  background: #f3f3f3;
+}
 image {
   display: block;
 }
@@ -23,6 +26,7 @@ image {
   justify-content: space-around;
   color: #fff;
   margin-top: 30rpx;
+  margin-bottom: 30rpx;
 }
 .a_bg {
   position: absolute;
@@ -37,11 +41,13 @@ button {
   padding: 0;
   height:67rpx;
   background:transparent;
-  border:1rpx solid #fff;
-  color:#fff;
   font-size:30rpx;
   line-height:67rpx;
+}
+.a_votebtn {
   margin-top: 34rpx;
+  border:1rpx solid #fff;
+  color:#fff;
 }
 .a_img_l {
   width: 83rpx;
@@ -50,4 +56,79 @@ button {
 .a_img_m {
   width: 214rpx;
   height:112rpx;
+}
+.top_3 .band image {
+  width: 57rpx;
+  height: 57rpx;
+}
+.top_3 {
+  background: #e9f7ff;
+}
+.top_3,
+.top_10,
+.others {
+  width: 690rpx;
+  height: 166rpx;
+  margin: 0 auto 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20rpx;
+}
+.left {
+  display: flex;
+  align-items: center;
+}
+.o_votebtn {
+  border:1rpx solid #1d70b5;
+  color:#1d70b5;
+  margin-right: 24rpx;
+}
+.top_3 .o_img_m {
+  margin: 0 35rpx 0 10rpx;
+}
+.o_img_m {
+  width: 185rpx;
+  height: 98rpx;
+  box-shadow: 0 0 20rpx 0 rgba(0, 0, 0, .1);
+}
+.top_3 .band {
+  margin-left: 8rpx;
+}
+.item-name {
+  font-size: 33rpx;
+  color: #353535;
+}
+.item-votes {
+  font-size: 26rpx;
+  color: #888;
+}
+.top_10 {
+  background: #f7fcff;
+}
+.top_10 .band {
+  margin-left: 12rpx;
+}
+.top_10 .band image {
+  width: 48rpx;
+  height: 48rpx;
+}
+.others .o_img_m,
+.top_10 .o_img_m {
+  margin: 0 35rpx 0 16rpx;
+}
+.others {
+  background: #fff;
+}
+.others .band {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 20rpx;
+  background: #4babef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fffefe;
+  font-size: 26rpx;
+  margin-left: 12rpx;
 }

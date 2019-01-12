@@ -1,0 +1,77 @@
+ window.localStorage.setItem('isAlert','no');
+ window.localStorage.setItem('decreseTime','no');
+ window.localStorage.removeItem('nextShow');
+// 获取url的某个字段
+function GetQueryString(name){
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return  unescape(r[2]); return null;
+}
+var uid,                                      //用户ID
+auth,                                         //用户权重
+key_auth,                                     //用户解码
+device,                                       //用户设备
+time=Math.round(new Date() / 1000),           //请求时间戳
+g_id=parseInt(GetQueryString('gid')),                   //游戏ID
+no_times_url='/h5/game.game_lobby/no_times',  //游戏次数用完
+paramData,                                    //定义传递数据对象
+thisgame_time,                                //当前游戏次数（固定次数+再来一次）
+url;                                          //游戏链接
+uid=window.localStorage.getItem('uid');
+auth=window.localStorage.getItem('auth');
+device=window.localStorage.getItem('device');
+thisgame_time=false;
+key_auth=auth.substring(0,8);
+
+window.onload=function(){
+    paramData={'uid':uid,'time':time,'auth':auth,'device':device,'g_id':g_id};
+    paramData=JSON.stringify(paramData);
+    paramData=encryptByDES(paramData,key_auth);
+    console.log(paramData);
+    $.ajax({
+        type:'post',
+        url:PATH_WEB,
+        data:{action:'get_game_all_times',uid:uid,reqType:2,paramData:paramData},
+        success:function(data){
+            console.log(data);
+            var data=JSON.parse(data);
+            if(data.status==1){
+                data=decryptByDES(data.res_data, key_auth);
+                data=JSON.parse(data);
+                console.log(data);
+                for(key in data.game_again_times){
+                    key==g_id?(parseInt(data.game_again_times[key].again_count)>0?thisgame_time=true:''):'';
+                }
+                for(key in data.game_times){
+                    key==g_id?(parseInt(data.game_times[key].once_count)>0?thisgame_time=true:''):'';
+                }
+                if(thisgame_time){
+                    jumpGame(g_id);
+                }else{
+                    jumpGame(url);
+                }
+            }
+        },
+        error:function(){
+            tipError('数据请求失败，请检查当前网络');
+        }
+    })
+};
+
+function jumpGame(g_id){
+    if(g_id==1){
+        url= '/h5/game.answer/home.html';
+    }else if(g_id==2){
+        url='/h5/game.lottery/home.html';
+    }else if(g_id==3){
+        url='/h5/game.tongs/home.html';
+    }else if(g_id==4){
+        url='/h5/game.water_flower/home.html';
+    }else{
+        url=no_times_url;
+    }
+    setTimeout(function(){
+        console.log(url);
+        window.location.href=url;
+    },1000);
+}

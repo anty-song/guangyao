@@ -1,0 +1,29 @@
+var waterConfig = function() {
+	this.load = {//进入页面时候调用的接口
+		url: PATH_WEB,
+		type: "post",
+		data: {}
+	};
+	this.correct = {//进入页面判断当前用户是否中奖接口
+		url: PATH_WEB,
+		type: "get",
+		data: {
+			
+		}
+	};
+	this.start = {//点击开始游戏时候获取当前是否还有机会玩
+		url: PATH_WEB,
+		type: "get",
+		data: {}
+	};
+	this.success = { //刮完后中奖，把刮完的状态发送给后台
+		url: PATH_WEB,
+		type: "post",
+		data: {
+			isend: "end"
+		}
+	};
+	this.winner = null; //当前用户是不是能获奖
+	this.image_src = "images/";//配置图片路径
+	this.gameover = null; //这个是判断是否次数用完
+};

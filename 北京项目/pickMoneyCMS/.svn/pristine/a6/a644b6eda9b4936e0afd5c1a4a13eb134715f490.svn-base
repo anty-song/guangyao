@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>趣味游戏-脑洞答题馆</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/page.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .ff{
+            background: rgb(255, 255, 255);
+            border-width: 1px !important;
+            border-style: solid !important;
+            border-color: rgb(247, 133, 89) !important;
+            border-image: initial !important;
+        }
+        </style>
+</head>
+<body>
+    <div>
+        <!-- 内容主体区域 -->
+        <div class="layui-fluid nddt">
+            <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title">
+                    <li class="layui-this"><a href="{:url('admin/game.answer/home')}">题库管理</a></li>
+                    <li><a href="{:url('admin/game.answer/config')}">规则说明配置</a></li>
+                    <li>管理日志</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <button class="layui-btn createItem">新建</button>
+                        <div style="overflow-x: auto;">
+                            <table class="layui-table" id="questions_management" lay-even>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>编号</th>
+                                        <th>题目</th>
+                                        <th>正确答案</th>
+                                        <th>答案1</th>
+                                        <th>答案2</th>
+                                        <th>答案3</th>
+                                        <th>脑洞提示</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {volist name="list" id="vo" empty="$empty"}
+                                    <tr>
+                                        <td><input type="checkbox" style="width: 20px;height: 20px;" data-id="{$vo.id}"></td>
+                                        <td>{$vo.id}</td>
+                                        <td>{$vo.q_title}</td>
+                                        <td>{$vo.q_option_answer}</td>
+                                        {volist name="vo.q_option" id="voo"}
+                                            <td>{$voo}</td>
+                                        {/volist}
+                                        <td>{$vo.q_tip}</td>
+                                        <td>
+                                            <form class="layui-form" action="">
+                                                <div class="layui-input-block" style="margin-left: 0;">
+                                                    <input type="checkbox" name="switch" value="{$vo.id}" lay-skin="switch" lay-filter="status" lay-text="启用|停用" {eq name="vo.status" value="1"}checked{/eq}>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <button href="" class="layui-btn layui-btn-normal layui-btn-xs edit"  data-id="{$vo.id}">编辑</button>
+                                            <button href="" class="layui-btn layui-btn-danger layui-btn-xs deltr" data-id="{$vo.id}">删除</button>
+                                        </td>
+                                    </tr>
+                                {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+
+                        	<!--统一的全选按钮添加-->
+                        <div class="layui-container" style="margin-left: 0;margin-top: 10px;">
+                        <input type="checkbox" class="totaltr" style="width: 20px;height: 20px;" >
+                            <button class="layui-btn layui-btn-normal layui-btn-xs" data-num="1" id="up">启用</button>
+                            <button class="layui-btn layui-btn-warm layui-btn-xs" data-num="2" id="down">暂停</button>
+                            <button class="layui-btn layui-btn-danger layui-btn-xs" data-num="0" id="delet">删除</button>
+                        </div>
+                        	
+                        	
+                            <!--<input type="checkbox" class="totaltr" style="width: 20px;height: 20px;">
+                            <select id="batch_operation">
+                                <option value="">批量操作</option>
+                                <option class="selItem" value="1">启用</option>
+                                <option class="selItem" value="2">暂停</option>
+                                <option class="selItem" value="0" class="deltr">删除</option>
+                            </select>-->
+                            <!--用户总数：<span class="whatname">1234</span>人 邀请总人数：<span class="whatname">23456</span>人-->
+                        </p>
+                        {$page|raw}
+                    </div>
+                    <div class="layui-tab-item">
+                        <form action="" class="layui-form layui-row">
+                            <blockquote class="layui-elem-quote">规则配置</blockquote>
+                            <div class="layui-input-inline">
+                                <p style="margin: 20px;">1.脑洞答题的题目数量：<input type="text" class="layui-input-inline" disabled required="" name="topcount1" lay-verify="required" autocomplete="off" title="题目数量" style="margin: 0 5px;width: 25px;">道</p>
+                            </div><br>
+                            <div class="layui-input-inline">
+                                <p style="margin: 20px;">2.答题时间：<input type="text" class="layui-input-inline" disabled required="" name="topcount2" lay-verify="required" autocomplete="off" title="答题时间" style="margin: 0 5px;width: 25px;">秒</p>
+                            </div><br>
+                            <div class="layui-input-inline" >
+                                <p style="margin: 20px;">3.挑战成功领取奖励中奖的概率：<input type="text" class="layui-input-inline" disabled required="" name="topcount3" lay-verify="required" autocomplete="off" title="次数上限" style="margin: 0 5px;width: 25px;">%</p>
+                            </div>
+                            <div class="layui-input-inline">
+                                <p style="margin: 20px;">金额区间：<input type="text" class="layui-input-inline" required="" disabled name="topcount4" lay-verify="required" autocomplete="off" title="次数上限" style="margin: 0 5px;width: 25px;">~<input type="text" class="layui-input-inline" required="" disabled name="topcount5" lay-verify="required" autocomplete="off" title="次数上限" style="margin: 0 5px;width: 25px;">元（精确到0.0001）</p>
+                            </div>
+<!--                            <div class="layui-form-item layui-col-md12 layui-col-xs12 layui-col-xs12">
+                                <label class="layui-form-label layui-col-md2 layui-col-xs4 layui-col-xs6" style="text-align: left;">展示位置：<span></span>脑洞答题馆首页</label>
+                                <label class="layui-form-label layui-col-md2 layui-col-xs4 layui-col-xs6" style="text-align: left;">展示数量：<span>0张</span></label>
+                            </div>
+                            <div class="layui-upload">
+                                <button type="button" class="layui-btn" id="test-upload-more">多图片上传</button><input class="layui-upload-file" type="file" accept="undefined" name="file" multiple="">
+                                <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;min-height: 100px;">
+                                预览图：
+                                    <div class="layui-upload-list" id="test-upload-more-list"></div>
+                                </blockquote>
+                            </div>
+                            <blockquote class="layui-elem-quote">规则说明管理</blockquote>
+                            <div class="layui-colla-item">
+                                <div class="layui-colla-content layui-show">
+                                    <textarea name="" id="" cols="30" rows="10" placeholder="请输入规则说明"></textarea>
+                                </div>
+                            </div>
+                            <button class="layui-btn layui-btn-primary">上传</button>
+                            -->
+                        </form>
+                        <button  lay-submit=""  style="float: right;margin-top: -45px" class="layui-btn layui-btn-normal" id="ruleEdit">编辑</button>
+                    </div>
+                    <div class="layui-tab-item">
+                        <div style="margin-top: 20px;">
+                            <p>管理日志</p>
+                            <p>2018-08-12 19:12:36 admin 删除了 题目</p>
+                            <table class="layui-table" lay-even>
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>编号</th>
+                                    <th>题目</th>
+                                    <th>正确答案</th>
+                                    <th>答案1</th>
+                                    <th>答案2</th>
+                                    <th>答案3</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>1</td>
+                                    <td>中午早晨晚上那个时间做坏事最好</td>
+                                    <td>中午</td>
+                                    <td>早上</td>
+                                    <td>中午</td>
+                                    <td>晚上</td>
+                                    <td><a href="" class="deltr">删除</a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>2</td>
+                                    <td>中午早晨晚上那个时间做坏事最好</td>
+                                    <td>中午</td>
+                                    <td>早上</td>
+                                    <td>中午</td>
+                                    <td>晚上</td>
+                                    <td><a href="" class="deltr">删除</a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>3</td>
+                                    <td>中午早晨晚上那个时间做坏事最好</td>
+                                    <td>中午</td>
+                                    <td>早上</td>
+                                    <td>中午</td>
+                                    <td>晚上</td>
+                                    <td><a href="" class="deltr">删除</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="create-question">
+                    <img class="closeModel" src="/static/admin/images/Close@2x.png" alt="">
+                    <p>上传题目</p>
+                    <form class="layui-form">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">题目名称</label>
+                            <div class="layui-input-block" style="margin-left: 115px;">
+                                <input type="hidden" class="ids" value="" />
+                              <input type="text" name="title" required  lay-verify="required" placeholder="请输入题目名称" autocomplete="off" class="layui-input que_title" style="width: 80%;">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">答案1</label>
+                            <div class="layui-input-inline">
+                              <input type="text" name="answer1" required lay-verify="required" placeholder="请输入答案1" autocomplete="off" class="layui-input ques1">
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="checkbox" class="layui-input" name="answer1ck0" data-num="0" >
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">答案2</label>
+                            <div class="layui-input-inline">
+                              <input type="text" name="answer2" required lay-verify="required" placeholder="请输入答案2" autocomplete="off" class="layui-input ques2">
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="checkbox" class="layui-input" name="answer1ck1" data-num="1">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">答案3</label>
+                            <div class="layui-input-inline">
+                              <input type="text" name="answer3" required lay-verify="required" placeholder="请输入答案3" autocomplete="off" class="layui-input ques3">
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="checkbox" class="layui-input" name="answer1ck2" data-num="2">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">脑洞提示</label>
+                            <div class="layui-input-block" style="margin-left: 115px;">
+                                <input type="text" name="q_tip" required lay-verify="required" placeholder="脑洞提示" autocomplete="off" class="layui-input ques_tip" style="width: 47%;">
+                            </div>
+                        </div>
+                        <button class="layui-btn createUpload">上传</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mark"></div>
+    {load href="/static/admin/layui/layui.js" /}
+    {load href="/static/admin/js/FunGame/answer.js" /}
+</body>
+</html>

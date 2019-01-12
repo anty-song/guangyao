@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+	<title>广告管理-三方游戏广告</title>
+	{load href="/static/admin/layui/css/layui.css" /}
+	{load href="/static/admin/css/index.css" /}
+	{load href="/static/admin/js/jquery.min.js" /}
+	<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+	<!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<div class="sjlogo sjgggl">
+		<!-- 内容主体区域 -->
+		<div class="layui-fluid">
+			<div class="layui-tab layui-tab-card">
+				<ul class="layui-tab-title">
+					<li>
+						<a href="{:url('admin/ad/home')}">广告管理</a>
+					</li>
+					<li>
+						<a href="{:url('admin/ad/advertiser')}">商家广告管理</a>
+					</li>
+					<li>
+						<a href="{:url('admin/ad/trader')}">商家logo管理</a>
+					</li>
+					<li class="layui-this">
+						<a href="{:url('admin/ad/third_game')}">第三方游戏广告</a>
+					</li>
+				</ul>
+				<div class="layui-tab-content">
+					<blockquote class="layui-elem-quote">配置内容</blockquote>
+					<form class="layui-form" action="">
+						<div class="layui-form-item" style="margin-bottom: 45px;">
+							<div class="layui-inline">
+								<label class="layui-form-label"><span style="color: #FF5722"></span>1.首页地图红包链接地址：</label>
+								<div class="layui-input-inline" style="min-width: 350px;">
+									<input type="text" name="purse_url" autocomplete="off" class="layui-input" value="{$index_third_game.g_url}">
+								</div>
+							</div>
+							<div class="layui-block">
+								<label class="layui-form-label"><span style="color: #FF5722"></span>推送次数：</label>
+								<div class="layui-input-inline">
+									<input type="radio" name="push_type" value="1" title="随系统红包推送" {if $index_third_game.push_type ==1} checked {/if}>
+									<input type="radio" name="push_type" value="2" title="自定义推送" {if $index_third_game.push_type ==2} checked {/if}>
+								</div>
+								<div class="layui-inline layui-hide">
+									<label class="layui-form-label" style="min-width: 87px;"><span style="color: #FF5722"></span>次数:</label>
+									<div class="layui-input-inline">
+										<input type="number" name="push_times" style="width: 50px;">
+									</div>
+								</div>
+								<button class="layui-btn layui-btn-normal" lay-submit style="float: right">确定</button>
+								<div class="layui-input-inline" style="margin-left: 0;float: right">
+									<input type="checkbox" name="switch" lay-skin="switch" lay-filter="status" lay-text="启用|停用" {eq name="index_third_game.status" value="1"}checked{/eq} />
+								</div>
+							</div>
+						</div>
+					</form>
+
+					<form class="layui-form" action="">
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label"><span style="color: #FF5722"></span>2.游戏大厅链接地址：</label>
+								<div class="layui-input-inline" style="min-width: 350px;">
+									<input type="text" name="game_url" autocomplete="off" class="layui-input" value="{$lobby_third_game.g_url}">
+								</div>
+							</div>
+
+							<button class="layui-btn layui-btn-normal" lay-submit style="float: right">确定</button>
+							<div class="layui-input-inline" style="margin-left: 0;float: right">
+								<input type="checkbox" name="switch" lay-skin="switch" lay-filter="status" lay-text="启用|停用" {eq name="lobby_third_game.status" value="1"}checked{/eq}>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	{load href="/static/admin/layui/layui.js" /}
+	{load href="/static/admin/js/index.js" /}
+	{load href="/static/admin/js/advertisement.js" /}
+</body>
+
+</html>

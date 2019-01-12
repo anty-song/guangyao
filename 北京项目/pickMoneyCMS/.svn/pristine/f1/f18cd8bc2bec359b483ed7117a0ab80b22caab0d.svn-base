@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>来捡钱后台系统</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="LAY_app" class="layadmin-tabspace-none">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <div class="layui-nav logo_wrapper">
+                <i class="layui-icon layui-icon-spread-left layui-show-xs layui-show-sm layui-hide-md layui-hide-lg"></i>
+                <i class="layui-icon layui-icon-shrink-right layui-show-xs layui-show-sm layui-hide-md layui-hide-lg" style="display: none;"></i>
+                <a href=""><img class="logo" src="__ADMINIMG__/ljq_logo.png" alt="" style="vertical-align: text-top;"></a>
+                <a class="logo_title layui-hide-xs" href="#">来捡钱app管理平台</a>
+            </div>
+            <!-- <ul class="layui-nav layui-layout-left layui-hide-xs daohang" lay-filter="">
+                <li class="layui-nav-item">
+                    <p><i class="layui-icon layui-icon-home"></i></p>
+                    <p><a href="javascript:;">公司主页</a></p>
+                </li>
+                <li class="layui-nav-item">
+                    <p><i class="layui-icon layui-icon-app activei"></i></p>
+                    <p class="layui-this"><a href="javascript:;">功能管理</a></p>
+                </li>
+                <li class="layui-nav-item">
+                    <p><i class="layui-icon layui-icon-release"></i></p>
+                    <p><a href="javascript:;">工作创建</a></p>
+                </li>
+                <li class="layui-nav-item">
+                    <p><i class="layui-icon layui-icon-template-1"></i></p>
+                    <p><a href="javascript:;">公司架构</a></p>
+                </li>
+                <li class="layui-nav-item">
+                    <p><i class="layui-icon layui-icon-set-sm"></i></p>
+                    <p><a href="javascript:;">个人中心</a></p>
+                </li>
+            </ul> -->
+            <div class="layui-nav layui-layout-right logo_wrapper" lay-filter="layadmin-layout-right">
+                <div class="help_tips">
+                    <span class="layui-hide-xs">账号：</span>
+                    <a href="#">{$admin_info.username}</a>
+                    <span class="layui-nav-more layui-hide-md" style="right: 20px;transition: all .2s"></span>
+                    <dl class="layui-nav-child layui-anim layui-anim-upbit suolve layui-hide-md">
+                        <dd style="text-align: center;"><a lay-href="set/user/info">基本资料</a></dd>
+                        <dd style="text-align: center;"><a lay-href="set/user/password">修改密码</a></dd>
+                        <hr>
+                        <dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd>
+                    </dl>
+                    <span class="layui-hide-xs shu"></span>
+                    <a href="{:url('admin/logout/do_logout')}" class="layui-hide-xs">退出</a>
+                </div>
+            </div>
+        </div>
+        <div class="layui-side layui-side-menu layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree layui-nav-side" lay-shrink="all" lay-filter="layadmin-system-side-menu">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:;" lay-tips="红包管理"><u class="layui-icon layui-icon-component"></u>红包管理</a>
+                        <ul class="layui-nav-child">
+                            <li>
+                                <a href="javascript:;" lay-href="{:url('admin/bonus/home')}"><u class="layui-icon layui-icon-flag"></u>红包管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="广告管理"><u class="layui-icon layui-icon-component"></u>广告管理</a>
+                        <ul class="layui-nav-child">
+                            <li>
+                                <a href="javascript:;" lay-href="{:url('admin/ad/home')}"><u class="layui-icon layui-icon-flag"></u>广告管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="活动管理"><u class="layui-icon layui-icon-component"></u>活动管理</a>
+                        <ul class="layui-nav-child">
+                            <li class="layui-nav-item">
+                                <a href="javascript:;" lay-tips="百万红包"><u class="layui-icon layui-icon-flag"></u>百万红包</a>
+                                <ul class="layui-nav-child">
+                                    {volist name="millions_activit_list" id="vo"}
+                                        <li><a href="javascript:;" lay-href="{:url('admin/millions/config','id='.$vo['id'])}"><u class="layui-icon layui-icon-diamond"></u>{$vo.a_title}</a></li>
+                                    {/volist}
+                                </ul>
+                            </li>
+                            <li class="layui-nav-item">
+                                <a href="javascript:;" lay-tips="趣味游戏"><u class="layui-icon layui-icon-component"></u>趣味游戏</a>
+                                <ul class="layui-nav-child">
+                                    <li><a href="javascript:;" lay-href="{:url('admin/game.lottery/home')}"><u class="layui-icon layui-icon-flag"></u>福利彩票馆</a></li>
+                                    <li><a href="javascript:;" lay-href="{:url('admin/game.waterFlower/home')}"><u class="layui-icon layui-icon-flag"></u>浇花得红包</a></li>
+                                    <li><a href="javascript:;" lay-href="{:url('admin/game.tongs/home')}"><u class="layui-icon layui-icon-flag"></u>疯狂抓奖机</a></li>
+                                    <li><a href="javascript:;" lay-href="{:url('admin/game.answer/home')}"><u class="layui-icon layui-icon-flag"></u>脑洞答题馆</a></li>
+                                </ul>
+                            </li>
+                            <li class="layui-nav-item">
+                                <a href="javascript:;" lay-tips="双11答题活动"><u class="layui-icon layui-icon-component"></u>双11答题活动</a>
+                                <ul class="layui-nav-child">
+                                    <!-- <li><a href="javascript:;" lay-href="{:url('admin/question/index')}"><u class="layui-icon layui-icon-flag"></u>答题列表</a></li> -->
+                                    <li><a href="javascript:;" lay-href="{:url('admin/question/reward')}"><u class="layui-icon layui-icon-flag"></u>神秘装备</a></li>                                    
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="用户管理"><u class="layui-icon layui-icon-component"></u>用户管理</a>
+                        <ul class="layui-nav-child">
+                            <li>
+                                <a href="javascript:;" lay-href="{:url('admin/user/home')}"><u class="layui-icon layui-icon-flag"></u>用户列表</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" lay-href="{:url('admin/user/config')}"><u class="layui-icon layui-icon-flag"></u>信息库配置</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="系统管理"><u class="layui-icon layui-icon-component"></u>系统管理</a>
+                        <ul class="layui-nav-child">
+                            <li>
+                                <a href="javascript:;" lay-href="{:url('admin/system/home')}"><u class="layui-icon layui-icon-flag"></u>系统管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="数据统计"><u class="layui-icon layui-icon-component"></u>数据统计</a>
+                        <ul class="layui-nav-child">
+                            <li>
+                                <a href="javascript:;" lay-href="{:url('admin/statistics/game_count')}"><u class="layui-icon layui-icon-flag"></u>数据统计</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <iframe src="{:url('admin/index/main')}" frameborder="0"></iframe>
+
+            <div class="bac"></div>
+        </div>
+        <div class="layui-footer">
+            <p class="copyright">Cdkjgsllkgvsl@2018&nbsp;&nbsp;猿马帮&nbsp;&nbsp;版权所有</p>
+        </div>
+        <div class="layadmin-body-shade" layadmin-event="shade"></div>
+    </div>
+</div>
+{load href="/static/admin/layui/layui.js" /}
+{load href="/static/admin/js/index.js" /}
+<!--<script src="layui/layui.js"></script>-->
+</body>
+</html>

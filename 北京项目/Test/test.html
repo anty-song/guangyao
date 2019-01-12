@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>layui</title>
+    <style>
+        * { margin: 0; padding: 0; }
+        .wrap {
+            position: relative;
+        }
+        .ball {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 50px;
+            height: 100px;
+            background: red;
+            animation: action 3s infinite;
+        }
+        @keyframes action {
+            0% {
+                left: 50px;
+                transform: rotate(0)
+            }
+            5% {
+                left: 50px;
+                transform: rotate(20deg)
+            }
+            10% {
+                left: 50px;
+                transform: rotate(-20deg)
+            }
+            15% {
+                left: 50px;
+                transform: rotate(20deg)
+            }
+            20% {
+                left: 50px;
+                transform: rotate(-20deg)
+            }
+            22% {
+                left: 50px;
+                transform: rotate(0deg)
+            }
+            40% {
+                left: -20px;
+                transform: rotate(0)
+            }
+            42% {
+                left: -20px;
+                transform: rotate(20deg)
+            }
+            85% {
+                left: -20px;
+                transform: rotate(20deg)
+            }
+            95% {
+                left: -20px;
+                transform: rotate(0)
+            }
+            100% {
+                left: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="ball"></div>
+    </div>
+    
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+    <script>
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+var PATH_WEB='/index.php/api/game/index';
+//检测是不是我们的APP
+(function checkApp() {
+    var u = navigator.userAgent;
+    //这块分俩种情况判断
+    if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+        //Android
+
+    } else if(u.indexOf('iPhone') > -1) {
+        //iOS
+
+    } else {
+        //如果不是手机打开直接跳转到下载APP页面
+        setInterval(function() {
+            window.location.href = "http://sj.qq.com/myapp/detail.htm?apkName=com.yuanmakj.jianqian";
+        },200);
+    }
+})();

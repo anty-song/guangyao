@@ -1,0 +1,57 @@
+.diff-nav {
+    background: #fff;
+}
+.diff-nav a {
+    color: #000;
+}
+.diff-nav .navbar-brand {
+    height: 100px;
+}
+.diff-nav .navbar-brand span {
+    font-size: 30px;
+    color: #f52e0d;
+}
+.diff-nav .nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100px;
+}
+.diff-nav .nav>li>a {
+    padding: 10px 0;
+    margin: 0 15px;
+}
+.diff-nav .nav>li>a:focus, .diff-nav .nav>li>a:hover {
+    background-color: transparent;
+    color: #f52e0d;
+    border-bottom: 2px solid #f52e0d;
+}
+.diff-nav .nav .open>a, .diff-nav .nav .open>a:focus, .diff-nav .nav .open>a:hover {
+    background-color: transparent;
+    border-color: #f52e0d;
+}
+.diff-nav .dropdown-menu {
+    top: 60px;
+    background-color: #f52e0d;
+}
+.diff-nav .dropdown-menu>li>a {
+    color: #fff;
+}
+.diff-nav .dropdown-menu::before {
+    position: absolute;
+    top: -20px;
+    left: 32px;
+    content: "";
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #f52e0d;
+}
+.diff-nav .dropdown-menu>li>a:focus, .diff-nav .dropdown-menu>li>a:hover {
+    background-color: #d72a0d;
+}
+@media (min-width: 768px) {
+    .diff-nav .navbar-nav {
+        float: none;
+    }
+}

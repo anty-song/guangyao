@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+		<title>新闻详情</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/publicFan.css" />
+		
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/index.js" ></script>
+		<script src="js/vue.js"></script>	
+		<style>
+			.layui-layer-loading .layui-layer-content{
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+				<div class="header_box">
+					<div class="header">
+						<div class="company fl" >
+							<a href="index.html"> <img src="img/logo.png" class="fl"/></a>
+							<div class="fl company_info">
+								<p>公司名称</p>
+								<p>WWW.12345.com</p>
+							</div>
+						</div>		
+						<div class="fr company_name size16"> XXXXXX公司欢迎你</div>
+					</div>	
+				</div>	
+		
+				<nav class="navbar navbar-default">
+				    <div class="container-fluid">
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					      <!--<a class="navbar-brand" href="#">导航的那一栏</a>-->
+					    </div>
+				
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					      <ul class="nav navbar-nav">
+					        <li><a href="index.html">首页 </a></li>
+					        <li  class="active"><a href="#">服务项目</a></li>
+					        <li><a href="newsCenter.html">新闻中心</a></li>
+					        <li><a href="showCase.html">案例展示</a></li>
+					        <li><a href="contactUs.html">联系我们</a></li>
+					      </ul>
+					    </div>
+				  </div>
+		        </nav>
+				<div class="news_detail_box">
+					<div class="news_detail">
+						<div class="currentPath">
+							当前位置：<span>首页</span> > <span>新闻中心</span> ><span>新闻标题新闻标题</span>
+						</div>
+						<div class="news_detail_con">
+							<h3 v-html="newsdata.articletitle"></h3>
+							<div class="news_source">
+								<span>来源:</span><span>作者:<i>{{newsdata.source}}</i></span><span>  <i>{{newsdata.addtime}}</i></span><span><i>{{newsdata.pviews}}</i></span> 
+							</div>
+							<div class="img_box">
+								<img :src = newsdata.imgurl />
+							</div>
+							<div class="news_con">
+								<p>{{newsdata.editorValue}}</p>
+								
+							
+							</div>
+						</div>
+						
+						<div class="preOrNext">
+							<a href="">
+							  <p @click="toup(lastdata.newsid)" v-if="lastshow"   >上一篇： <span>{{lastdata.articletitle}}</span></p>
+							  <p @click="todown(nextdata.newsid)" v-if="nextshow">下一篇：<span>{{nextdata.articletitle}}</span></p>	
+							</a>
+					    </div>	
+					</div>
+				
+						
+					
+				</div>
+		
+				<!--以下为尾部-->
+				<div class="footer">
+					<!--{{message.logo.copyright_logo}}-->
+					{{lastdata}}
+				</div>
+		</div>
+	<script src="js/config.js"></script>
+	<script src="js/layer/layer.js"></script>
+	<script type="text/javascript" src="js/pagination.js" ></script>
+ <script type="text/javascript">
+    var vm = new Vue({
+           el: '#app',
+           data: {
+              sid:"",
+              newsdata:{},
+              lastdata:[],
+              nextdata:[],
+              lastshow:true,
+              nextshow:true
+              
+           },
+           created() {
+               // 请求后台接口
+               this.sid = getUrlParam('sid')
+               this.showData ();
+               this.lastData();
+               this.nextData();
+           },
+           methods: {
+                showData: function () {
+                	var config = new Config();
+                    var that = this;
+                    //layer的弹框
+                    var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
+                    $.ajax({
+                        type:config.detailPage.type,
+                        url :config.detailPage.url,
+                        data:{newsid : this.sid },
+                        async:true,
+                        dataType:"json",
+                        success:function(res) {
+                        	console.log(res)
+                        	if(res.status==1){
+                    		     layer.close(index);
+                    		     that.newsdata=res.data.newsdata;
+                    		     that.lastdata=res.data.lastdata;
+                    		     that.nextdata=res.data.nextdata;
+//                               sessionStorage.setItem("logodata", JSON.stringify(res.data.logo)) 
+                        	}
+                        },
+                        fail:function(res){
+                        	layer.msg('网络出错.....');
+                        }
+                        
+                    });
+                }, 
+                //判断上一页下一页是否显示
+                lastData:function(){
+//              	var last = Object.keys(lastdata);
+// 	                var last =  lastdata.length;
+                	if(this.lastdata.length == 0){
+                		this.lastshow=false;
+                	}
+                },
+                	
+                nextData:function(){
+                	if(this.nextdata.length == 0){
+                		this.nextshow=false;
+                	}
+                },
+        
+        
+        
+                toup:function(sid){
+                	this.sid =sid
+                	this.showData ();
+                },
+                todown:function(sid){
+                	this.sid =sid
+                	this.showData ();
+                }
+                
+                
+                
+                
+            }
+          
+        })
+    
+    	
+			 function getUrlParam(name) {
+	            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+	            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+	            if (r != null) return unescape(r[2]); return null; //返回参数值
+	        }
+    </script>
+		
+		
+		
+		
+		
+		
+
+		
+		</script>
+		
+	</body>
+</html>

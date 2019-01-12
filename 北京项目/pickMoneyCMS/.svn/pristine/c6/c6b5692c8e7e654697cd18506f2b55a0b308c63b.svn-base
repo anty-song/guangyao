@@ -1,0 +1,72 @@
+//再玩一次弹窗
+$(".dialog_again .close").click(function ()  {
+    $(".dialog_again").hide();
+    $(".ui-mask").fadeOut();
+});
+//规则弹出框
+$(".rules_close").click(function () {
+    $(".ui-mask").fadeOut();
+    $(".dialog_rules").hide();
+});
+//弹出框次数用完
+$(".dialog_end .close").click(function(){
+	$(".ui-mask").fadeOut();
+	$(".dialog_end").fadeOut();
+});
+//红包广告弹出框
+$(".dialog_price .close").click(function() {
+    $(".dialog").hide();
+    if($('.tips_box p strong').text()=='0'){
+        $(".dialog_end").show();
+    }else{
+        $(".ui-mask").fadeOut();
+    }
+});
+
+//纯广告弹出框
+$(".dialog_success .close").click(function() {
+    $(".dialog").hide();
+    if($('.tips_box p strong').text()=='0'){
+        $(".dialog_end").show();
+    }else{
+        $(".ui-mask").fadeOut();
+    }
+});
+
+//弹出框，点击继续玩
+$(".dialog_again .againBtn").click(function() {
+	//这里实现跳转
+	window.location.href = "";
+});
+// 次数用完,点击再玩一次
+$(".dialog_end .endBtn").click(function() {
+
+});
+//点击规则按钮
+$(".rules").click(function() {
+	$(".dialog").hide();
+	$(".dialog_rules").fadeIn().show();
+	$(".ui-mask").fadeIn();
+});
+
+function Dback() {
+	window.history.go(-1);
+}
+// 游戏大厅再次退出
+// 残忍离去
+$(".dialog_again #leaveBtn").click(function() {
+    // 调用Android方法，防止底部返回键
+    // if(agent.isAndroid) {
+    //     an.close();
+    //     $(".dialog_again").fadeOut();
+    //     $(".ui-mask").fadeOut();
+    // } else if(agent.isIOS) {
+    //
+    // }
+    window.location.href="/h5/game.game_lobby/home";
+});
+// 继续玩
+$(".dialog_again #continueBtn").click(function() {
+    $(".dialog_again").fadeOut();
+    $(".ui-mask").fadeOut();
+});

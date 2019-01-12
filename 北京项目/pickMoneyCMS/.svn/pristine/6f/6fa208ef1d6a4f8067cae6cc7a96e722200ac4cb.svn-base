@@ -1,0 +1,80 @@
+<?php /*a:1:{s:54:"D:\WWW\tp_test\qianbao\admin\view\question\tongji.html";i:1541063379;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>双11答题活动-数据统计</title>
+    <link rel="stylesheet" type="text/css" href="/static/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/page.css" />
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/index.css" />
+    <script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body layadmin-themealias="default">
+<div class="layui-fluid staticList">
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+            <li class="layui-this"><a href="<?php echo url('admin/question/tongji'); ?>">数据统计</a></li>
+        </ul>
+        <a href="<?php echo url('admin/question/tongji'); ?>"><i class="layui-icon layui-icon-refresh"></i></a>
+    </div>
+    <div class="layui-card">
+        <div class="layui-card-header">数据统计</div>
+        <form class="layui-form" action="<?php echo url('admin/question/tongji'); ?>" method="post">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">选择日期范围：</label>
+                    <div class="layui-input-inline">
+                        <input name="start_time" value="<?php echo htmlentities($start_time); ?>" type="text" class="layui-input" id="staticStart1" placeholder="开始日期" lay-key="1" autocomplete="off">
+                    </div>
+                    <div class="layui-form-mid">-</div>
+                    <div class="layui-input-inline">
+                        <input name="end_time" value="<?php echo htmlentities($end_time); ?>" type="text" class="layui-input" id="staticEnd1" placeholder="结束日期" lay-key="2" autocomplete="off">
+                    </div>
+                    <button class="layui-btn layui-btn-normal beSure" type="submit">确定</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+        <div class="layui-card-body">
+            <div class="layui-row layui-col-space10 staticItem">
+                <div class="layui-col-xs12 layui-col-sm4">
+                    <div class="layuiadmin-cart-text">
+                        <p class="layui-text-top">未领取红包数</p>
+                        <p class="layui-text-center"><?php echo htmlentities($noReceived); ?></p>
+                    </div>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm4">
+                    <div class="layuiadmin-cart-text">
+                        <p class="layui-text-top">已领取红包数</p>
+                        <p class="layui-text-center"><?php echo htmlentities($received); ?></p>
+                    </div>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm4">
+                    <div class="layuiadmin-cart-text">
+                        <p class="layui-text-top">总消耗</p>
+                        <p class="layui-text-center"><?php echo htmlentities($totalUse); ?></p>
+                    </div>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm4">
+                    <div class="layuiadmin-cart-text">
+                        <p class="layui-text-top">进入游戏的人数</p>
+                        <p class="layui-text-center"><?php echo htmlentities($gamePersons); ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="/static/admin/layui/layui.js"></script>
+<script type="text/javascript" src="/static/admin/js/index.js"></script>
+<script type="text/javascript" src="/static/admin/js/statistics.js"></script>
+</body>
+</html>

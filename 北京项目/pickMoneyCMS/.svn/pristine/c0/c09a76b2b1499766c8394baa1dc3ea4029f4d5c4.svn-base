@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>广告管理-商家广告管理</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/page.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="sjlogo sjgggl">
+        <!-- 内容主体区域 -->
+        <div class="layui-fluid">
+            <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title">
+                    <li><a href="{:url('admin/ad/home')}">广告管理</a></li>
+                    <li class="layui-this"><a href="{:url('admin/ad/advertiser')}">商家广告管理</a></li>
+                    <li><a href="{:url('admin/ad/trader')}">商家logo管理</a></li>
+                    <li><a href="{:url('admin/ad/adOtherGame')}">第三方游戏广告</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form action="{:url('admin/ad/advertiser')}" method="post" class="layui-form layui-row">
+                            <div class="layui-form-item layui-col-md12 layui-col-xs12 layui-col-xs12">
+                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">投放类型：</label>
+                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs8">
+                                    <select name="type" lay-verify="required">
+                                        <option value=""></option>
+                                        {volist name="ad_config_list['3']" id="type"}
+                                        <option value="{$type.id}" {if $form_data.type == $type.id} selected {/if}>{$type.t_title}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">状态：</label>
+                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs8">
+                                    <select name="status" lay-verify="required">
+                                        <option value=""></option>
+                                        <option value="8" {if $form_data.status == 8} selected {/if}>未投放</option>
+                                        <option value="1" {if $form_data.status == 1} selected {/if}>投放中</option>
+                                        <option value="2" {if $form_data.status == 2} selected {/if}>暂停中</option>
+                                        <option value="3" {if $form_data.status == 3} selected {/if}>已结束</option>
+                                    </select>
+                                </div>
+                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">出价方式：</label>
+                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs8">
+                                    <select name="way" lay-verify="required">
+                                        <option value=""></option>
+                                        {volist name="ad_config_list['5']" id="way"}
+                                        <option value="{$way.id}" {if $form_data.way == $way.id} selected {/if}>{$way.t_title}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs8">
+                                    <input type="text" value="{$form_data.keyword}" class="layui-input" name="keyword" autocomplete="off" placeholder="输入关键字" title="关键字">
+                                </div>
+                                <div class="layui-btn-container layui-input-inline layui-col-md3 layui-col-sm6 layui-col-xs-12 btnWrapper">
+                                    <button class="layui-btn layui-btn-success">搜索</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                    <button class="layui-btn layui-btn-normal jumpAddAdver" style="margin-right: 0;">创建广告</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="layui-collapse" lay-accordion>
+                            {volist name="ad_list" id="ad" empty="$empty"}
+                             
+                            <div class="layui-colla-item">
+                                <p class="layui-colla-title">
+                                    <input type="checkbox" onclick="window.event ? event.cancelBubble = true : event.stopPropagation()" style="width: 20px;height: 20px;vertical-align: middle;margin-left:10px;" data-id="{$ad.id}">
+                                    <span style="margin: 0 15px;">广告名称：{$ad.ad_title}</span>
+                                    <span>广告主：{$ad.advertiser_name}</span>
+                                    <span style="float: right;margin-left: 5px">状态：{$ad.ad_status|raw}</span>
+                                    <span style="float: right;">出价方式：{$ad.ad_way}</span>
+                                </p>
+                                <div class="layui-colla-content">
+                                    <table class="layui-table" lay-even lay-skin="nob">
+                                        <thead>
+                                        <tr>
+                                            <th>编号</th>
+                                            <th>投放时间</th>
+                                            <th>广告位展示</th>
+                                            <!--添加一列文字叙述   广告列表“广告位展示”后添加一列“文字描述”-->
+                                            <th>广告文字叙述</th>
+                                            <th style="width: 18%;">链接</th>
+                                            <th>数据</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>{$ad.id}</td>
+                                            <td>{$ad.start_time|date='Y-m-d H:i'}<br>至{$ad.end_time|date='Y-m-d H:i'}</td>
+                                            <td><img src="{$ad.ad_img}" alt="" style="height: 35px"></td>
+                                            <td>{$ad.ad_info}</td>
+                                            <td>{$ad.url|raw}</td>
+                                            <td>展示次数：123<br>点击次数：12</td>
+                                            <td>
+                                                <div class="layui-btn-group">
+                                                    <button class="layui-btn layui-btn-danger layui-btn-sm ad-del" data-id="{$ad.id}">删除</button>
+                                                    <button class="layui-btn layui-btn-sm" data-id="{$ad.id}">数据</button>
+                                                    <button class="layui-btn layui-btn-normal layui-btn-sm ad-detail" data-id="{$ad.id}">详情</button>
+                                                    <button class="layui-btn layui-btn-warm layui-btn-sm" data-id="{$ad.id}">日志</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            {/volist}
+                        </div>
+                        <div class="layui-container" style="margin-left: 0;margin-top: 10px;">
+                            <input type="checkbox" class="totaltr">
+                            <button class="layui-btn layui-btn-normal layui-btn-xs" data-num="1" id="up">启用</button>
+                            <button class="layui-btn layui-btn-warm layui-btn-xs" data-num="2" id="down">停用</button>
+                            <button class="layui-btn layui-btn-success layui-btn-xs" data-num="3" id="end">结束</button>
+                            <button class="layui-btn layui-btn-danger layui-btn-xs" data-num="9" id="delet">删除</button>
+                        </div>
+                        {$page|raw}
+                        <div style="margin-top: 20px;">
+                            <p>管理日志</p>
+                            <p>2018-08-12 19:12:36 admin 删除了 app下载投放</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mark"></div>
+        <div class="adver-model">
+            <span class="adver-back"><<&nbsp;&nbsp;返回</span>
+            <blockquote class="layui-elem-quote" style="font-size: 18px;">
+                    创建广告
+            </blockquote>
+            <form action="" class="layui-form" id="createAdver">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>广告主姓名：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="name" lay-verify="required" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">广告主所在公司：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="company" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>广告主电话：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>广告的名称：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="title" lay-verify="required" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+                     <!--添加的文字叙述  创建广告的部分也要添加“文字描述”字段-->
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                           <label class="layui-form-label"><span style="color: #FF5722">*</span>广告文字叙述：</label>
+                           <div class="layui-input-inline">
+                               <input type="text" name="ad_info" lay-verify="required" autocomplete="off" class="layui-input">
+                           </div>
+                       </div>
+                   </div>
+					<!---------------------------------------------------------->
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>广告展示位置：</label>
+                        <div class="layui-input-inline">
+                            <select name="position" id="position" lay-verify="required">
+                                <option value="">请选择位置</option>
+                                {volist name="ad_config_list['2']" id="position"}
+                                <option value="{$position.id}">{$position.t_title}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>投放类型：</label>
+                        <div class="layui-input-inline">
+                            <select name="type" id="type" lay-verify="required" lay-filter="type">
+                                <option value="">请选择投放类型</option>
+                                {volist name="ad_config_list['3']" id="type"}
+                                <option value="{$type.id}">{$type.t_title}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item app_down" style="display: none">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>IOS下载链接：</label>
+                        <div class="layui-input-inline" style="min-width: 540px;">
+                            <input type="text" name="ios_url" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item app_down" style="display: none">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>Andriod下载链接：</label>
+                        <div class="layui-input-inline" style="min-width: 540px;">
+                            <input type="text" name="android_url" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item image_ad" style="display: none">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>广告链接地址：</label>
+                        <div class="layui-input-inline" style="min-width: 540px;">
+                            <input type="text" name="ad_url" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>投放渠道：</label>
+                        <div class="layui-input-inline">
+                            <select name="channel" id="channel" lay-verify="required">
+                                <option value="">请选择投放类型</option>
+                                {volist name="ad_config_list['4']" id="channel"}
+                                <option value="{$channel.id}">{$channel.t_title}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>展示图片：</span></label>
+                        <div class="layui-input-inline">
+                            <p>（尺寸：80*80）<span style="color: #aaa;">支持JPEG、JPG、PNG、GIF格式，文件不能超过2M</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"></label>
+                    <div class="layui-input-inline" style="position: relative;width: 150px;height:150px;line-height:150px;text-align: center;border: 1px solid #ddd;font-size: 0;">
+                        <img src="/static/admin/images/personal_center_logo.png" id="show1" alt="" style="max-width: 150px;max-height: 150px;">
+                        <input type="file" id="file1" name="img" onchange="changepic1()" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 10;opacity: 0;" lay-verify="required">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>开始时间：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="start_time" class="layui-input" id="startTime" readonly lay-verify="required">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">结束时间：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="end_time" class="layui-input" id="endTime" readonly>
+                        </div>
+                        <input type="checkbox" value="1" name="is_keep" title="长期" lay-skin="primary" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">当前状态：</label>
+                        <div class="layui-input-inline">
+                            <input type="radio" name="status" value="1" title="上线" checked class="layui-input">
+                            <input type="radio" name="status" value="8" title="下线" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color: #FF5722">*</span>出价方式：</label>
+                        <div class="layui-input-inline">
+                            <select name="way" id="way" lay-verify="required">
+                                <option value="">请选择投放类型</option>
+                                {volist name="ad_config_list['5']" id="way"}
+                                <option value="{$way.id}">{$way.t_title}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">议价说明：</label>
+                        <div class="layui-input-inline">
+                            <textarea name="price_explain" id="description" cols="80" rows="10" placeholder="在这里填写议价说明~" style="resize: none;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-normal add-adver-sure" style="width: 10%;margin-left: 48%;" lay-filter="add_ad" lay-submit>提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {load href="/static/admin/layui/layui.js" /}
+    {load href="/static/admin/js/index.js" /}
+    {load href="/static/admin/js/advertisement.js" /}
+</body>
+</html>

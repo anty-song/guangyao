@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/content.css" />
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/media.css" />
+		<link rel="stylesheet" href="css/idangerous.swiper.css">
+	
+	</head>
+	<body>
+		<header class="fir sy">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#example-navbar-collapse">
+							<span class="sr-only">切换导航</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a href="index.html">
+							<div class="logo">
+								<div class="logoimg"><img src="images/logo.gif" alt="" /></div>
+								<span>logo</span>
+							</div>
+						</a>
+					</div>
+					<div class="collapse navbar-collapse" id="example-navbar-collapse">
+						<ul class="nav navbar-nav navlist">
+							<li><a href="#" target="" class="lihov">首页</a></li>
+							<li><a href="#ywfw" class="yw" target="">业务范围</a></li>
+							<li><a href="#contactus" class="contact" target="">联系我们</a></li>
+							<li><a href="news.html" target="">新闻</a></li>
+						</ul>
+					</div>
+					
+			   </div>
+			</nav>
+			
+			
+			<div class="swiper-container banners hidden-md hidden-sm hidden-xs">
+				<div class="swiper-wrapper swiper-wrappero"></div>
+				<div class="pagination"></div>
+			
+				<div class="swiper-button-prev hidden-md"><img src="images/left.png" alt="" /></div>
+				<div class="swiper-button-next hidden-md"><img src="images/right.png" alt="" /></div>
+			</div>
+			
+			<div class="swiper-container1 banners hidden-lg">
+				<div class="swiper-wrapper swiper-wrappers"></div>
+				<!-- 如果需要分页器 -->
+				<div class="pagination2"></div>
+			</div>
+		</header>
+		<section class="ywfw" id="ywfw">
+			<div class="tit">
+				<div class="container">
+					<h1>业务范围</h1>
+					<hr style="width:70px;height:2px;border:none;background-color: #fff;"/>
+				</div>
+			</div>
+			<div class="con">
+				<div class="container ullist">
+					<ul class="ywlist">
+						<li class="col-md-4 col-sm-4 col-lg-4 col-xs-6">
+							<a href="javascript:;" target="">
+								<dl>
+									<dt><img src="images/gray.png" alt="" /></dt>
+									<dd style="background-color: #eee;"></dd>
+									<dd style="background-color: #eee;"></dd>
+								</dl>
+							</a>
+						</li>
+						<li class="col-md-4 col-sm-4 col-lg-4 col-xs-6">
+							<a href="javascript:;" target="">
+								<dl>
+									<dt><img src="images/gray.png" alt="" /></dt>
+									<dd style="background-color: #eee;"></dd>
+									<dd style="background-color: #eee;"></dd>
+								</dl>
+							</a>
+						</li>
+						<li class="col-md-4 col-sm-4 col-lg-4 col-xs-6">
+							<a href="javascript:;" target="">
+								<dl>
+									<dt><img src="images/gray.png" alt="" /></dt>
+									<dd style="background-color: #eee;"></dd>
+									<dd style="background-color: #eee;"></dd>
+								</dl>
+							</a>
+						</li>
+						<li class="col-md-4 col-sm-4 col-lg-4 col-xs-6">
+							<a href="javascript:;" target="">
+								<dl>
+									<dt><img src="images/gray.png" alt="" /></dt>
+									<dd style="background-color: #eee;"></dd>
+									<dd style="background-color: #eee;"></dd>
+								</dl>
+							</a>
+						</li>
+						<li class="col-md-4 col-sm-4 col-lg-4 col-xs-6">
+							<a href="javascript:;" target="">
+								<dl>
+									<dt><img src="images/gray.png" alt="" /></dt>
+									<dd style="background-color: #eee;"></dd>
+									<dd style="background-color: #eee;"></dd>
+								</dl>
+							</a>
+						</li>
+						<li class="col-md-4 col-sm-4 col-lg-4 col-xs-6">
+							<a href="javascript:;" target="">
+								<dl>
+									<dt><img src="images/gray.png" alt="" /></dt>
+									<dd style="background-color: #eee;"></dd>
+									<dd style="background-color: #eee;"></dd>
+								</dl>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="connews">
+			<div class="container">
+				<div class="tit">
+					<h1>公司新闻</h1>
+					<hr style="width:70px;height:2px;border:none;background-color: #0363B2;"/>
+				</div>
+				<div class="con">
+					<div class="newspic">
+						<dl>
+							<img src="images/zw.gif"/>
+						</dl>
+					</div>
+					<ul class="newslist"><li>正在加载中......</li></ul>
+				</div>
+				<div class="more"><a href="news.html">MORE&nbsp;+</a></div>
+			</div>
+		</section>
+		<section class="contactus" id="contactus">
+			<div class="container">
+				<div class="tit">
+					<h1>联系我们</h1>
+					<hr style="width:70px;height:2px;border:none;background-color: #0363B2;"/>
+				</div>
+				<ul class="conuslist">正在加载中......</ul>
+			</div>
+		</section>
+		
+		<footer><div class="container"></div></footer>
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/window.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/idangerous.swiper.min.js"></script>
+		<script src="js/logo.js" type="text/javascript" charset="utf-8"></script>
+
+
+<style type="text/css">
+	.pagination {
+	  position: absolute;
+	  z-index: 20;
+	  bottom: 10px;
+	  width: 100%;
+	  text-align: center;
+	}
+	.pagination2 {
+	  position: absolute;
+	  z-index: 20;
+	  bottom: 10px;
+	  width: 100%;
+	  text-align: center;
+	}
+	.swiper-pagination-switch {
+	  display: inline-block;
+	  width: 8px;
+	  height: 8px;
+	  border-radius: 8px;
+	  background: #555;
+	  margin: 0 5px;
+	  opacity: 0.8;
+	  border: 1px solid #fff;
+	  cursor: pointer;
+	}
+	.swiper-active-switch {
+	  background: #fff;
+	}
+	.swiper-button-prev{
+		position: absolute;
+	    width: 60px;
+	    height: 60px;
+	    top: 50%;
+	    left: 0;
+	    transform: translate(0%,-50%);
+    }
+	.swiper-button-next{
+		position: absolute;
+	    width: 60px;
+	    height: 60px;
+	    top: 50%;
+	    right:0;
+	    transform: translate(0%,-50%);
+		}
+	.swiper-button-prev img{width:100%;height: 100%;}
+	.swiper-button-next img{width:100%;height: 100%;}
+</style>
+<script type="text/javascript">  
+	$(document).ready(function(){
+		var test = window.location.hash;
+		console.log(test);
+		
+		if(test=='#ywfw'){
+			$(".navlist>li>a.yw").addClass("lihov").parents("li").siblings("li").find("a").removeClass("lihov");
+		}
+		else if(test=='#contactus'){
+			$(".navlist>li>a.contact").addClass("lihov").parents("li").siblings("li").find("a").removeClass("lihov");
+		}
+		else{
+			$(".navlist>li:first>a").addClass("lihov");
+		}
+		$(".navlist>li>a").click(function(){
+			$(this).addClass("lihov").parents("li").siblings("li").find("a").removeClass("lihov");
+		})
+	})
+	
+	var needHide = document.getElementById("example-navbar-collapse");
+	document.ontouchmove=function(){
+		
+		needHide.setAttribute("class", "navbar-collapse collapse")
+		event.stopPropagation();
+		
+	}
+
+
+		var width=$(window).width();
+	
+		function topNavScroll(){  
+	        //获取当前窗口滚动条顶部所在的像素值 并取整
+	        var topScroll = Math.floor($(window).scrollTop());     
+	        //定义滚动条只要大于0 背景透明度就变成1 并且增加转换时间为1s
+	        if(topScroll>200){
+	            $('nav').css('background','rgba(255,255,255 ,1)');
+	            $('nav').css('transition','2s');
+	        }
+	        else{
+	            $('nav').css('background','rgba(255,255,255 ,0)');  
+	        }  
+	    }  
+	    $(window).on('scroll',function() {  
+	        topNavScroll();
+	    });  
+	         
+        
+</script>  
+
+	</body>
+	<script src="config/config.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/fetch.js" type="text/javascript" charset="utf-8"></script>
+</html>

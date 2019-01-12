@@ -1,0 +1,458 @@
+var canBg,//背景
+canEl,//精灵
+
+canWidth,//画布宽
+canHeight,//画布高
+
+lastTime,//上次时间
+deltaTime,//游戏最小间隔
+
+bgPic = new Image(),//背景图
+g = 9.81,
+
+gifs,//掉落的礼品
+gifs_pic,//掉落礼品图片数组
+
+hand,//手
+button,//按钮
+
+electricity,//电网
+electricImage = [],//电网绘制数组
+
+head,//头部
+floor,//门框
+
+ballon;//气球
+
+document.body.onload = game;
+
+var Path = function() {
+	this.src = "/static/images/Tongs/"
+};
+
+var path = new Path();
+
+//新增加载所有图片方法
+function getAllImage(){
+	var image_arr={image:[]};
+	Object.defineProperty(image_arr,'image',{
+		writable: true,
+		value: [
+		"bg.png",
+		"box1.png",
+		"box2.png",
+		"button.png",
+		"egg.png",
+		"electricity0.png",
+		"electricity1.png",
+		"floor.png",
+		"floor1.png",
+		"godman.png",
+		"hand.png",
+		"hand1.png",
+		"light.png",
+		"myprice.png",
+		"pageleft.png",
+		"pageright.png",
+		"redpack.png",
+		"redpackbtn.png",
+		"rocker.png",
+		"spring.png",
+		"spring1.png",
+		"stage.png",
+		"string1.png",
+		"title.png",
+		"treasure.png",
+		"wallet.png"
+		]
+	});
+	var image_num=0;
+	var tick;
+	tick=setInterval(function(){
+		var img=new Image();
+		img.src=path.src+image_arr.image[image_num];
+		img.onload=function(){
+			image_num++;
+			if(image_num===image_arr.image.length){
+				clearInterval(tick);
+			}
+		}
+	},500/image_arr.image.length);
+}
+
+var ticks,                                         //倒计时定时器
+cha,                                               //倒计时时间
+uid,                                               //用户ID
+auth,                                              //用户权重
+key_auth,                                          //用户解码
+device,                                            //用户设备
+p_id,                                              //红包ID
+ad_url,                                            //广告链接
+time=Math.round(new Date() / 1000),                //请求时间戳
+g_id=3,                                            //当前游戏id
+price_time=parseInt($(".tips_box p strong").text()), //抽奖剩余次数
+paramData,                                        //定义传递数据对象
+isNextgame=false,                                 //下个游戏弹窗是否飞出
+thisgame_time,                                     //当前游戏次数（固定次数+再来一次）
+nextgame_url='/h5/game.game_lobby/no_times';      //游戏次数
+uid=window.localStorage.getItem('uid');
+auth=window.localStorage.getItem('auth');
+device=window.localStorage.getItem('device');
+
+if(!window.localStorage.getItem('first_alert')){
+	window.localStorage.setItem('first_alert','2');
+}
+if(window.localStorage.getItem('nextShow')&&isNextgame){
+	$('.nextgame').fadeIn();
+}
+paramData={'uid':uid,'time':time,'auth':auth,'device':device,'game_type':g_id};
+key_auth=auth.substring(0,8);
+paramData=JSON.stringify(paramData);
+paramData=encryptByDES(paramData,key_auth);
+var action_url;
+if(window.localStorage.getItem('first_alert')==2){
+	action_url='judge_game_num';
+	$.ajax({
+		type:'post',
+		url:PATH_WEB,
+		data:{action:action_url,uid:uid,reqType:2,paramData:paramData},
+		dataType:'json',
+		success:function(data){
+			data=decryptByDES(data.res_data, key_auth);
+			data=JSON.parse(data);
+			console.log(data);
+			cha=data.count_down;
+			$('.tips_box p strong').text(data.num);
+			p_id=data.p_id;
+			ad_url=data.entry_game_popout.ad_url;
+			thisgame_time=(data.game_times[3].once_count!=0||data.game_again_times[3].again_count!=0)?1:2;
+			if(thisgame_time==2){
+				window.location.href=no_times_url;
+			}
+			if(data.num==0){
+				$('.dialog_end .curtime').text(leftTime(cha));
+				clearInterval(ticks);
+				ticks = setInterval(function () {
+					if (cha > 0) {
+						$('.dialog_end .curtime').text(leftTime(cha));
+					} else {
+						clearInterval(ticks);
+						window.localStorage.setItem('first_alert','2');
+						window.location.reload();
+					}
+					cha--;
+				}, 1000);
+				$(".dialog_end").show();
+			}else{
+				if(data.entry_game_popout.tips_type==2){
+					$('.dialog_price .adv img').attr('src',data.entry_game_popout.redpacket_img);
+					$('.dialog_end .adv img').attr('src',data.entry_game_popout.redpacket_img);
+					$('.dialog_price .price_con p').text(data.entry_game_popout.redpacket_money);
+					$('.dialog_price .ad_title').text(data.entry_game_popout.ad_title);
+					if(window.localStorage.getItem('first_alert')!=='1'){
+						$(".ui-mask").fadeIn();
+						$(".dialog_price").show();
+					}
+				}else{
+					$('.dialog_success img.adv_success').attr('src',data.entry_game_popout.ad_img);
+					$('.dialog_end .adv img').attr('src',data.entry_game_popout.ad_img);
+					$(".dialog_success .ad_title").text(data.entry_game_popout.ad_title);
+					if(window.localStorage.getItem('first_alert')!=='1'){
+						$(".ui-mask").fadeIn();
+						$(".dialog_success ").show();
+					}
+				}
+			}
+			$(".ui-mask").fadeIn();
+			if(data.game_times[4].once_count!=0||data.game_again_times[4].again_count!=0){
+				isNextgame=true;
+			}else{
+				isNextgame=false;
+			}
+		},
+		error:function(){
+			tipError("数据请求失败，请检查当前网络");
+		}
+	});
+}else{
+	action_url='get_refresh';
+	$.ajax({
+		type:'post',
+		url:PATH_WEB,
+		data:{action:action_url,uid:uid,reqType:2,paramData:paramData},
+		dataType:'json',
+		success:function(data){
+			data=decryptByDES(data.res_data, key_auth);
+			data=JSON.parse(data);
+			console.log(data);
+			thisgame_time=(data.game_times[3].once_count!=0||data.game_again_times[3].again_count!=0)?1:2;
+			if(thisgame_time==2){
+				window.location.href=no_times_url;
+			}
+			cha=data.count_down;
+			$('.tips_box p strong').text(data.num);
+			if(agent.isAndroid && agent.isPhone) {
+				ad_url='http://www.zsyouxue.com/app/appversion/zhangshangyouxue_studyshow_1.0.5.apk';
+			} else if(agent.isIOS && agent.isPhone) {
+				ad_url="https://itunes.apple.com/cn/app/%E6%8E%8C%E4%B8%8A%E4%BC%98%E5%AD%A6/id1382476478?mt=8";
+			}
+			if(data.count_down!=0){
+				$('.dialog_end .curtime').text(leftTime(cha));
+				if(data.num==0){
+					$(".dialog_end").show();
+					$(".ui-mask").fadeIn();
+				}
+				clearInterval(ticks);
+				ticks = setInterval(function () {
+					if (cha > 0) {
+						$('.dialog_end .curtime').text(leftTime(cha));
+					} else {
+						clearInterval(ticks);
+						window.localStorage.setItem('first_alert','2');
+						window.location.reload();
+					}
+					cha--;
+				}, 1000);
+			}
+			if(data.game_all_num[4].once_count!=0||data.game_all_num[4].again_count!=0){
+				isNextgame=true;
+				
+			}else{
+				isNextgame=false;
+			}
+		},
+		error:function(){
+			tipError("数据请求失败，请检查当前网络");
+		}
+	});
+}
+
+
+//主函数
+function game() {
+	init();
+	lastTime = Date.now();
+	deltaTime = 0;
+	getAllImage();
+	setTimeout(gameloop,500);
+	bgPic.src = path.src+'bg.png';
+}
+
+function init() {
+	canBg = document.getElementById('canvas_bg');
+	canEl = document.getElementById('canvas_elf');
+	ctxBg = canBg.getContext("2d");
+	ctxEl = canEl.getContext("2d");
+
+	canEl.addEventListener('touchstart',clickBtn,false);
+
+	canBg.width = canWidth;
+	canBg.height = canHeight;
+
+	canEl.width = canWidth;
+	canEl.height = canHeight;
+
+	//新建礼物对象并且初始化
+	gifs = new gifObj();
+	gifs.init();
+
+	//新建一个手的对象并且初始化
+	hand = new handObj();
+	hand.init();
+
+	head = new headerObj();
+	head.init();
+
+	floor = new floorObj();
+	floor.init();
+
+	for(var i = 0; i < 2; i++) {
+		electricImage[i] = new Image();
+		electricImage[i].src = path.src+"electricity"+i+".png";
+	}
+
+	ballon = new ballonObj();
+	ballon.init();
+
+}
+
+function gameloop() {
+	requestAnimFrame(gameloop);
+	var now = Date.now();
+	deltaTime = now - lastTime;
+	lastTime = now;
+
+	if(deltaTime > 40) deltaTime = 40;
+	//绘制背景
+	drawBackground();
+	gifMonitor();
+	gifs.draw();
+
+	ctxEl.clearRect(0,0,canWidth,canHeight);
+	hand.update();
+	hand.draw();
+	head.draw();
+	floor.draw();
+	floor.update();
+	ballon.draw();
+}
+
+//Android手机底部返回点击
+function goBack() {
+	$(".dialog").hide();
+	$(".dialog_again").show();
+	$(".ui-mask").show();
+}
+
+//飞出下个游戏的链接
+setTimeout(function(){	
+	paramData={'uid':uid,'time':time,'auth':auth,'device':device,'g_id':g_id};
+	paramData=JSON.stringify(paramData);
+	paramData=encryptByDES(paramData,key_auth);
+	$.ajax({
+		type:'post',
+		url:PATH_WEB,
+		data:{action:'fifteen_appear_game',uid:uid,reqType:2,paramData:paramData},
+		dataType:'json',
+		success:function(data){
+			console.log(data);
+			if(data.status==1&&isNextgame){
+				$('.nextgame').fadeIn();
+				window.localStorage.setItem('nextShow','true');
+			}
+		},
+		error:function(){
+			console.log('数据请求失败，请检查当前网络');
+		}
+	});
+},8000);
+//跳转
+$('.nextgame').click(function(){
+	var paramData={'uid':uid,'time':time,'auth':auth,'device':device};
+	paramData=JSON.stringify(paramData);
+	paramData=encryptByDES(paramData,key_auth);
+	$.ajax({
+		type:'post',
+		url:PATH_WEB,
+		data:{action:'fifteen_entry_game',uid:uid,reqType:2,paramData:paramData,'g_id':g_id},
+		dataType:'json',
+		success:function(data){
+			if(data.status==1){
+				window.localStorage.removeItem('nextShow');
+				window.location.href="/h5/game.water_flower/home.html";
+			}
+		},
+		error:function(){
+			console.log('数据请求失败，请检查当前网络');
+			tipError('数据请求失败，请检查当前网络');
+		}
+	});
+});
+
+//离开游戏弹框
+$(".dialog_again .continueBtn").click(function() {
+	$(".dialog_again").hide();
+	$(".ui-mask").fadeOut();
+});
+//点击残忍拒绝
+$(".dialog_again .leaveBtn").on('click',function() {
+	window.localStorage.setItem('first_alert','2');
+	window.location.href="/h5/game.game_lobby/home";
+	window.localStorage.removeItem('nextShow');
+});
+
+//弹出红包框点击领取
+$(".dialog_price .getBtn").click(function() {
+	console.log(p_id);
+	$(".ui-mask").fadeOut();
+	$(".dialog.dialog_price").hide();
+	var paramData={'uid':uid,'time':time,'auth':auth,'device':device,'p_id':p_id};
+	paramData=JSON.stringify(paramData);
+	paramData=encryptByDES(paramData,key_auth);
+	$.ajax({
+		url: PATH_WEB,
+		type: "post",
+		data:{action:'receice_award',uid:uid,reqType:2,paramData:paramData},
+		dataType:'json'
+	}).then(function(data){
+		if(data.status==1){
+			if(agent.isAndroid && agent.isPhone) {
+				an.jumpToAdvHb(p_id);//andriod
+			} else if(agent.isIOS && agent.isPhone) {
+				window.webkit.messageHandlers.scan.postMessage({'action':'goPrizeDetail','prize_id':p_id})
+			}
+		}else{
+			console.log(data.msg);
+		}
+	},function() {
+		tipError("数据请求失败，请检查当前网络");
+	})
+});
+
+//弹出纯广告页面
+$(".ad_img, .successBtn").click(function() {
+	$(this).parents(".dialog").hide();
+	$('.ui-mask').hide();
+	if(agent.isAndroid && agent.isPhone) {
+		an.jumpToBrowser(ad_url);
+	}else if(agent.isIOS && agent.isPhone) {
+		window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':ad_url});
+	}
+});
+//点击再来一次
+$('.dialog_end .endBtn').click(function(){
+	$(this).parents('.dialog').hide();
+	$('.ui-mask').fadeOut();
+	//跳转到广告详情
+	if(agent.isAndroid && agent.isPhone) {
+		an.jumpToAdvDetail(g_id)//andriod
+	}else if(agent.isIOS && agent.isPhone) {
+		window.webkit.messageHandlers.scan.postMessage({'action':'goDetail','item':g_id});
+	}
+});
+
+
+function backAnswer(){
+	window.localStorage.setItem('first_alert','1');
+	window.location.reload();
+}
+
+$('.my_price').click(function(){
+	//点击我的奖品跳转
+	if(agent.isAndroid && agent.isPhone) {
+		an.jumpToMyReward(g_id);//andriod
+	} else if(agent.isIOS && agent.isPhone) {
+		window.webkit.messageHandlers.scan.postMessage({'action':'goPrice','item':g_id});
+	}
+});
+function Dpopup(type,res) {
+	var type = type || "dialog";
+	switch(type) {
+		case 'price':
+		$(".dialog_price").show();
+		$(".dialog_price .adv img").attr("src",res.data.img);
+		break;
+		case 'success':
+		$(".dialog_success").show();
+		$(".adv_success").attr("src",res.data.img);
+		break;
+		case 'end':
+		$(".dialog_end").show();
+		$(".dialog_end .adv img").attr("src",res.data.img);
+		break;
+		default:
+		break;
+	}
+}
+
+// 中奖信息滚动显示
+var ul = $(".notice_list");
+var li_size = $(".notice_item").length;
+var li_h = getWidth()*74/750;
+ul.css("height", li_h * li_size);
+setInterval(function () {
+	ul.stop(true, true).animate({"top": -li_h}, 1000, function () {
+		ul.append($(".notice_item").first());
+		ul.css({"top": 0});
+	});
+}, 2500);

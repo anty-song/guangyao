@@ -1,0 +1,232 @@
+window.onload=function(){
+    $('.um-win').fadeOut();
+    $('.um-win').remove();
+};
+var Path = function() {
+        this.src = PATH_WEB + "/static/images/Answer/"
+    };
+    var path = new Path();
+    //新增加载所有图片方法
+    function getAllImage(){
+        var image_arr={image:[]};
+        Object.defineProperty(image_arr,'image',{
+            writable: true,
+            value: [
+                'red_light.png',
+                "view_hyh@2x.png",
+                "view_gxn@2x.png",
+                "lawyer.png",
+                "icon-back.png",
+                "hb.png",
+                "Correct_Receive@2x.png",
+                "Close@2x.png"
+            ]
+        });
+        var image_num=0;
+        var tick;
+        tick=setInterval(function(){
+            var img=new Image();
+            img.src=path.src+image_arr.image[image_num];
+            img.onload=function(){
+                image_num++;
+                // imgLoad(image_num,image_arr.image.length);
+                if(image_num===image_arr.image.length){
+                    clearInterval(tick);
+                }
+            }
+        },500/image_arr.image.length);
+
+        // function imgLoad(a,b){
+        //     return console.log("当前图片加载"+a+"/"+b);
+        // }
+    }
+    getAllImage();
+    function goBack() {
+        $('.dialog_again').show();
+        $('.result1').hide();
+        $('.marsker').show();
+    }
+    // 从广告页面再返回答题游戏页面
+    var ad_type=1;
+    function backAnswer(){
+        if(ad_type==1){
+            window.location.href=PATH_WEB + "/h5/game.answer/home.html";
+        }else{
+            $('.activity span').text('aaaa');
+        }
+    }
+    // 获取url的某个字段
+    function GetQueryString(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    var answer_right_num=GetQueryString('num');
+    var answer_all_num=GetQueryString('total');
+    var result_sign=GetQueryString('result_sign');
+    var timestamp=GetQueryString('timestamp');
+    var HB = new hbdtConfig();
+    var uid=window.localStorage.getItem('uid');
+    var auth=window.localStorage.getItem('auth');
+    // auth="ab123456ab123456";
+    var device=window.localStorage.getItem('device');
+    var auth1=auth.slice(0,8);
+    var paramData={};
+    paramData['uid']=uid;
+    paramData['time']=Math.round(new Date().getTime() / 1000);
+    paramData['auth']=auth;
+    paramData['device']=device;
+    paramData['answer_all_num']=answer_all_num;
+    paramData['answer_right_num']=answer_right_num;
+    paramData['times_tamp']=timestamp;
+    paramData['answer_result_sign']=result_sign;
+    paramData=JSON.stringify(paramData);
+    paramData=encryptByDES(paramData,auth1);
+    $('.s10').text(paramData);
+    $.ajax({
+        type:'post',
+        url:HB.result.url,
+        data:{action:'get_answer_last_jump',uid:uid,reqType:2,paramData:paramData},
+        dataType:'json',
+        success:function(data){
+            data=decryptByDES(data.res_data, auth1);
+            var json_data=JSON.parse(data);
+            console.log(json_data);
+            $('.correctNum').text(json_data.right_num);
+            if(json_data.right_num==0){
+                $('.cup').attr('src','/static/images/Answer/view_hyh@2x.png');
+            }else{
+                $('.cup').attr('src','/static/images/Answer/view_gxn@2x.png');
+            }
+
+            if(json_data.avatar==''){
+                $('.infortop img.userimg').attr('src','/static/images/Answer/lawyer.png');
+            }else{
+                $('.infortop img.userimg').attr('src',json_data.avatar);
+            }
+            var ad_img=json_data.get_answer_ad_popout.ad_img;
+            var ad_url=json_data.get_answer_ad_popout.ad_url;
+            $('.adver img').attr({'src':ad_img,'adurl':ad_url});
+            $('.scores').html(json_data.score+'<span>分</span>');
+            $('.paragraph').text(json_data.roll_msg);
+        },
+        error:function(){
+            console.log('数据请求失败，请检查当前网络');
+            tipError('数据请求失败，请检查当前网络');
+        }
+    });
+    //	判断当前登陆设备
+    var agent = {
+        isAndroid: null,
+        isIOS: null,
+        isPhone: null,
+        isPC: null
+    };
+    var u = navigator.userAgent;
+    if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+        agent.isAndroid = true;
+        agent.isPhone = true;
+    } else if(u.indexOf('iPhone') > -1) {
+        agent.isIOS = true;
+        agent.isPhone = true;
+    } else {
+        agent.isPC = true;
+    }
+    // 退出挽留
+    $('.close_again').click(function(){
+        $(".marsker").fadeOut();
+        $(".dialog_again").hide();
+    });
+    // 继续玩
+    $('.againBtn').click(function(){
+        $(".marsker").fadeOut();
+        $(".dialog_again").hide();
+    });
+    // 残忍拒绝
+    $('.refuse').click(function(){
+        window.location.href=PATH_WEB + "/h5/game.game_lobby/home";
+    });
+    $('.dialog_end .endBtn').click(function(){
+        $(".ui-mask").fadeOut();
+        $(".dialog_end ").hide();
+    });
+    function Dbacks() {
+        $('.dialog_again').show();
+        $('.marsker').show();
+    }
+    // 跳转下方广告
+    $('.adver img').click(function(){
+        var ad_url=$(this).attr('adurl');
+        //跳转到广告详情
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToBrowser(ad_url);
+        }else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':ad_url})
+        }
+    });
+    // 再玩一次
+    $('.agin').click(function(){
+        ad_type=1;
+        //跳转到广告详情
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToAdvDetail('1')//andriod
+        }else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'goDetail','item':'1'});
+        }
+    });
+    // 领取奖励
+    $('.get-reward span').click(function(){
+        $.ajax({
+            type:'post',
+            url:HB.correct.url,
+            data:{action:'get_next_question',uid:uid,reqType:2,paramData:paramData},
+            success:function(data){
+                var json_data=JSON.parse(data);
+                json_data=decryptByDES(json_data.res_data, auth);
+                json_data=JSON.parse(json_data);
+                console.log(json_data);
+                $('.result1 .advimg').attr('src',json_data.ad_img);
+                $('.result1 .advimg').attr('url',json_data.ad_url);
+                $('.result1 .receive1').attr('url',json_data.ad_url);
+                $('.result1 .receive1').attr('id',json_data.id);
+                $('.marsker').fadeIn();
+                $('.result1').show();
+            }
+        })
+    });
+    // 弹框点击"领"跳转到app红包领取
+    $('.result1 .receive1').click(function(){
+        $('.get-reward').css('background','#ddd');
+        $('.get-reward span').text('已领取');
+        $('.get-reward-mark').css('z-index',10);
+        var adurl=$(this).attr('url');
+        ad_type=2;
+        $('.marsker').fadeOut();
+        $('.result1').hide();
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToBrowser(adurl);
+        }else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':adurl});
+        }
+    });
+    // 点击广告跳转到外部广告链接
+    $('.advimg').click(function(){
+        $('.get-reward').css('background','#ddd');
+        $('.get-reward span').text('已领取');
+        $('.get-reward-mark').css('z-index',10);
+        ad_type=2;
+        var adurl=$(this).attr('url');
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToBrowser(adurl);
+        }else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':adurl});
+        }
+    });
+    // 关闭弹框
+    $('.result1 .clo').click(function(){
+        $('.marsker').hide();
+        $('.result1').hide();
+        $('.get-reward span').css('background-color','#ddd');
+        $('.get-reward span').text('已领取');
+        $('.get-reward-mark').css('z-index',10);
+    });

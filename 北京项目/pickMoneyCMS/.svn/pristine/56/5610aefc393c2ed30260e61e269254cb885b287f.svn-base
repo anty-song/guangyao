@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>接口测试</title>
+  {load href="/static/admin/layui/css/layui.css" /}
+  {load href="/static/admin/js/jquery.min.js" /}
+</head>
+<body>
+<!--<table width="948" height="406" border="1" align="center">
+  <tr>
+    <td>
+      <form id="form1" name="form1" method="post" action="" class="layui-form">
+      <table width="600" height="194" border="1" align="center">
+        <tr>
+          <td>action</td>
+          <td>
+            <select name="action" lay-filter="action">
+              <option value="0">-&#45;&#45; 请选择 -&#45;&#45;</option>
+			{volist name="arr_api_list" id="vo"}
+				<option value="{$vo['7']}">{$vo['0']}</option>
+			{/volist}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>paramData</td>
+          <td>
+            <p>
+            uid=
+                <input name="textfield2" type="text" value="1" size="50" />
+            </p>
+            <p>
+              time=
+              <input name="textfield22" type="text" value="1" size="50" />
+            </p>
+            <p>
+              auth=
+              <input name="textfield23" type="text" value="1" size="50" />
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><div align="center">
+            <input type="submit" name="Submit" value="提交" />
+            <input type="reset" name="Submit2" value="重置" />
+          </div></td>
+          </tr>
+      </table>
+        </form>
+    </td>
+  </tr>
+</table>-->
+<div style="width: 950px;margin: 30px auto">
+  <form class="layui-form">
+    <fieldset class="layui-elem-field">
+      <legend>Action</legend>
+      <div class="layui-form-item">
+        <label class="layui-form-label">方法</label>
+        <div class="layui-input-block">
+          <select name="action" lay-filter="action">
+            <option value="0">--- 请选择 ---</option>
+            {volist name="arr_api_list" id="vo"}
+            <option value="{$vo['7']}">{$vo['0']}</option>
+            {/volist}
+          </select>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="layui-elem-field">
+      <legend>paramData</legend>
+     <div id="paramData"></div>
+    </fieldset>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn" lay-submit lay-filter="actionSubmit">提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+      </div>
+    </div>
+  </form>
+</div>
+{load href="/static/admin/layui/layui.js" /}
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+        var actualUrl = '';
+        var hostNum = '';
+        form.on('select(action)', function(data){
+            if (data.value != 0){
+                var returnParam = '';
+                var paramHtml = '';
+                $.post('/index/api_list/api_list',{action_key:data.value},function (result) {
+                    if (result.status == 1){
+                        actualUrl = result.data.actualAction;
+                        returnParam = result.data.param;
+                        hostNum = result.data.hostNum;
+                        if (returnParam.length != 0) {
+                            $.each(returnParam,function (index,value) {
+                                paramHtml += '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">'+value+'</label>'+
+                                    '<div class="layui-input-block">'+
+                                    '<input type="text" name="'+value+'" placeholder="请输入" autocomplete="off" class="layui-input" value="1">'+
+                                    '</div>' +
+                                    '</div>';
+                            });
+                            $('#paramData').html(paramHtml);
+                        } else {
+                            $('#paramData').html('无参数');
+                        }
+
+                    } else {
+                        return layer.msg('接口数据获取失败');
+                    }
+                },'json');
+
+            } else {
+                return layer.msg('请选择对应的方法');
+            }
+        });
+
+        form.on('submit(actionSubmit)', function(data){
+            console.log(hostNum);
+            var postData = "";
+            if (hostNum == 4) {
+                postData = "{:sdk_encrypt('"+data.field+"')}";
+            } else {
+                postData = "{:sdk_encrypt('"+data.field+"')}";
+            }
+
+            data.field.postType = 1;
+            $.post(actualUrl,{paramData:postData},function (result) {
+                console.log(result);
+            },'json');
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+        form.render();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+index  --------首页
+serviceProject------服务项目
+newSCenter  -------新闻中心
+showCase------     案例展示
+contactUs-------联系我们

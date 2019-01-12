@@ -1,0 +1,40 @@
+var headerObj = function() {
+	this.headTitle = new Image();
+	this.headh;
+	
+	this.headleft = new Image();
+	this.headleftw;
+	this.headlefth;
+	
+	this.headright = new Image();
+	this.headrightw;
+	this.headrighth;
+	
+	this.light = new Image();
+};
+
+var path = new Path();
+
+headerObj.prototype.init = function()
+{
+	this.headTitle.src = path.src+"title.png";
+	this.headh = (canWidth - 120)*453/995 + 15;
+	
+	this.headleft.src = path.src+"pageleft.png";
+	this.headleftw = canWidth*6.5/25;
+	this.headlefth = (canWidth*6.5/25)*590/170;
+	
+	this.headright.src = path.src+"pageright.png";
+	this.headrightw = this.headleftw;
+	this.headrighth = this.headlefth;
+	
+	this.light.src = path.src+"light.png";
+};
+
+headerObj.prototype.draw = function() 
+{
+	ctxEl.drawImage(this.headTitle,0,0,995,453,40,15,canWidth-80,this.headh);
+	ctxEl.drawImage(this.headleft,0,55,180,590,0,0,this.headleftw,this.headlefth);
+	ctxEl.drawImage(this.headright,55,55,180,590,canWidth - this.headrightw,0,this.headrightw,this.headrighth);
+	ctxEl.drawImage(this.light,0,0,canWidth,canHeight);
+};

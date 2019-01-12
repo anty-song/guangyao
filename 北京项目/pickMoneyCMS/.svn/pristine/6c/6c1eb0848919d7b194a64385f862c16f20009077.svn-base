@@ -1,0 +1,125 @@
+<?php
+/**
+ * 数据统计
+ * Date: 18/9/14
+ * Time: 下午1:43
+ */
+
+namespace app\admin\controller;
+
+use app\admin\model\StatisticsModel;
+use think\Controller;
+use app\admin\controller\BaseController;
+
+class Statistics extends BaseController
+{
+    protected $statistics_model;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->statistics_model = new StatisticsModel();
+    }
+
+    public function home()
+    {
+        return 'home';
+    }
+
+    //百万红包数据统计
+    public function million_count()
+    {
+        $data = $this->request_param;
+        //开始时间
+        if (empty($data['start_time'])) {
+            $start_time = 1539360000;//2018-09-13
+        } else {
+            $start_time = get_time($data['start_time'].'00:00:00');;
+        }
+        //结束时间
+        if (empty($data['end_time'])) {
+            $end_time = get_time();
+        } else {
+            $end_time = get_time($data['end_time'].'23:59:59');
+        }
+
+        $million_count_res = $this->statistics_model->getMillionCount($start_time,$end_time);
+
+        //每个档位红包拆包成功率
+        $successRateList = [];
+        foreach ($million_count_res['successRes'] as $k=>$v){
+            if ($v['c_all_task_success'] == 0 || $v['c_all_task_num'] == 0) {
+                $successRateList[] = ['name'=>'红包'.($k+1),'rate'=>0];
+            } else {
+                $successRateList[] = ['name'=>'红包'.($k+1),'rate'=>round(($v['c_all_task_success']/$v['c_all_task_num'])*100,2)];
+            }
+        }
+
+        $this->assign('openRed',$million_count_res['openRed'][0]['b']);
+        $this->assign('openRedMoney',$million_count_res['openRedMoney'][0]['b']/10000);
+        $this->assign('clickCount',$million_count_res['clickCount'][0]['b']);
+        $this->assign('inviteSuccess',$million_count_res['inviteSuccess'][0]['b']);
+        $this->assign('successRateList',$successRateList);
+        $this->assign('start_time',date('Y-m-d',$start_time));
+        $this->assign('end_time',date('Y-m-d',$end_time));
+
+        return $this->fetch('million');
+    }
+
+    //广告数据统计
+    public function ad_count()
+    {
+        $data = $this->request_param;
+        //开始时间
+        if (empty($data['start_time'])) {
+            $start_time = 1539360000;//2018-09-13
+        } else {
+            $start_time = get_time($data['start_time'].'00:00:00');;
+        }
+        //结束时间
+        if (empty($data['end_time'])) {
+            $end_time = get_time();
+        } else {
+            $end_time = get_time($data['end_time'].'23:59:59');
+        }
+
+        $ad_count_res = $this->statistics_model->getAdCount($start_time,$end_time);
+        $adShowList = [];
+        foreach ($ad_count_res['adShow'] as $k=>$v){
+            $adShowList[] = ['name'=>$k,'count'=>$v[0]['all_num']];
+        }
+
+        $this->assign('adPersons',$ad_count_res['adPersons'][0]['all_num']);
+        $this->assign('adShow',$adShowList);
+        $this->assign('start_time',date('Y-m-d',$start_time));
+        $this->assign('end_time',date('Y-m-d',$end_time));
+
+        return $this->fetch('adver');
+    }
+
+    //趣味游戏数据统计
+    public function game_count()
+    {
+        $data = $this->request_param;
+        //开始时间
+        if (empty($data['start_time'])) {
+            $start_time = 1539360000;//2018-09-13
+        } else {
+            $start_time = get_time($data['start_time'].'00:00:00');;
+        }
+        //结束时间
+        if (empty($data['end_time'])) {
+            $end_time = get_time();
+        } else {
+            $end_time = get_time($data['end_time'].'23:59:59');
+        }
+        $game_count_res = $this->statistics_model->getGameCount($start_time,$end_time);
+
+        $this->assign('noReceived',$game_count_res['noReceived'][0]['all_num']);
+        $this->assign('received',$game_count_res['received'][0]['all_num']);
+        $this->assign('totalUse',$game_count_res['totalUse'][0]['all_num']);
+        $this->assign('gamePersons',$game_count_res['gamePersons'][0]['all_num']);
+        $this->assign('start_time',date('Y-m-d',$start_time));
+        $this->assign('end_time',date('Y-m-d',$end_time));
+        return $this->fetch('home');
+    }
+}

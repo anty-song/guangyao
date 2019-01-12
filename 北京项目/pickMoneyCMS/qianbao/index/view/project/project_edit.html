@@ -1,0 +1,196 @@
+{extend name="common:index_new"}
+{block name="css"}
+<!--<link rel="stylesheet" href="__CSS__/component.css">-->
+<link rel="stylesheet" href="__PLUGIN__/jbox/jbox.css">
+<link rel="stylesheet" href="__PLUGIN__/uploadify/uploadify.css">
+<link rel="stylesheet" href="__PLUGIN__/colorpicker/colorpicker.css">
+
+{/block}
+{block name="main"}
+<div class="content_right fl clearfix">
+    <div class="dboxs clearfix">
+        <div class="notice clearfix">
+            <div class="notice_news font12 colorf fl">
+                最新公告
+            </div>
+            <div class="str1 str_wrap fl font12 color98">
+                <span class="font12 color98 mr14">[10-31]</span>北京玛林梵多智能美业管理系统2018改版升级，迎来新功能，欢迎体验试用！（新版体验日期2018一月至二月）
+            </div>
+            <div class="notice_more fr clearfix">
+                <a href="#">
+                    <span class=" font12 colorde fl">更多</span>
+                    <span class="fl"><img src="__IMAGE__/info.png" art=""></span>
+                </a>
+            </div>
+        </div>
+        <div class="day_time clearfix">
+            <div class="fl color1a font16 day">编辑产品单项</div>
+        </div>
+        <form action="" method="POST" id="form1">
+            <div class="brands_con clearfix" style="padding:40px 0;">
+                <div class="clearfix ml62">
+                    <div class="fl">
+                        <div class="clearfix mb20">
+                            <span class="fl color31 mt22 fontwt">*</span>
+                            <span class="fl mt22 font14 color3d">单项名称：</span>
+                            <div class="fl ml40 mt20">
+                                <input type="text" class="num_phone" name="title" value="{$data.title}">
+                            </div>
+                        </div>
+                        <div class="clearfix mb20" >
+                            <span class="fl color31 mt22 fontwt">*</span>
+                            <span class="fl mt22 font14 color3d">单项分类：</span>
+                            <div class="fl ml40">
+                                <!--<div class="nice-select" name="nice-select" id="nice-select" style="width:143px;">-->
+                                <!--<input type="text" value="" readonly class="num_phone">-->
+                                <!--<div class="nice_con">-->
+                                <!--<div data-value="1">常规</div>-->
+                                <!--<div data-value="2">赠送</div>-->
+                                <!--<div data-value="3">时效</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <div class="form-controls">
+                                    <select style="width: 160px;border: 1px solid #ccc;border-radius: 4px;padding: 4px 10px;margin-right: 5px;vertical-align: middle;" name="p_type" id="p_type">
+                                        {volist name="data_type" id="vo"}
+                                        <option value="{$vo['id']}" {if condition="$i eq 0"}selected="selected"{/if}>{$vo['t_title']}</option>
+                                        {/volist}
+                                    </select>
+                                    <span class="fi-help-text"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix mb20" >
+                            <span class="fl color31 mt22 fontwt">*</span>
+                            <span class="fl mt22 font14 color3d">绩效分类：</span>
+                            <div class="fl ml40">
+                                <!--<div class="nice-select" name="nice-select" id="nice-select" style="width:143px;">-->
+                                <!--<input type="text" value="" readonly class="num_phone">-->
+                                <!--<div class="nice_con">-->
+                                <!--<div data-value="1">常规</div>-->
+                                <!--<div data-value="2">赠送</div>-->
+                                <!--<div data-value="3">时效</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <div class="form-controls">
+                                    <select style="width: 160px;border: 1px solid #ccc;border-radius: 4px;padding: 4px 10px;margin-right: 5px;vertical-align: middle;" name="score_type" id="score_type">
+                                        {volist name="data_score" id="vo"}
+                                        <option value="{$vo['id']}" {if condition="$data['p_type'] eq $vo['id']"}selected="selected"{/if}>{$vo['t_title']}</option>
+                                        {/volist}
+                                    </select>
+                                    <span class="fi-help-text"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix mb20">
+                            <span class="fl color31 mt22 fontwt">*</span>
+                            <span class="fl mt22 font14 color3d">服务时间：</span>
+                            <div class="fl ml40 mt20">
+                                <input type="text" id="test1" class="num_phone" name="need_time" value="{$data.need_time}">
+                            </div>
+                            <div class="clearfix ml117 mt62">
+                                过程需要分钟数
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fl" style="margin-left:162px;">
+                        <div class="formitems">
+                            <label class="fi-name fl"><span class="colorRed mt22 color31 fl">*</span><span class="fl mt22 font14 color3d">项目封面：</span></label>
+                            <div class="form-controls pdt5 j-imglistPanel fl ml40 mt22">
+                                <ul class="img-list clearfix">
+                                    {notempty name="data['img']"}
+                                    <li class="img-list-add j-addgoods"><img src="{$data.img}"></li>
+                                    {else/}
+                                    <li class="img-list-add j-addgoods">+</li>
+                                    {/notempty}
+                                </ul>
+                                <input type="hidden" name="img" class="j-imglist-dataset" value="{$data.img}">
+                                <span class="fi-help-text"></span>
+                            </div>
+                        </div>
+                        <div style="clear: both"></div>
+                        <div class="clearfix mb20">
+                            <span class="fl color31 mt22 fontwt">*</span>
+                            <span class="fl mt22 font14 color3d">项目价格：</span>
+                            <div class="fl ml40 mt20">
+                                <input type="number" class="num_phone" style="width:227px;" name="price" value="{$data.price}">
+                            </div>
+                            <!--<div class="clearfix ml117 mt62">-->
+                            <!--过程需要分钟数-->
+                            <!--</div>-->
+                        </div>
+                        <div class="clearfix mb20">
+                            <span class="fl color31 mt22 fontwt">*</span>
+                            <span class="fl mt22 font14 color3d">项目排行：</span>
+                            <div class="fl ml40 mt20">
+                                <input type="number" class="num_phone" style="width:227px;" name="sort" value="{$data.sort}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix ml62 " style="clear: both;">
+                    <span class="fl color31 mt22 fontwt">*</span>
+                    <span class="fl mt22 font14 color3d">简 介：</span>
+                    <div class="fl ml62 mt20">
+                        <textarea  value="" class="read_con" name="desc">{$data.desc}</textarea>
+                    </div>
+                </div>
+                <div class="fr clearfix" style="margin:83px 240px 0 0;">
+                    <div class="clearfix">
+                        <input type="hidden" name="project_id" value="{$data.project_id}">
+                        <a href="javascript:;" class="bon_ok font12 colorf" id="submit-btn" style="background:#65d3e0;">保存</a>
+                        <a href="{:url('store/product/index')}" class="bon_ok font12 colorf" id="btn_remove">取消</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{Include file="common:js_tpl"}
+{/block}
+
+{block name="js"}
+<script src="__JS__/lib-min.js"></script>
+<script src="__PLUGIN__/jbox/jbox.min.js"></script>
+<script src="__PLUGIN__/zclip/jquery.zclip.min.js"></script>
+<script src="__JS__/component.js"></script>
+<script src="__PLUGIN__/uploadify/jquery.uploadify.min.js"></script>
+<!--<script src="__PLUGIN__/colorpicker/colorpicker.js"></script>-->
+
+<script type="text/javascript" src="__JS__/project.js"></script>
+<script src="__JS__/jquery.liMarquee.js"></script>
+
+<script language="javascript" type="text/javascript" src="__JS__/My97DatePicker/WdatePicker.js"></script>
+<script>
+    //        文字左右滚动
+    $('.str1').liMarquee();
+    //    select
+    $('[name="nice-select"]').click(function(e){
+        $('[name="nice-select"]').find('.nice_con').hide();
+        $(this).find('.nice_con').show();
+        e.stopPropagation();
+    });
+    $('[name="nice-select"] .nice_con div').hover(function(e){
+        $(this).toggleClass('on');
+        e.stopPropagation();
+
+    });
+    $('[name="nice-select"] .nice_con div').click(function(e){
+        var val = $(this).text();
+        $(this).parents('[name="nice-select"]').find('input').val(val);
+        $('[name="nice-select"] .nice_con').hide();
+        e.stopPropagation();
+    });
+    $(document).click(function(){
+        $('[name="nice-select"] .nice_con').hide();
+    });
+    //
+    $(".checkoose").on('click',function(){
+        if($(this).find('input[type=checkbox]').hasClass('active')){
+            $(this).find('input[type=checkbox]').removeClass('active');
+        }else{
+            $(this).find('input[type=checkbox]').addClass('active')
+        }
+
+    });
+</script>
+{/block}

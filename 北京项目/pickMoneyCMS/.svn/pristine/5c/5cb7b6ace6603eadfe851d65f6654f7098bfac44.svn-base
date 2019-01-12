@@ -1,0 +1,23 @@
+{include file='public/header' /}
+
+{block name='head'}
+
+{/block}
+
+{block name='nav'}
+<table width="95%" border="1" align="center">
+  <tr>
+    <td><a href="{:url('WorkPlan/index')}">计划任务</a></td>
+    <td><a href="{:url('WorkTask/index')}">需求任务</a></td>
+    <td><a href="{:url('WorkProduct/index')}">产品管理</a></td>
+    <td><a href="{:url('WorkDepart/index')}">部门管理</a></td>
+    <td><a href="{:url('WorkUser/index')}">人员管理</a></td>
+  </tr>
+</table>
+{/block}
+
+{block name='body'}
+
+{/block}
+
+{include file='public/footer' /}

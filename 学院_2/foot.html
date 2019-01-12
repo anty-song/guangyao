@@ -142,8 +142,16 @@
     <div class="page-bottom">
         技术支持@品评网
     </div>
+    <textarea name="" id="box" cols="30" rows="10"></textarea>
+    <button id="btn">获取</button>
     <script src="js/jquery-1.12.4.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        $('#btn').on('click',function(){
+            var value = $("#box").val();
+            alert(value)
+        })
+    </script>
 </body>
 
 </html>

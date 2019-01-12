@@ -1,0 +1,62 @@
+.contact-ways .img-responsive {
+  margin: 0 auto;
+}
+.contact-ways .icon-box {
+  min-height: 74px;
+}
+.contact-item-tit {
+  font-size: 16px;
+  color: #D90101;
+  margin: 11px 0 18px 0;
+}
+.contact-item-info {
+  font-size: 16px;
+  color: #333;
+}
+.contact-ways .col-md-3 {
+  text-align: center;
+}
+.contact-ways {
+  padding: 30px 0;
+}
+.leaving-msg {
+  padding: 60px 0 90px;
+}
+.input-item,
+.area-item {
+  max-width: 918px;
+  margin: 0 auto;
+  background: #F5F5F5;
+}
+.input-item {
+  line-height: 56px;
+  margin-bottom: 15px;
+}
+.area-item {
+  height: 296px;
+}
+input, textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  padding-left: 18px;
+  width: 100%;
+  background: transparent;
+}
+textarea {
+  padding: 15px 0 15px 18px;
+}
+button {
+  display: block;
+  width: 146px;
+  height: 38px;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 38px;
+  margin: 44px auto 0;
+  border-radius: 28px;
+  background: #D90101;
+  border: none;
+  outline: none;
+}

@@ -1,0 +1,240 @@
+<?php
+/**
+ * 广告管理model
+ * User: Jason
+ * Date: 18/9/18
+ * Time: 上午9:03
+ */
+namespace app\admin\model;
+
+use app\admin\model\BaseModel;
+use think\Db;
+
+class AdModel extends BaseModel
+{
+    protected $ad_table     = 'b_adv_list';
+    protected $type_table   = 'b_adv_type';
+    protected $trader_table = 'b_adv_trader';
+    protected $info_table   = 'b_adv_info';
+    protected function initialize()
+    {
+        parent::initialize();
+    }
+
+    /****************广告位管理****************/
+
+
+
+
+    /***************商家广告管理**************/
+
+
+    /**
+     * 获取广告列表数据
+     * @param array $where
+     * @return array|false|\PDOStatement|string|\think\Collection
+     */
+    public function getAdList($where = [])
+    {
+        return Db::table($this->ad_table)->where($where)->select();
+
+    }
+
+    /**
+     * 获取商家广告分页列表数据
+     * @param string $type [投放类型]
+     * @param string $status [状态，默认显示非软删除数据]
+     * @param string $way [出价方式]
+     * @param string $keyword [关键词]
+     * @param int $pagesize [每页显示条数]
+     * @return mixed
+     */
+    public function getAdListByPage($type ='',$status = '',$way = '',$keyword = '',$pagesize = 15)
+    {
+        $where = [];
+        //投放类型
+        if (!empty($type)) {
+            $where[] = ['i.ad_type','=',$type];
+        }
+        //状态
+        if (!empty($status)) {
+            $where[] = ['a.status','=',$status];
+        } else {
+            $where[] = ['a.status','<>',9];//已删除，软删除
+        }
+        //出价方式
+        if (!empty($way)) {
+            $where[] = ['i.ad_way','=',$way];
+        }
+        //关键词-广告名称
+        if (!empty($keyword)) {
+            $where[] = ['a.ad_title','like',$keyword.'%'];
+        }
+
+        $config = [
+            'query' => request()->param(),
+        ];
+
+        $res = Db::table($this->ad_table)
+            ->alias('a')
+            ->field('a.*,i.advertiser_name,i.advertiser_company,i.advertiser_phone,i.ad_position,i.ad_type
+                    ,i.ad_channel,i.start_time,i.end_time,i.ad_way,i.ad_price_explain,i.edittime')
+            ->leftJoin($this->info_table.' i','a.id = i.adv_list_id')
+            ->where($where)->paginate($pagesize,false,$config);
+        $page = $res->render();
+        $page = !empty($page) ? $page : '';
+        $data['list'] = $res->items();
+        $data['page'] = $page;
+        $data['total'] = $res->total();
+        $data['total_page'] = $res->lastPage();
+        return $data;
+    }
+
+    /**
+     * 获取一条广告数据
+     * @param int $id
+     * @return array|false|null|\PDOStatement|string|\think\Model
+     */
+    public function getAdInfo($id = '')
+    {
+        $where[] = ['a.id','=',$id];
+        $where[] = ['a.status','<>',9];
+        return Db::table($this->ad_table)
+            ->alias('a')
+            ->field('a.*,i.advertiser_name,i.advertiser_company,i.advertiser_phone,i.ad_position,i.ad_type
+                    ,i.ad_channel,i.start_time,i.end_time,i.ad_way,i.ad_price_explain,i.edittime')
+            ->leftJoin($this->info_table.' i','a.id = i.adv_list_id')
+            ->where($where)->find();
+    }
+
+    /**
+     * 添加一条广告数据
+     * @param array $data [要添加的数据]
+     * @return int|string
+     */
+    public function addAd($data)
+    {
+        return Db::table($this->ad_table)->insert($data);
+    }
+
+    /**
+     * 批量添加多条广告数据
+     * @param $data [广告数据,二维数组]
+     * @param int $limit [每次最多添加数量,默认100]
+     * @return int|string
+     */
+    public function addAllAd($data,$limit = 100)
+    {
+        return Db::table($this->ad_table)->limit($limit)->insertAll($data);
+    }
+
+    /**
+     * 设置商家广告状态，包括软删除
+     * @param $ids [商家广告id]
+     * @param $status [广告状态：8：未投放；1：投放中；2：暂停中；3：已结束；9：已删除]
+     * @return int|string
+     */
+    public function setAdStatus($ids,$status)
+    {
+        $where['id'] = $ids;
+        $data['ad_status'] = $status;
+        return Db::table($this->ad_table)->where($where)->data($data)->update();
+    }
+
+    /**
+     * 删除商家广告，支持批量删除
+     * @param $ids [商家广告id]
+     * @return int
+     */
+    public function delAd($ids)
+    {
+        $where['id'] = $ids;
+        return Db::table($this->ad_table)->where($where)->delete();
+    }
+
+    /**
+     * 获取广告位展示位置信息
+     * @param string $type [指定类型1：广告类型；2：展示位置；3：投放类型；4：投放渠道；5：出价方式]
+     * @return array|false|\PDOStatement|string|\think\Collection
+     */
+    public function getAdConfig($type = '')
+    {
+        if (empty($type)) {
+            $list = Db::table($this->type_table)->where('status','=',1)->select();
+            $new_ad_config = [];
+            foreach ($list as $k=>$v) {
+                $new_ad_config[$v['t_type']][] = $v;
+            }
+            //返回以广告管理配置类型为分组的数据
+            return $new_ad_config;
+        } else {
+            $where['t_type'] = $type;
+            return Db::table($this->type_table)->where($where)->select();
+        }
+
+    }
+
+
+    /****************商家信息****************/
+
+
+    /**
+     * 商家信息分页列表
+     * @param $where [查询条件]
+     * @param int $pagesize [每页显示条数]
+     * @param array $field [筛选字段]
+     * @param array $order [排序]
+     * @return \think\Paginator
+     * @throws \think\exception\DbException
+     */
+    public function getTraderList($where = [],$pagesize = 15,$field = [], $order = [])
+    {
+        $config = [];
+        $list =  Db::table($this->trader_table)
+            ->where($where)
+            ->field($field)
+            ->order($order)
+            ->paginate($pagesize,false,$config);
+        $page = $list->render();
+        $page = !empty($page) ? $page : '';
+        $data['list'] = $list->items();
+        $data['page'] = $page;
+        $data['total'] = $list->total();
+        $data['total_page'] = $list->lastPage();
+        return $data;
+    }
+
+    /**
+     * 添加商家信息
+     * @param $data [商家信息]
+     * @return int|string
+     */
+    public function addTrader($data)
+    {
+        return Db::table($this->trader_table)->data($data)->insert();
+    }
+
+    /**
+     * 设置商户状态,包括软删除
+     * @param $ids array [商户ID]
+     * @param $status int [状态0：删除；1：启用；2：停用]
+     * @return int|string
+     */
+    public function setTraderStatus($ids,$status)
+    {
+        $where['id'] = $ids;
+        $data['status'] = $status;
+        return Db::table($this->trader_table)->where($where)->data($data)->update();
+    }
+
+    /**
+     * 删除商户信息
+     * @param $ids array [商户信息ID]
+     * @return int
+     */
+    public function delTrader($ids)
+    {
+        $where['id'] = $ids;
+        return Db::table($this->trader_table)->where($where)->delete();
+    }
+}

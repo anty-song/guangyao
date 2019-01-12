@@ -1,0 +1,155 @@
+*{
+    margin:0;
+    padding:0
+}
+
+/*body:before {*/
+    /*content: '';*/
+    /*position: fixed;*/
+    /*left: 0px;*/
+    /*top: 150px;*/
+    /*width: 100%;*/
+    /*height: 800px;*/
+    /*z-index: -1;*/
+    /*background-size: cover;*/
+    /*background: url(../images/static/khd_big_bg.png) no-repeat;*/
+/*}*/
+
+.client_wrapper{
+    width:100%;
+    min-width:1200px;
+    background: url(../images/static/khd_big_bg.png) no-repeat;
+    background-size:cover;
+    height:890px;
+
+
+}
+
+.client_wrapper_inner{
+    width:1200px;
+    height:890px;
+    margin:0 auto;
+}
+
+.ten_client{
+
+    display:table;
+    margin:auto;
+    width:180px;
+    height:180px;
+    background: url(../images/static/khd_qt_img.png) no-repeat;
+    background-size:610px 717px;
+    background-position: 0 0;
+}
+
+.client_left{
+    padding-top:346px;
+    width:340px;
+}
+
+.common_mobile{
+    width:338px;
+    height:78px;
+    border:1px solid #fff;
+    border-radius:39px;
+    display:block;
+    text-decoration: none;
+
+}
+
+.common_mobile i{
+    width:34px;
+    height:40px;
+    display:block;
+    float:left;
+    background: url(../images/static/khd_qt_img.png) no-repeat;
+    background-size:610px 717px;
+    margin-top:20px;
+    margin-left:47px;
+
+}
+.div_client{
+    float:left;
+}
+.apple_mobile i{
+    background-position: -43px -460px;
+}
+
+.anzhuo_mobile i{
+    background-position: -130px -460px;
+}
+
+.apple_mobile:hover i{
+    background-position: 0px -460px;
+}
+
+.anzhuo_mobile:hover i{
+    background-position: -86px -460px;
+}
+
+.common_mobile p{
+    font-size:24px;
+    color:#fff;
+    line-height:78px;
+    margin-left:31px;
+    float:left;
+}
+
+.common_mobile:hover{
+    background: #fff;
+
+}
+
+.common_mobile:hover p{
+    color:#0066d4!important;
+}
+
+.apple_mobile {
+    margin-top: 79px;
+}
+
+.anzhuo_mobile{
+    margin-top:40px;
+}
+
+.client_middle i{
+    display:block;
+    width:344px;
+    height:720px;
+    background: url(../images/static/khd_qt_img.png) no-repeat;
+    background-size:610px 717px;
+    background-position: -270px 0;
+}
+
+.client_middle{
+    margin-left:80px;
+    padding-top:88px;
+}
+
+.erweima_zhen{
+    display:block;
+    padding-top:40px;
+    width:260px;
+    height:220px;
+    background: url(../images/static/khd_qt_img.png) no-repeat;
+    background-size:610px 717px;
+    background-position: 0px -190px;
+}
+
+.erweima_zhen{
+
+}
+
+.client_right{
+    float:right;
+    padding-top:495px;
+}
+
+.erweima_zhen_inner{
+    width:180px;
+    height:180px;
+    display:table;
+    margin:auto;
+
+    background: #000;
+}

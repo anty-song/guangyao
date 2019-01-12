@@ -1,0 +1,43 @@
+var btnObj = function() {
+    this.width;
+    this.height;
+    this.x;
+    this.y;
+    this.isBig;
+}
+
+btnObj.prototype.init = function()
+{
+    this.width = 60;
+    this.height = 60;
+    this.isBig = false;
+    this.x = canWidth - this.width/2 - 80;
+    this.y = canHeight/2 + this.height-10;
+}
+
+btnObj.prototype.draw = function()
+{
+    //按钮放大缩小效果
+    if(!this.btnbig){
+        this.width+= 0.3;
+        this.height+= 0.3;
+        this.isBig = this.width > 70? true : false;
+    }
+    else if(this.btnbig){
+        this.width -= 0.3;
+        this.height -= 0.3;
+        this.isBig = this.width < 70? false : true;
+    }
+    ctxEl.save();
+    console.log(btnImage,this.x, this.y, this.width,this.height);
+    ctxEl.drawImage(btnImage,this.x, this.y, this.width,this.height);
+    ctxEl.restore();
+}
+
+function clickBtn(e) {
+    var clientX = e.touches[0].clientX,
+        clientY = e.touches[0].clientY;
+    if(clientX>canWidth-120 && clientX < canWidth -40 && clientY > canHeight/2+60 && clientY < canHeight/2 + 160 && hand.isRight){
+        hand.go();
+    }
+}

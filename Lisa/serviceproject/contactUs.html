@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+		<title>联系我们</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/publicFan.css" />
+		
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/index.js" ></script>
+		<script src="js/vue.js"></script>	
+		<style>
+			.layui-layer-loading .layui-layer-content{
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body style="background: #fff">
+	  <div id="app">	
+		
+		<div class="header_box">
+			<div class="header">
+				<div class="company fl" >
+					<a href="index.html"> 
+					   <img :src=logos.logo_imgurl class="fl"/>
+					</a>
+					<div class="fl company_info">
+						<p>{{logos.company}}</p>
+						<p>{{logos.website}}</p>
+					</div>
+				</div>		
+				<div class="fr company_name size16"> {{logos.company}}公司欢迎你</div>
+			</div>	
+		</div>	
+		
+		<nav class="navbar navbar-default">
+		    <div class="container-fluid">
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <!--<a class="navbar-brand" href="#">导航的那一栏</a>-->
+			    </div>
+		
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li><a href="index.html">首页 </a></li>
+			        <li><a href="serviceProject.html">服务项目</a></li>
+			        <li><a href="newsCenter.html">新闻中心</a></li>
+			        <li><a href="showCase.html">案例展示</a></li>
+			        <li class="active"><a href="#">联系我们</a></li>
+			      </ul>
+			    </div>
+		  </div>
+        </nav>
+
+        <!--以下为banner-->
+	    <div class="banner commonbanner">
+	    	<img :src=picture class="img-responsive"/>
+	    	<div class="banner_btn">联系我们 </div>
+	    </div>	
+	    
+		<div class="contact_us_box" id="contactUs">
+			<div class="contact_us">
+				<div class="title_box">
+					<div class="title">
+					   <h3>联系我们</h3>
+			        </div>
+					<p class="describe">微信电话多个联系人的联系方式</p>
+			    </div>
+			    <div class="contact_us_list">
+			    	 <div class="contact_us_alone col-xs-6 col-md-3" v-for="item in contacts">
+			    	     <p class="ewm_title">微信二维码</p>
+			    	     <div class="contact_info">
+		    	     	 	 <div class="ewm">
+		    	     	 	 	<img :src=item.imgurl />
+		    	     	 	 </div>
+		    	     	 	 <p class="name" v-html="item.lxrname">联系人名字</p>
+		    	     	 	 <div class="phone">
+		    	     	 		<i></i>
+		    	     	 	    <span v-html="item.phone"></span>
+		    	     	 	 </div>
+			    	     </div>
+			       </div>
+			    </div>
+			</div>
+		</div>	
+		<!--以下为尾部-->
+		<div class="footer">
+			{{logos.copyright_logo}}
+		</div>	
+	
+</div>	
+<script src="js/layer/layer.js"></script>	
+<script src="js/config.js"></script>
+	
+<script type="text/javascript">
+    var vm = new Vue({
+           el: '#app',
+           data: {
+               site: "这是 标题",
+               show: false,
+               contacts:[],
+               logos:{},
+               picture:"http://110.249.185.45:8100/file/upload/picture/201811/02/0952218757219.jpg"
+           },
+           created() {
+               // 请求后台接口
+               this.conData ();
+           },
+           methods: {
+                conData: function () {
+                	var config = new Config();
+                    var that = this;
+                    var logodata = sessionStorage.getItem("logodata");
+                         logo = JSON.parse(logodata);
+                         that.logos = logo;   
+                    $.ajax({
+                        type:config.contactUsPage.type,
+                        url :config.contactUsPage.url,
+                        async:true,
+                        dataType:"json",
+                        success:function(res) {
+                        	if(res.status==1){
+                        	  	that.contacts = res.data.contacts ;
+                                that.picture =  res.data.picture;
+                                //如果缓存中没有数据就走接口里的
+	                        	if(that.logo=="null"||that.logo=="undefined"){
+	                        		that.logos = res.data.logo;
+	                        	}
+                            }
+                        },
+                        fail:function(res){
+                        	layer.msg('网络出错.....');
+                        }
+                        
+                    });
+                    
+                    //从缓存中拿数据
+                    var logodata = sessionStorage.getItem("logodata");
+                         logo = JSON.parse(logodata);
+                         that.logos = logo    
+                }, 
+                
+            }
+          
+        })
+    </script>      
+	
+	
+	
+	
+	</body>
+</html>

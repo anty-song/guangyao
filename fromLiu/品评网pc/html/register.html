@@ -1,0 +1,843 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="x-ua-compatible" content="ie=8" />
+<link rel="alternate" type="application/vnd.wap.xhtml+xml" media="handheld" href="http://m.10pinping.com/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>会员注册_品评网</title>
+<link rel="archives" title="品评网" href="http://www.10pinping.com/archiver/"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="http://img.10pinping.com/skin/10/ie6.css"/>
+<![endif]-->
+<script type="text/javascript">window.onerror=function(){return true;}</script><script type="text/javascript" src="http://img.10pinping.com/file/script/jquery.js"></script><script type="text/javascript" src="http://img.10pinping.com/file/script/public.js"></script><script type="text/javascript" src="http://img.10pinping.com/file/script/page.js"></script><script type="text/javascript" src="http://img.10pinping.com/file/script/jquery.lazyload.js"></script><script type="text/javascript">
+var searchid = 5;
+</script>
+<style>
+.bc_member1 a{color:#CDCBCD;}
+.bc_member1 a:hover {color:#FF3300}
+</style>
+</head>
+<!--<body style="    background: url(http://www.10pinping.com/skin/10/index/banner_newyear.png) no-repeat 50% 0;">-->
+<body>
+ <!--   <div id="newyear2015TopBar" style="clear:both;width:100%;height:35px;margin:0 auto;padding:15px 0 0;overflow:hidden;position:relative;">    <div id="newyear2015Btncls" title=""></div>    </div>-->
+<!--新加入的新春背景图-->
+<!--<img src="http://img.10pinping.com/skin/10//jieri/pinping-news1.png" height="325" width="351" style="position:fixed;top:160px;left:0px;"/>
+<img src="http://img.10pinping.com/skin/10/jieri/pinping-news2.png" height="492" width="350" style="position:fixed;top:0px;right:0px;z-index:100"/>-->
+<!--新加入的新春背景图-->
+<a id="top" name="top"></a>
+<div class="header">
+<div class="sear_logo">
+<div class="topinfo">
+<div class="m1024">
+<div class="customer_phone">400-187-8707</div>
+<div id="bc_member" class="bc_member1"></div>
+<!--<div class="bc_member1">
+<a href="/member/login.php" target="_blank">用户中心 </a>&nbsp;|&nbsp;
+<a href="/about/contact.php" target="_blank">联系我们 </a>
+</div>-->
+</div>
+</div>
+<!--<div class="sear_logo_img">
+<div class="m1024">
+<div class="sear_left_teim">
+<a href="http://www.10pinping.com/" title="十大品牌网首页">
+<img src="http://img.10pinping.com/skin/10/image/logo.png" alt="品评网"/>
+</a>
+</div>
+<div class="menu_nav">
+<ul>
+<li>
+<a href="/" class="menuon" title="品评网_2017年度中国十大品牌评选官方网站_十大品牌门户_十大品牌排行" target="_self">首页</a>
+</li>
+<li  >
+<a href="/vote/" title="正在进行的十大品牌评选活动" target="_blank">十大投票</a>
+</li>
+<li >
+<a href="/brand/bangdan.html" target="_blank" title="近期榜单">近期榜单</a>
+</li>
+<li >
+<a href="/brand/signUpFlow.php" target="_blank" title="品牌报名">品牌报名</a>
+</li>
+<li >
+<a href="/guestbook" target="_blank" title="问题反馈">问题反馈</a>
+</li>
+<li >
+<a href="/about/app.php" title="品评网App" target="_blank">客户端</a>
+</li>
+</ul>
+</div>
+<div class="user_r_l">
+<a href="/member/register.php" class="ur">注册</a>
+<a href="/member/login.php" class="ul">登录</a>
+</div>
+</div>
+</div>-->
+<div class="sear_logo_img">
+<div class="m1024">
+<div class="sear_left_teim">
+<a href="http://www.10pinping.com/" title="十大品牌网首页">
+<img src="http://img.10pinping.com/skin/10/image/logo.png" alt="品评网"/>
+</a>
+</div>
+<form name="form1" action="/brand/search.php" method="get" onsubmit="return ckf()">
+              <input type="hidden" name="moduleid" value="13"/>
+     <div class="user_r_l "  style="  height: 42px;position: relative;width: 590px;margin-top: 18px;">
+    <input type="submit" class="btn"  value="搜索" />
+     <input class="search" style="line-height:40px;"  id="search" name="kw"  results="1" autocomplete="off"  placeholder="请输入商标名称,行业名称....."    onfocus="if(this.value=='请输入商标名称,行业名称.....'){this.value='';}"  onblur="if(this.value==''){this.value='请输入商标名称,行业名称.....';}" type="text"  >
+
+</div>
+
+           </form>
+
+
+
+  </div>
+ <ul id="suggest_ul1" class="shouding" style="display:none;" >
+</ul>
+  <!--收索下拉-->
+<span id="dbrandtitle1" class="f_red"></span>
+<script type="text/javascript">
+$('#search').keyup(function(){
+//alert($('#search-keyword').attr('value'));
+    if($('#search').attr('value')==''){
+$('#suggest_ul1').hide();
+}
+else if($('#search').attr('value').length<1){
+}else{
+$.ajax({
+type:'POST',
+url:'/brand/search.php?action=seleiis',
+data:{keyword:$('#search').attr('value')},
+dataType:'json',
+success:function(data){
+if(data!=0){
+// console.log(data[0].title);
+var contentss="";
+for(var i=0;i<data.length;i++){
+var keywords = data[i].title;
+//alert(keywords);
+//alert(skey);
+
+contentss=contentss+"<a href='javascript:void(0);'><li onmouseover=over('ali"+i+"');  onmouseout=out('ali"+i+"');   id='ali"+i+"' onclick=changekk('ali"+i+"');>"+keywords+"</li></a>";
+
+}
+//alert(contents);
+$("#suggest_ul1").show();
+$("#suggest_ul1").html(contentss);
+$('#dbrandtitle1').html('');
+}else{
+$('#dbrandtitle1').html('');
+}
+}
+});
+}
+});
+function changekk (id) {
+
+        con=$('#'+id).text();
+
+    $('#search').attr('value',con);
+
+$('#suggest_ul1').hide(0);
+
+
+}
+function over(fontStyle){
+document.getElementById(fontStyle).style.background='#ffe3d9';
+}
+function out(fontStyle){
+document.getElementById(fontStyle).style.background='white';
+}
+</script>
+<style type="text/css">
+    .shouding{
+    position:absolute;
+ z-index:999;
+top:62px;
+  left: 50%;
+ margin-left:75px;
+border:1px solid #dddddd;
+   }
+
+   .shouding li {
+         background-color: white;
+ color:black;
+ font-size:12px;
+ isplay:block;
+          width:446px;
+  height:40px;
+   line-height: 40px;
+  padding-left: 10px;
+         }
+</style>
+<!---->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="sear_logo_img" style="top:110px;height: 42px;  background: #449df5 none repeat scroll 0 0;">
+  <style>
+.btn {
+    background: #0066d4 none repeat scroll 0 0;
+    font-size: 18px;
+    height: 44px;
+
+    position: absolute;
+color:#ffffff;
+    right: 0;
+    text-align: center;
+    width: 70px;
+}
+ .search {
+    border: 1px solid #0066d4;
+    color: #a9a9a9;
+    font-size: 18px;
+    height: 40px;
+    width: 446px;
+padding-left:10px;
+}
+.nav-box-nav li {
+    color: #fff;
+    font-size: 18px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    width: 150px;
+float:left;
+
+
+}
+.nav-box-nav li a {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    height: 42px;
+    width: 150px;
+}
+.nav-box-nav li a{
+display: block;
+width: 150px;
+height: 42px;
+color: #fff;
+font-size: 18px;
+}
+.nav-box-nav li a:hover{
+background: #166cc1;
+color: #fff;
+}
+.menu-on{
+    background: #166cc1;
+color: #fff;
+}
+.user_r_ll {
+    float:right;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    text-align: center;
+    width: 160px;
+position: fixed;
+left: 50%;
+     margin-left: 440px;
+}
+.head-fix{
+     height: 150px;
+}
+body {
+    margin: 0 auto;
+}
+body {
+    background: #f5f5f5 none repeat scroll 0 0;
+    font-family: "Microsoft Yahei",Verdana,Arial,Helvetica,sans-serif;
+}
+      /*新加下拉的内容*/
+            .select{
+                        display:none
+                    }
+                    .select-li:hover .select{
+                        display:block!important;
+                    }
+                    .select div:hover{
+                        background: #166cc1;
+                    }
+ </style>
+<ul class="nav-box-nav" style="display: block;width: 1050px;margin: 0 auto;position: relative;left:-75px;">
+<li>
+<a href="/" class="menuon menu-on" title="品评网_中国十大品牌评选官方网站_十大品牌门户_十大品牌排行" target="_self">首页</a>
+</li>
+<li  >
+<a href="/vote/" title="正在进行的十大品牌评选活动" target="_blank">十大投票</a>
+</li>
+<li  >
+<a href="/votes/" title="正在进行的十佳产品评选活动" target="_blank">十佳产品
+                                                                                            <img style=" margin: -10px 0px 0 0;position: relative;" class="new_item" alt="hot" src="http://www.10pinping.com/skin/10/brand/new.gif">
+                                                                                             </a>
+</li>
+<li   class="select-li"  style="position:relative" >
+<a href="javascript:void(0);"  title="近期榜单">近期榜单</a>
+      <div class="select" style="position:absolute;left:0px;top:40px;width:150px;background:#449df5;z-index:100">
+                            <div style="height:40px;text-align:center;font-size:16px;line-height:40px;cursor:pointer"><a href="/brand/bangdan.html" target="_blank">十大品牌榜单</a></div>
+                            <div style="height:40px;text-align:center;font-size:16px;line-height:40px;cursor:pointer;"><a href="/brand/bangdan_14.php" target="_blank">十佳产品榜单</a></div>
+                        </div>
+</li>
+<li >
+<a href="/brand/signUpFlow.php" target="_blank" title="品牌报名">品牌报名</a>
+</li>
+<!--<li >
+<a href="/vote/startin.php?id=41027?daohang"  target="_blank" title="中国梦品牌公益盛典">公益盛典</a>
+</li>-->
+<li  style="width: 130px;">
+<a href="/about/app.php" title="品评网App" target="_blank" style="width: 130px;">客户端</a>
+</li>
+</ul>
+            <div class="user_r_ll" id="user_r_ll">
+
+</div>
+   </div>
+
+
+
+
+</div>
+</div>
+<script>function ckf(){if($("#search-keyword").val()=="请输入商标名称,行业名称....." || $("#search-keyword").val()==""){return false;}}</script>
+<div class="head-fix"></div>
+<style type="text/css">
+.tl{width:134px;text-align:left;}
+.reg_title {border-bottom:#CCCCCC 1px solid;font-weight:bold;padding:0 0 10px 10px;margin:0px 55px 0 55px;font-size:14px;color:#FF6600;}
+.reg_inp {width: 360px;height: 50px;line-height: 50px;padding: 0 10px;border: #A7A7AA 1px solid;font-size: 18px;border-radius: 6px;}
+.tips {position:absolute;z-index:2;width:300px;background:url('image/tips_bg.gif') no-repeat 0 bottom;overflow:hidden;margin:-5px 0 0 -400px;}
+.tips div{background:url('image/tips_top.gif') no-repeat;line-height:22px;padding:8px 10px 8px 35px;}
+.tips1 {position:absolute;z-index:2;width:300px;background:url('image/tips_bg.gif') no-repeat 0 bottom;overflow:hidden;margin:-5px 0 0 -10px;}
+.tips1 div{background:url('image/tips_top.gif') no-repeat;line-height:22px;padding:8px 10px 8px 35px;}
+.tips5 {position:absolute;z-index:2;top:244px;left:140px;width:300px;background:url('image/tips_bg.gif') no-repeat 0 bottom;overflow:hidden;}
+.tips5 div{background:url('image/tips_tops.png') no-repeat;line-height:20px;padding:29px 10px 8px 35px;}
+.tips7 {position:absolute;z-index:2;top:244px;left:230px;width:300px;background:url('image/tips_bg.gif') no-repeat 0 bottom;overflow:hidden;}
+.tips7 div{background:url('image/tips_tops.png') no-repeat;line-height:20px;padding:29px 10px 8px 35px;}
+.tips8 {position:absolute;z-index:2;top:244px;left:309px;width:300px;background:url('image/tips_bg.gif') no-repeat 0 bottom;overflow:hidden;}
+.tips8 div{background:url('image/tips_tops.png') no-repeat;line-height:20px;padding:29px 10px 8px 35px;}
+.tips9 {position:absolute;z-index:2;top:244px;left:387px;width:300px;background:url('image/tips_bg.gif') no-repeat 0 bottom;overflow:hidden;}
+.tips9 div{background:url('image/tips_tops.png') no-repeat;line-height:20px;padding:29px 10px 8px 35px;}
+.lg-inp1 {width: 160px;height: 50px;line-height: 50px;padding: 0 10px;border: #A7A7AA 1px solid;font-size: 18px;border-radius: 6px;}
+.note_register a{color: #36adf7;}
+#send_scode{position:absolute;top:0;right:0;z-index: 6;color: #fff;width: 140px;background: #196dc8;outline: none;margin: 0;padding: 0;border:0;height: 50px;}
+#stbtn{width: 100%;height: 50px;font-size: 18px;background: #196dc8;color: white;border: 0;border-radius: 4px;-webkit-border-radius：4px;-moz-border-radius：4px;}
+.bottom_bg{position:absolute;bottom: 0;width: 980px;height: 200px;margin: 0 auto;}
+</style>
+<div class="m" style="position: relative;background-image:url(../images/static/dlzc_b_bg.png);background-size:100% 100%;padding-top:50px;min-height:711px">
+<div style="position:relative;" class="left_box">
+<!-- <div class="pos">当前位置: <a href="http://www.10pinping.com/">首页</a> &raquo; <a href="register.php">会员注册</a></div> -->
+<div class="title_style" style="border-top-left-radius:10px;border-top-right-radius:10px;">会员注册</div>
+<iframe src="" name="send" id="send" style="display:none;"></iframe>
+<form action="register.php" method="post" autocomplete="off" onsubmit="return check()" style="padding: 20px 0 36px 0;width:600px;margin:0 auto;background:#fff;">
+<input name="action" type="hidden" id="action" value="register"/>
+<input name="forward" type="hidden" value="http://www.10pinping.com/member/login.php"/>
+<input name="post[regid]" type="hidden" value="9"/>
+<input name="post[agree]" id="agree" type="hidden" value="1"/>
+<table width="100%" style="padding:0 32px;">
+<tr>
+<td class="tl">图片验证码：</td>
+<td width=300><input name="captcha" id="captcha" type="text" class="lg-inp1" onfocus="showcaptcha();" value="点击显示" onkeyup="checkcaptcha(this.value);" onblur="checkcaptcha(this.value);" class="f_gray" style=""/>&nbsp;<img src="http://img.10pinping.com/skin/10/image/loading.gif" title="验证码,看不清楚?请点击刷新&#10;字母不区分大小写" alt="" align="absmiddle" id="captchapng" onclick="reloadcaptcha();" style="display:none;cursor:pointer;vertical-align:middle;"/><span id="ccaptcha"></span>
+<input name="rnd" type="hidden" id="rnd" value="0" />
+<script type="text/javascript">
+function getRand(){return 'm'+Math.random().toString().substr(2);}
+function showcaptcha() {
+ischeckcaptcha=false;
+if(Dd('captchapng').style.display=='none') {Dd('captchapng').style.display='';}
+if(Dd('captchapng').src.indexOf('loading.gif') != -1) {
+rnd=getRand();
+Dd('rnd').value=rnd;
+Dd('captchapng').src='http://www.10pinping.com/api/captchas.png.php?rnd='+rnd;
+}
+if(Dd('captcha').value=='点击显示') {
+Dd('captcha').value='';
+}
+// Dd('captcha').className = '';
+}
+function reloadcaptcha() {
+ischeckcaptcha=false;
+rnd=getRand();
+Dd('rnd').value=rnd;
+Dd('captchapng').src = 'http://www.10pinping.com/api/captchas.png.php?rnd='+rnd;
+Dd('ccaptcha').innerHTML = '';
+Dd('captcha').value = '';
+}
+function checkcaptcha(s) {
+if(ischeckcaptcha){return;}else{ischeckcaptcha=true;}
+if(!is_captcha(s) || s.length != 4)
+{
+ ischeckcaptcha=false;
+ return;
+}
+makeRequest('captcha='+s+'&rnd='+rnd, '/api/captchas.check.php', '_checkcaptcha');
+}
+function _checkcaptcha() {
+if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+if(xmlHttp.responseText == '0') {
+Dd('ccaptcha').innerHTML = '&nbsp;&nbsp;<img src="http://img.10pinping.com/skin/10/image/check_right.gif" align="absmiddle"/>';
+} else {
+ischeckcaptcha=false;
+Dd('captcha').focus;
+Dd('ccaptcha').innerHTML = '&nbsp;&nbsp;<img src="http://img.10pinping.com/skin/10/image/check_error.gif" align="absmiddle"/>';
+}
+}
+}
+var rnd='';
+var ischeckcaptcha=false;
+</script></td>
+<td>
+<span id="dcaptcha" class="f_red"></span>&nbsp;
+</td>
+</tr>
+<tr><!-- <tr onmouseover="Ds('tmobile');" onmouseout="Dh('tmobile');"> -->
+<td class="tl">手机号码：</td>
+<td><input style="margin: 20px 0;" type="text" class="reg_inp" name="post[mobile]" id="mobile" onblur="validator('mobile');" autocomplete="off"   placeholder="请填写您的手机号"/></td>
+<td>
+<span id="dmobile" class="f_red"></span>&nbsp;
+</td>
+</tr>
+<tr>
+<td class="tl">手机验证码：</td>
+<td style="position: relative;z-index: 5;border: #A7A7AA 1px solid;box-sizing: border-box;border-radius: 6px;overflow:hidden;">
+<input type="text" class="reg_inp" style="height: 48px;border: none;width:220px;" maxlength="6" name="post[mobilecode]" id="mobilecode" placeholder="填写手机接收的验证码"/>
+<input type="button" value="获取验证码" id="send_scode" onclick="SendSCode();"/>
+</td>
+<td>
+<span id="dmobilecode" class="f_red"></span>&nbsp;
+</td>
+</tr>
+<tr id="sendsok" style="display:none;">
+<td class="tl">&nbsp;</td>
+<td id="dsendsok">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td class="tl">登录密码：</td>
+<td>
+<input style="margin-top: 20px;" type="password" class="reg_inp" name="post[password]" id="password" onblur="validator('password');" placeholder="请填写登录密码" autocomplete="off"/>
+<br /><span class="f_red">注：密码至少由6位大写字母，小写字母和数字组成。</span>
+</td>
+<td>
+<span id="dpassword" class="f_red"></span>&nbsp;
+</td>
+</tr>
+<tr><!-- <tr onmouseover="Ds('tcpassword');" onmouseout="Dh('tcpassword');"> -->
+<td class="tl">重复输入密码：</td>
+<td><input style="margin: 20px 0;" type="password" class="reg_inp"  size="30" name="post[cpassword]" id="cpassword" onblur="validate('cpassword');" placeholder="请再次输入一遍密码" autocomplete="off"/></td>
+<td>
+<span id="dcpassword" class="f_red"></span>&nbsp;
+</td>
+</tr>
+</table>
+<table cellpadding="5" cellspacing="5" width="100%">
+</table>
+<div width="100%" style="padding: 0 32px;">
+<div class="note_register">
+    <div class="checkbox-wrap">
+        <style media="screen">
+        .checkbox-wrap {margin: 10px 0 30px 0;}
+          .checkbox-wrap span {position: relative;}
+           .checkbox-wrap input {position: absolute;visibility: hidden;}
+           .checkbox-wrap label {position: absolute;top: 0;left:0;}
+            .checkbox-wrap input+label {margin-top: 7px;display: inline-block;width: 14px;height: 14px;background: #196dc8;border-radius: 2px;}
+            .checkbox-wrap input:checked+label:after {content: "";position: absolute;left: 3px;bottom: 6px;width: 6px;height: 2px; border: 1px solid #fff;border-top-color: transparent;border-right-color: transparent; -ms-transform: rotate(-60deg); -moz-transform: rotate(-60deg); -webkit-transform: rotate(-60deg); transform: rotate(-45deg);}
+        </style><span><input type="checkbox" name="post[agree_note]" checked="checked" id="agree_note" value="1" onchange="agreeNote()"><label for="agree_note"></label><span style="margin-left: 20px;font-size:12px;">我已同意并阅读</span><a style="font-size:12px;" href="?print=1" target="blank">《品评网注册协议》</a></span><span id="dagree_note" class="f_red"></span>
+    </div>
+
+
+
+</div>
+
+<input type="submit" id="stbtn" name="submit" value="注册">
+</div>
+</form>
+</div>
+</div>
+<!--<div class="bottom_bg"></div>-->
+</div>
+<script type="text/javascript" src="http://img.10pinping.com/file/script/guest.js"></script>
+<script type="text/javascript">
+$(function(){
+if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
+var minHeight = (window.screen.availHeight - 249) + 'px';
+} else if (window.navigator.userAgent.indexOf("Firefox") >= 1) {
+var minHeight = (document.documentElement.clientHeight - 164) + 'px';
+} else {
+var minHeight = (document.body.scrollHeight - 164) + 'px';
+}
+// $('.m').css('min-height', minHeight);
+});
+$("#captcha").css('width', '130px');
+var vid = '';
+function trim(str){
+return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+function validator(id) {
+vid = id;
+idVal=trim(Dd(id).value);
+Dd(id).value=idVal;
+if(idVal.length<3)return true;
+makeRequest('moduleid=2&action=member&job='+id+'&value='+idVal, AJPath, '_validator');
+}
+function _validator() {
+if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+Dd('d'+vid).innerHTML = xmlHttp.responseText ? '<img src="http://img.10pinping.com/skin/10/image/check_error.gif" align="absmiddle"/> '+xmlHttp.responseText : '<img src="http://img.10pinping.com/skin/10/image/check_right.gif" align="absmiddle"/> ';
+}
+}
+function err_msg(str, id) {
+Dd('d'+id).innerHTML = '<img src="http://img.10pinping.com/skin/10/image/check_'+(str ? 'error' : 'right')+'.gif" align="absmiddle"/> '+str;
+}
+function validate(type) {
+if(type == 'cpassword') {
+if(Dd('cpassword').value != Dd('password').value) {
+err_msg('两次输入的密码不一致', type);
+} else {
+if(Dd('cpassword').value.length>=6)
+{
+err_msg('', type);
+}
+
+}
+}
+if(type == 'truename') {
+if(Dd('truename').value.length < 2) {
+err_msg('请输入真实姓名', type);
+} else {
+err_msg('', type);
+}
+}
+if(type == 'telephone') {
+if(Dd('telephone').value.match(/^[0-9\-\(\)\+\.]{7,}$/)) {
+err_msg('', type);
+} else {
+err_msg('请输入公司电话', type);
+}
+}
+}
+function agreeNote() {
+var agree = $('#agree_note').is(':checked');
+console.log(agree);
+if (agree) {
+err_msg('', 'agree_note');
+$("#agree").val('1');
+} else {
+err_msg('注册账号需要同意并勾选《品评网协议》', 'agree_note');
+$("#agree").val('0');
+}
+}
+// function reg(type) {
+// $(":radio").each(function(){
+//     if($(this).attr("checked")){
+//     Ds('tgroup'+$(this).attr('value'));
+//     }else{
+//         Dh('tgroup'+$(this).attr('value'));
+//     }
+// });
+// if(type) {
+// Ds('company_detail');
+// //Dh('sendmcode');
+// } else {
+// Dh('company_detail');
+// //Ds('sendmcode');
+// }
+// }
+function Df(ID) {
+Dd(ID).focus();
+}
+function check() {
+f = 'captcha';
+if(!is_captcha(Dd(f).value)) {
+Dmsg('请填写验证码', f);
+return false;
+}
+var f,p;
+f = 'mobile';
+if(Dd(f).value == '') {
+err_msg('请填写会员登录名', f);
+Df(f);
+return false;
+}
+if(Dd('d'+f).innerHTML.indexOf('error') != -1) {
+Df(f);
+return false;
+}
+f = 'agree_note';
+if (!($('#agree_note').is(':checked'))) {
+err_msg('注册账号需要同意并勾选《品评网协议》!', 'agree_note');
+return false;
+}
+f = 'password';
+if(Dd(f).value.length < 6) {
+err_msg('请填写会员登录密码', f);
+Df(f);
+return false;
+}
+if(Dd('d'+f).innerHTML.indexOf('error') != -1) {
+Df(f);
+return false;
+}
+f = 'cpassword';
+if(Dd(f).value == '') {
+err_msg('请重复输入密码', f);
+Df(f);
+return false;
+}
+if(Dd('password').value != Dd(f).value) {
+err_msg('两次输入的密码不一致', f);
+Df(f);
+return false;
+}
+// f = 'agree_note';
+// if (!$("#agree_note").is(':checked')) {
+// err_msg('注册账号需要同意并勾选《品评网协议》', f);
+// Df(f);
+// return false;
+// }
+/*f = 'truename';
+if(Dd(f).value == '') {
+err_msg('请填写真实姓名', f);
+Df(f);
+return false;
+}
+f = 'email';
+if(Dd(f).value.length < 6) {
+err_msg('请填写电子邮箱', f);
+Df(f);
+return false;
+}
+if(Dd('d'+f).innerHTML.indexOf('error') != -1) {
+Df(f);
+return false;
+}
+if(Dd('areaid_1').value == 0) {
+Dmsg('请选择所在地', 'areaid');
+return false;
+}*/
+f = 'mobilecode';
+if(!Dd(f).value.match(/^[0-9]{6}$/)) {
+Dmsg('请填写手机验证码', f);
+return false;
+}
+// if(Dd('g_9').checked == true) {
+// f = 'vcompany';
+// if(Dd(f).value == '') {
+// err_msg('请填写公司名称', f);
+// Df(f);
+// return false;
+// }
+// if(Dd('d'+f).innerHTML.indexOf('error') != -1) {
+// Df(f);
+// return false;
+// }
+// if(Dd('type').value == '') {
+// Dmsg('请选择公司类型', 'type');
+// return false;
+// }
+// f = 'telephone';
+// if(Dd(f).value.length < 7) {
+// err_msg('请填写公司电话', f);
+// Df(f);
+// return false;
+// }
+// }
+return true;
+}
+function SendCode() {
+if(Dd('demail').innerHTML.indexOf('right') == -1) {
+Dd('email').focus();
+return;
+}
+makeRequest('action=sendscode&value='+Dd('email').value, 'register.php', '_SendCode');
+Dh('sendok');
+Dd('send_code').value = '正在发送';
+Dd('send_code').disabled = true;
+}
+function _SendCode() {
+var f = 'email';
+if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+Dd('send_code').value = xmlHttp.responseText == 1 ? '发送成功' : '立即发送';
+Dd('send_code').disabled = xmlHttp.responseText == 1 ? true : false;
+if(xmlHttp.responseText == 1) {
+Ds('sendok');
+Dd('dsendok').innerHTML = '<img src="http://img.10pinping.com/member/image/ico_mailok.gif" align="absmiddle"/> <span class="f_green">邮件发送成功，</span> <a href="goto.php?action=emailcode&email='+Dd(f).value+'" target="_blank">立即查收</a>';
+StopCode();
+} else if(xmlHttp.responseText == 2) {
+err_msg('邮件格式错误，请检查', f);
+Df(f);
+} else if(xmlHttp.responseText == 3) {
+err_msg('邮件地址已存在，请更换', f);
+Df(f);
+} else if(xmlHttp.responseText == 4) {
+err_msg('此邮件域名已经被禁止注册，请更换', f);
+Df(f);
+} else if(xmlHttp.responseText == 5) {
+alert('邮件发送过快，请稍后再试');
+} else if(xmlHttp.responseText == 6) {
+alert('尝试发送次数太多，请稍后再试');
+} else if(xmlHttp.responseText == 7) {
+alert('验证码不正确或已失效，请点击验证码更换后再试！');
+} else {
+alert('未知错误，请重试');
+}
+}
+}
+function StopCode() {
+Dd('send_code').disabled = true;
+var i = 60;
+var interval=window.setInterval(
+function() {
+if(i == 0) {
+Dd('send_code').value = '立即发送';
+Dd('send_code').disabled = false;
+clearInterval(interval);
+} else {
+Dd('send_code').value = '重新发送('+i+')';
+i--;
+}
+},
+1000);
+}
+function SendSCode() {
+if(Dd('ccaptcha').innerHTML.indexOf('right') == -1) {
+Dd('captcha').focus();
+alert('请先填写正确的验证码！');
+return;
+}
+if(Dd('dmobile').innerHTML.length<11) {
+err_msg('请填写正确手机号', 'mobile');
+return;
+}
+makeRequest('action=sendscode&value='+Dd('mobile').value+'&rnd='+Dd('rnd').value+'&captcha='+Dd('captcha').value, 'register.php', '_SendSCode');
+Dh('sendsok');
+Dd('send_scode').value = '正在发送';
+Dd('send_scode').disabled = true;
+}
+function _SendSCode() {
+var f = 'mobile';
+if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+Dd('send_scode').value = xmlHttp.responseText == 1 ? '发送成功' : '立即发送';
+Dd('send_scode').disabled = xmlHttp.responseText == 1 ? true : false;
+if(xmlHttp.responseText == 1) {
+Ds('sendsok');
+Dd('dsendsok').innerHTML = '<img src="http://img.10pinping.com/member/image/ico_mailok.gif" align="absmiddle"/> <span class="f_green">短信发送成功</span>';
+StopSCode();
+} else if(xmlHttp.responseText == 2) {
+err_msg('手机号码格式错误，请检查', f);
+Df(f);
+} else if(xmlHttp.responseText == 3) {
+err_msg('手机号码已存在，请更换', f);
+Df(f);
+} else if(xmlHttp.responseText == 5) {
+alert('短信发送过快，请过几分钟后再试');
+} else if(xmlHttp.responseText == 6) {
+alert('当前IP尝试发送次数太多，请过几分钟后再试');
+} else if(xmlHttp.responseText == 7) {
+alert('验证码不正确或已失效，请点击验证码更换后再试！');
+} else {
+alert('未知错误，请重试');
+}
+}
+}
+function StopSCode() {
+Dd('send_scode').disabled = true;
+var i = 180;
+var interval=window.setInterval(
+function() {
+if(i == 0) {
+Dd('send_scode').value = '立即发送';
+Dd('send_scode').disabled = false;
+clearInterval(interval);
+} else {
+Dd('send_scode').value = '重新发送('+i+')';
+i--;
+}
+},
+1000);
+}
+// reg(1);
+</script>
+<style>
+.rightinfo a{color:#fff;}
+.rightinfo a:hover {color:#FF3300}
+</style>
+<div class="clearfix"></div>
+<div id="footer">
+
+<div class="m1024">
+<div class="leftbah">Copyright © 2018 www.10pinping.com Inc. All Rights Reserved. 品评网 京ICP备16047764号 <span style="vertical-align:-3px;display:none;"><script src="https://s95.cnzz.com/z_stat.php?id=1261204169&web_id=1261204169" language="JavaScript"></script></span>
+</div>
+<div class="rightinfo">
+<a href="/about" target="_blank">关于我们 </a>|
+<!--<a href="/about/contact.php" target="_blank">联系方式 </a>|-->
+<a href="/guestbook" target="_blank">问题反馈 </a>|
+            <a href="/about/helpcenter.php" target="_blank">帮助中心 </a>
+</div>
+</div>
+</div>
+<div class="kefu_box">
+<ul>
+<li>
+<span class="kefu_qq" id="kefu_qq"><span></span><i>在 线 咨 询</i></span>
+<!-- <span class="kefu_switch"><span>在 线 咨 询</span></span> -->
+<div class="kefu_qq_list">
+<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=506183156&site=qq&menu=yes">客服01</a>
+                                                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=3067064935&site=qq&menu=yes">客服02</a>
+</div>
+</li>
+<li>
+<span class="kefu_phone"><span></span><i>电 话 咨 询</i></span>
+<div class="kefu_phone_list">
+<strong>全国服务电话：</strong><br>400-187-8707
+</div>
+</li>
+<li>
+<span class="kefu_wx"><a href='http://m.10pinping.com/'><span></span><i>触屏版浏览</i></a></span>
+<div class="kefu_wx_info">
+<img src="http://img.10pinping.com/skin/10/image/10pinping2.png" align="left" alt="品评网二维码">
+</div>
+</li>
+<li>
+<span class="kefu_fk"><span></span><i><a href="/guestbook" target="_blank" style="color:#fff">问 题 反 馈</a></i></span>
+</li>
+<li>
+<span class="back_top"><span></span><i>返 回 顶 部</i></span>
+</li>
+</ul>
+</div>
+<p align="center" style="display:none;">
+<script type="text/javascript">
+var bc_userid = 0;var bc_username = '';var bc_message = 0;var bc_chat = 0;var bc_cart = substr_count(get_cookie('cart'), ',');var bc_member = '';var user_r_ll='';
+bc_member += '欢迎，<span >网友</span> | <a href="http://www.10pinping.com/member/login.php">请登录</a> | <a href="http://www.10pinping.com/member/register.php">免费注册</a> | <a href="http://www.10pinping.com/member/getpassword.php">忘记密码?</a>';
+user_r_ll +='<a href="/member/register.php" class="ur" style=" border: 1px solid #fff;color:#fff;">注册</a><a href="/member/login.php" class="ul">登录</a>';
+$('#bc_member').html(bc_member);
+$('#user_r_ll').html(user_r_ll);
+$('#bc_cart').html(bc_cart ? '<strong>'+bc_cart+'</strong>' : 0);
+$(function(){$("img").lazyload();});</script>
+</p>
+<script type="text/javascript" src="http://img.10pinping.com/skin/10/js/footer.js"></script>
+<!--百度商桥-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?54a0788fec161f0476e41c6a89cf9520";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

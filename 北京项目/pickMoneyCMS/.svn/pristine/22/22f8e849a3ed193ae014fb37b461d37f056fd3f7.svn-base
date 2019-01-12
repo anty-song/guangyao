@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>接口测试</title>
+  {load href="/static/admin/layui/css/layui.css" /}
+  {load href="/static/admin/js/jquery.min.js" /}
+</head>
+
+<body>
+<table width="948" height="406" border="1" align="center">
+  <tr>
+    <td><form id="form1" name="form1" method="post" action="">
+      <table width="600" height="194" border="1" align="center">
+        <tr>
+          <td>action</td>
+          <td>
+            <select name="select">
+			{volist name="arr_api_list" id="vo"}
+				<option value="{$vo['7']}">{$vo['0']}</option>
+			{/volist}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>paramData</td>
+          <td>
+            <p>
+            uid=
+                <input name="textfield2" type="text" value="1" size="50" />
+            </p>
+            <p>
+              time=
+              <input name="textfield22" type="text" value="1" size="50" />
+            </p>
+            <p>
+              auth=
+              <input name="textfield23" type="text" value="1" size="50" />
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><div align="center">
+            <input type="submit" name="Submit" value="提交" />
+            <input type="reset" name="Submit2" value="重置" />
+          </div></td>
+          </tr>
+      </table>
+        </form>
+    </td>
+  </tr>
+</table>
+{load href="/static/admin/layui/layui.js" /}
+</body>
+</html>

@@ -1,0 +1,10 @@
+/*分页部分的样式*/
+.pagination{margin: 20px 0;text-align: center;font-size: 0;}
+.pagination li{display: inline-block;border: 1px solid #ddd;padding: 0 18px;text-align: center;background: #fff;border-left: none;height: 40px;line-height: 40px;}
+.pagination li:first-child{border-left: 1px solid #ddd;}
+.pagination li span{color: #333;font-size: 18px;}
+.pagination li a{color: #333;font-size: 18px;text-decoration: none;}
+.pagination li.active{background: #3ed2a1!important;}
+.pagination li.active span{color: #fff!important;}
+.pagination li.active a{color: #fff!important;}
+.pagination li.disabled span{color: #ddd;}

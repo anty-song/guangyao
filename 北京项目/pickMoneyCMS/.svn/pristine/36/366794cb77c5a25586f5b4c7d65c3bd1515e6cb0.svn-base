@@ -1,0 +1,162 @@
+//礼物对象
+var  gifObj = function() {
+	this.alive = [];//boolean当前礼物是否掉落
+	
+	this.x = [];//定义奖品的位置x
+	this.y = [];//定义奖品的位置y
+	
+	this.w = [];//定义奖品的宽度
+	this.h = [];//定义奖品的高度
+	
+	this.velocityY = [];//定义初始速度
+	
+	this.centerX = []; //中心点X
+	this.centerY = [];//中心点Y
+	
+	this.gifType = [];//奖品类型
+	this.maxnum = 8;
+	
+	this.redPack = new Image();//红包礼物
+	this.egg = new Image();//彩蛋
+	this.treasure = new Image();//宝箱礼物
+	this.wallet = new Image();//钱袋
+	this.godman = new Image();//财神
+	this.box = new Image();//宝盒
+};
+
+var path = new Path();
+
+gifObj.prototype.num = 5;//显示的数量
+
+gifObj.prototype.init = function() {  //初始化
+	for(var i = 0; i < this.num; i++) {
+		this.x[i] = Math.random()*canWidth/4 + 25;//x的位置是0-屏幕的1/3
+		this.y[i] = 60;//初始的y坐标是60
+		// this.velocityY[i] = Math.random() * 45 + 25;
+		this.gifType[i] = "";//礼物的类型数组
+		this.born(i);
+	}
+	//挂载图片 
+	this.redPack.src = path.src+"redpack.png";
+	this.egg.src = path.src+"egg.png";
+	this.treasure.src = path.src+"treasure.png";
+	this.wallet.src = path.src+"wallet.png";
+	this.godman.src = path.src+"godman.png";
+	this.box.src = path.src+"box1.png";
+};
+
+gifObj.prototype.draw = function() 
+{
+	for (var i = 0; i < this.num; i++) 
+	{
+		//draw
+		if(this.alive[i])
+		{
+			//判断是哪一类掉落物品 
+			if(this.gifType[i] == "redpack")
+			{
+				var pic = this.redPack;
+			}else if(this.gifType[i] == "egg")
+			{
+				var pic = this.egg;
+			}else if(this.gifType[i] == "treasure")
+			{
+				var pic = this.treasure;
+			}else if(this.gifType[i] == "wallet")
+			{
+				var pic = this.wallet;
+			}else if(this.gifType[i] == "godman")
+			{
+				var pic = this.godman;
+			}else if(this.gifType[i] == "box"){
+				var pic = this.box;
+			}
+			this.y[i] += this.velocityY[i]*0.01*deltaTime;this.y[i] += this.velocityY[i]*0.01*deltaTime;
+			this.centerX[i] = this.x[i] + this.w[i]/2;
+			this.centerY[i] = this.y[i] + this.h[i]/2;
+			ctxBg.save();
+			ctxBg.drawImage(pic,this.x[i],this.y[i],this.w[i],this.h[i]);
+			ctxBg.restore();
+			
+			if(this.y[i] > canHeight - 140) {
+				// this.alive[i] = false;
+				this.dead(i);
+			}
+		}		
+	}
+};
+
+gifObj.prototype.born = function(i,type) {
+	this.alive[i] = true;
+	//ran是一个随机数,我们可以通过它来算出现各种红包的概率
+	var ran = Math.random(),
+		die_type = type;//死去的类型
+
+	this.x[i] = Math.random()*canWidth/4 + 25;
+	this.y[i] = 60;
+
+	if(ran < 0.3){//1/10的概率
+		this.gifType[i] = "redpack";//设置类型是红包
+		this.w[i] = 50;
+		this.h[i] = 50;
+		this.velocityY[i] = 5;
+	}else if(0.3 <= ran && ran < 0.5) {
+		this.gifType[i] = "egg";
+		this.w[i] = 45;
+		this.h[i] = 65;
+		this.velocityY[i] = 6;
+	}else if(0.5 < ran && ran < 0.6) {
+		this.gifType[i] = "treasure";
+		this.w[i] = 50;
+		this.h[i] = 50;
+		this.velocityY[i] = 4;
+	}else if(0.6 < ran && ran < 0.75) {
+		this.gifType[i] = "wallet";
+		this.w[i] = 50;
+		this.h[i] = 50;
+		this.velocityY[i] = 5;
+	}else if(0.75 < ran && ran < 0.85) {
+		this.gifType[i] = "godman";
+		this.w[i] = 40;
+		this.h[i] = 60;
+		this.velocityY[i] = 6;
+	}else if(0.85 < ran && ran <= 1) {
+		this.gifType[i] = "box";
+		this.w[i] = 50;
+		this.h[i] = 45;
+		this.velocityY[i] = 6;
+	}
+};
+
+gifObj.prototype.dead = function(i) {
+	this.alive[i] = false;
+};
+
+function gifMonitor() {
+	var num = 0;//计算有多少个当前显示的奖品
+	for(var i = 0; i < gifs.num; i++) {
+		if(gifs.alive[i]) num++;
+	}
+	if(num < gifs.maxnum) {
+		sendGif();
+		return;
+	}
+}
+
+function sendGif() {
+	for(var i = 0; i <　gifs.num; i++) {
+		if(!gifs.alive[i]) {
+			gifs.born(i,gifs.gifType[i]);
+			return;
+		}				
+	}
+}
+
+
+
+
+
+
+
+
+

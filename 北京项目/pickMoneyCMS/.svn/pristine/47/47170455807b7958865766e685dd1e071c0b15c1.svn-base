@@ -1,0 +1,32 @@
+var path = new Path();
+var ballonObj = function() {
+	this.left = {
+			x: 25,
+			y: 30,
+			w: 100,
+			h: 100,
+			src: path.src+"qiqiul.png"
+	}
+	this.leftImage = new Image();
+	
+	this.right = {
+			x: canWidth - 130,
+			y: 30,
+			w: 100,
+			h: 100,
+			src: path.src+ "qiqiur.png"
+	};
+	this.rightImage = new Image();
+}
+
+
+ballonObj.prototype.init = function() {
+	this.leftImage.src = this.left.src;
+	this.rightImage.src = this.right.src;
+}
+
+ballonObj.prototype.draw = function() {
+	ctxEl.drawImage(this.leftImage,0,0,231,249,this.left.x,this.left.y,this.left.w,this.left.h);
+	ctxEl.drawImage(this.rightImage,0,0,240,276,this.right.x,this.right.y,this.right.w,this.right.h);
+}
+

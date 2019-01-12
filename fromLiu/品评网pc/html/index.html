@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>首页</title>
+    <script src="../js/jquery-1.8.0.min.js"></script>
+</head>
+<body>
+    <div class="banner" >
+        <div class="voting_search">
+        <div class="vote_search">
+            <input name="catTitle" id="catTitle" type="search" onkeyup="catTip(this.value);" oninput="catTip(this.value);" results="1" size="32" autocomplete="off" placeholder="请输入商标名称，行业名称" value="">
+            <div class="magnifying_lens">
+                <img src="../images/static/index_ss_btn.png" alt="放大镜"/>
+            </div>
+            <div id="sidebar_tips" style="display:none; clear:both;z-index:8;"></div>
+        </div>
+        </div>
+    </div>
+        <!-- <div class="user_r_l " style="  height: 42px;position: absolute;width: 590px;margin-top: 18px;">
+            <input type="submit" class="btn" value="搜索">
+            <input class="search" style="line-height:40px;" id="search" name="kw" results="1" autocomplete="off" placeholder="请输入商标名称,行业名称....." onfocus="if(this.value=='请输入商标名称,行业名称.....'){this.value='';}" onblur="if(this.value==''){this.value='请输入商标名称,行业名称.....';}" type="text">
+        </div> -->
+    </div>
+    <div class="navigator">
+        <a href="#">
+            <div class="container news">
+                <div class="wrapper">
+                    <div class="cont">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+                <div style="" class="container1">
+                    <div class="wrapper1">
+                        <div class="cont1">
+                            <div class="inner1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="item-title">新闻资讯</p>
+            <p class="item-intro">查看最新最全的行业资讯</p>
+        </a>
+        <a href="#">
+            <div class="container vote">
+                <div class="wrapper">
+                    <div class="cont">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+                <div style="" class="container1">
+                    <div class="wrapper1">
+                        <div class="cont1">
+                            <div class="inner1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="item-title">热门投票</p>
+            <p class="item-intro">查看正在进行投票的热门行业</p>
+        </a>
+        <a href="#">
+            <div class="container rank">
+                <div class="wrapper">
+                    <div class="cont">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+                <div style="" class="container1">
+                    <div class="wrapper1">
+                        <div class="cont1">
+                            <div class="inner1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="item-title">行业榜单</p>
+            <p class="item-intro">查看最近已揭晓的行业榜单</p>
+        </a>
+        <a href="#">
+            <div class="container process">
+                <div class="wrapper">
+                    <div class="cont">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+                <div style="" class="container1">
+                    <div class="wrapper1">
+                        <div class="cont1">
+                            <div class="inner1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="item-title">报名流程</p>
+            <p class="item-intro">马上让您的品牌参与活动</p>
+        </a>
+    </div>
+    <div class="wiki">
+        <p class="wiki-tit">品牌百科</p>
+        <div class="wiki-ctt">
+            <div class="wiki-item">
+                <p class="item-name">格力</p>
+                <p class="item-slogon">凭借核心技术和原创设计，让世界爱上中国造</p>
+                <p class="item-ctt">珠海格力电器股份有限公司，成立于1991年，是一家集研发、生产、销售、服务于一体的国际化家电企业，拥有格力、TOSOT、晶弘三大品牌，主营家用空调、中央空调、空气能热水器、手机、生活电器、冰箱等产品。</p>
+            </div>
+            <div class="wiki-item">
+                <p class="item-name">格力</p>
+                <p class="item-slogon">凭借核心技术和原创设计，让世界爱上中国造</p>
+                <p class="item-ctt">珠海格力电器股份有限公司，成立于1991年，是一家集研发、生产、销售、服务于一体的国际化家电企业，拥有格力、TOSOT、晶弘三大品牌，主营家用空调、中央空调、空气能热水器、手机、生活电器、冰箱等产品。</p>
+            </div>
+            <div class="wiki-item">
+                <p class="item-name">格力</p>
+                <p class="item-slogon">凭借核心技术和原创设计，让世界爱上中国造</p>
+                <p class="item-ctt">珠海格力电器股份有限公司，成立于1991年，是一家集研发、生产、销售、服务于一体的国际化家电企业，拥有格力、TOSOT、晶弘三大品牌，主营家用空调、中央空调、空气能热水器、手机、生活电器、冰箱等产品。</p>
+            </div>
+            <div class="wiki-item">
+                <p class="item-name">格力</p>
+                <p class="item-slogon">凭借核心技术和原创设计，让世界爱上中国造</p>
+                <p class="item-ctt">珠海格力电器股份有限公司，成立于1991年，是一家集研发、生产、销售、服务于一体的国际化家电企业，拥有格力、TOSOT、晶弘三大品牌，主营家用空调、中央空调、空气能热水器、手机、生活电器、冰箱等产品。</p>
+            </div>
+        </div>
+        <a class="more-wiki" href="#">更多百科</a>
+    </div>
+
+
+
+
+     <div class="partners">
+         <div class="parters_inner">
+             <p class="point-tit">网媒支持</p>
+             <div class="containers">
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="hex">
+                     <div class='inner_img'></div>
+                     <div class="corner-1"></div>
+                     <div class="corner-2"></div>
+                 </div>
+                 <div class="mohu_yinying"></div>
+             </div>
+         </div>
+
+         <img src="../images/static/index_jtx_btn.png" alt="" class="xia_arrow">
+     </div>
+
+
+
+
+
+    <div class="latest_brand">
+        <div class="latest_brand_inner">
+            <p class="latest_list">近期榜单</p>
+            <div class="latest_left_square">
+                <ul class="latest_middle">
+                  <li>
+                      <a href="##">
+                          <i class="pic_jian"></i>
+                          <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                          <span>2018.2.33</span>
+                      </a>
+                  </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <i class="pic_jian"></i>
+                            <p class="wen_date">山东分公司电饭锅是电饭锅山东分公司电饭锅是电饭锅撒地方个</p>
+                            <span>2018.2.33</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <a href="##" class="a_mnore">
+                    <div class="more_brand_dan">
+                        更多榜单
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+     <div class="point">
+        <div class="point-ctt">
+            <p class="point-tit">近期要点</p>
+            <ul class="point-item">
+                <li class="point-item-li">
+                    <div class="left-item">
+                        <p class="date-big">10</p>
+                        <p class="date-small">2018.06</p>
+                    </div>
+                    <div class="right-item">
+                        <p class="right-item-top">单方事故收到如果得到的风格和士大夫敢死的风格和队山东的风格和分公的风格和司电饭锅是电饭锅山东分公司大方</p>
+                        <p class="right-item-bottom">方事故收到如果士大夫敢死队山东分公反对共和司电饭订单发货的风格和的风格和的风格和法国锅是电饭锅山东分公司大方</p>
+                            <a class="detail_xiangqing">查看详情</a>
+                    </div>
+                </li>
+                <li class="point-item-li">
+                    <div class="left-item">
+                        <p class="date-big">10</p>
+                        <p class="date-small">2018.06</p>
+                    </div>
+                    <div class="right-item">
+                        <p class="right-item-top">单方事故收到如果士大夫敢死队山东分公司电饭锅是电饭锅山东分公司大方</p>
+                        <p class="right-item-bottom">方事故收到如果士大夫敢死队山东分公司电饭锅是电饭锅山东分公司大方</p>
+                        <a class="detail_xiangqing">查看详情</a>
+                    </div>
+                </li>
+                <li class="point-item-li">
+                    <div class="left-item">
+                        <p class="date-big">10</p>
+                        <p class="date-small">2018.06</p>
+                    </div>
+                    <div class="right-item">
+                        <p class="right-item-top">单方事故收到如果士大夫敢死队山东分公司电饭锅是电饭锅山东分公司大方</p>
+                        <p class="right-item-bottom">方事故收到如果士大夫敢死队山东分公司电饭锅是电饭锅山东分公司大方</p>
+                        <a class="detail_xiangqing">查看详情</a>
+                    </div>
+                </li>
+                <li class="point-item-li">
+                    <div class="left-item">
+                        <p class="date-big">10</p>
+                        <p class="date-small">2018.06</p>
+                    </div>
+                    <div class="right-item">
+                        <p class="right-item-top">单方事故收到如果士大夫敢死队山东分公司电饭锅是电饭锅山东分公司大方</p>
+                        <p class="right-item-bottom">方事故收到如果士大夫敢死队山东分公司电饭锅是电饭锅山东分公司大方</p>
+                        <a class="detail_xiangqing">查看详情</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="links">
+        <div class="links-ctt">
+            <p class="links-tit">友情链接</p>
+            <div class="links-list">
+                <a href="#">中央人民政府</a>
+                <a href="#">国务院经济发展中心</a>
+                <a href="#">国家发改委</a>
+                <a href="#">国家科委</a>
+                <a href="#">质监站局</a>
+                <a href="#">知识产权局</a>
+                <a href="#">商务部</a>
+                <a href="#">中华工商联合会</a>
+                <a href="#">中国消协</a>
+                <a href="#">人民日报</a>
+                <a href="#">新华社</a>
+                <a href="#">阿里巴巴</a>
+                <a href="#">天猫商城</a>
+                <a href="#">京东商城</a>
+                <a href="#">一号店</a>
+                <a href="#">亚马逊</a>
+            </div>
+            <div class="inner-links">
+                <a href="#">关于我们</a>
+                <a href="#" class="reply">问题反馈</a>
+                <a href="#">帮助中心</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(function(){
+
+
+        $('.xia_arrow').click(function(){
+            if($(this).hasClass('shang')){
+                $('.containers').animate({'height':'400px'},400);
+                $(this).removeClass('shang').attr('src','../images/static/index_jtx_btn.png');
+                $('.mohu_yinying').css('display','block');
+            }else{
+                $('.containers').animate({'height':'800px'},400);
+                $(this).addClass('shang').attr('src','../images/static/index_jts_btn.png');
+            $('.mohu_yinying').css('display','none');
+
+            }
+
+
+        })
+
+    });
+</script>

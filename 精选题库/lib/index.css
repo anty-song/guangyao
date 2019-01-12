@@ -1,0 +1,14 @@
+html,body { height: 100%; }
+body { background-color: #3abfec; display: flex; flex-direction: column; justify-content: space-between; }
+.wrap { max-width: 10rem; margin: 0 auto; }
+.img-bg img { width: 10rem; height: 4.8rem; }
+img { display: block; }
+.paragraph { background-image: url(../images/tiku_zuotibg1_img.png);width: 8.8rem; margin: 0 auto; background-size: 100% 100%; padding: 0 }
+.paragraph_1 { padding-bottom: 0.67rem; }
+.paragraph-head { height: 1.33rem;display: flex; align-items: center; justify-content: center;margin: .45rem 0 .27rem; }
+.paragraph-head img { width: .84rem; height: .4rem; }
+.paragraph-head span { font-size: .4rem; color: #fffefe; }
+.paragraph-body { font-size: .35rem; line-height: .67rem; color: #d6ecfe;padding: 0 0.67rem; }
+.paragraph-key { color: #ffe381; }
+.paragraph-foot { display: block; width: 7.47rem; height: 1.07rem; margin: .84rem auto 0; }
+.statement { font-size: .27rem; line-height: .27rem; color: #99feff; text-align: center; padding-bottom: .36rem;margin-top: 1rem; }

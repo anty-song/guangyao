@@ -1,0 +1,659 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="x-ua-compatible" content="ie=8" />
+<link rel="alternate" type="application/vnd.wap.xhtml+xml" media="handheld" href="http://m.10pinping.com/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>鑫煤品牌_凿岩台车行业_品评网</title>
+<meta name="keywords" content="鑫煤,山东鑫煤矿山设备集团有限公司,建工化学农用品,凿岩台车"/>
+<meta name="description" content="鑫煤品牌介绍及评论查看，所属公司：山东鑫煤矿山设备集团有限公司、地址：山东省济宁市任城区、网址、微信、微博等其它联系方式查看。"/>
+<link rel="archives" title="品评网" href="http://www.10pinping.com/archiver/"/>
+<!--<link rel="stylesheet" type="text/css" href="http://img.10pinping.com/skin/10/style.css"/>-->
+<!--<link rel="stylesheet" type="text/css" href="http://img.10pinping.com/skin/10/voting.css"/>-->
+<!--<link rel="stylesheet" type="text/css" href="http://img.10pinping.com/skin/10/toupiaohy.css"/>-->
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="http://img.10pinping.com/skin/10/ie6.css"/>
+<![endif]-->
+<script type="text/javascript">window.onerror=function(){return true;}</script><script type="text/javascript" src="http://img.10pinping.com/file/script/jquery.js"></script><script type="text/javascript" src="http://img.10pinping.com/file/script/public.js"></script>
+<style>
+.bc_member1 a{color:#CDCBCD;}
+.bc_member1 a:hover {color:#FF3300}
+</style>
+
+    <!--新加入的样式-->
+    <link rel="stylesheet" href="../css/pinping_xiangqing.css">
+</head>
+<body>
+<!--新加入的新春背景图-->
+<!--<img src="http://img.10pinping.com/skin/10//jieri/pinping-news1.png" height="325" width="351" style="position:fixed;top:160px;left:0px;"/>
+<img src="http://img.10pinping.com/skin/10/jieri/pinping-news2.png" height="492" width="350" style="position:fixed;top:0px;right:0px;z-index:100"/>-->
+<!--新加入的新春背景图-->
+<a id="top" name="top"></a>
+<div class="header">
+<div class="sear_logo">
+<div class="topinfo">
+<div class="m1024">
+<div class="customer_phone">400-187-8707</div>
+<div id="bc_member" class="bc_member1"></div> 
+<!-- <div class="bc_member1">
+<a href="/member/login.php" target="_blank">用户中心 </a>&nbsp;|&nbsp;
+<a href="/about/contact.php" target="_blank">联系我们 </a>
+-->
+</div>
+</div>
+</div>
+
+<div class="sear_logo_img">
+<div class="m1024">
+<div class="sear_left_teim">
+<a href="http://www.10pinping.com/" title="十大品牌网首页">
+<img src="http://img.10pinping.com/skin/10/image/logo.png" alt="品评网"/>
+
+</a>
+</div>
+<form name="form1" action="/brand/search.php" method="get" onsubmit="return ckf()">
+              <input type="hidden" name="moduleid" value="13"/>
+     <div class="user_r_l "  style="  height: 42px;position: relative;width: 590px;margin-top: 18px;">
+    <input type="submit" class="btn"  value="搜索" />
+     <input class="search" id="search" style="line-height:40px;"  name="kw"  results="1" autocomplete="off"  placeholder="请输入商标名称,行业名称....."    onfocus="if(this.value=='请输入商标名称,行业名称.....'){this.value='';}"  onblur="if(this.value==''){this.value='请输入商标名称,行业名称.....';}" type="text"  >
+
+</div>
+
+           </form>
+
+
+
+  </div>
+ <ul id="suggest_ul1" class="shouding" style="display:none;" >
+</ul> 
+  <!--收索下拉-->
+<span id="dbrandtitle1" class="f_red"></span>
+<script type="text/javascript">
+$('#search').keyup(function(){
+//alert($('#search-keyword').attr('value'));
+    if($('#search').attr('value')==''){
+$('#suggest_ul1').hide();
+}
+else if($('#search').attr('value').length<1){
+}else{
+$.ajax({
+type:'POST',
+url:'/brand/search.php?action=seleiis',
+data:{keyword:$('#search').attr('value')},
+dataType:'json',
+success:function(data){
+if(data!=0){
+// console.log(data[0].title);
+var contentss="";
+for(var i=0;i<data.length;i++){
+var keywords = data[i].title;
+//alert(keywords);
+//alert(skey);
+
+contentss=contentss+"<a href='javascript:void(0);'><li onmouseover=over('ali"+i+"');  onmouseout=out('ali"+i+"');   id='ali"+i+"' onclick=changekk('ali"+i+"');>"+keywords+"</li></a>";
+
+}
+//alert(contents);
+$("#suggest_ul1").show();
+$("#suggest_ul1").html(contentss);
+$('#dbrandtitle1').html('');
+}else{
+$('#dbrandtitle1').html('');
+}
+}
+});
+}
+});
+function changekk (id) {
+        
+        con=$('#'+id).text();
+ 
+    $('#search').attr('value',con);
+
+$('#suggest_ul1').hide(0);
+
+
+}
+function over(fontStyle){
+document.getElementById(fontStyle).style.background='#ffe3d9';
+}
+function out(fontStyle){
+document.getElementById(fontStyle).style.background='white';
+}
+</script>
+<style type="text/css">
+    .shouding{
+    position:absolute;
+ z-index:999;
+top:62px;
+  left: 50%;
+ margin-left:75px;
+border:1px solid #dddddd;
+   }
+   
+   .shouding li {
+         background-color: white;
+ color:black;
+ font-size:12px;
+ isplay:block;
+          width:446px;
+  height:40px;
+   line-height: 40px;
+  padding-left: 10px;
+         }
+</style>
+<!---->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   <div class="sear_logo_img" style="top:110px;height: 42px;  background: #449df5 none repeat scroll 0 0;">
+  <style>
+.btn {
+    background: #0066d4 none repeat scroll 0 0;
+    font-size: 18px;
+    height: 44px;
+ 
+    position: absolute;
+color:#ffffff;
+    right: 0;
+    text-align: center;
+    width: 70px;
+}
+ .search {
+    border: 1px solid #0066d4;
+    color: #a9a9a9;
+    font-size: 18px;
+    height: 40px;
+    width: 446px;
+padding-left:10px;
+}
+.nav-box-nav li {
+    color: #fff;
+    font-size: 18px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    width: 150px;
+float:left;
+
+  
+}
+.nav-box-nav li a {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    height: 42px;
+    width: 150px;
+}
+.nav-box-nav li a{
+display: block;
+width: 150px;
+height: 42px; 
+color: #fff;
+font-size: 18px;
+}
+.nav-box-nav li a:hover{
+background: #166cc1;
+color: #fff;
+}
+.menu-on{
+    background: #166cc1;
+color: #fff;
+}
+.user_r_ll {
+    float:right;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    text-align: center;
+    width: 160px;
+position: fixed;
+left: 50%;
+     margin-left: 440px;
+}
+
+body {
+    margin: 0 auto;
+}
+/*body {*/
+    /*background: #f5f5f5 none repeat scroll 0 0;*/
+    /*font-family: "Microsoft Yahei",Verdana,Arial,Helvetica,sans-serif;*/
+/*}*/
+ </style>
+<ul class="nav-box-nav" style="display: block;width: 1050px;margin: 0 auto;position: relative;left:-75px;">
+<li>
+<a href="/" class="menuon menu-on" title="品评网_中国十大品牌评选官方网站_十大品牌门户_十大品牌排行" target="_self">首页</a>
+</li>
+<li  >
+<a href="/vote/" title="正在进行的十大品牌评选活动" target="_blank">十大投票</a>
+</li>
+
+                                                                    <li  >
+<a href="/votes/" title="正在进行的十佳产品评选活动 target="_blank">十佳产品
+                                                                                            <img style=" margin: -10px 0px 0 0;position: relative;" class="new_item" alt="hot" src="http://www.10pinping.com/skin/10/brand/new.gif">
+                                                                                             </a>
+</li>
+<li >
+<a href="/brand/bangdan.html" target="_blank" title="近期榜单">近期榜单</a>
+</li>
+<li >
+<a href="/brand/signUpFlow.php" target="_blank" title="品牌报名">品牌报名</a>
+</li>
+<!--<li  >
+<a href="/vote/startin.php?id=41027?daohang" title="中国梦品牌公益盛典" target="_blank">公益盛典
+                                                                                    
+                                                                                             </a>
+</li>-->
+<li  style="width: 130px;">
+<a href="/about/app.php" title="品评网App" target="_blank" style="width: 130px;">客户端</a>
+</li>
+</ul>
+            <div class="user_r_ll">
+<a href="/member/register.php" class="ur" style=" border: 1px solid #fff;color:#fff;">注册</a>
+<a href="/member/login.php" class="ul">登录</a>
+</div>
+   </div>
+
+
+
+
+</div>
+</div>
+<script>function ckf(){if($("#search-keyword").val()=="请输入商标名称,行业名称....." || $("#search-keyword").val()==""){return false;}}</script>
+<div class="head-fix"></div>
+<!---->  <script src="http://img.10pinping.com/skin/10/comment/images/jquery1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://img.10pinping.com/skin/10/comment/images/share.js"></script>
+<script language="javascript" type="text/javascript">
+$(function(){
+$("dl.tbox dt span.label a[_for]").mouseover(function(){
+$(this).parents("span.label").children("a[_for]").removeClass("thisclass").parents("dl.tbox").children("dd").hide();
+$(this).addClass("thisclass").blur();
+$("#"+$(this).attr("_for")).show();
+});
+$("a[_for=uc_member]").mouseover();
+});
+</script>
+<div class="m1024">
+    <div class="show_notice_box">
+    <font style="float:left;">&nbsp;最新公告：</font>
+    <font style="float:left; width:1125px !important;">
+        <marquee onMouseOver="stop();" onMouseOut="start();" scrollamount="4">
+                    2018年度中国凿岩台车十大品牌网络投票已经开始，欢迎广大消费者和经销商为自己喜欢的品牌投票，为更多的消费者在购买时提供客观，可靠的数据依据，净化品牌市场，为消费者提供便利。                </marquee>
+     </font>
+</div>
+<div id="banner"><img src="http://img.10pinping.com/skin/10/index/banner.png" width="100%"/></div>
+<!--<div class="top_seat">-->
+    <!--您的位置：<a href="/" target="_blank">品评网</a> > <a href="/vote/" target="_blank">十大投票</a> > <a href="/vote/start-41290.html" target="_blank">凿岩台车</a> > 鑫煤</div>-->
+<div class="brand_show">
+    <div class="brand_left">
+     <div class="brand_top"><strong>鑫煤</strong></div>
+        <table cellpadding="0" cellspacing="0" border="0">
+        <tr class="firstLine">
+            <td class="title">品牌 LOGO</td>
+                <td class="two_column" id="brand_logo" >
+                    <img src="http://www.10pinping.com/file/upload/201806/20/10-01-08-5b2ttb-7.png" alt="鑫煤 Logo" width="96" height="52" />
+                </td>
+                <td class="title">官方微信:</td>
+                <td class="column_font">发山东分公司电饭锅是山东分公司电饭锅</td>
+            </tr>
+            <tr>
+                <td class="title">商标名称:</td>
+                <td class="two_column column_font">鑫煤fffffffffffffffffffffffffffffff</td>
+                <td class="title">官方微博:</td>
+                <td><a style="color:#666" href="" target="_blank" >sdfgsdfgsdfgsdfgdfgdfg</a></td>
+            </tr>
+            <tr>
+            <td class="title">品牌行业:</td>
+                <td class="two_column">
+                    <a style="color:#666" href="/vote/start-41290.html" target="_blank">凿asdfasdfasdfasdfas岩台车</a>
+                </td>
+                <td class="title">公司网站:</td>
+                <td><a style="color:#666" target="_blank" href="http://www.sdxmgk.com/" rel="nofollow">http://www.sdxmgk.com/</a></td>
+            </tr>
+            <tr>
+            <td class="title">所属企业:</td>
+                <td colspan="3" class="column_font">山东鑫煤矿山设备集团有限公司 【山东省济宁市任城区】</td>
+            </tr>
+        </table>
+    <div class="vote_com_button">
+        <a href="/brand/bangdan.html" target="_blank" id="newVote" style="width:49.8%">查看最新揭榜的行业</a>
+        <a href="javascript:void(0)" onclick="showOtherCat();" id="otherVote" style="width:49.8%">其他行业网上投票...</a>
+    </div>
+<div class="otherCat" style="margin:23px 0 0 398px"><img src="http://img.10pinping.com/skin/10/vote/arrow_top.png" class="arrow" /><p><strong class="px15">查找正在进行的行业：</strong><a href="javascript:void(0)" onclick="javascript:$('.otherCat').hide();" class="close">关闭</a></p>
+<input name="catTitle" id="catTitle" type="search" onkeyup="catTip(this.value);" oninput="catTip(this.value);" results="1" size="54" autocomplete="off" placeholder="搜索正在进行的投票行业" value=""><br><div id="sidebar_tips" style="display:none; clear:both;"></div></div>
+        <!--<div class="tpcon_pppl">-->
+<!--<a name='postform'></a>-->
+<!--<div class="mt1">-->
+<!--<dl class="tbox">-->
+            <!--<div class="tbox_title">-->
+    <!--<dt style="float:left;">-->
+        <!--<strong>发表评论</strong>-->
+    <!--<span class="more"></span>-->
+    <!--</dt>-->
+    <!--<div style="float:right; font-size:14px;margin-top:15px"><a style="color:#2087fb" href="/vote/start-41290.html" target="_blank">点击进入投票页面>></a></div>-->
+            <!--</div>-->
+<!--<dd>-->
+<!--<div class="dede_comment_post">-->
+                    <!--<div class="dcmp-title">&lt;!&ndash; <small>请自觉遵守互联网相关的政策法规。</small> &ndash;&gt;-->
+                        <!--<div id="comment_div">-->
+<!--&lt;!&ndash; <div class="left_head"><span class="f_r"><a href="http://www.10pinping.com/comment/index.php?mid=13&itemid=103700">共<span id="comment_count">0</span>条 [查看全部]</a>&nbsp;&nbsp;</span>相关评论</div> &ndash;&gt;-->
+<!--<span id="comment_count" style="display:none">0</span>-->
+<!--<div class="c_b" id="comment_main"><div></div></div>-->
+<!--</div>-->
+<!--<script type="text/javascript" src="http://img.10pinping.com/file/script/comment.js"></script>-->
+<!--</div>-->
+<!--</div>-->
+<!--</dd>-->
+<!--</dl>-->
+<!--</div>-->
+<!--<a name='commettop'></a>-->
+   <!--</div>-->
+    </div>
+
+    <!--新加入了一个div-->
+    <div class="pinping_xiangqing_bottom">
+        <div class="tpcon_pppl">
+            <a name='postform'></a>
+            <div class="mt1">
+                <dl class="tbox">
+                    <div class="tbox_title">
+                        <dt style="float:left;">
+                            <strong>发表评论</strong>
+                            <span class="more"></span>
+                        </dt>
+                        <div style="float:right; font-size:14px;margin-top:15px"><a style="color:#2087fb" href="/vote/start-41290.html" target="_blank">点击进入投票页面>></a></div>
+                    </div>
+                    <!--<dd>-->
+                        <!--<div class="dede_comment_post">-->
+                            <!--<div class="dcmp-title">&lt;!&ndash; <small>请自觉遵守互联网相关的政策法规。</small> &ndash;&gt;-->
+                                <!--<div id="comment_div">-->
+                                    <!--&lt;!&ndash; <div class="left_head"><span class="f_r"><a href="http://www.10pinping.com/comment/index.php?mid=13&itemid=103700">共<span id="comment_count">0</span>条 [查看全部]</a>&nbsp;&nbsp;</span>相关评论</div> &ndash;&gt;-->
+                                    <!--<span id="comment_count" style="display:none">0</span>-->
+                                    <!--<div class="c_b" id="comment_main"><div></div></div>-->
+                                <!--</div>-->
+                                <!--<script type="text/javascript" src="http://img.10pinping.com/file/script/comment.js"></script>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</dd>-->
+                    <dd>
+                        <div class="dede_comment_post">
+                            <div class="dcmp-title"><!-- <small>请自觉遵守互联网相关的政策法规。</small> -->
+                                <div id="comment_div" style="display:;">
+                                    <!-- <div class="left_head"><span class="f_r"><a href="http://www.10pinping.com/comment/index.php?mid=13&itemid=104198">共<span id="comment_count">0</span>条 [查看全部]</a>&nbsp;&nbsp;</span>相关评论</div> -->
+                                    <span id="comment_count" style="display:none">64</span>
+                                    <div class="c_b" id="comment_main"><iframe src="http://www.10pinping.com/extend/comment.php?mid=13&amp;itemid=104198" name="bc_comment" id="bc_comment" style="width: 99%; height: 1753px;" scrolling="no" frameborder="0"></iframe></div>
+                                </div>
+                                <script type="text/javascript" src="http://img.10pinping.com/file/script/comment.js"></script>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <a name='commettop'></a>
+        </div>
+        <div class="tpcon_tpxgxx">
+            <div class="xgpp_top"><a href="/vote/start-41290.html" target="_blank"><strong>凿岩台车十大实时投票</strong></a></div>
+            <div class="tpcon_xgpp" id="tpcon_xgpp">
+                <div class="xgpp_con">
+                                                <span id="xgppcon_imgtxt">
+                    <p><a href="show-htm-itemid-104186.html" target="_blank"><img src="http://pic.10pinping.com/201807/07/15-31-21-o5rxyj-7.png" alt="天腾" width="100" height="50"></a></p>
+                    <p class="txt"><a href="show-htm-itemid-104186.html" target="_blank" style="color:#397CBE;">天腾(11288)</a></p>
+                </span>
+                    <span id="xgppcon_imgtxt">
+                    <p><a href="show-htm-itemid-104189.html" target="_blank"><img src="http://pic.10pinping.com/201807/07/15-49-44-7th1d0-7.png" alt="铁建" width="100" height="50"></a></p>
+                    <p class="txt"><a href="show-htm-itemid-104189.html" target="_blank" style="color:#397CBE;">铁建(8419)</a></p>
+                </span>
+                    <span id="xgppcon_imgtxt">
+                    <p><a href="show-htm-itemid-104198.html" target="_blank"><img src="http://pic.10pinping.com/201807/07/17-15-01-3d0vm9-238631.png" alt="奥盛特" width="100" height="50"></a></p>
+                    <p class="txt"><a href="show-htm-itemid-104198.html" target="_blank" style="color:#397CBE;">奥盛特(7549)</a></p>
+                </span>
+                    <span id="xgppcon_imgtxt">
+                    <p><a href="show-htm-itemid-103682.html" target="_blank"><img src="http://pic.10pinping.com/201806/20/09-21-30-mycb4m-7.png" alt="徐工" width="100" height="50"></a></p>
+                    <p class="txt"><a href="show-htm-itemid-103682.html" target="_blank" style="color:#397CBE;">徐工(6503)</a></p>
+                </span>
+                    <span id="xgppcon_imgtxt">
+                    <p><a href="show-htm-itemid-103674.html" target="_blank"><img src="http://pic.10pinping.com/201806/19/18-32-39-ep4d1o-7.png" alt="鑫通" width="100" height="50"></a></p>
+                    <p class="txt"><a href="show-htm-itemid-103674.html" target="_blank" style="color:#397CBE;">鑫通(6307)</a></p>
+                </span>
+                    <span id="xgppcon_imgtxt">
+                    <p><a href="show-htm-itemid-103700.html" target="_blank"><img src="http://pic.10pinping.com/201806/20/10-01-08-5b2ttb-7.png" alt="鑫煤" width="100" height="50"></a></p>
+                    <p class="txt"><a href="show-htm-itemid-103700.html" target="_blank" style="color:#397CBE;">鑫煤(5917)</a></p>
+                </span>
+                    <span id="xgppcon_imgtxt">
+                    <p><a href="show-htm-itemid-103675.html" target="_blank"><img src="http://pic.10pinping.com/201806/19/19-07-05-pwtkc5-7.png" alt="耿力" width="100" height="50"></a></p>
+                    <p class="txt"><a href="show-htm-itemid-103675.html" target="_blank" style="color:#397CBE;">耿力(5270)</a></p>
+                </span>
+                    <span id="xgppcon_imgtxt">
+                    <p><a href="show-htm-itemid-103678.html" target="_blank"><img src="http://pic.10pinping.com/201806/20/09-07-54-4l005l-7.png" alt="钻神" width="100" height="50"></a></p>
+                    <p class="txt"><a href="show-htm-itemid-103678.html" target="_blank" style="color:#397CBE;">钻神(4775)</a></p>
+                </span>
+                    <span id="xgppcon_imgtxt">
+                    <p><a href="show-htm-itemid-103672.html" target="_blank"><img src="http://pic.10pinping.com/201806/19/18-17-57-ylsduc-7.png" alt="恒至凿岩" width="100" height="50"></a></p>
+                    <p class="txt"><a href="show-htm-itemid-103672.html" target="_blank" style="color:#397CBE;">恒至凿岩(4268)</a></p>
+                </span>
+                    <span id="xgppcon_imgtxt">
+                    <p><a href="show-htm-itemid-103692.html" target="_blank"><img src="http://pic.10pinping.com/201806/20/09-47-23-07owhh-7.png" alt="景隆" width="100" height="50"></a></p>
+                    <p class="txt"><a href="show-htm-itemid-103692.html" target="_blank" style="color:#397CBE;">景隆(4019)</a></p>
+                </span>
+                    <div class="c_b"></div>
+                </div>
+            </div>
+            <div class="xgpp_top">网友最关注的<span style="color:#2087fb;">凿岩台车</span>品牌</div>
+            <div class="tpcon_xgpp tpcon_xgpp1">
+                <div class="ljpp_con">
+                    <ul id="ul_lj">
+                        <li><span>76人参与</span><a href="show-htm-itemid-104189.html" target="_blank">铁建</a></li>
+                        <li><span>61人参与</span><a href="show-htm-itemid-103682.html" target="_blank">徐工</a></li>
+                        <li><span>60人参与</span><a href="show-htm-itemid-104198.html" target="_blank">奥盛特</a></li>
+                        <li><span>41人参与</span><a href="show-htm-itemid-103675.html" target="_blank">耿力</a></li>
+                        <li><span>37人参与</span><a href="show-htm-itemid-103678.html" target="_blank">钻神</a></li>
+                        <li><span>37人参与</span><a href="show-htm-itemid-103692.html" target="_blank">景隆</a></li>
+                        <li><span>37人参与</span><a href="show-htm-itemid-103700.html" target="_blank">鑫煤</a></li>
+                        <li><span>34人参与</span><a href="show-htm-itemid-103672.html" target="_blank">恒至凿岩</a></li>
+                        <li><span>32人参与</span><a href="show-htm-itemid-103674.html" target="_blank">鑫通</a></li>
+                        <li><span>31人参与</span><a href="show-htm-itemid-104192.html" target="_blank">通用</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="c_b"></div>
+    </div>
+
+</div>
+</div>
+<style type="text/css">
+        .qrcodeTablep {
+            display: block;
+            position: relative;
+        }
+        .close_qrcodeTable {
+            display: block;
+            position: absolute;
+            width: 19px;
+            height: 19px;
+            top: -20px;
+            right: -20px;
+            background: url(http://www.10pinping.com/skin/10/image/close_qrcodeBox.png) no-repeat center center;
+            background-size: 19px 19px;
+        }
+</style>
+<div id="qrcodeTable"><p class="qrcodeTablep"><b class="close_qrcodeTable"></b></p></div>
+<script type="text/javascript" src="http://img.10pinping.com/file/script/jquery.qrcode.min.js" ></script>
+<script>
+    $('.close_qrcodeTable').click(function(){$('#qrcodeTable').hide();});
+    jQuery('#qrcodeTable').qrcode({render: "table", text: window.location.href,width:"130",height:"130",correctLevel:0});
+$('#qrcodeTable').append("<p><span class=\"f_red\">用手机扫描查看当前页面</span><br>进行评论可拍照上传产品和服务图片</p>");
+</script>
+<script type="text/javascript" src="http://img.10pinping.com/skin/10/js/catTip.js"></script>
+<!-- <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=0" ></script>
+<script type="text/javascript" id="bdshell_js"></script> -->
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"http://www.10pinping.com/file/upload/201806/20/10-01-08-5b2ttb-7.png","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"right","bdTop":"100"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<script type="text/javascript">var module_id= 13,item_id=103700,content_id='content',img_max_width=550;
+isDiaoCha=true;
+</script>
+<script type="text/javascript" src="http://img.10pinping.com/skin/10/js/brand.show.js"></script>
+<!---kao-->
+<style type="text/css">
+.am-share { font-size: 14px; border-radius: 0; bottom: 0; left: 0; position: fixed; text-align: center; -webkit-transform: translateY(100%); -ms-transform: translateY(100%); transform: translateY(100%); -webkit-transition: -webkit-transform 300ms; transition: transform 300ms ; width: 100%; z-index: 1110; }
+.am-modal-active { transform: translateY(0px);  -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0) }
+.am-modal-out { z-index: 1109; -webkit-transform: translateY(100%); -ms-transform: translateY(100%); transform: translateY(100%) }
+.am-share-title { background-color: #f8f8f8; border-bottom: 1px solid #fff; border-top-left-radius: 2px; border-top-right-radius: 2px; color: #555; font-weight: 400; margin: 0 10px; padding: 10px 0 0; text-align: center; }
+.am-share-title::after { border-bottom: 1px solid #dfdfdf; content: ""; display: block; height: 0; margin-top: 10px; width: 100%; }
+.am-share-footer { margin: 10px; }
+.am-share-footer .share_btn { color: #555;  display: block; width: 100%; background-color: #e6e6e6; border: 1px solid #e6e6e6; border-radius: 0; cursor: pointer;  font-size: 16px; font-weight: 400; line-height: 1.2; padding: 0.625em 0; text-align: center; transition: background-color 300ms ease-out 0s, border-color 300ms ease-out 0s; vertical-align: middle; white-space: nowrap;font-family:"微软雅黑";  }
+.am-share-sns { background-color: #f8f8f8; border-radius: 0 0 2px 2px; margin: 0 10px; padding-top: 15px; height:auto; zoom:1; overflow:auto; }
+.am-share-sns li { margin-bottom: 15px; display: block; float: left; height: auto;  width: 25%; }
+.am-share-sns a { color: #555; display: block; text-decoration:none; }
+.am-share-sns span { display: block; }
+.am-share-sns li i { background-position: center 50%; background-repeat: no-repeat; background-size: 36px 36px; background-color: #ccc; color: #fff; display: inline-block; font-size: 18px; height: 36px; line-height: 36px; margin-bottom: 5px; width: 36px; }
+.am-share-sns .share-icon-weibo { background-image: url(); }
+.sharebg { background-color: rgba(0, 0, 0, 0.6); bottom: 0; height: 100%; left: 0; opacity: 0; position: fixed; right: 0; top: 0; width: 100%; z-index: 1100; display:none; }
+.sharebg-active { opacity: 1; display:block; }
+</style>
+<div class="am-share">
+  <h3 class="am-share-title">分享到</h3>
+  <ul class="am-share-sns">
+    <li><a href="javascript:" id="shareQQ"  > <i style="background: url(http://img.10pinping.com/skin/10/comment/images/social.png) no-repeat -71px -17px;" ></i> <span>QQ空间</span> </a> </li>
+    <li><a href="javascript:" id="sharexl" > <i style="background: url(http://img.10pinping.com/skin/10/comment/images/social.png) no-repeat -127px -85px;"></i> <span>新浪微博</span> </a> </li>
+    <li><a href="javascript:" id="sharewx"> <i style="background: url(http://img.10pinping.com/skin/10/comment/images/social.png) no-repeat -16px -17px;"></i> <span>QQ好友</span> </a> </li>
+    <li><a href="javascript:" id="sharedb"  > <i style="background: url(http://img.10pinping.com/skin/10/comment/images/social.png) no-repeat -128px -149px;"></i> <span>豆瓣社区</span> </a> </li>
+  </ul>
+  <div class="am-share-footer"><button class="share_btn">取消</button></div>
+</div>
+<script type="text/javascript">
+function toshare(i){
+                 nr=$("#bc_comment").contents().find("#"+i).html();
+$(".am-share").addClass("am-modal-active");
+if($(".sharebg").length>0){
+$(".sharebg").addClass("sharebg-active");
+}else{
+$("body").append('<div class="sharebg"></div>');
+$(".sharebg").addClass("sharebg-active");
+}
+$(".sharebg-active,.share_btn").click(function(){
+$(".am-share").removeClass("am-modal-active");
+setTimeout(function(){
+$(".sharebg-active").removeClass("sharebg-active");
+$(".sharebg").remove();
+},300);
+})
+$("#shareQQ").on("click",function(){
+   $(this).socialShare("qZone",{
+                content:nr,
+url:"http://www.10pinping.com/vote/startin.php?id%3D41290",
+title:nr,
+pic:"http://www.10pinping.com/file/upload/201806/20/10-01-08-5b2ttb-7.png"
+            });
+});
+$("#sharexl").on("click",function(){
+   $(this).socialShare("sinaWeibo",{
+                content: nr,
+url:"http://www.10pinping.com/vote/startin.php?id%3D41290",
+title:nr,
+pic:"http://www.10pinping.com/file/upload/201806/20/10-01-08-5b2ttb-7.png"
+            });
+});
+$("#sharewx").on("click",function(){
+ $(this).socialShare("QQyouShare",{
+                content: nr,
+url:"http://www.10pinping.com/vote/startin.php?id%3D41290",
+title:nr,
+pic:"http://www.10pinping.com/file/upload/201806/20/10-01-08-5b2ttb-7.png"
+            });
+});
+$("#sharedb").on("click",function(){
+
+ $(this).socialShare("doubanShare",{
+                content: nr,
+url:"http://www.10pinping.com/vote/startin.php?id%3D41290",
+title:nr,
+pic:"http://www.10pinping.com/file/upload/201806/20/10-01-08-5b2ttb-7.png"
+            });
+});
+}
+</script><!----jie--->
+<style>
+.rightinfo a{color:#fff;}
+.rightinfo a:hover {color:#FF3300}
+</style>
+<div class="clearfix"></div>
+<div id="footer">
+            
+<div class="m1024">
+<div class="leftbah">Copyright © 2018 www.10pinping.com Inc. All Rights Reserved. 品评网 京ICP备16047764号 <span style="vertical-align:-3px;display:none;"><script src="https://s95.cnzz.com/z_stat.php?id=1261204169&web_id=1261204169" language="JavaScript"></script></span>
+</div>
+<div class="rightinfo">
+<a href="/about" target="_blank">关于我们 </a>|
+<!--<a href="/about/contact.php" target="_blank">联系方式 </a>|-->
+<a href="/guestbook" target="_blank">问题反馈 </a>|
+            <a href="/about/helpcenter.php" target="_blank">帮助中心 </a>
+</div>
+</div>
+</div>
+<div class="kefu_box">
+<ul>
+<li>
+<span class="kefu_qq" id="kefu_qq"><span></span><i>在 线 咨 询</i></span>
+<!-- <span class="kefu_switch"><span>在 线 咨 询</span></span> -->
+<div class="kefu_qq_list">
+<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=506183156&site=qq&menu=yes">客服01</a>
+                                                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=3067064935&site=qq&menu=yes">客服02</a>
+</div>
+</li>
+<li>
+<span class="kefu_phone"><span></span><i>电 话 咨 询</i></span>
+<div class="kefu_phone_list">
+<strong>全国服务电话：</strong><br>400-187-8707
+</div>
+</li>
+<li>
+<span class="kefu_wx"><a href='http://m.10pinping.com/'><span></span><i>触屏版浏览</i></a></span>
+<div class="kefu_wx_info">
+<img src="http://img.10pinping.com/skin/10/image/10pinping2.png" align="left" alt="品评网二维码">
+</div>
+</li>
+<li>
+<span class="kefu_fk"><span></span><i><a href="/guestbook" target="_blank" style="color:#fff">问 题 反 馈</a></i></span>
+</li>
+<li>
+<span class="back_top"><span></span><i>返 回 顶 部</i></span>
+</li>
+</ul>
+</div>
+<p align="center" style="display:none;">
+<script type="text/javascript">
+var bc_userid = 0;var bc_username = '';var bc_message = 0;var bc_chat = 0;var bc_cart = substr_count(get_cookie('cart'), ',');var bc_member = '';var user_r_ll='';
+bc_member += '欢迎，<span >网友</span> | <a href="http://www.10pinping.com/member/login.php">请登录</a> | <a href="http://www.10pinping.com/member/register.php">免费注册</a> | <a href="http://www.10pinping.com/member/getpassword.php">忘记密码?</a>';
+user_r_ll +='<a href="/member/register.php" class="ur" style=" border: 1px solid #fff;color:#fff;">注册</a><a href="/member/login.php" class="ul">登录</a>';
+$('#bc_member').html(bc_member);
+$('#user_r_ll').html(user_r_ll);
+$('#bc_cart').html(bc_cart ? '<strong>'+bc_cart+'</strong>' : 0);
+</script>
+</p>
+<script type="text/javascript" src="http://img.10pinping.com/skin/10/js/footer.js"></script>
+<!--百度商桥-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?54a0788fec161f0476e41c6a89cf9520";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

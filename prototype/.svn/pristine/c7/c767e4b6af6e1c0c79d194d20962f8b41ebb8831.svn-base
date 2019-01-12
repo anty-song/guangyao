@@ -1,0 +1,3075 @@
+---------------------------------------------------------------
+[ 2018-09-06T09:11:20+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.055664s][吞吐率：17.96req/s] [内存消耗：1,386.16kb] [文件加载：43]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T09:11:20+08:00 ] 192.168.1.106 GET /login
+[ info ] 192.168.1.189:9001/login [运行时间：0.024467s][吞吐率：40.87req/s] [内存消耗：1,351.49kb] [文件加载：42]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=g0jea0j55lphhilrgv37633rd9',
+)
+[ info ] [ PARAM ] array (
+  '/login' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:50:06+08:00 ] 192.168.1.124 GET /transferlink/Mzk=1536113481_10
+[ info ] 192.168.1.189:9001/transferlink/Mzk=1536113481_10 [运行时间：0.044413s][吞吐率：22.52req/s] [内存消耗：1,389.65kb] [文件加载：43]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/Mzk' => '1536113481_10',
+  'base_itemid' => 'Mzk=1536113481_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:50:06+08:00 ] 192.168.1.124 GET /login
+[ info ] 192.168.1.189:9001/login [运行时间：0.023182s][吞吐率：43.14req/s] [内存消耗：1,351.23kb] [文件加载：42]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/login' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:50:12+08:00 ] 192.168.1.124 POST /dologin
+[ info ] 192.168.1.189:9001/dologin [运行时间：0.065788s][吞吐率：15.20req/s] [内存消耗：2,318.79kb] [文件加载：54]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'doLogin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '32',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.1.189:9001',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/login',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/dologin' => '',
+  'username' => 'admin',
+  'password' => 'aa123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->doLogin[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002160s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_admin` [ RunTime:0.008325s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_admin` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000661s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:50:15+08:00 ] 192.168.1.124 GET /login
+[ info ] 192.168.1.189:9001/login [运行时间：0.021268s][吞吐率：47.02req/s] [内存消耗：1,351.23kb] [文件加载：42]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/login' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:50:26+08:00 ] 192.168.1.124 POST /dologin
+[ info ] 192.168.1.189:9001/dologin [运行时间：0.067648s][吞吐率：14.78req/s] [内存消耗：2,318.79kb] [文件加载：54]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'doLogin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '32',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.1.189:9001',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/login',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/dologin' => '',
+  'username' => 'admin',
+  'password' => 'aa123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->doLogin[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010262s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_admin` [ RunTime:0.005834s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_admin` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000360s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:50:29+08:00 ] 192.168.1.124 GET /login
+[ info ] 192.168.1.189:9001/login [运行时间：0.033368s][吞吐率：29.97req/s] [内存消耗：1,351.23kb] [文件加载：42]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/login' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:50:41+08:00 ] 192.168.1.124 POST /dologin
+[ info ] 192.168.1.189:9001/dologin [运行时间：0.056306s][吞吐率：17.76req/s] [内存消耗：2,318.79kb] [文件加载：54]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'doLogin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '32',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.1.189:9001',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/login',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/dologin' => '',
+  'username' => 'admin',
+  'password' => 'Aa123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->doLogin[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010441s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_admin` [ RunTime:0.005335s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_admin` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000449s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:50:44+08:00 ] 192.168.1.124 GET /login
+[ info ] 192.168.1.189:9001/login [运行时间：0.032532s][吞吐率：30.74req/s] [内存消耗：1,351.23kb] [文件加载：42]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/login' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:50:49+08:00 ] 192.168.1.124 POST /dologin
+[ info ] 192.168.1.189:9001/dologin [运行时间：0.057652s][吞吐率：17.35req/s] [内存消耗：2,318.79kb] [文件加载：54]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'doLogin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '32',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.1.189:9001',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/login',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/dologin' => '',
+  'username' => 'admin',
+  'password' => 'aa123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->doLogin[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010233s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_admin` [ RunTime:0.006807s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_admin` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000477s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:50:52+08:00 ] 192.168.1.124 GET /login
+[ info ] 192.168.1.189:9001/login [运行时间：0.021891s][吞吐率：45.68req/s] [内存消耗：1,351.23kb] [文件加载：42]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/login' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:54:32+08:00 ] 192.168.1.124 POST /dologin
+[ info ] 192.168.1.189:9001/dologin [运行时间：0.056763s][吞吐率：17.62req/s] [内存消耗：2,319.53kb] [文件加载：54]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'doLogin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '30',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.1.189:9001',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/login',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/dologin' => '',
+  'username' => 'admin',
+  'password' => '123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->doLogin[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010807s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_admin` [ RunTime:0.005398s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_admin` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000411s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:54:35+08:00 ] 192.168.1.124 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.056311s][吞吐率：17.76req/s] [内存消耗：2,395.27kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/dologin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010457s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007614s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000385s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:14+08:00 ] 192.168.1.124 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.057193s][吞吐率：17.48req/s] [内存消耗：2,313.55kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '798',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryS4IPAaqRknpGQxeG',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => 'admin',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '123456',
+  '__token__' => '93e9cc028584b9862cc5c543fc6df57a',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011493s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005091s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('admin' , 1 , '123456') [ RunTime:0.002392s ]
+[ error ] [0]致命错误: Cannot use object of type think\response\Json as array[E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php:92]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:20+08:00 ] 192.168.1.124 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.040180s][吞吐率：24.89req/s] [内存消耗：2,313.55kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '798',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryyixOJDQXVosTM4q2',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => 'admin',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '123456',
+  '__token__' => '93e9cc028584b9862cc5c543fc6df57a',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000725s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005153s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('admin' , 1 , '123456') [ RunTime:0.001893s ]
+[ error ] [0]致命错误: Cannot use object of type think\response\Json as array[E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php:92]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:21+08:00 ] 192.168.1.124 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.053903s][吞吐率：18.55req/s] [内存消耗：2,313.55kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '798',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarys97ZQItvIB6VO6pF',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => 'admin',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '123456',
+  '__token__' => '93e9cc028584b9862cc5c543fc6df57a',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011167s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007115s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('admin' , 1 , '123456') [ RunTime:0.002098s ]
+[ error ] [0]致命错误: Cannot use object of type think\response\Json as array[E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php:92]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:21+08:00 ] 192.168.1.124 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.040007s][吞吐率：25.00req/s] [内存消耗：2,313.55kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '798',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarywudoqXcyNQKVFj6E',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => 'admin',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '123456',
+  '__token__' => '93e9cc028584b9862cc5c543fc6df57a',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000685s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005166s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('admin' , 1 , '123456') [ RunTime:0.002055s ]
+[ error ] [0]致命错误: Cannot use object of type think\response\Json as array[E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php:92]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:21+08:00 ] 192.168.1.124 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.041543s][吞吐率：24.07req/s] [内存消耗：2,313.55kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '798',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryvGmonFIXZs1yO73e',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => 'admin',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '123456',
+  '__token__' => '93e9cc028584b9862cc5c543fc6df57a',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000596s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005476s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('admin' , 1 , '123456') [ RunTime:0.001571s ]
+[ error ] [0]致命错误: Cannot use object of type think\response\Json as array[E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php:92]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:21+08:00 ] 192.168.1.124 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.052986s][吞吐率：18.87req/s] [内存消耗：2,313.55kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '798',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryfAPR7oGNdaAAVuOW',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => 'admin',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '123456',
+  '__token__' => '93e9cc028584b9862cc5c543fc6df57a',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000647s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('admin' , 1 , '123456') [ RunTime:0.001754s ]
+[ error ] [0]致命错误: Cannot use object of type think\response\Json as array[E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php:92]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:21+08:00 ] 192.168.1.124 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.051256s][吞吐率：19.51req/s] [内存消耗：2,313.55kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '798',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarykFoA4R5rIxzhBpzX',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => 'admin',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '123456',
+  '__token__' => '93e9cc028584b9862cc5c543fc6df57a',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010791s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005506s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('admin' , 1 , '123456') [ RunTime:0.001960s ]
+[ error ] [0]致命错误: Cannot use object of type think\response\Json as array[E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php:92]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:33+08:00 ] 192.168.1.124 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.478692s][吞吐率：2.09req/s] [内存消耗：2,411.16kb] [文件加载：59]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '2579388',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryN9pjLqQ4VaoAlffB',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => 'admin',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '123456',
+  '__token__' => '93e9cc028584b9862cc5c543fc6df57a',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/data/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金申请/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金申请——增加资金用途/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金申请流程/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金管理列表/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金管理列表页——增加筛选/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金管理详情页——已结清_员工确认）/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金管理详情页——已结清（员工确认完毕）__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金管理详情页——已结清（待员工确认）/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金管理详情页——已结转未结清/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金管理详情页——未结转未结清/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金详情——已结清_（员工确认）/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金详情——已结清（待员工确认0/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金详情——已结清（确认完毕_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金详情——已结转，未结清/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/备用金详情——未结转，未结清/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/报销申请/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/报销管理增加领款人选择/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/结清余额/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/结清余额__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/files/费用报销申请/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金申请/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金申请——增加资金用途/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金申请流程/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金管理列表/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金管理列表页——增加筛选/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金管理详情页——已结清_员工确认）/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金管理详情页——已结清（员工确认完毕）__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金管理详情页——已结清（待员工确认）/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金管理详情页——已结转未结清/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金管理详情页——未结转未结清/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金详情——已结清_（员工确认）/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金详情——已结清（待员工确认0/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金详情——已结清（确认完毕_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金详情——已结转，未结清/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/备用金详情——未结转，未结清/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/报销申请/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/报销管理增加领款人选择/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/结清余额/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/结清余额__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/images/费用报销申请/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/debug/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/debug/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/debug/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/page_notes/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/page_notes/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/page_notes/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/recordplay/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/recordplay/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/sitemap/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/sitemap/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/plugins/sitemap/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/resources/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/resources/chrome/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/resources/css/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/resources/css/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/resources/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/resources/scripts/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202532/resources/scripts/player/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000514s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.004381s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('admin' , 1 , '123456') [ RunTime:0.006232s ]
+[ sql ] [ SQL ] UPDATE `pr_prototype_name`  SET `prototypename_url`='192.168.1.189:9001/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/',`zip_url`='192.168.1.189:9001/project/201809/zip/e4909b1b75c8fd1d752aed9459a18b2f1536202533.zip',`root_url_zip`='201809/zip/e4909b1b75c8fd1d752aed9459a18b2f1536202533.zip',`root_url_pro`='201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/',`pro_url`='192.168.1.189:9001/transferlink/OTA=1536202533_10',`addtime`=1536202533  WHERE  `itemid` = 90 [ RunTime:0.002020s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:34+08:00 ] 192.168.1.124 GET /transferlink/OTA=1536202533_10
+[ info ] 192.168.1.189:9001/transferlink/OTA=1536202533_10 [运行时间：0.037345s][吞吐率：26.78req/s] [内存消耗：2,322.20kb] [文件加载：53]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/OTA' => '1536202533_10',
+  'base_itemid' => 'OTA=1536202533_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000963s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005699s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000473s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:34+08:00 ] 192.168.1.124 GET /password/OTA=1536202533_10
+[ info ] 192.168.1.189:9001/password/OTA=1536202533_10 [运行时间：0.048148s][吞吐率：20.77req/s] [内存消耗：2,317.35kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'password',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/password/OTA' => '1536202533_10',
+  'base_itemid' => 'OTA=1536202533_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->password[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\password.html [ array (
+  0 => 'itemid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010586s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.004829s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000439s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:39+08:00 ] 192.168.1.124 POST /cpassword
+[ info ] 192.168.1.189:9001/cpassword [运行时间：0.045302s][吞吐率：22.07req/s] [内存消耗：2,315.39kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'cPassword',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '24',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/cpassword' => '',
+  'password_show' => '',
+  'itemid' => '90',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->cPassword[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009711s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005612s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000443s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:44+08:00 ] 192.168.1.124 GET /password/OTA=1536202533_10?entrypassword=12346&itemid=90
+[ info ] 192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=12346&itemid=90 [运行时间：0.048174s][吞吐率：20.76req/s] [内存消耗：2,317.73kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'password',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/password/OTA' => '1536202533_10',
+  'entrypassword' => '12346',
+  'itemid' => '90',
+  'base_itemid' => 'OTA=1536202533_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->password[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\password.html [ array (
+  0 => 'itemid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010595s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005382s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000462s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:47+08:00 ] 192.168.1.124 GET /password/OTA=1536202533_10?entrypassword=123456&itemid=90
+[ info ] 192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90 [运行时间：0.038032s][吞吐率：26.29req/s] [内存消耗：2,317.88kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'password',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=12346&itemid=90',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/password/OTA' => '1536202533_10',
+  'entrypassword' => '123456',
+  'itemid' => '90',
+  'base_itemid' => 'OTA=1536202533_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->password[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\password.html [ array (
+  0 => 'itemid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000707s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005445s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000462s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:55:50+08:00 ] 192.168.1.124 GET /password/OTA=1536202533_10?entrypassword=123456&itemid=90
+[ info ] 192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90 [运行时间：0.051480s][吞吐率：19.42req/s] [内存消耗：2,317.88kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'password',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/password/OTA' => '1536202533_10',
+  'entrypassword' => '123456',
+  'itemid' => '90',
+  'base_itemid' => 'OTA=1536202533_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->password[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\password.html [ array (
+  0 => 'itemid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011068s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005787s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000490s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:56:45+08:00 ] 192.168.1.124 POST /cpassword
+[ info ] 192.168.1.189:9001/cpassword [运行时间：0.053388s][吞吐率：18.73req/s] [内存消耗：2,315.42kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'cPassword',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '30',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/cpassword' => '',
+  'password_show' => '123456',
+  'itemid' => '90',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->cPassword[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009832s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006405s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000466s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:56:45+08:00 ] 192.168.1.124 GET /project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/
+[ info ] 192.168.1.189:9001/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/ [运行时间：0.018253s][吞吐率：54.79req/s] [内存消耗：1,124.37kb] [文件加载：35]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'project',
+    1 => '201809',
+    2 => 'pro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:56:52+08:00 ] 192.168.1.124 GET /password/OTA=1536202533_10?entrypassword=123456&itemid=90
+[ info ] 192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90 [运行时间：0.064133s][吞吐率：15.59req/s] [内存消耗：2,317.88kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'password',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/password/OTA' => '1536202533_10',
+  'entrypassword' => '123456',
+  'itemid' => '90',
+  'base_itemid' => 'OTA=1536202533_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->password[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\password.html [ array (
+  0 => 'itemid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010457s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006773s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000466s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:56:57+08:00 ] 192.168.1.124 GET /password/OTA=1536202533_10?entrypassword=123456&itemid=90
+[ info ] 192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90 [运行时间：0.049563s][吞吐率：20.18req/s] [内存消耗：2,317.88kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'password',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/password/OTA' => '1536202533_10',
+  'entrypassword' => '123456',
+  'itemid' => '90',
+  'base_itemid' => 'OTA=1536202533_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->password[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\password.html [ array (
+  0 => 'itemid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010745s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005252s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000554s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:03+08:00 ] 192.168.1.124 POST /cpassword
+[ info ] 192.168.1.189:9001/cpassword [运行时间：0.067108s][吞吐率：14.90req/s] [内存消耗：2,315.42kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'cPassword',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '30',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/cpassword' => '',
+  'password_show' => '123456',
+  'itemid' => '90',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->cPassword[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010605s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006656s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000515s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:03+08:00 ] 192.168.1.124 GET /project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/
+[ info ] 192.168.1.189:9001/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/ [运行时间：0.018128s][吞吐率：55.16req/s] [内存消耗：1,124.37kb] [文件加载：35]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'project',
+    1 => '201809',
+    2 => 'pro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10?entrypassword=123456&itemid=90',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:57:26+08:00 ] 192.168.1.124 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.056085s][吞吐率：17.83req/s] [内存消耗：2,395.68kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010585s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006816s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000485s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000506s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:27+08:00 ] 192.168.1.124 GET /admin
+[ info ] 192.168.1.189:9001/admin [运行时间：0.066097s][吞吐率：15.13req/s] [内存消耗：2,401.98kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Admin',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/admin' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Admin->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Admin.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\admin\admin.html [ array (
+  0 => 'list',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000582s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_admin` [ RunTime:0.005045s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_admin` LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_admin` ORDER BY `addtime` DESC LIMIT 0,10 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.004449s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 13 LIMIT 1 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 13 ORDER BY `addtime` DESC LIMIT 0,5 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,5 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 2 LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 2 ORDER BY `addtime` DESC LIMIT 0,5 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 4 LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 4 ORDER BY `addtime` DESC LIMIT 0,5 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 5 LIMIT 1 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 5 ORDER BY `addtime` DESC LIMIT 0,5 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 6 LIMIT 1 [ RunTime:0.000183s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 6 ORDER BY `addtime` DESC LIMIT 0,5 [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 7 LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 7 ORDER BY `addtime` DESC LIMIT 0,5 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 8 LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 8 ORDER BY `addtime` DESC LIMIT 0,5 [ RunTime:0.000192s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 9 LIMIT 1 [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 9 ORDER BY `addtime` DESC LIMIT 0,5 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 10 LIMIT 1 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 10 ORDER BY `addtime` DESC LIMIT 0,5 [ RunTime:0.000281s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:30+08:00 ] 192.168.1.124 GET /transferlink/ODI=1536145154_10
+[ info ] 192.168.1.189:9001/transferlink/ODI=1536145154_10 [运行时间：0.055300s][吞吐率：18.08req/s] [内存消耗：2,322.29kb] [文件加载：53]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/ODI' => '1536145154_10',
+  'base_itemid' => 'ODI=1536145154_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011185s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006984s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 82 LIMIT 1 [ RunTime:0.000417s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:31+08:00 ] 192.168.1.124 GET /project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/%E5%A4%87%E7%94%A8%E9%87%91%E7%94%B3%E8%AF%B7%E6%B5%81%E7%A8%8B.html
+[ info ] 192.168.1.189:9001/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/%E5%A4%87%E7%94%A8%E9%87%91%E7%94%B3%E8%AF%B7%E6%B5%81%E7%A8%8B.html [运行时间：0.016899s][吞吐率：59.17req/s] [内存消耗：1,125.59kb] [文件加载：35]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'project',
+    1 => '201809',
+    2 => 'pro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/备用金申请流程_html' => '',
+  '4801c4355f806d433d68fc889f38a4e61536145154' => '备用金申请流程',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:57:35+08:00 ] 192.168.1.124 GET /transferlink/ODA=1536145077_10
+[ info ] 192.168.1.189:9001/transferlink/ODA=1536145077_10 [运行时间：0.039394s][吞吐率：25.38req/s] [内存消耗：2,322.20kb] [文件加载：53]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/ODA' => '1536145077_10',
+  'base_itemid' => 'ODA=1536145077_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000669s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.004788s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 80 LIMIT 1 [ RunTime:0.000477s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:35+08:00 ] 192.168.1.124 GET /password/ODA=1536145077_10
+[ info ] 192.168.1.189:9001/password/ODA=1536145077_10 [运行时间：0.047595s][吞吐率：21.01req/s] [内存消耗：2,317.36kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'password',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/password/ODA' => '1536145077_10',
+  'base_itemid' => 'ODA=1536145077_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->password[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\password.html [ array (
+  0 => 'itemid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010266s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005573s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 80 LIMIT 1 [ RunTime:0.000545s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:37+08:00 ] 192.168.1.124 GET /transferlink/OTA=1536202533_10
+[ info ] 192.168.1.189:9001/transferlink/OTA=1536202533_10 [运行时间：0.049400s][吞吐率：20.24req/s] [内存消耗：2,322.20kb] [文件加载：53]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/OTA' => '1536202533_10',
+  'base_itemid' => 'OTA=1536202533_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010709s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007144s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000537s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:37+08:00 ] 192.168.1.124 GET /password/OTA=1536202533_10
+[ info ] 192.168.1.189:9001/password/OTA=1536202533_10 [运行时间：0.036875s][吞吐率：27.12req/s] [内存消耗：2,317.35kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'password',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/password/OTA' => '1536202533_10',
+  'base_itemid' => 'OTA=1536202533_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->password[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\password.html [ array (
+  0 => 'itemid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000722s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.004831s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000459s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:40+08:00 ] 192.168.1.124 POST /cpassword
+[ info ] 192.168.1.189:9001/cpassword [运行时间：0.047426s][吞吐率：21.09req/s] [内存消耗：2,315.39kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'cPassword',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '30',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/cpassword' => '',
+  'password_show' => '123456',
+  'itemid' => '90',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->cPassword[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010195s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006731s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 90 LIMIT 1 [ RunTime:0.000557s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:40+08:00 ] 192.168.1.124 GET /project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/
+[ info ] 192.168.1.189:9001/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/ [运行时间：0.016966s][吞吐率：58.94req/s] [内存消耗：1,124.21kb] [文件加载：35]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'project',
+    1 => '201809',
+    2 => 'pro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/password/OTA=1536202533_10',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/project/201809/pro/e4909b1b75c8fd1d752aed9459a18b2f1536202533/' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:57:46+08:00 ] 192.168.1.124 POST /editpassword
+[ info ] 192.168.1.189:9001/editpassword [运行时间：0.051945s][吞吐率：19.25req/s] [内存消耗：2,299.51kb] [文件加载：55]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Index',
+    2 => 'editPassword',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '34',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://192.168.1.189:9001/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/editpassword' => '',
+  'ow' => '2',
+  'repassword' => '123123123',
+  'userid' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Index->editPassword[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Index.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010614s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_admin` [ RunTime:0.004643s ]
+[ sql ] [ SQL ] UPDATE `pr_prototype_admin`  SET `password`='f5bb0c8de146c67b44babbf4e6584cc0',`password_show`='123123123'  WHERE  `userid` = 2 [ RunTime:0.002328s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:46+08:00 ] 192.168.1.124 GET /homelist/1
+[ info ] 192.168.1.189:9001/homelist/1 [运行时间：0.028507s][吞吐率：35.08req/s] [内存消耗：2,202.47kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Admin',
+    2 => 'homeList',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/homelist/1' => '',
+  'userid' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Admin->homeList[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:57:46+08:00 ] 192.168.1.124 GET /index
+[ info ] 192.168.1.189:9001/index [运行时间：0.051879s][吞吐率：19.28req/s] [内存消耗：2,369.84kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Index',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/index' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Index->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Index.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\index\index.html [ array (
+  0 => 'list',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011050s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005867s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000388s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,10 [ RunTime:0.000425s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:49+08:00 ] 192.168.1.124 GET /transferlink/Njc=1536131983_10
+[ info ] 192.168.1.189:9001/transferlink/Njc=1536131983_10 [运行时间：0.037547s][吞吐率：26.63req/s] [内存消耗：2,322.27kb] [文件加载：53]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/Njc' => '1536131983_10',
+  'base_itemid' => 'Njc=1536131983_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000973s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005774s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 67 LIMIT 1 [ RunTime:0.000466s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:51+08:00 ] 192.168.1.124 GET /transferlink/NjY=1536131785_10
+[ info ] 192.168.1.189:9001/transferlink/NjY=1536131785_10 [运行时间：0.047818s][吞吐率：20.91req/s] [内存消耗：2,322.27kb] [文件加载：53]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/NjY' => '1536131785_10',
+  'base_itemid' => 'NjY=1536131785_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010465s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006644s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 66 LIMIT 1 [ RunTime:0.000316s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:54+08:00 ] 192.168.1.124 GET /transferlink/Njg=1536132006_10
+[ info ] 192.168.1.189:9001/transferlink/Njg=1536132006_10 [运行时间：0.060224s][吞吐率：16.60req/s] [内存消耗：2,322.27kb] [文件加载：53]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/Njg' => '1536132006_10',
+  'base_itemid' => 'Njg=1536132006_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010273s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007116s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 68 LIMIT 1 [ RunTime:0.000411s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:56+08:00 ] 192.168.1.124 GET /transferlink/NzI=1536140896_10
+[ info ] 192.168.1.189:9001/transferlink/NzI=1536140896_10 [运行时间：0.043323s][吞吐率：23.08req/s] [内存消耗：2,322.27kb] [文件加载：53]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/NzI' => '1536140896_10',
+  'base_itemid' => 'NzI=1536140896_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000653s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006245s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 72 LIMIT 1 [ RunTime:0.000485s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:56+08:00 ] 192.168.1.124 GET /project/201809/pro/0f430ff8cf134a3eeafad14a9042d8bf1536140896/
+[ info ] 192.168.1.189:9001/project/201809/pro/0f430ff8cf134a3eeafad14a9042d8bf1536140896/ [运行时间：0.021737s][吞吐率：46.00req/s] [内存消耗：1,124.18kb] [文件加载：35]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'project',
+    1 => '201809',
+    2 => 'pro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/project/201809/pro/0f430ff8cf134a3eeafad14a9042d8bf1536140896/' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:57:59+08:00 ] 192.168.1.124 GET /transferlink/NzM=1536140931_10
+[ info ] 192.168.1.189:9001/transferlink/NzM=1536140931_10 [运行时间：0.038276s][吞吐率：26.13req/s] [内存消耗：2,322.27kb] [文件加载：53]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/NzM' => '1536140931_10',
+  'base_itemid' => 'NzM=1536140931_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000715s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006002s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 73 LIMIT 1 [ RunTime:0.000528s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:57:59+08:00 ] 192.168.1.124 GET /project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140931/
+[ info ] 192.168.1.189:9001/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140931/ [运行时间：0.019885s][吞吐率：50.29req/s] [内存消耗：1,124.18kb] [文件加载：35]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'project',
+    1 => '201809',
+    2 => 'pro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140931/' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:58:01+08:00 ] 192.168.1.124 GET /transferlink/NzM=1536140931_10
+[ info ] 192.168.1.189:9001/transferlink/NzM=1536140931_10 [运行时间：0.038388s][吞吐率：26.05req/s] [内存消耗：2,322.27kb] [文件加载：53]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/NzM' => '1536140931_10',
+  'base_itemid' => 'NzM=1536140931_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000751s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005682s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 73 LIMIT 1 [ RunTime:0.000389s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:58:01+08:00 ] 192.168.1.124 GET /project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140931/
+[ info ] 192.168.1.189:9001/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140931/ [运行时间：0.016676s][吞吐率：59.97req/s] [内存消耗：1,124.18kb] [文件加载：35]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'project',
+    1 => '201809',
+    2 => 'pro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140931/' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T10:58:18+08:00 ] 192.168.1.124 GET /index?%2Findex=&page=2
+[ info ] 192.168.1.189:9001/index?%2Findex=&page=2 [运行时间：0.050668s][吞吐率：19.74req/s] [内存消耗：2,366.86kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Index',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/index' => '',
+  'page' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Index->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Index.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\index\index.html [ array (
+  0 => 'list',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010768s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006222s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 10,10 [ RunTime:0.000361s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:58:19+08:00 ] 192.168.1.124 GET /index?%2Findex=&page=3
+[ info ] 192.168.1.189:9001/index?%2Findex=&page=3 [运行时间：0.050616s][吞吐率：19.76req/s] [内存消耗：2,362.55kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Index',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index?%2Findex=&page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/index' => '',
+  'page' => '3',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Index->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Index.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\index\index.html [ array (
+  0 => 'list',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011215s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006503s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 20,10 [ RunTime:0.000379s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:58:26+08:00 ] 192.168.1.124 GET /index?%2Findex=&page=2
+[ info ] 192.168.1.189:9001/index?%2Findex=&page=2 [运行时间：0.074271s][吞吐率：13.46req/s] [内存消耗：2,366.89kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Index',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index?%2Findex=&page=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/index' => '',
+  'page' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Index->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Index.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\index\index.html [ array (
+  0 => 'list',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010200s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005641s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 10,10 [ RunTime:0.000413s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:59:07+08:00 ] 192.168.1.124 GET /index?%2Findex=&page=3
+[ info ] 192.168.1.189:9001/index?%2Findex=&page=3 [运行时间：0.059247s][吞吐率：16.88req/s] [内存消耗：2,362.55kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Index',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index?%2Findex=&page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/index' => '',
+  'page' => '3',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Index->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Index.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\index\index.html [ array (
+  0 => 'list',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000890s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005571s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 20,10 [ RunTime:0.000661s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:59:09+08:00 ] 192.168.1.124 GET /index?%2Findex=&page=2
+[ info ] 192.168.1.189:9001/index?%2Findex=&page=2 [运行时间：0.050290s][吞吐率：19.88req/s] [内存消耗：2,366.86kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Index',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/index' => '',
+  'page' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Index->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Index.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\index\index.html [ array (
+  0 => 'list',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010604s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006899s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000406s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 10,10 [ RunTime:0.000443s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:59:13+08:00 ] 192.168.1.124 GET /index
+[ info ] 192.168.1.189:9001/index [运行时间：0.053317s][吞吐率：18.76req/s] [内存消耗：2,369.84kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Index',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/index' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Index->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Index.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\index\index.html [ array (
+  0 => 'list',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010582s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005808s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,10 [ RunTime:0.000428s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:59:18+08:00 ] 192.168.1.124 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.050700s][吞吐率：19.72req/s] [内存消耗：2,395.37kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009686s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000371s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000354s ]
+---------------------------------------------------------------
+[ 2018-09-06T10:59:27+08:00 ] 192.168.1.124 GET /index
+[ info ] 192.168.1.189:9001/index [运行时间：0.059040s][吞吐率：16.94req/s] [内存消耗：2,369.59kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Index',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/index' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Index->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Index.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\index\index.html [ array (
+  0 => 'list',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010220s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006873s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,10 [ RunTime:0.000462s ]
+---------------------------------------------------------------
+[ 2018-09-06T11:01:53+08:00 ] 192.168.1.124 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.058251s][吞吐率：17.17req/s] [内存消耗：2,395.08kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010268s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007326s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000500s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000522s ]
+---------------------------------------------------------------
+[ 2018-09-06T11:01:54+08:00 ] 192.168.1.124 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.059399s][吞吐率：16.84req/s] [内存消耗：2,395.37kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011310s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005476s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000501s ]
+---------------------------------------------------------------
+[ 2018-09-06T11:02:53+08:00 ] 192.168.1.124 GET /index
+[ info ] 192.168.1.189:9001/index [运行时间：0.059427s][吞吐率：16.83req/s] [内存消耗：2,369.59kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Index',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5383.400 QQBrowser/10.0.1313.400',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=jcouu1cjfb436kpeho952tdrfs',
+)
+[ info ] [ PARAM ] array (
+  '/index' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\Index->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Index.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\index\index.html [ array (
+  0 => 'list',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010627s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006542s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000517s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,10 [ RunTime:0.000569s ]
+---------------------------------------------------------------
+[ 2018-09-06T15:33:23+08:00 ] 127.0.0.1 GET /
+[ info ] www.prototyp.com/ [运行时间：0.055943s][吞吐率：17.88req/s] [内存消耗：1,386.13kb] [文件加载：43]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.prototyp.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=8516939776',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-09-06T15:33:23+08:00 ] 127.0.0.1 GET /login
+[ info ] www.prototyp.com/login [运行时间：0.024086s][吞吐率：41.52req/s] [内存消耗：1,351.19kb] [文件加载：42]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'Login',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.prototyp.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=8516939776; PHPSESSID=j7gptqer0fvfbc6r4ugqcak3a1',
+)
+[ info ] [ PARAM ] array (
+  '/login' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\prototype\controller\Login->index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\Login.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File

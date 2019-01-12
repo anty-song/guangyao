@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .main-body{width: 800px;margin: auto;}
+            h3{line-height: 80px;font-size: 24px;font-weight: normal;text-align: center;background: #393D49;color: #FFF;}
+            form{text-align: center;padding: 20px 0;background: #efeff4;}
+            .form-list{list-style-type: none;margin: 0;padding: 0;}
+            .form-list li{line-height: 36px;margin: 10px 0;position: relative;}
+            .form-list span{display: inline-block;min-width:300px;font-size: 16px;}
+            .form-list input{width: 240px;height: 30px;border: 1px solid #cccccc;background-color: #fff;border-radius: 2px;text-indent: 10px;outline: navajowhite;}
+            .form-list i{position: absolute;display: inline-block;width: 20px;height: 20px;cursor: pointer;font-style: normal;}
+            .form-list i:before{content:"\2715";position: absolute;left: 0;width: 20px;height: 20px;line-height: 20px;color:#f00;}
+            .l_title{text-align: right;}
+            button{min-width: 120px;min-height: 30px;margin: 0 20px;background: #009688;color: #FFF;border: none;border-radius: 4px;}
+            .return-data{min-height: 300px;box-shadow: 0px 0px 8px 2px rgba(0,0,0,.6);}
+        </style>
+        <script src="/static/dist/jquery-2.1.1.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="main-body">
+            <h3>PostMan</h3>
+            <form>
+                <ul class="form-list">
+                    <li><span class="l_title">url</span><span class="l_content"><input type="text" class='url'></span></li>
+                    <li><span class="l_title">action</span><span class="l_content"><input type="text" class='action'></span></li>
+                    <li><span class="l_title">method</span><span class="l_content"><input type="text" class='method'></span></li>
+
+                </ul>
+                <ul class="form-list form-list-arr">
+                    <li><span class="l_title"><input type="text" data-type="key"></span><span class="l_content"><input data-type="value" type="text"></span></li>
+                </ul>
+                <div class="btn-box">
+                    <button type="button" class="add">增加</button>
+                    <button type="button" class="search">查询</button>
+                </div>
+            </form>
+            <div class="return-data-box">
+                <h3>展示返回数据</h3>
+                <div class="return-data"></div>
+            </div>
+        </div>
+        <script>
+            $(".add").click(function () {
+              var str = '<li><span class="l_title"><input type="text" data-type="key"></span><span class="l_content"><input data-type="value" type="text"></span><i></i></li>';
+              $(".form-list-arr").append(str);
+            });
+            $(".form-list-arr").on('click', 'i', function () {
+              $(this).parent().remove();
+            });
+            var url;
+            var action;
+            var method;
+            $(".search").click(function () {
+              url = $.trim($(".url").val());
+              action = $.trim($(".action").val());
+              method = $.trim($(".method").val());
+              // var paramdata = {url: url, action: action, method: method};
+              var paramdata = [];
+
+              $(".form-list-arr li").each(function () {
+                var key = $.trim($(this).find('.l_title input').val());
+                var value = $.trim($(this).find('.l_content input').val());
+                if (key !== '' && value !== '') {
+                  paramdata[key] = value;
+                }
+              });
+              console.log(paramdata);
+              $.ajax({
+                type: 'POST',
+                url: '',
+                data: paramdata,
+                success: function (data) {
+                  console.log(data);
+                  if (data.status === 1) {
+                    $(".return-data").text(data);
+                  }
+                },
+                error: function () {
+                  alert('请求数据失败，请检查网络配置');
+                }
+              })
+            });
+        </script>
+    </body>
+</html>

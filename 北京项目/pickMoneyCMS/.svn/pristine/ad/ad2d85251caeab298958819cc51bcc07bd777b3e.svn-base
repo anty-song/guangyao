@@ -1,0 +1,253 @@
+var Path = function() {
+    this.src ="/static/images/Answer/"
+};
+var path = new Path();
+    //新增加载所有图片方法
+    function getAllImage(){
+        var image_arr={image:[]};
+        Object.defineProperty(image_arr,'image',{
+            writable: true,
+            value: [
+            'red_light.png',
+            "view_hyh@2x.png",
+            "view_gxn@2x.png",
+            "lawyer.png",
+            "icon-back.png",
+            "hb.png",
+            "Correct_Receive@2x.png",
+            "Close@2x.png"
+            ]
+        });
+        var image_num=0;
+        var tick;
+        tick=setInterval(function(){
+            var img=new Image();
+            img.src=path.src+image_arr.image[image_num];
+            img.onload=function(){
+                image_num++;
+                if(image_num===image_arr.image.length){
+                    clearInterval(tick);
+                }
+            }
+        },500/image_arr.image.length);
+    }
+    getAllImage();
+    function goBack() {
+        $('.dialog_again').show();
+        $('.result1').hide();
+        $('.marsker').show();
+    }
+    // 从广告页面再返回答题游戏页面
+    function backAnswer(){
+        if(g_id==1){
+            window.location.href="/h5/game.answer/home.html";
+        }
+    }
+    var HB = new hbdtConfig();
+
+
+    var answer_right_num,                        //答对题数
+    answer_all_num,                              //总题数
+    result_sign,                                 //结果类型
+    timestamp,                                         
+    uid,                                          //用户ID
+    auth,                                         //用户权重
+    key_auth,                                     //用户解码
+    device,                                       //用户设备
+    p_id,                                         //红包ID
+    ad_url,                                       //广告链接
+    g_id=1,                                       //当前游戏id
+    time=Math.round(new Date() / 1000),           //请求时间戳
+    paramData,                                    //定义传递数据对象
+    isNextgame=false,                             //下个游戏弹窗是否飞出
+    thisgame_time,                                //当前游戏次数（固定次数+再来一次）
+    no_times_url='/h5/game.game_lobby/no_times';  //游戏次数用完
+    answer_right_num=GetQueryString('num');
+    answer_all_num=GetQueryString('total');
+    result_sign=GetQueryString('result_sign');
+    timestamp=GetQueryString('timestamp');
+    uid=window.localStorage.getItem('uid');
+    auth=window.localStorage.getItem('auth');
+    device=window.localStorage.getItem('device');
+    key_auth=auth.slice(0,8);
+    var paramData={};
+    paramData['uid']=uid;
+    paramData['time']=Math.round(new Date().getTime() / 1000);
+    paramData['auth']=auth;
+    paramData['device']=device;
+    paramData['answer_all_num']=answer_all_num;
+    paramData['answer_right_num']=answer_right_num;
+    paramData['times_tamp']=timestamp;
+    paramData['answer_result_sign']=result_sign;
+    paramData=JSON.stringify(paramData);
+    paramData=encryptByDES(paramData,key_auth);
+    $('.s10').text(paramData);
+
+    $.ajax({
+        type:'post',
+        url:HB.result.url,
+        data:{action:'get_answer_last_jump',uid:uid,reqType:2,paramData:paramData},
+        dataType:'json',
+        success:function(data){
+            data=decryptByDES(data.res_data, key_auth);
+            var json_data=JSON.parse(data);
+            console.log(json_data);
+            $('.correctNum').text(json_data.right_num);
+            if(json_data.right_num==0){
+                $('.cup').attr('src','/static/images/Answer/view_hyh@2x.png');
+            }else{
+                $('.cup').attr('src','/static/images/Answer/view_gxn@2x.png');
+            }
+
+            if(json_data.avatar==''){
+                $('.infortop img.userimg').attr('src','/static/images/Answer/lawyer.png');
+            }else{
+                $('.infortop img.userimg').attr('src',json_data.avatar);
+            }
+            var ad_img=json_data.get_answer_ad_popout.ad_img;
+            var ad_url=json_data.get_answer_ad_popout.ad_url;
+            $('.adver img').attr({'src':ad_img,'adurl':ad_url});
+            $('.scores').html(json_data.score+'<span>分</span>');
+            $('.paragraph').text(json_data.roll_msg);
+        },
+        error:function(){
+            console.log('数据请求失败，请检查当前网络');
+            tipError('数据请求失败，请检查当前网络');
+        }
+    });
+    // 退出挽留
+    $('.close_again').click(function(){
+        $(".marsker").fadeOut();
+        $(".dialog_again").hide();
+    });
+    // 继续玩
+    $('.againBtn').click(function(){
+        $(".marsker").fadeOut();
+        $(".dialog_again").hide();
+    });
+    // 残忍拒绝
+    $('.refuse').click(function(){
+        window.location.href="/h5/game.game_lobby/home";
+    });
+    $('.dialog_end .endBtn').click(function(){
+        $(".ui-mask").fadeOut();
+        $(".dialog_end ").hide();
+    });
+    function Dbacks() {
+        $('.dialog_again').show();
+        $('.marsker').show();
+    }
+    // 跳转下方广告
+    $('.adver img').click(function(){
+        var ad_url=$(this).attr('adurl');
+        //跳转到广告详情
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToBrowser(ad_url);
+        }else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':ad_url})
+        }
+    });
+    // 再玩一次
+    $('.agin').click(function(){
+        //跳转到广告详情
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToAdvDetail(g_id)//andriod
+        }else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'goDetail','item':g_id});
+        }
+    });
+    // 领取奖励   get_next_question
+    $('.get-reward span').click(function(){
+        $.ajax({
+            type:'post',
+            url:HB.correct.url,
+            data:{action:'get_answer_last_reward',uid:uid,reqType:2,paramData:paramData},
+            success:function(data){
+                var json_data=JSON.parse(data);
+                json_data=decryptByDES(json_data.res_data, auth);
+                json_data=JSON.parse(json_data);
+                console.log(json_data);
+                if('中奖了'){
+                    $(".result4 .advimg").attr({'src':json_data.ad_img,'url':json_data.ad_url});
+                    $(".result4 .ad_title").text(json_data.ad_title);
+                    $(".result4 .price_money").text(json_data.redpacket_money);
+                }else{
+                    $('.result1 .advimg').attr({'src':json_data.ad_img,'url':json_data.ad_url});
+                // $('.result1 .advimg').attr('url',json_data.ad_url);
+                $('.result1 .receive1').attr({'url':json_data.ad_url,'id':json_data.id});
+                // $('.result1 .receive1').attr('id',json_data.id);
+                $('.marsker').fadeIn();
+                $('.result1').show();
+            }
+        }
+    })
+    });
+    // 弹框点击"领"跳转到app红包领取
+    $('.result1 .receive1').click(function(){
+        $('.get-reward').css('background','#ddd');
+        $('.get-reward span').text('已领取');
+        $('.get-reward-mark').css('z-index',10);
+        var adurl=$(this).attr('url');
+        $('.marsker').fadeOut();
+        $('.result1').hide();
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToBrowser(adurl);
+        }else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':adurl});
+        }
+    });
+    // 点击广告跳转到外部广告链接
+    $('.advimg').click(function(){
+        $('.get-reward').css('background','#ddd');
+        $('.get-reward span').text('已领取');
+        $('.get-reward-mark').css('z-index',10);
+        var adurl=$(this).attr('url');
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToBrowser(adurl);
+        }else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':adurl});
+        }
+    });
+    // 关闭弹框
+    $('.clo').click(function(){
+        $('.marsker').hide();
+        $('.result1').hide();
+        $('.result4').hide();
+        $('.get-reward span').css('background-color','#ddd');
+        $('.get-reward span').text('已领取');
+        $('.get-reward-mark').css('z-index',10);
+    });
+        // 获取url的某个字段
+        function GetQueryString(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+
+    //弹出红包框点击领取
+    $(".result4 .receive1").click(function() {
+        console.log(p_id);
+        $(".ui-mask").fadeOut();
+        $(".dialog.dialog_price").hide();
+        var paramData={'uid':uid,'time':time,'auth':auth,'device':device,'p_id':p_id};
+        paramData=JSON.stringify(paramData);
+        paramData=encryptByDES(paramData,key_auth);
+        $.ajax({
+            url: PATH_WEB,
+            type: "post",
+            data:{action:'receice_award',uid:uid,reqType:2,paramData:paramData},
+            dataType:'json'
+        }).then(function(data){
+            if(data.status==1){
+                if(agent.isAndroid && agent.isPhone) {
+                an.jumpToAdvHb(p_id);  //andriod
+            } else if(agent.isIOS && agent.isPhone) {
+                window.webkit.messageHandlers.scan.postMessage({'action':'goPrizeDetail','prize_id':p_id})
+            }
+        }else{
+            console.log(data.msg);
+        }
+    },function() {
+        tipError("数据请求失败，请检查当前网络");
+    })
+    });

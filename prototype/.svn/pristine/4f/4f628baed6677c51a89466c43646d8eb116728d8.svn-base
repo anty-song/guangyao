@@ -1,0 +1,85 @@
+$(function () {
+    //拖拽上传文件
+    var dragDrop = document.getElementById('marks');
+    dragDrop.addEventListener("dragover", function (e) {
+        e.stopPropagation();
+        //必须阻止默认事件
+        e.preventDefault();
+        $(this).addClass("upload_drag_hover");
+    }, false);
+    dragDrop.addEventListener("dragleave", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $(this).removeClass("upload_drag_hover");
+    }, false);
+    dragDrop.addEventListener("drop", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        //取消鼠标经过样式
+        $(this).removeClass("upload_drag_hover");
+        //获取文件列表对象和文件相对路径
+        var files = e.target.files || e.dataTransfer.files;
+        var dragDrop = document.getElementById('marks')
+        var items = e.dataTransfer.items
+        console.log(items.length)
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i].webkitGetAsEntry();
+            console.log(item)
+            if (item) {
+                //判断是否为文件夹
+                if (item.isDirectory) {
+                    traverseFileTree(item)
+                } else {
+                    //  this.$alert('只支持上传文件夹', '提示', {
+                    //      confirmButtonText: '确定'
+                    // })
+                }
+            }
+        }
+    }, false);
+
+    function traverseFileTree(item, path) {
+        path = path || ''
+        if (item.isFile) {
+            // Get file
+            item.file((file) => {
+                let obj = {
+                    file: file,
+                    path: path + file.name
+                }
+            })
+        } else if (item.isDirectory) {
+            // Get folder contents
+            var dirReader = item.createReader()
+            readDir(dirReader, item, path)
+        }
+    }
+
+    function readDir(dirReader, item, path) {
+        dirReader.readEntries((entries) => {
+            console.log(entries.length)
+            if (entries.length) {
+                let obj = {
+                    name: item.name,
+                    process: 0,
+                    total: entries.length
+                }
+                for (let i = 0; i < entries.length; i++) {
+                    console.log(entries[i])
+                    traverseFileTree(entries[i], path + item.name + '/')
+                }
+                // entries长度不为0，继续调用解析，直至长度为0。因为chrome浏览器只支持一次解析100个
+                readDir(dirReader, item, path)
+            }
+        }, function (e) {
+            console.log(e)
+        })
+    }
+
+    dragDrop.addEventListener("dragend", function (e) {
+        console.log(9999999999999999999999)
+        console.log(e)
+    })
+
+
+})

@@ -1,0 +1,110 @@
+
+.container{width:1200px;margin:0 auto}
+
+section{}   
+/*首页banner*/
+header.fir{position: relative;height: auto;}
+
+header.fir nav{width:100%;height: 70px;position: fixed;z-index: 30;border-radius:0px;}
+header.fir .banner{position: absolute;}
+
+header.fir nav .logo{display: inline-block;margin: 15px auto 15px 15px;}
+header.fir nav .logo .logoimg{width: 40px;height: 40px;line-height: 40px;border-radius: 10px;display: inline-block;overflow: hidden;}
+header.fir nav .logo .logoimg img{width:100%;height: 100%;}
+header.fir nav .logo span{display: inline-block;color:#0068B9;font-size: 20px;}
+header.fir nav.navbar-default{background-color:rgba(0,0,0,0);border:none}
+
+header.fir nav ul.navlist{float: right;margin: 20px auto;}
+header.fir nav ul.navlist li{margin-left: 70px;;}
+header.fir nav ul.navlist li a{font-size: 14px;color: #0363b2;padding:5px 10px;}
+header.fir nav ul.navlist li a.lihov{background-color: #0363B2;color: #fff;border-radius: 10px;}
+
+.swiper-slide{width:100%;overflow: hidden;}
+.swiper-slide img{width:100%;height: 100%;}
+.navbar-collapse{padding-right:0;}
+.swiper-container .swiper-wrapper .swiper-slide{align-items: center;justify-content: center; display: flex;display: -webkit-flex;}
+
+/*第二部分-业务范围*/
+section.ywfw{overflow: hidden;}
+section.ywfw .tit{height:256px;background:url(../images/index_ywfw_bg.png) no-repeat center center;}
+section.ywfw .tit h1{text-align: center;font-size: 30px;color: #fff;padding:70px 0 7px 0}
+
+section.ywfw .con{height:800px;background-color:#F3F4F5;position:relative;}
+section.ywfw .con .ullist{position: absolute;top:49%;left: 50%;transform: translate(-50%,-50%);}
+section.ywfw .con ul.ywlist{margin-bottom: 0;}
+section.ywfw .con ul.ywlist li:nth-child(3n){margin-right: 0px;}
+section.ywfw .con ul.ywlist li{margin:0 0 60px 0;}
+section.ywfw .con ul.ywlist li dl dt{/*width:376px;*/width:100%;height:280px;border-radius: 10px;overflow: hidden;}
+section.ywfw .con ul.ywlist li dl dt img{width:100%;height: 100%;}
+section.ywfw .con ul.ywlist li dd{/*width: 376px;*/width: 100%;}
+section.ywfw .con ul.ywlist li dd h2{font-size: 24px;color: #353535;margin:30px auto 12px auto;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+section.ywfw .con ul.ywlist li dd p{font-size: 14px;color:#888;/*width: 376px;*/width:100%;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+
+/*第三部分-公司新闻*/
+section.connews{}
+section.connews .tit {display: inline-block;margin:47px auto 20px auto;}
+section.connews .tit h1{font-size: 30px;padding-bottom: 7px;color:#353535;}
+section.connews .con{font-size: 0;}
+section.connews .con .newspic {display: inline-block;}
+section.connews .con .newspic dl dt{width:600px;height:340px;border-radius: 10px;overflow: hidden;}
+section.connews .con .newspic dl dt img{width:100%;height: 100%;}
+section.connews .con .newspic dd{width: 600px;}
+section.connews .con .newspic dd h3{font-size: 18px;color: #353535;margin:40px auto 20px auto;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+section.connews .con .newspic dd p{font-size: 14px;color:#888;width: 600px;overflow: hidden;position: relative; line-height: 20px; max-height: 40px;}
+section.connews .con .newslist {width:590px;display: inline-block;}
+section.connews .con .newslist li{margin-bottom: 16px;}
+section.connews .con .newslist li:last-child{margin-bottom: 0;}
+section.connews .con .newslist li time{width:42px;display:inline-block;color: #888;margin: auto 40px auto 34px;;}
+section.connews .con .newslist li time span.day{font-size: 36px;display: inherit;}
+section.connews .con .newslist li time span.rq{font-size: 12px;}
+section.connews .con .newslist li .newlistcon{display:inline-block;}
+section.connews .con .newslist li .newlistcon h3{width:440px;font-size: 18px;color: #353535;margin-bottom: 19px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+section.connews .con .newslist li .newlistcon p{width:470px;font-size: 14px;color: #888;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+section.connews .more{width:140px;height:50px;line-height: 50px;background-color:#0e85e7;box-shadow: 0px 0px 5px rgba(3,99,178,0.3);margin: 50px auto 40px auto;text-align: center;border-radius: 10px;;}
+section.connews .more:hover{background-color:#0363b2;cursor: pointer;}
+section.connews .more a{font-size: 18px;color: #f3f4f5;}
+
+/*第四部分-联系我们*/
+section.contactus{background-color: #F3F4F5;}
+section.contactus .tit {padding:60px 0 40px 0;}
+section.contactus .tit h1{font-size: 30px;color:#353535;text-align: center;padding: 0px 0 7px 0;}
+section.contactus .conuslist{}
+section.contactus .conuslist li .licon{width:336px;height: 105px;margin:0 auto;background-color: #fff;border-radius: 10px;padding:20px;/*margin-right: 36px;*/margin-bottom: 36px;}
+section.contactus .conuslist li:nth-child(3n){margin-right: 0;}
+section.contactus .conuslist li .lxrxx{display: inline-block;float:left;}
+section.contactus .conuslist li .lxrxx h4{font-size: 18px;color: #353535;margin-top:0;margin-bottom: 24px;}
+section.contactus .conuslist li .lxrxx span.tel a{color:#353535;}
+section.contactus .conuslist li .licon p{display: inline-block;float:right;margin-top: 42px;margin-right: 10px;}
+section.contactus .conuslist li .licon .lxrxx span.tel i{width:18px;height: 20px;display:inline-block;background-image: url(../images/tel.png);}
+section.contactus .conuslist li .licon .ewm{width:60px;height: 60px;float:right;display: inline-block;}
+section.contactus .conuslist li .licon .ewm img{width:100%;height:100%;}
+
+
+section.content{min-height: 500px;}
+section.newsxq{min-height: 500px;}
+
+
+footer{background-color: #575757;height: 40px;line-height:40px!important;}
+footer p{text-align: center;color: #fff;font-size: 14px;margin:0;}
+
+/* song 添加蒙层 */
+.songmask {
+    position: fixed;
+    z-index: 31;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #fff;
+}
+.songmask img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
+}

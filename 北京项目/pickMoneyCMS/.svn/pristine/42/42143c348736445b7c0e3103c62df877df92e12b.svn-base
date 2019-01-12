@@ -1,0 +1,342 @@
+var handObj = function() {
+	this.x;
+	this.y;
+
+	this.w = 62;
+	this.h = 62;
+
+	this.hand = new Image();
+	this.body = new Image();
+	this.button = new Image();
+
+	this.getGif = new Image();
+	this.getGifWid;
+	this.getGifHei;
+	this.gifType;
+
+	this.btnWidth;
+	this.btnHeight;
+	this.btnbig;
+
+	this.spring = new Image();
+	this.springX = canWidth - 65;
+	this.springWidth = 20;
+	this.springHeight = 15;
+
+	// this.buttonInterval = 2000;
+
+	this.velocityX = 0.5;//速度
+	this.begin;//向左
+	this.end;//向右
+
+	this.hurt;//受伤
+	this.success;//拿到礼物
+	this.ishanding;//拿着礼物
+};
+
+var path = new Path();
+
+handObj.prototype.init = function() {
+	this.x = canWidth - 55;
+	this.y = canHeight/2 + 55;
+	this.begin = false;
+	this.end = false;
+	this.ishanding = false;
+
+	this.btnWidth = 70;
+	this.btnHeight = 70;
+
+	this.hand.src = path.src+"hand.png";
+	this.body.src = path.src+"rocker.png";
+	this.spring.src = path.src+"spring.png";
+	this.button.src = path.src+"button.png";
+};
+
+handObj.prototype.draw = function() {
+	if(this.hurt) { //如果被电到
+		this.x += this.velocityX*deltaTime*0.3;
+		this.springWidth -= this.velocityX*deltaTime*0.3;
+		this.springX += this.velocityX*deltaTime*0.3;
+		this.hand.src = path.src+"hand1.png";
+		this.spring.src = path.src+"spring1.png";
+		this.y = canHeight/2 + 60;
+		this.getGifWid = 0;
+	}else {
+		this.y = canHeight/2 + 55;
+		this.hand.src = path.src+"hand.png";
+		this.spring.src = path.src+"spring.png";
+		if(this.begin) {//开始状态
+			this.x -= this.velocityX*deltaTime;
+			this.springWidth += this.velocityX*deltaTime;
+			this.springX -= this.velocityX*deltaTime;
+		}else if(this.end) {
+			this.x += this.velocityX*deltaTime;
+			this.springWidth -= this.velocityX*deltaTime;
+			this.springX += this.velocityX*deltaTime;
+		}
+	}
+
+
+	//按钮放大缩小效果
+	if(!this.btnbig){
+		this.btnWidth+= 0.3;
+		this.btnHeight+= 0.3;
+		this.btnbig = this.btnWidth > 80? true : false;
+	}
+
+	else if(this.btnbig){
+		this.btnWidth -= 0.3;
+		this.btnHeight -= 0.3;
+		this.btnbig = this.btnWidth < 70? false : true;
+	}
+
+
+	ctxEl.drawImage(this.spring,0,0,this.springWidth,this.springHeight,this.springX,canHeight/2+12,this.springWidth,this.springHeight);
+	ctxEl.drawImage(this.hand,this.x - this.w,this.y - this.h,this.w,this.h);
+	ctxEl.drawImage(this.getGif,this.x - this.w + 5,this.y - this.h,this.getGifWid,this.getGifHei);
+	ctxEl.drawImage(this.body,canWidth - 68, canHeight/2+4,54,87);
+	ctxEl.drawImage(this.button,canWidth - this.btnWidth/2 - 60,canHeight/2 + this.btnHeight-10, this.btnWidth,this.btnHeight);
+};
+
+//先定义
+var hold_prize_type = null,
+send_msg;
+
+//设置send_msg
+send_msg = {
+	url: PATH_WEB,
+	type: "post",
+	dataContent: {
+		action:'start_tongs',
+		uid:uid,
+		reqType:2,
+		paramData:null
+	}
+};
+
+//更新
+handObj.prototype.update = function() {
+	if(this.begin && this.x <= 40 && this.x <= canWidth - 55) { //左边缘
+		this.begin = false;
+		this.end = true;
+	}else if(this.end && this.x >= canWidth - 60) { //右边缘
+		this.end = false;
+		this.hurt = false;
+		this.ishanding = false;
+		if (this.success) { //如果拿到礼物
+			console.log("拿到礼物");
+			this.getGifWid = 0;
+			this.success = false;
+			$(".ui-mask").show();
+			//弹窗
+			switch (this.gifType) {
+				case "redpack":
+				hold_prize_type = 4;
+				getMoney();
+				break;
+				case "egg":
+				hold_prize_type = 4;
+				getMoney();
+				break;
+				case "treasure":
+				hold_prize_type = 4;
+				getMoney();
+				break;
+				case "wallet":
+				hold_prize_type = 3;
+				getMoney();
+				break;
+				case "godman":
+				hold_prize_type = 4;
+				getMoney();
+				break;
+				case "box":
+				hold_prize_type = 2;
+				getMoney();
+				break;
+				default: break;
+			}
+
+		}
+	}
+
+	if(!this.success && !this.hurt && this.ishanding) {//如果没有受伤且没有拿到礼物可以抓取
+		for(var i = 0; i < gifs.num; i++) {
+			if(Math.sqrt(this.x - this.w/2 - gifs.centerX[i]) + Math.sqrt(this.y - this.h/2 - gifs.centerY[i]) <= 8 && gifs.alive[i] == true) {
+				console.log(gifs.alive[i]);
+				this.end = true;
+				this.begin = false;
+				this.success = true;
+				this.ishanding = true;
+				this.gifType = gifs.gifType[i];
+				console.log("生成的礼物类型"+this.gifType);
+				var giftype = this.gifType;
+				this.getGifWid = gifs.w[i];
+				this.getGifHei = gifs.h[i];
+				gifs.alive[i] = false;
+				switch (giftype){
+					case "redpack":this.getGif.src = path.src+"redpack.png";
+					break;
+					case "egg":this.getGif.src = path.src+"egg.png";
+					break;
+					case "treasure":this.getGif.src = path.src+"treasure.png";
+					break;
+					case "wallet":this.getGif.src = path.src+"wallet.png";
+					break;
+					case "godman":this.getGif.src = path.src+"godman.png";
+					break;
+					case "box":this.getGif.src = path.src+"box1.png";
+					break;
+					default: break;
+				}
+			}
+		}
+	}
+
+};
+
+//设置paramData
+paramData = paramData={'uid':uid,'time':time,'auth':auth,'device':device,'hold_prize_type':hold_prize_type,'game_type':game_type};
+
+//加密
+paramData=JSON.stringify(paramData);
+paramData=encryptByDES(paramData,key_auth);
+
+//将加密之后的paramData赋值到send_msg
+send_msg.dataContent.paramData = paramData;
+
+var	tips_type;
+function getMoney() {//传递一个函数作为参数
+	var url = send_msg.url,
+	type = send_msg.type,
+	dataContent = send_msg.dataContent;
+	price_time=parseInt($(".tips_box p strong").text());
+	if(price_time== 0){
+		$(".ui-mask").fadeIn();
+		$(".dialog_end").show();
+		clearInterval(ticks);
+		ticks = setInterval(function () {
+			if (cha > 0) {
+				$('.dialog_end .curtime').text(leftTime(cha));
+			} else {
+				clearInterval(ticks);
+				window.location.reload();
+			}
+			cha--;
+		}, 1000);
+	}else{
+		//发送给后台
+		$.ajax({
+			type: type,
+			url: url,
+			async: true,
+			data: dataContent
+		}).then(function(res) {
+			var res = res || {},
+			json_data,
+			data,
+			num;
+			res = JSON.parse(res);//首先将返回来的数据转换成对象
+			json_data  =decryptByDES(res.res_data, key_auth);//获取对象的res_data解密结果
+			data=JSON.parse(json_data);//将解密结果json格式转化成对象
+			price_time=parseInt($(".tips_box p strong").text());
+			num = Math.floor(data.num);//获取到剩余次数
+			console.log(data);
+			showError(datas.game_all_num[3].once_count+'@_@'+datas.game_all_num[3].again_count);
+			p_id=data.p_id;
+			ad_url=data.entry_game_popout.ad_url;
+			cha=data.count_down;
+
+			if( data.num == 0 ) {
+				clearInterval(ticks);
+				$('.dialog_end .curtime').text(leftTime(cha));
+				ticks = setInterval(function () {
+					if (cha > 0) {
+						$('.dialog_end .curtime').text(leftTime(cha));
+					} else {
+						clearInterval(ticks);
+					}
+					cha--;
+				}, 1000);
+				// $(".ui-mask").fadeIn();
+				// $(".dialog_end ").show();
+				$('.dialog_end .adv img').attr('src',data.entry_game_popout.ad_img);
+			}
+			// else{
+				//后台返回的tips_type
+				tips_type = data.entry_game_popout.tips_type;
+				console.log(tips_type);
+				switch (hold_prize_type) {
+					case 1:
+					$(".dialog_redpack .scount").text(data.entry_game_popout.redpacket_money);
+					$(".dialog_redpack").show();
+					break;
+					case 2:
+					$(".dialog_box").show();
+					setTimeout(function() {
+						$(".dialog_box").fadeOut();
+						if (tips_type == 2) {
+							$(".dialog_price .adv img").attr("src",data.entry_game_popout.ad_img);
+							$(".dialog_end .adv img").attr("src",data.entry_game_popout.ad_img);
+							$(".dialog_price .price_con p").text(data.entry_game_popout.redpacket_money);
+							$('.dialog_price .ad_title').text(data.entry_game_popout.ad_title);
+							$(".dialog_price").show();
+						} else {
+							$(".dialog_success .adv_success").attr("src",data.entry_game_popout.ad_img);
+							$(".dialog_end .adv img").attr("src",data.entry_game_popout.ad_img);
+							$(".dialog_success .ad_title").text(data.entry_game_popout.ad_title);
+							$(".dialog_success").show();
+						}
+					},1000);
+					break;
+					case 3:
+					$(".dialog_wallet").show();
+					setTimeout(function() {
+						$(".dialog_wallet").fadeOut();
+						if (tips_type == 2) {
+							$(".dialog_price .adv img").attr("src",data.entry_game_popout.ad_img);
+							$(".dialog_end .adv img").attr("src",data.entry_game_popout.ad_img);
+							$(".dialog_price .price_con p").text(data.entry_game_popout.redpacket_money);
+							$('.dialog_price .ad_title').text(data.entry_game_popout.ad_title);
+							$(".dialog_price").show();
+						} else {
+							$(".dialog_success .adv_success").attr("src",data.entry_game_popout.ad_img);
+							$(".dialog_end .adv img").attr("src",data.entry_game_popout.ad_img);
+							$(".dialog_success .ad_title").text(data.entry_game_popout.ad_title);
+							$(".dialog_success").show();
+						}
+					},1000);
+					break;
+					case 4:
+					if (tips_type == 2) {
+						$(".dialog_price .adv img").attr("src",data.entry_game_popout.ad_img);
+						$(".dialog_end .adv img").attr("src",data.entry_game_popout.ad_img);
+						$(".dialog_price .price_con p").text(data.entry_game_popout.redpacket_money);
+						$('.dialog_price .ad_title').text(data.entry_game_popout.ad_title);
+						$(".dialog_price").show();
+					} else {
+						$(".dialog_success .adv_success").attr("src",data.entry_game_popout.ad_img);
+						$(".dialog_end .adv img").attr("src",data.entry_game_popout.ad_img);
+						$(".dialog_success .ad_title").text(data.entry_game_popout.ad_title);
+						$(".dialog_success").show();
+					}
+					break;
+				}
+			// }
+			$('.tips_box strong').text(num);
+		},function() {			
+			tipError("数据请求失败，请检查当前网络");
+		});
+	}
+
+}
+
+
+function clickBtn(e) {
+	var clientX = e.touches[0].clientX,
+	clientY = e.touches[0].clientY - 48;
+	if(clientX>canWidth-hand.btnWidth/2-60 && clientX < canWidth + hand.btnWidth/2 - 60 && clientY > canHeight/2 + hand.btnHeight - 10 && clientY < canHeight/2 + 2*hand.btnHeight - 10 && !hand.ishanding){
+		hand.begin = true;
+		hand.ishanding = true;
+	}
+}

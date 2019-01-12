@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>数据统计-收支明细</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/page.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="layui-fluid staticList">
+
+    <div class="layui-card">
+        <div class="layui-card-header" style="margin-top: 20px;">收支明细</div>
+        <form class="layui-form" action="" method="post">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">选择日期范围：</label>
+                    <div class="layui-input-inline">
+                        <input name="start_time" value="{$start_time}" type="text" class="layui-input" id="staticStart1" placeholder="开始日期" lay-key="1" autocomplete="off">
+                    </div>
+                    <div class="layui-form-mid">-</div>
+                    <div class="layui-input-inline">
+                        <input name="end_time" value="{$end_time}" type="text" class="layui-input" id="staticEnd1" placeholder="结束日期" lay-key="2" autocomplete="off">
+                    </div>
+                    <button class="layui-btn layui-btn-normal beSure" type="submit">确定</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    <!--<button type="reset" class="layui-btn">导出数据</button>-->
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <div class="table-content">
+                <table class="layui-table income_outlay" style="margin-bottom: 0;">
+                    <thead>
+                    <tr>
+                        <th colspan="6">支出</th>
+                        <th colspan="4" style="background: #ddd;">收入</th>
+                        <th style="background: #aaa;">差额</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td style="font-weight: bold;">日期</td>
+                        <td style="font-weight: bold;">趣味游戏</td>
+                        <td style="font-weight: bold;">百万红包</td>
+                        <td style="font-weight: bold;">系统红包</td>
+                        <td style="font-weight: bold;">邀请红包</td>
+                        <td style="font-weight: bold;">总支出</td>
+                        <td style="font-weight: bold;">服务费收入</td>
+                        <td style="font-weight: bold;">自有广告收入</td>
+                        <td style="font-weight: bold;">腾讯广告收入</td>
+                        <td style="font-weight: bold;">总收入</td>
+                        <td style="font-weight: bold;">收支差额</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">累计</td>
+                        <td style="font-weight: bold;">{$all_data_count.game_all_count}</td>
+                        <td style="font-weight: bold;">{$all_data_count.mill_all_count|sprintf='%.4f',###}</td>
+                        <td style="font-weight: bold;">{$all_data_count.sys_all_count|sprintf='%.4f',###}</td>
+                        <td style="font-weight: bold;">{$all_data_count.invite_all_count}</td>
+                        <td style="font-weight: bold;">{$all_data_count.outlay_all_count}</td>
+                        <td style="font-weight: bold;">{$all_data_count.service_all_count|sprintf='%.4f',###}</td>
+                        <td style="font-weight: bold;">{$all_data_count.own_all_count|sprintf='%.4f',###}</td>
+                        <td style="font-weight: bold;">{$all_data_count.tencent_all_count|sprintf='%.4f',###}</td>
+                        <td style="font-weight: bold;">{$all_data_count.income_all_count|sprintf='%.4f',###}</td>
+                        {if $all_data_count.difference < 0}<td class="negative_number" style="font-weight: bold;">
+                        {else /}<td class="positive_number" style="font-weight: bold;">
+                        {/if}
+                        {$all_data_count.difference}</td>
+                    </tr>
+                    {volist name="io_count" id="vo"}
+                    <tr data-id="{$vo.id}">
+                        <td>{$vo.day}</td>
+                        <td>{$vo.game_count}</td>
+                        <td>{$vo.mill_count}</td>
+                        <td>{$vo.count3}</td>
+                        <td>{$vo.count4}</td>
+                        <td class="expenditure_fee">{$vo.count_outlay|sprintf='%.4f',###}</td>
+                        <td class="service_fee">{$vo.count5}</td>
+                        <td class="own_fee">{$vo.count6}</td>
+                        <td class="tencent_fee">{$vo.count7}</td>
+                        <td class="total_fee">{$vo.count_income|sprintf='%.4f',###}</td>
+                        {if $vo.count8 < 0}<td class="difference negative_number">{$vo.count8|sprintf='%.4f',###}</td>
+                        {else /}<td class="difference positive_number">{$vo.count8|sprintf='%.4f',###}</td>
+                        {/if}
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{load href="/static/admin/layui/layui.js" /}
+{load href="/static/admin/js/index.js" /}
+{load href="/static/admin/js/statistics/balance_payments.js" /}
+</body>
+</html>

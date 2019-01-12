@@ -1,0 +1,386 @@
+$(function(){
+    var id_list=[];
+    // 页面初始化
+    initialize();
+    function initialize(){
+        layui.use(['element','form','laypage','layer','laydate','upload'],function(){
+            var element=layui.element;
+            var form=layui.form;
+            var laypage=layui.laypage;
+            var layer=layui.layer;
+            var laydate=layui.laydate;
+            var upload=layui.upload;
+
+            //设置题目状态
+            form.on('switch(status)', function(data){
+                var status = data.elem.checked ? 1 : 2;
+                var ids = data.value;
+                $.post('set_status',{'status':status,'ids[]':ids},function (result) {
+                    if (result.status == 1) {
+                        layer.msg(result.msg);
+                    } else {
+                        layer.msg(result.msg);
+                    }
+                },'json');
+            });
+            //监听面板折叠状态
+            element.on('collapse(test)', function(data){
+                layer.msg('展开状态：'+ data.show);
+            });
+            laypage.render({
+                elem:'demo11',
+                // count:data.count,
+                count:1000,
+                limit:100,
+                limits:[100,300,500]
+                // jump:function(obj){
+                    // 当前页码为obj.curr
+                    // $.ajax({
+                    //     type:'GET',
+                    //     url:'',
+                    //     data:{page:obj.curr},
+                    //     dataType:'json',
+                    //     success:function(data){
+                    //         console.log(data);
+                    //     }
+                    // })
+                // }
+            });
+            laypage.render({
+                elem:'demo12',
+                // count:data.count,
+                count:1000,
+                limit:100,
+                limits:[100,300,500]
+                // jump:function(obj){
+                    // 当前页码为obj.curr
+                    // $.ajax({
+                    //     type:'GET',
+                    //     url:'',
+                    //     data:{page:obj.curr},
+                    //     dataType:'json',
+                    //     success:function(data){
+                    //         console.log(data);
+                    //     }
+                    // })
+                // }
+            });
+            laypage.render({
+                elem:'demo13',
+                // count:data.count,
+                count:1000,
+                limit:100,
+                limits:[100,300,500]
+                // jump:function(obj){
+                    // 当前页码为obj.curr
+                    // $.ajax({
+                    //     type:'GET',
+                    //     url:'',
+                    //     data:{page:obj.curr},
+                    //     dataType:'json',
+                    //     success:function(data){
+                    //         console.log(data);
+                    //     }
+                    // })
+                // }
+            });
+            laydate.render({
+                elem:'#seltime1',
+                showBottom: false
+            });
+            laydate.render({
+                elem:'#seltime2',
+                showBottom: false
+            });
+            laydate.render({
+                elem:'#seltime3',
+                showBottom: false
+            });
+            upload.render({
+                elem: '#test2',
+                url: '/upload/',
+                multiple: true,
+                before: function(obj){
+                  //预读本地文件示例，不支持ie8
+                  obj.preview(function(index, file, result){
+                    $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">')
+                  });
+                },
+                done: function(res){
+                  //上传完毕
+                }
+            });
+            //多图片上传
+            upload.render({
+                elem: '#test-upload-more',
+                url: '/upload/',
+                multiple: true,
+                before: function(obj){
+                    //预读本地文件示例，不支持ie8
+                    if($("#test-upload-more-list img").length>=8){
+                        //提示
+                        layer.msg('图片数量超出限制');
+                        return false;
+                    }else {
+                        obj.preview(function(index, file, result){
+                            $('#test-upload-more-list').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">');
+                            $(".layui-col-xs6:last-child span").html($("#test-upload-more-list img").length+'张');
+                        });
+                    }
+                },
+                done: function(res){
+                    //上传完毕
+                }
+            })
+        })
+    }
+    // 脑洞大题创建
+    $('.createItem').click(function(){
+        $('.mark').show();
+        $('.create-question').fadeIn();
+    });
+    // 脑洞编辑
+    $('.edit').click(function(){
+        $('.mark').show();
+        $('.create-question').fadeIn();
+        var ids= $(this).attr("data-id");
+        if(ids!=''&&ids!=undefined&&ids!=null){
+        $.post('get_info',{'id':ids},function (result) {
+            if (result.status == 1) {
+                console.log("success");
+                $("input[name='title']").val(result.data.q_title);
+                $("input[name='answer1']").val(result.data.q_option[0]);
+                $("input[name='answer2']").val(result.data.q_option[1]);
+                $("input[name='answer3']").val(result.data.q_option[2]);
+                console.log(result.data.q_option_answer);
+                if(result.data.q_option_answer=='0'){
+                    console.log("000000");
+                    $('.create-question').parents('.layui-form-item:eq(1)').find('.layui-form-checkbox').addClass('layui-form-checked');}
+                else if(result.data.q_option_answer=='1'){
+                    $(".layui-form-item:eq(2) .layui-unselect .layui-form-checkbox").addClass('layui-form-checked')
+                }else {
+                    $(".layui-form-item:eq(3) .layui-unselect .layui-form-checkbox").addClass('layui-form-checked')
+                }
+
+            } else {
+            }
+        });
+
+        $(".ids").attr('value',ids)
+        }
+    });
+
+  /*  // 表格全选与否
+    var isChecked=true;
+    // 全选与取消
+    $('.totaltr').click(function(){
+        isChecked=!isChecked;
+        if(isChecked){
+            $(this).parent().prev().find('input').prop('checked',false);
+        }else{
+            $(this).parent().prev().find('input').prop('checked',true);
+        }
+    });
+    // 单个选择--->>全选
+    $('table tbody').on('click','input',function(){
+        //each 便利每一个元素，让其执行该函数
+        $('table tbody input').each(function(){
+            if(!$(this).prop('checked')){
+                $(this).parents('table').parent().next().find('.totaltr').prop('checked',false);
+                 isChecked=!isChecked;
+                //有一个不满足就 跳出该循环，避免执行下面
+                return false;
+            }else{
+                $(this).parents('table').parent().next().find('.totaltr').prop('checked',true);
+                isChecked=!isChecked;
+            }
+        })
+    });*/
+    // ==================== 题库管理-全选与取消 ====================
+// 缓存选择器
+    const CHECKBOX_SELECTOR = $(".layui-tab-content .layui-table tbody :checkbox");
+
+    function check() {
+        // 单个复选框总数
+        var checkNum = CHECKBOX_SELECTOR.size();
+        // 记录其中选中状态个数
+        var chackCounter = 0;
+        CHECKBOX_SELECTOR.each(function() {
+            if($(this).prop("checked")) {
+                chackCounter++;
+            }
+        });
+        checkNum == chackCounter ? $(".totaltr").prop("checked", true) : $(".totaltr").prop("checked", false);
+    }
+
+// 点击全选框
+    $(".nddt .totaltr").click(function() {
+        // 关联单个复选框
+        $(this).prop("checked")
+            ? CHECKBOX_SELECTOR.prop("checked", true)
+            : CHECKBOX_SELECTOR.prop("checked", false)
+    })
+
+// 点击单个复选框
+    CHECKBOX_SELECTOR.click(function() { check(); });
+// ==================== check end ====================
+    // 表格删除行
+    $('table').on('click','.deltr',function(e){
+        e.preventDefault();
+        var index=$(this).parents('tr').index();
+        var that=$(this);
+        var ids = that.data('id');
+        layer.confirm('确定要删除吗？',function(index){
+            $.post('set_status',{'status':0,'ids[]':ids},function (result) {
+                if (result.status == 1) {
+                    that.parents('tr').remove();
+                    layer.msg('删除成功');
+                    layer.close(index);
+                } else {
+                    layer.msg('删除失败');
+                    layer.close(index);
+                }
+            },'json');
+            /*$.ajax({
+                type:'post',
+                url:"{:url('admin/game.answer/set_status')}",
+                data:{'status':0,'ids[]':ids},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                },
+                error:function(){
+                    console.log('ajax请求失败');
+                }
+            });
+            that.parents('tr').remove();
+            layer.msg('删除成功');
+            layer.close(index);*/
+        })
+    });
+    // 关闭创建
+    $('.closeModel').click(function(){
+        $('.mark').hide();
+        $('.create-question').hide();
+        $('.create-question input').val('');
+        $('.create-question .layui-form-checkbox').removeClass('layui-form-checked');
+    });
+    // 选择创建题目的正确答案
+    $('.create-question').on('click','.layui-form-checkbox',function(){
+        $(this).addClass('layui-form-checked');
+        $(this).parents('.layui-form-item').siblings().find('.layui-form-checkbox').removeClass('layui-form-checked')
+    });
+    // 上传题目
+    $('.createUpload').click(function(e){
+        e.preventDefault();
+        var option=[];
+        var title=$('.que_title').val();
+        var tip = $('.ques_tip').val();
+        var answer=$('.layui-form-checked').prev().attr('data-num');
+        option[0]=$('.ques1').val();
+        option[1]=$('.ques2').val();
+        option[2]=$('.ques3').val();
+        if(title==''||$('.ques1').val()==''||$('.ques2').val()==''||$('.ques3').val()==''){
+            layer.msg('请补全信息');
+        }else{
+            var ids=$('.ids').attr('value')
+            if (ids==""){
+            $.ajax({
+                type:'post',
+                url:'do_answer',
+                data:{'title':title,'option':option,'answer':answer,'tip':tip},
+                success:function(data){
+                    // console.log(data);
+                    // $('.create-question').hide();
+                    // $('.mark').fadeOut();
+                    // $('.create-question').form('clear');
+                    if (data.status == 1) {
+                        layer.msg(data.msg);
+                        setTimeout(function(){
+                            window.location.reload();
+                        },1000);
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error:function(){
+                    console.log('ajax请求失败');
+                }
+            })
+            }else {
+                $.ajax({
+                    type:'post',
+                    url:'do_answer',
+                    data:{'id':ids,'title':title,'option':option,'answer':answer,'tip':tip},
+                    success:function(data){
+                        // console.log(data);
+                        // $('.create-question').hide();
+                        // $('.mark').fadeOut();
+                        // $('.create-question').form('clear');
+                        if (data.status == 1) {
+                            layer.msg(data.msg);
+                            setTimeout(function(){
+                                window.location.reload();
+                            },1000);
+                        } else {
+                            layer.msg(data.msg);
+                        }
+                    },
+                    error:function(){
+                        console.log('ajax请求失败');
+                    }
+                })
+            }
+
+        }
+    });
+    // ==== 数组去除 undefined ====
+    function removeUndefind(arr) {
+        var $arr = [];
+        for (let value of arr) {
+            if (value) {
+                $arr.push(value)
+            }
+        }
+        return $arr;
+    }
+    //更新题目状态接口 带删除 0删除 1启用 2暂停
+    function updateStatus(beSelected){
+        $('#questions_management input:checked').each(function(){
+            id_list.push($(this).parent().next().text());
+            id_list = removeUndefind(id_list);
+            console.log(id_list);
+            id_list.find(function (value) {
+                if(value!=''&&value!=undefined&&value!=null){
+                    layer.confirm('确定要修改吗？',function(index){
+                        $.post('set_status',{'status':beSelected,'ids[]':id_list},function (result) {
+                            if (result.status == 1) {
+                                layer.msg('操作成功');
+                                layer.close(index);
+                                setTimeout(function(){
+                                    window.location.reload();
+                                },500)
+                            } else {
+                                layer.msg('操作失败');
+                                layer.close(index);
+                            }
+                        },'json');
+                    })
+                }
+            })
+        })
+    }
+    // 脑洞红包答题-题库管理-批量操作
+    $('#up').click(function(){
+        var beSelected=$('#up').attr('data-num');
+        updateStatus(beSelected);
+    });
+    $('#down').click(function(){
+        var beSelected=$('#down').attr('data-num');
+        updateStatus(beSelected);
+    });
+    $('#delet').click(function(){
+        var beSelected=$('#delet').attr('data-num');
+        updateStatus(beSelected);
+    });
+});

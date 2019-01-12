@@ -1,0 +1,88 @@
+{extend name="public/base" /}
+
+{block name="title"}
+工作管理 - 员工
+{/block}
+
+{block name="body"}
+
+<table width="90%" border="1" align="center">
+  <tr>
+    <td><table width="90%" border="1" align="center">
+      <tr>
+        <td>ID</td>
+        <td>部门</td>
+        <td>姓名</td>
+        <td>账户</td>
+        <td>增加时间</td>
+        <td>登录时间</td>
+        <td>状态</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="90%" border="1" align="center">
+  <tr>
+    <td>
+      <form id="form1" name="form1" method="post" action="" class="layui-form">
+      <table width="800" height="194" border="1" align="center">
+        <tr>
+          <td width="150">部门</td>
+          <td width="200" height="30">
+            <select name="action" lay-filter="action">
+              <option value="0">-&#45;&#45; 请选择 -&#45;&#45;</option>
+			{volist name="arr_api_list" id="vo"}
+				<option value="{$vo['7']}">{$vo['0']}</option>
+			{/volist}
+            </select>          </td>
+          <td height="30">&nbsp;</td>
+        </tr>
+        <tr>
+          <td rowspan="4">信息</td>
+          <td>姓名</td>
+          <td><input name="textfield24" type="text" size="30" /></td>
+        </tr>
+        
+        <tr>
+          <td height="30">账号</td>
+          <td><input name="textfield25" type="text" size="30" /></td>
+        </tr>
+        <tr>
+          <td height="30">状态</td>
+          <td><select name="select" lay-filter="action">
+            <option value="0">-&#45;&#45; 请选择 -&#45;&#45;</option>
+            
+			{volist name="arr_api_list" id="vo"}
+				
+            <option value="{$vo['7']}">{$vo['0']}</option>
+            
+			{/volist}
+            
+          </select></td>
+        </tr>
+        <tr>
+          <td height="30">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="50" colspan="3"><div align="center">
+            <input type="submit" name="Submit" value="提交" /> 
+            <input type="reset" name="Submit2" value="重置" />
+          </div></td>
+          </tr>
+      </table>
+      </form>
+    </td>
+  </tr>
+</table>
+
+{/block}

@@ -1,0 +1,362 @@
+$(function(){
+    var id_list=[];
+    // 页面初始化
+    initialize();
+    function initialize(){
+        layui.use(['element','form','laypage','layer','laydate','upload'],function(){
+            var element=layui.element;
+            var form=layui.form;
+            var laypage=layui.laypage;
+            var layer=layui.layer;
+            var laydate=layui.laydate;
+            var upload=layui.upload;
+
+            //设置题目状态
+            form.on('switch(status)', function(data){
+                var status = data.elem.checked ? 1 : 2;
+                var ids = data.value;
+                $.post('set_status',{'status':status,'ids[]':ids},function (result) {
+                    if (result.status == 1) {
+                        layer.msg(result.msg);
+                    } else {
+                        layer.msg(result.msg);
+                    }
+                },'json');
+            });
+            //监听面板折叠状态
+            element.on('collapse(test)', function(data){
+                layer.msg('展开状态：'+ data.show);
+            });
+            laypage.render({
+                elem:'demo11',
+                // count:data.count,
+                count:1000,
+                limit:100,
+                limits:[100,300,500]
+                // jump:function(obj){
+                    // 当前页码为obj.curr
+                    // $.ajax({
+                    //     type:'GET',
+                    //     url:'',
+                    //     data:{page:obj.curr},
+                    //     dataType:'json',
+                    //     success:function(data){
+                    //         console.log(data);
+                    //     }
+                    // })
+                // }
+            });
+            laypage.render({
+                elem:'demo12',
+                // count:data.count,
+                count:1000,
+                limit:100,
+                limits:[100,300,500]
+                // jump:function(obj){
+                    // 当前页码为obj.curr
+                    // $.ajax({
+                    //     type:'GET',
+                    //     url:'',
+                    //     data:{page:obj.curr},
+                    //     dataType:'json',
+                    //     success:function(data){
+                    //         console.log(data);
+                    //     }
+                    // })
+                // }
+            });
+            laypage.render({
+                elem:'demo13',
+                // count:data.count,
+                count:1000,
+                limit:100,
+                limits:[100,300,500]
+                // jump:function(obj){
+                    // 当前页码为obj.curr
+                    // $.ajax({
+                    //     type:'GET',
+                    //     url:'',
+                    //     data:{page:obj.curr},
+                    //     dataType:'json',
+                    //     success:function(data){
+                    //         console.log(data);
+                    //     }
+                    // })
+                // }
+            });
+            laydate.render({
+                elem:'#seltime1',
+                showBottom: false
+            });
+            laydate.render({
+                elem:'#seltime2',
+                showBottom: false
+            });
+            laydate.render({
+                elem:'#seltime3',
+                showBottom: false
+            });
+            upload.render({
+                elem: '#test2',
+                url: '/upload/',
+                multiple: true,
+                before: function(obj){
+                  //预读本地文件示例，不支持ie8
+                  obj.preview(function(index, file, result){
+                    $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">')
+                  });
+                },
+                done: function(res){
+                  //上传完毕
+                }
+            });
+            //多图片上传
+            upload.render({
+                elem: '#test-upload-more',
+                url: '/upload/',
+                multiple: true,
+                before: function(obj){
+                    //预读本地文件示例，不支持ie8
+                    if($("#test-upload-more-list img").length>=8){
+                        //提示
+                        layer.msg('图片数量超出限制');
+                        return false;
+                    }else {
+                        obj.preview(function(index, file, result){
+                            $('#test-upload-more-list').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">');
+                            $(".layui-col-xs6:last-child span").html($("#test-upload-more-list img").length+'张');
+                        });
+                    }
+                },
+                done: function(res){
+                    //上传完毕
+                }
+            })
+        })
+    }
+    // 脑洞大题创建
+    $('.createItem').click(function(){
+        $('.mark').show();
+        $('.create-question').fadeIn();
+    });
+    // 脑洞编辑
+    $('.edit').click(function(){
+        $('.mark').show();
+        $('.create-question').fadeIn();
+        var ids= $(this).attr("data-id");
+        if(ids!=''&&ids!=undefined&&ids!=null){
+        $.post('get_reward_info',{'id':ids},function (result) {
+            // console.log(result);
+            if (result.status == 1) {
+                $("input[name='title']").val(result.data.title);
+                $("input[name='pic_url']").val(result.data.pic_url);
+                $("#show").attr("src",result.data.pic_url);
+                
+                // 处理select选中
+                var html = "";
+                var grade1 = "";
+                var grade3 = "";
+                var grade5 = "";
+                var grade = parseInt(result.data.grade);
+                html = "<option>请选择</option>";
+                if(grade==5){
+                    grade5 = "selected='selected'";
+                }else if(grade==3){
+                    grade3 = "selected='selected'";
+                }else{
+                    grade1 = "selected='selected'";
+                }
+
+                html += "<option " + grade1 + " value='1'>★</option>";
+                html += "<option " + grade3 + " value='3'>★★★</option>";
+                html += "<option " + grade5 + " value='5'>★★★★★</option>";
+                $("select[name='grade']").html(html);
+                
+                layui.form.render('select');
+            } else {
+            }
+        });
+
+        $(".ids").attr('value',ids)
+        }
+    });
+
+// 缓存选择器
+    const CHECKBOX_SELECTOR = $(".layui-tab-content .layui-table tbody :checkbox");
+
+    function check() {
+        // 单个复选框总数
+        var checkNum = CHECKBOX_SELECTOR.size();
+        // 记录其中选中状态个数
+        var chackCounter = 0;
+        CHECKBOX_SELECTOR.each(function() {
+            if($(this).prop("checked")) {
+                chackCounter++;
+            }
+        });
+        checkNum == chackCounter ? $(".totaltr").prop("checked", true) : $(".totaltr").prop("checked", false);
+    }
+
+// 点击全选框
+    $(".nddt .totaltr").click(function() {
+        // 关联单个复选框
+        $(this).prop("checked")
+            ? CHECKBOX_SELECTOR.prop("checked", true)
+            : CHECKBOX_SELECTOR.prop("checked", false)
+    })
+
+// 点击单个复选框
+    CHECKBOX_SELECTOR.click(function() { check(); });
+// ==================== check end ====================
+    // 表格删除行
+    $('table').on('click','.deltr',function(e){
+        e.preventDefault();
+        var index=$(this).parents('tr').index();
+        var that=$(this);
+        var id = that.data('id');
+        layer.confirm('确定要删除吗？',function(index){
+            $.post('del_reward',{'id':id},function (result) {
+                if (result.status == 1) {
+                    that.parents('tr').remove();
+                    layer.msg('删除成功');
+                    layer.close(index);
+                } else {
+                    layer.msg('删除失败');
+                    layer.close(index);
+                }
+            },'json');
+            
+        })
+    });
+    // 关闭创建
+    $('.closeModel').click(function(){
+        $('.mark').hide();
+        $('.create-question').hide();
+        $('.create-question input').val('');
+        $("#show").attr("src","");
+        $('.create-question .layui-form-checkbox').removeClass('layui-form-checked');
+    });
+    // 选择创建题目的正确答案
+    $('.create-question').on('click','.layui-form-checkbox',function(){
+        $(this).addClass('layui-form-checked');
+        $(this).parents('.layui-form-item').siblings().find('.layui-form-checkbox').removeClass('layui-form-checked')
+    });
+    // 上传题目
+    $('.createUpload').click(function(e){
+        e.preventDefault();
+        if($('#show').attr('src')==''){
+            layer.alert('上传图片不能为空！');
+        }else{
+            var formData = new FormData($("#RewardAdd")[0]);
+            // console.log(formData);
+            $.ajax({
+                type:'post',
+                url:'add_reward',
+                data:formData,
+                contentType:false,
+                processData:false,
+                dataType:'json',
+                success:function(data){
+                    if (data.status == 1){
+                        layer.msg(data.msg);
+                        setTimeout(function(){
+                            window.location.reload();
+                        },1000);
+                    } else {
+                        layer.msg(data.msg);
+                        return false;
+                    }
+                },
+                error:function(){
+                    console.log('ajax请求失败');
+                }
+            })
+        }
+    });
+    // ==== 数组去除 undefined ====
+    function removeUndefind(arr) {
+        var $arr = [];
+        for (let value of arr) {
+            if (value) {
+                $arr.push(value)
+            }
+        }
+        return $arr;
+    }
+    var $id_list=[];
+    //更新题目状态接口 带删除 0删除 1启用 2暂停
+    function updateStatus(beSelected){
+        // ==== 数组重置 ====
+        id_list = [];
+        $('#questions_management input:checked').each(function(){
+            id_list.push($(this).parent().next().text());
+            $id_list = removeUndefind(id_list);
+            
+            console.log(id_list);
+            $id_list.find(function (value) {
+                if(value!=''&&value!=undefined&&value!=null){
+                    layer.confirm('确定要修改吗？',function(index){
+                        $.post('set_status',{'status':beSelected,'ids[]':$id_list},function (result) {
+                            if (result.status == 1) {
+                                layer.msg('操作成功');
+                                layer.close(index);
+                                setTimeout(function(){
+                                    window.location.reload();
+                                },500)
+                            } else {
+                                layer.msg('操作失败');
+                                layer.close(index);
+                            }
+                        },'json');
+                    })
+                }
+            })
+        })
+    }
+    // 脑洞红包答题-题库管理-批量操作
+    $('#up').click(function(){
+        var beSelected=$('#up').attr('data-num');
+        updateStatus(beSelected);
+    });
+    $('#down').click(function(){
+        var beSelected=$('#down').attr('data-num');
+        updateStatus(beSelected);
+    });
+    $('#delet').click(function(){
+        var beSelected=$('#delet').attr('data-num');
+        updateStatus(beSelected);
+    });
+    //*************************规则说明编辑*******************************************//
+    $("#ruleEdit").on('click',function () {
+        /*    var t3=$('input[name="topcount3"]').val();
+            var t4=$('input[name="topcount4"]').val();
+            var t5=$('input[name="topcount5"]').val();*/
+        var that=$(this);
+        if(that.text()=='编辑'){
+            layer.msg('请填写配置');
+            $('input[name="group_count"]').removeClass('ee').addClass('ff').removeAttr('disabled').focus();
+            $('input[name="delay_sec"]').removeClass('ee').addClass('ff').removeAttr('disabled');
+    /*        $('input[name="topcount3"]').removeClass('ee').addClass('ff').removeAttr('disabled').val(t3);
+            $('input[name="topcount4"]').removeClass('ee').addClass('ff').removeAttr('disabled').val(t4);
+            $('input[name="topcount5"]').removeClass('ee').addClass('ff').removeAttr('disabled').val(t5);*/
+            that.text('确定').removeClass('layui-btn-normal').addClass('layui-btn-success');
+        }else{
+            var group_count=$('input[name="group_count"]').val();
+            var delay_sec=$('input[name="delay_sec"]').val();
+                $.post('up_config',{'group_count':group_count,'delay_sec':delay_sec},function (result) {
+                    if (result.status == 1) {
+                        layer.msg(result.msg);
+                        $("input[name='group_count']").removeClass('ff').addClass('ee').attr('disabled','disabled');
+                        $("input[name='delay_sec']").removeClass('ff').addClass('ee').attr('disabled','disabled');
+                        that.text('编辑').removeClass('layui-btn-success').addClass('layui-btn-normal');
+                    } else {
+                        return layer.msg(result.msg);
+                    }
+                });
+        /*    $("input[name='topcount3']").removeClass('ff').addClass('ee').attr('disabled','disabled');
+            $("input[name='topcount4']").removeClass('ff').addClass('ee').attr('disabled','disabled');
+            $("input[name='topcount5']").removeClass('ff').addClass('ee').attr('disabled','disabled');*/
+        }
+
+    });
+});

@@ -1,0 +1,169 @@
+{extend name="public/base" /}
+
+{block name="head"}
+<title>工作管理 - 功能</title>
+{/block}
+
+{block name="body"}
+
+<table width="90%" border="1" align="center">
+  <tr>
+    <td><table width="90%" border="1" align="center">
+      <tr>
+        <td>ID</td>
+        <td>项目</td>
+        <td>任务ID</td>
+        <td>任务名称</td>
+        <td>处理类型</td>
+        <td>解决方案</td>
+        <td>解决细节</td>
+        <td>相关影响</td>
+        <td>开始时间</td>
+        <td>截止时间</td>
+        <td>工时</td>
+        <td>其他说明</td>
+        <td>执行人</td>
+        <td>状态</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="90%" height="406" border="1" align="center">
+  <tr>
+    <td>
+      <form id="form1" name="form1" method="post" action="" class="layui-form">
+      <table width="800" height="194" border="1" align="center">
+        <tr>
+          <td width="150">任务信息</td>
+          <td width="200" height="30">
+            <select name="action" lay-filter="action">
+              <option value="0">-&#45;&#45; 请选择 -&#45;&#45;</option>
+			{volist name="arr_api_list" id="vo"}
+				<option value="{$vo['7']}">{$vo['0']}</option>
+			{/volist}
+            </select>          </td>
+          <td height="30">项目
+            <select name="select3" lay-filter="action">
+            <option value="0">-&#45;&#45; 请选择 -&#45;&#45;</option>
+            
+              
+            
+			{volist name="arr_api_list" id="vo"}
+				
+            
+              
+            <option value="{$vo['7']}">{$vo['0']}</option>
+            
+              
+            
+			{/volist}
+            
+          
+            
+          </select></td>
+        </tr>
+        <tr>
+          <td rowspan="9">工作计划</td>
+          <td height="14">
+            <p>计划部门</p>            </td>
+          <td><select name="select2" lay-filter="action">
+              <option value="0">-&#45;&#45; 请选择 -&#45;&#45;</option>
+              
+            
+			{volist name="arr_api_list" id="vo"}
+				
+            
+              <option value="{$vo['7']}">{$vo['0']}</option>
+              
+            
+			{/volist}
+            
+          
+            </select></td>
+        </tr>
+        <tr>
+          <td height="14">处理类型</td>
+          <td><select name="select" lay-filter="action">
+            <option value="0">-&#45;&#45; 请选择 -&#45;&#45;</option>
+            
+            
+			{volist name="arr_api_list" id="vo"}
+				
+            
+            <option value="{$vo['7']}">{$vo['0']}</option>
+            
+            
+			{/volist}
+            
+          
+          </select></td>
+        </tr>
+        <tr>
+          <td height="30">解决方案</td>
+          <td><textarea name="textfield22" cols="50" rows="3"></textarea></td>
+        </tr>
+        <tr>
+          <td height="30">解决细节</td>
+          <td><textarea name="textfield23" cols="50" rows="3"></textarea></td>
+        </tr>
+        <tr>
+          <td height="30">相关影响</td>
+          <td><input type="checkbox" name="checkbox" value="checkbox"> 
+            产品
+              <input type="checkbox" name="checkbox2" value="checkbox">
+UI
+<input type="checkbox" name="checkbox3" value="checkbox">
+前段
+<input type="checkbox" name="checkbox4" value="checkbox">
+后端
+<input type="checkbox" name="checkbox5" value="checkbox">
+安卓
+<input type="checkbox" name="checkbox6" value="checkbox">
+苹果</td>
+        </tr>
+        <tr>
+          <td height="30">开始时间</td>
+          <td><input name="textfield24" type="text" size="30" /></td>
+        </tr>
+        <tr>
+          <td height="30">截止时间</td>
+          <td><input name="textfield25" type="text" size="30" /></td>
+        </tr>
+        <tr>
+          <td height="30">估算工时</td>
+          <td><input name="textfield26" type="text" value="1" size="30" />
+            小时/人</td>
+        </tr>
+        <tr>
+          <td height="30">其他说明</td>
+          <td><textarea name="textfield" cols="50" rows="3"></textarea></td>
+        </tr>
+        <tr>
+          <td height="50" colspan="3"><div align="center">
+            <input type="submit" name="Submit" value="提交" /> 
+            <input type="reset" name="Submit2" value="重置" />
+          </div></td>
+          </tr>
+      </table>
+      </form>
+    </td>
+  </tr>
+</table>
+
+{/block}

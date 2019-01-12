@@ -1,0 +1,380 @@
+$(function(){
+    // 页面初始化
+    initialize();
+    function initialize(){
+        // $.ajax({
+        //     type:'GET',
+        //     uel:'',
+        //     data:{page:1},
+        //     dataType:'json',
+        //     success:function(data){
+        //         console.log(data);
+        layui.use(['element','form','laypage','layer','laydate','upload'],function(){
+            var element=layui.element;
+            var form=layui.form;
+            var laypage=layui.laypage;
+            var layer=layui.layer;
+            var laydate=layui.laydate;
+            var upload=layui.upload;
+            // 红包配置确定提交
+            form.on('submit(formLottery)', function(data){
+                $.ajax({
+                    type:'POST',
+                    url:'',
+                    data:data,
+                    dataType:'json',
+                    success:function(dt) {
+                        layer.msg(dt);
+                    }
+                })
+                return false;
+            });
+            //表单初始赋值
+            form.val('', {
+                "username": "贤心" // "name": "value"
+                ,"password": "123456"
+                ,"interest": 1
+                ,"like[write]": true //复选框选中状态
+                ,"close": true //开关状态
+                ,"sex": "女"
+                ,"desc": "我爱 layui"
+            })
+            //监听面板折叠状态
+            element.on('collapse(test)', function(data){
+                layer.msg('展开状态：'+ data.show);
+            });
+            laypage.render({
+                elem:'demo11',
+                // count:data.count,
+                count:1000,
+                limit:100,
+                limits:[100,300,500]
+                // jump:function(obj){
+                // 当前页码为obj.curr
+                // $.ajax({
+                //     type:'GET',
+                //     url:'',
+                //     data:{page:obj.curr},
+                //     dataType:'json',
+                //     success:function(data){
+                //         console.log(data);
+                //     }
+                // })
+                // }
+            });
+            laypage.render({
+                elem:'demo12',
+                // count:data.count,
+                count:1000,
+                limit:100,
+                limits:[100,300,500]
+                // jump:function(obj){
+                // 当前页码为obj.curr
+                // $.ajax({
+                //     type:'GET',
+                //     url:'',
+                //     data:{page:obj.curr},
+                //     dataType:'json',
+                //     success:function(data){
+                //         console.log(data);
+                //     }
+                // })
+                // }
+            });
+            laypage.render({
+                elem:'demo13',
+                // count:data.count,
+                count:1000,
+                limit:100,
+                limits:[100,300,500]
+                // jump:function(obj){
+                // 当前页码为obj.curr
+                // $.ajax({
+                //     type:'GET',
+                //     url:'',
+                //     data:{page:obj.curr},
+                //     dataType:'json',
+                //     success:function(data){
+                //         console.log(data);
+                //     }
+                // })
+                // }
+            });
+            laydate.render({
+                elem:'#seltime1',
+                showBottom: false
+            });
+            laydate.render({
+                elem:'#seltime2',
+                showBottom: false
+            });
+            laydate.render({
+                elem:'#seltime3',
+                showBottom: false
+            });
+            upload.render({
+                elem: '#test2',
+                url: '/upload/',
+                multiple: true,
+                before: function(obj){
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function(index, file, result){
+                        $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">')
+                    });
+                },
+                done: function(res){
+                    //上传完毕
+                }
+            });
+            //多图片上传
+            upload.render({
+                elem: '#test-upload-more',
+                url: '/upload/',
+                multiple: true,
+                before: function(obj){
+                    //预读本地文件示例，不支持ie8
+                    if($("#test-upload-more-list img").length>=8){
+                        //提示
+                        layer.msg('图片数量超出限制');
+                        return false;
+                    }else {
+                        obj.preview(function(index, file, result){
+                            $('#test-upload-more-list').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">');
+                            $(".layui-col-xs6:last-child span").html($("#test-upload-more-list img").length+'张');
+                        });
+                    }
+                },
+                done: function(res){
+                    //上传完毕
+                }
+            })
+        })
+    }
+    // 红包规则提交
+    $('.submit_sure').click(function(e){
+        e.preventDefault();
+        if($(this).text()=='编辑'){
+            layer.msg('可以修改红包规则配置');
+            $(this).text('确定').removeClass('edit').removeClass('layui-btn-normal').addClass('layui-btn-success').addClass('resave');
+            $(this).parents('form').find('input').removeAttr('disabled');
+            layui.form.render();
+            layui.element.init();
+        }else {
+            var that=$(this);
+            var again_times= $('.again_times').val();
+            // $('.flcp .config_list').each(function () {
+            //     var arr = {};
+            //     arr['id'] = $(this).find('input').attr('data-cid');
+            //     arr['weight'] = $(this).find('input').val();
+            //     list['config_list'].push(arr);
+            // });
+            var type1=$("input[name='type1']").val();
+            var type2=$("input[name='type2']").val();
+            $.ajax({
+                type: 'POST',
+                url: '/admin/game.lottery/up_config',
+                data: {type1:type1,type2:type2,again_times:again_times},
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status == 1) {
+                        layer.msg(data.msg);
+                        that.text('编辑').removeClass('resave').removeClass('layui-btn-success').addClass('layui-btn-normal').addClass('edit');
+                        that.parents('form').find('input').attr('disabled', 'disabled');
+                        layui.form.render();
+                        layui.element.init();
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function () {
+                    console.log('ajax请求失败');
+                }
+            })
+        }
+    });
+    // 表格全选与否
+    var isChecked=true;
+    // 全选与取消
+    $('.flcp .totaltr').click(function(){
+        isChecked=!isChecked;
+        if(isChecked){
+            $(this).parent().prev().find('input').prop('checked',false);
+        }else{
+            $(this).parent().prev().find('input').prop('checked',true);
+        }
+    });
+    // 单个选择--->>全选
+    $('.flcp table tbody').on('click','input',function(){
+        //each 便利每一个元素，让其执行该函数
+        $('table tbody input').each(function(){
+            if(!$(this).prop('checked')){
+                $(this).parents('table').parent().next().find('.totaltr').prop('checked',false);
+                isChecked=!isChecked;
+                //有一个不满足就 跳出该循环，避免执行下面
+                return false;
+            }else{
+                $(this).parents('table').parent().next().find('.totaltr').prop('checked',true);
+                isChecked=!isChecked;
+            }
+        })
+    });
+    // 增加配置
+    $('.addConfigure').click(function(){
+        // var count2=$(this).parent().next().find('.layui-colla-item').length+1;
+        var cloneNode=
+            '<div class="layui-colla-item">'+
+            '<div class="layui-colla-title">' +
+            '<h2>红包</h2><p class="per">1%</p><span style="float: right;">红包比重</span>' +
+            '</div>'+
+            '<div class="layui-colla-content layui-show">'+
+            '<div class="layui-form-item">'+
+            '<label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">金额区间：</label>'+
+            '<div class="layui-input-inline layui-col-md10 layui-col-sm10 layui-col-xs7 fanwei">'+
+            '<div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">'+
+            '<input type="number" class="layui-input" required name="red_min" lay-verify="required" autocomplete="off">'+
+            '</div>'+
+            '<div class="layui-input-inline">~</div>'+
+            '<div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">'+
+            '<input type="number" class="layui-input" required name="red_max" lay-verify="required" autocomplete="off">'+
+            '</div>'+
+            '<div class="layui-input-inline layui-form-mid">元 (精确到0.00000001)</div>'+
+            '</div>'+
+            '</div>'+
+            '<div style="display: flex;justify-content: space-between;">'+
+            '<p style="padding-left: 40px;"></p>'+
+            '<div>' +
+            '<button class="layui-btn layui-btn-primary delpz">删除</button>'+
+            '<button class="layui-btn edit">确定</button>'+
+            '</div>'+
+            '</div>'+
+            '</div>'+
+            '</div>'+
+            '</div>';
+        $('.flcp .red_ruls form .form-container').append(cloneNode);
+        // $('.flcp .layui-collapse>div:last-child').find('h2').text('红包名称'+count2);
+        layui.form.render();
+        layui.element.init();
+    });
+    // 删除配置
+    $('.flcp').on('click','.delpz',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var that=$(this);
+        var hbpz_id=that.attr('data-id');
+        if(hbpz_id==undefined){
+            that.parents('.layui-colla-item').remove();
+            layer.msg('删除成功');
+        }else{
+            layer.confirm('确定要删除吗？',function (index) {
+                $.post('/admin/game.lottery/set_red_status',{id:hbpz_id},function (data) {
+                    if (data.status == 1) {
+                        that.parents('.layui-colla-item').remove();
+                        layer.msg(data.msg);
+                        layer.close(index);
+                        // var delcounts=$('.flcp .red_ruls').find('.layui-colla-item').length;
+                        // for(var i=1;i<=delcounts;i++){
+                        //     $('.red_ruls .layui-colla-item').eq(i-1).find('h2').text('红包名称'+i);
+                        // }
+                    } else {
+                        layer.msg('删除失败');
+                        layer.close(index);
+                    }
+                },'json');
+            });
+        }
+    });
+    // 编辑配置
+    $('.flcp').on('click','.edit',function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        var that =$(this);
+        var hbpz_id=that.attr('data-id');
+        if(that.text()=='编辑'){
+            layer.msg('可以修改红包规则配置');
+            that.text('确定').removeClass('layui-btn-normal').addClass('resave');
+            that.parents('.layui-colla-item').find('input').removeAttr('disabled');
+            layui.form.render();
+            layui.element.init();
+        }else {
+            var weight= that.parents('.layui-colla-item').find('.per').text().split('%')[0];
+            var red_min=that.parents('.layui-colla-item').find('input[name="red_min"]').val();
+            var red_max=that.parents('.layui-colla-item').find('input[name="red_max"]').val();
+            if(red_min==''||red_max==''){
+                layer.msg('请补全信息');
+            }else{
+                $.ajax({
+                    type: 'POST',
+                    url: '/admin/game.lottery/red_packet_config',
+                    data: {id:hbpz_id,red_min:red_min,red_max:red_max,weight:weight},
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.status == 1) {
+                            layer.msg(data.msg);
+                            that.text('编辑').addClass('layui-btn-normal').addClass('edit');
+                            that.parents('layui-colla-item').find('input').attr('disabled', 'disabled');
+                            layui.form.render();
+                            layui.element.init();
+                            setTimeout(function(){
+                                window.location.reload();
+                            },1000);
+                        } else {
+                            layer.msg(data.msg);
+                        }
+                    },
+                    error: function () {
+                        console.log('ajax请求失败');
+                    }
+                })
+            }
+        }
+    });
+    // 修改红包比重
+    $('.flcp').on('click','.per',function(e){
+        var that=$(this);
+        // e.stopImmediatePropagation();
+        // e.stopPropagation();
+        // layui.stope(e);
+        console.log('aaa');
+        if(that.parents('.layui-colla-item').find('.edit').text()=='确定'){
+            layer.prompt({title:'请输入红包比重',value:''},function(text,index){
+                item_value=text;
+                var float_exp=/\d{0,2}/;
+                if(!(float_exp.test(item_value))){
+                    layer.msg('请输入最多两位整数', {icon: 2});
+                    layer.close(index);
+                    return false;
+                }else{
+                    layer.close(index);
+                    that.text(String(text).slice(0,2)+'%');
+                }
+            })
+        }else{
+            return false;
+        }
+    });
+    // 红包配置提交-确定
+
+    // 三个游戏部分 中奖记录-一键删除
+    var id_list=[];
+    $('.allDelete').click(function(){
+        var that=$(this);
+        console.log('aaa');
+        layer.confirm('确定要删除吗？',function (index) {
+            that.parent().prev().find('input:checked').each(function(){
+                id_list.push($(this).attr('data-id'));
+            });
+            $.post('',{'a_ids[]':id_list},function (result) {
+                if (result.status == 1) {
+                    layer.msg(result.msg);
+                    layer.close(index);
+                    setTimeout(function(){
+                        window.location.reload();
+                    },500)
+                } else {
+                    layer.msg('删除失败,此处还未设置接口');
+                    layer.close(index);
+                }
+            },'json');
+        })
+    })
+});

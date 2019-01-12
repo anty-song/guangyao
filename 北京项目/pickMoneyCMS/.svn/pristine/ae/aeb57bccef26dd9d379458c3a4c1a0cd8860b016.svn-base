@@ -1,0 +1,77 @@
+var floorObj = function() {
+	this.x;
+	this.y;
+	this.w;
+	this.h;
+	this.dir;
+	this.velocityY;
+
+	this.electricityCount = 0;
+	this.electricityTimer = 0;
+	this.electricityInterval = 50;
+	
+	this.floor = new Image();
+	this.floorHeight;
+	this.floorX;
+	this.floorY;
+}
+
+var path = new Path();
+
+floorObj.prototype.init = function() {
+	this.x = canWidth*7/15 - 6;
+	this.y = head.headh + 20;
+	this.dir = true;
+	this.velocityY = 0.05;
+	this.floor.src = path.src+"floor1.png";
+	this.floorX = canWidth*16/30;
+	this.floorY = head.headh;
+	this.floorHeight = canHeight - 45 - this.floorY;
+};
+
+floorObj.prototype.draw = function() {
+	if(this.dir) {
+		this.y += this.velocityY*deltaTime;
+	}else {
+		this.y -= this.velocityY*deltaTime;
+	}
+	
+	this.electricityTimer += deltaTime;
+	if(this.electricityTimer > this.electricityInterval)
+	{
+		this.electricityCount = (this.electricityCount + 1) % 2;
+		this.electricityTimer %= this.electricityInterval;
+		if(this.electricityCount == 0) {
+			this.electricityInterval = Math.random()*150 + 50;
+		}else {
+			this.electricityInterval = 50;
+		}
+	}
+	
+	
+	ctxEl.save();
+	ctxEl.beginPath();
+	var elecityCount = this.electricityCount;
+	ctxEl.drawImage(electricImage[elecityCount],this.x,this.y,55,40);
+	ctxEl.drawImage(this.floor,0,0,37,this.floorHeight,this.floorX,this.floorY,22,this.floorHeight);
+	ctxEl.restore();
+};
+
+floorObj.prototype.update = function() {
+	if(this.y < head.headh + 10 && !this.dir ) {
+		this.dir = !this.dir;
+	}else if(this.y > canHeight -130 && this.dir){
+		this.dir = !this.dir;
+	}
+
+
+	//触电判断
+	if(hand.x < this.floorX + hand.w/2 && hand.y - hand.h/2 + 25 > this.y && hand.y - hand.h/2 - 25 < this.y && !hand.hurt) {
+		hand.hurt = true;
+		hand.end = true;
+		hand.begin = false;
+		hand.success = false;
+	}
+
+	
+};

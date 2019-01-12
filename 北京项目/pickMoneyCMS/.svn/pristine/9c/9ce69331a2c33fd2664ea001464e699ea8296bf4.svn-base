@@ -1,0 +1,103 @@
+var image_arr = {
+    image: []
+};
+Object.defineProperty(image_arr,'image',{
+    writable: false,
+    value: [
+    "./thumb/bg.png",
+    "./thumb/cj.png",
+    "./thumb/cjzjj.png",
+    "./thumb/dd.png",
+    "./thumb/fh.png",
+    "./thumb/flcpf.png",
+    "./thumb/nd.png",
+    "./thumb/nddt.png",
+    "./thumb/sc1.png",
+    "./thumb/sc2.png",
+    "./thumb/sc3.png",
+    "./thumb/sjyx.png",
+    "./thumb/title.png",
+    "./thumb/xl.png",
+    "./thumb/xlxgy.png",
+    "./thumb/yxhbdb.png"
+    ]
+});
+
+window.localStorage.setItem('isAlert','no');
+window.localStorage.setItem('decreseTime','no');
+window.localStorage.removeItem('nextShow');
+
+//返回APP
+function goBack() {
+    if(agent.isAndroid) {
+        an.close();
+        $(".dialog_again").hide();
+        $(".ui-mask").fadeOut();
+    } else if(agent.isIOS) {
+        window.webkit.messageHandlers.scan.postMessage("goClose");
+        $(".dialog_again").hide();
+        $(".ui-mask").fadeOut();
+    }
+}
+var auth,uid,device,gid,time,auth_key;
+var paramData={};
+$('.menu ul li').click(function(){
+    gid=$(this).attr('data-num');
+    uid=window.localStorage.getItem('uid');
+    auth=window.localStorage.getItem('auth');
+    device=window.localStorage.getItem('device');
+    time=Math.round(new Date().getTime() / 1000);
+    auth_key=auth.slice(0,8);
+    paramData={'uid':uid,'time':time,'auth':auth,'device':device,'g_id':gid};
+    paramData=JSON.stringify(paramData);
+    paramData=encryptByDES(paramData,auth_key);
+    console.log(paramData);
+    $.ajax({
+        type:'post',
+        url:PATH_WEB,
+        data:{action:'entry_game',reqType:2,uid:uid,paramData:paramData},
+        success:function(data){
+            showError(data);
+            data=JSON.parse(data);
+            console.log(data);
+            var datas=decryptByDES(data.res_data, auth_key);
+            console.log(datas);
+
+            var json_data=JSON.parse(datas);
+             // showError(json_data.g_url);
+            console.log(json_data);
+            window.location.href=json_data.g_url;
+
+            if(parseInt(gid)>99){
+                 if(agent.isAndroid && agent.isPhone) {
+        an.jumpToBrowser(g_url);
+    }else if(agent.isIOS && agent.isPhone) {
+        window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':g_url});
+    }
+            }
+        },
+        error:function(){
+            console.log('数据请求失败，请检查当前网络');
+            tipError('数据请求失败，请检查当前网络');
+        }
+    })
+});
+
+
+//开发环境设置uid auth  device
+window.onload=function(){
+    var this_path_url=window.location.href;
+    var  Environment=this_path_url.indexOf('sdk11');
+    showError(Environment);
+    if(Environment!=-1){
+        if(!window.localStorage.getItem('uid')){
+        window.localStorage.setItem('uid','100001');
+        }
+        if(!window.localStorage.getItem('auth')){
+        window.localStorage.setItem('auth','ab123456ab123456');
+        }
+        if(!window.localStorage.getItem('device')){
+        window.localStorage.setItem('device','AmNFOx10M7KSaDrF9xCXFnGoCgO8YUpx_4L86bVqU8D3');
+        }
+    }
+}

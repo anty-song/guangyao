@@ -1,0 +1,132 @@
+$(function(){
+    // song 配置右侧开关按钮点击带动了layui-colla-conten的显隐(需修改)
+    $(".layui-form-switch").click(function (event) {
+        console.log(event);
+        window.event ? window.event.cancelBubble = true : event.stopPropagation();
+    });
+    // 页面初始化
+    initialize();
+    function initialize(){
+        layui.use(['element','form','laypage','layer','laydate','upload'],function(){
+            var element=layui.element;
+            var form=layui.form;
+            var laypage=layui.laypage;
+            var layer=layui.layer;
+            var laydate=layui.laydate;
+            var upload=layui.upload;
+            //监听面板折叠状态
+            element.on('collapse(test)', function(data){
+                layer.msg('展开状态：'+ data.show);
+            });
+            //开始日期
+            var insStart = laydate.render({
+                elem: '#startTime',
+                min: 0,
+                done: function(value, date){
+                    //更新结束日期的最小日期
+                    insEnd.config.min = lay.extend({}, date, {
+                        month: date.month - 1
+                    });
+
+                    //自动弹出结束日期的选择器
+                    insEnd.config.elem[0].focus();
+                }
+            });
+            //结束日期
+            var insEnd = laydate.render({
+                elem: '#endTime',
+                min: 0,
+                done: function(value, date){
+                    //更新开始日期的最大日期
+                    insStart.config.max = lay.extend({}, date, {
+                        month: date.month - 1
+                    });
+                }
+            });
+        })
+    }
+    if(window.screen.width<=992){
+        $('.layui-body').css('width',window.screen.width);
+    }
+    // 移动端点击用户名弹出下拉框
+    $('.help_tips').click(function(){
+        if($('.suolve').hasClass('showitem')){
+            $(this).find('.layui-nav-more').removeClass('rotateitem');
+            $('.suolve').removeClass('showitem');
+        }else{
+            $(this).find('layui-nav-more').addClass('rotateitem');
+            $('.suolve').addClass('showitem');
+        }
+    });
+    $('.daohang li a').click(function(){
+        $(this).parents('li').siblings().find('i').removeClass('activei');
+        $(this).parents('li').find('i').addClass('activei');
+        var _index=$(this).parents('li').index()+2;
+        $('.layui-side-menu:nth-child('+_index+')').css('display','block').siblings('.layui-side-menu').css('display','none');
+    });
+    var winWidth=0;
+    function cal(){
+        if(window.innerWidth){
+            winWidth=window.innerWidth;
+        }else if((document.body)&&(document.body.clientWidth)){
+            winWidth=document.body.clientWidth;
+        }
+    }
+    cal();
+    $('.ui-btn-inner').remove();
+
+    // 展开左侧菜单
+    $('.layui-icon-spread-left').click(function(e){
+        e.stopPropagation();
+        $('.bac').fadeIn();
+        $(".layui-side-menu").animate({left:'220px'});
+        $(".layui-body").animate({left:'200px'});
+        // $(".layui-footer").animate({left:'200px'});
+        $('.layui-icon-spread-left').css('display','none');
+        $('.layui-icon-shrink-right').css('display','inline-block');
+    });
+    // 收回左侧菜单
+    $('.layui-icon-shrink-right').click(function(e){
+        e.stopPropagation();
+        $('.bac').fadeOut();
+        $(".layui-side").animate({left:'0'});
+        $(".layui-body").animate({left:'0px'});
+        // $(".layui-footer").animate({left:'0px'});
+        $('.layui-icon-spread-left').css('display','inline-block');
+        $('.layui-icon-shrink-right').css('display','none');
+    });
+    // 点击阴影收回左侧菜单
+    $('.bac').click(function(e){
+        e.stopPropagation();
+        $('.bac').fadeOut();
+        $(".layui-side").animate({left:'0'});
+        $(".layui-body").animate({left:'0px'});
+        // $(".layui-footer").animate({left:'0px'});
+        $('.layui-icon-spread-left').css('display','inline-block');
+        $('.layui-icon-shrink-right').css('display','none');
+    });
+    if($('.layui-badge').text()==''){
+        $('.layui-badge').css('display','none');
+    }else{
+        setInterval(litSlash,500);
+        function litSlash(){
+            $(".layui-badge").animate({opacity:"0"},250);
+            //改变不透明度
+            $(".layui-badge").animate({opacity:"1"},499);
+        }
+    }
+    // 页面跳转
+    $('.layui-nav-child li').not('.layui-nav-item').click(function(){
+        var url=$(this).find('a').attr('lay-href');
+        $('.layui-body iframe').attr('src',url);
+        cal();
+        if(winWidth<=992){
+            $('.bac').fadeOut();
+            $(".layui-side").animate({left:'0'});
+            $(".layui-body").animate({left:'0px'});
+            // $(".layui-footer").animate({left:'0px'});
+            $('.layui-icon-spread-left').css('display','inline-block');
+            $('.layui-icon-shrink-right').css('display','none');
+        }
+    });
+});

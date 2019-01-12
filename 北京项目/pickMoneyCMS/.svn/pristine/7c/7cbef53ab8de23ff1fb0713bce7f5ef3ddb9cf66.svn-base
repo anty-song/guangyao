@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>活动管理-百万红包-内容设置</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .config-empty{display: block;width: 70px;margin: 10px auto}
+        .layui-form-label{overflow: visible}
+    </style>
+</head>
+<body>
+    <div>
+        <!-- 内容主体区域 -->
+        <div class="layui-fluid bwhb">
+            <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title">
+                    <li><a href="{:url('admin/millions/config','id='.$id)}">红包规则设置</a></li>
+                    <li class="layui-this"><a href="{:url('admin/millions/content_config','id='.$id)}">内容配置</a></li>
+                    <li><a href="{:url('admin/millions/task','id='.$id)}">拆包记录</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <input type="hidden" id="act_id" value="{$id}">
+                    <div class="layui-tab-item layui-show">
+                        <form action="" class="layui-form layui-row">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">展示位置：</label>
+                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs8">
+                                    <select name="adposition" lay-verify="required">
+                                        <option value=""></option>
+                                        <option value="0">百万抢红包详情页</option>
+                                        <option value="1">规则说明页</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">展示规则：</label>
+                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs8">
+                                    <select name="city" lay-verify="required">
+                                        <option value=""></option>
+                                        <option value="0">自定义</option>
+                                        <option value="1">随机</option>
+                                        <option value="2">重置权重</option>
+                                        <option value="3">同比设置</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">领取金额：</label>
+                                <div class="layui-input-inline layui-col-md3 layui-col-sm4 layui-col-xs8 fanwei">
+                                    <div class="layui-input-inline layui-col-md2 layui-col-xs2 layui-col-xs5">
+                                        <input type="number" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                    </div>
+                                    <div class="layui-input-inline">~</div>
+                                    <div class="layui-input-inline layui-col-md2 layui-col-xs2 layui-col-xs5">
+                                        <input type="number" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off">
+                                    </div>
+                                    <div class="layui-input-inline layui-form-mid">元 (金额大于1元，精确到0.01)</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4"></label>
+                                <div class="layui-btn-container layui-input-inline layui-col-md2 layui-col-sm6 layui-col-xs-12">
+                                    <button lay-submit lay-filter="formPrinciple" class="layui-btn layui-btn-success">确定</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                    <!--<button class="layui-btn layui-btn-normal">新增用户</button>-->
+                                </div>
+                            </div>
+                        </form>
+                        <div style="margin-top: 20px;">
+                            <p>管理日志</p>
+                            <p>2018-08-12 19:12:36<span class="whoname"> admin </span>删除了<span class="whatname"> app下载投放</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {load href="/static/admin/layui/layui.js" /}
+    {load href="/static/admin/js/activity.js" /}
+<!--<script src="../../layui/layui.js"></script>-->
+    <script>
+        layui.use('form',function () {
+            var form = layui.form
+                ,layer = layui.layer;
+            form.on('submit(addConfig)',function (data) {
+                data.field.id = $('#act_id').val();
+                var url = "{:url('admin/millions/add_config')}";
+                $.post(url,data.field,function (result) {
+                    if (result.status == 1) {
+                        layer.msg(result.msg);
+                        setTimeout(function () {
+                            window.location.reload();
+                        },2000);
+                    } else {
+                        return layer.msg(result.msg);
+                    }
+                },'json');
+                return false;
+            });
+            $("#upUserLimit").on('click',function () {
+               var limit = $("input[name='user_limit']").val()
+                   ,id = $('#act_id').val()
+                   ,up_limit_url = "{:url('admin/millions/do_up_limit')}";
+                if (limit.length == 0) {
+                   return layer.msg('请填写红包上限设置');
+               } else {
+                   $.post(up_limit_url,{id:id,user_limit:limit},function (result) {
+                       if (result.status == 1) {
+                           return layer.msg(result.msg);
+                       } else {
+                           return layer.msg(result.msg);
+                       }
+                   },'json');
+               }
+            });
+            //增加红包配置
+            $("#add_config").on('click',function (){
+                layer.open({
+                    type: 1,
+                    title: '新增红包配置',
+                    area: '800px',
+                    content: $("#add_config_content")
+                });
+            });
+            //增加金额衰减
+            var click_num = 0;
+            $("#add_invite").on('click',function () {
+                click_num = click_num + 1;
+                if (click_num > 3) {
+                    return false;
+                } else {
+                    if (click_num == 3) {
+                        $(this).removeClass('layui-btn-normal');
+                        $(this).addClass('layui-btn-disabled');
+                    }
+                    $("#invite_end").after('<div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs4" style="width: 100px;"><input type="text" name="invite_value[]" autocomplete="off" class="layui-input" lay-verify="required"></div><div class="layui-form-mid layui-word-aux">%</div>');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

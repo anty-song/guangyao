@@ -1,0 +1,33 @@
+body,html{line-height :1!important;font-size: 16px;font-weight :200;font-family :"Segoe UI", "Lucida Grande", Helvetica, Arial, Verdana, "Microsoft YaHei";background :#eff3f6!important;width:100%;}
+/*头部*/
+.header{color :#000;text-align :center;min-width: 1200px;/*兼容ie*/-moz-box-shadow: 0 10px 20px 0px #dce9e3;-webkit-box-shadow: 0 10px 20px 0px #dce9e3;box-shadow: 0 10px 20px 0px #dce9e3;background: #fff;padding-top: 44px;}
+.first{height:60px;min-width: 1200px;width: 1200px;margin: 0 auto;}
+.first div.address>span:first-child{margin-right :30px;display: inline-block;width: 48px;}
+.first div.normals>span:first-child{margin-right :30px;display: inline-block;width: 68px;}
+.first a{color :#0f0f0f;height :60px;line-height :60px;font-size: 16px;}
+.normals span{color: #000;}
+.exit{cursor: pointer;cursor: hand;}
+.address{float :left;position :relative;}
+.address span:first-child a {text-decoration: none;max-width: 3em;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.toBottom{display :inline-block;width :20px;height :12px;background :url(../resource/online/Lawyer_online_qhcs.png) 0 0 no-repeat;background-size :100% 100%;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../resource/online/Lawyer_online_qhcs.png',sizingMethod='scale');vertical-align :middle;margin-left :10px;}
+.province{position :absolute;top :59px;z-index: 10;width: 410px;background :#fff;height :200px;padding :15px;overflow :hidden;border: 1px solid #3ed2a1;border-radius: 10px;display: none;box-sizing: border-box;}
+.province ul li{color :#7e8c8d;font-size :14px;display: inline-block;padding: 5px;}
+.province ul li:hover{background :#ddd;cursor: pointer;cursor: hand;}
+.search-wrapper{float: right;}
+.search-wrapper input{width :396px;height :48px;line-height: 48px;border :1px solid #3ed2a1;border-bottom-left-radius :10px;border-top-left-radius :10px;padding-left :20px;font-size :18px;outline :none;box-sizing: border-box;}
+.search-wrapper input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{color: #e0e0e0;}
+.search-wrapper input:-moz-placeholder, textarea:-moz-placeholder{color: #e0e0e0;}
+.search-wrapper input::-moz-placeholder, textarea::-moz-placeholder{color: #e0e0e0;}
+.search-wrapper input:-ms-input-placeholder, textarea:-ms-input-placeholder{color: #e0e0e0;}
+.search{display :inline-block;width :46px;height :48px;background: #3ed2a1;border-top-right-radius :10px;border-bottom-right-radius :10px;position :relative;margin-right :110px;vertical-align :top;}
+.search i{position :absolute;top :0;left :0;display :inline-block;width :46px;height :48px;background :url(../resource/online/Lawyer_online_ss.png) center center no-repeat;background-size:20px 20px;border-bottom-right-radius: 10px;border-top-right-radius: 10px;}
+.first ul .tab-itemr a:hover{text-decoration: none;}
+.first .normals{float: right;font-size: 16px;}
+.second{height:86px;width:1200px;min-width: 1200px;margin: 0 auto;}
+.logo{float :left;width :162px;height :50px;margin-top :20px;margin-bottom :8px;}
+.second ul{float :right;margin-top :20px;margin-left: 240px;}
+.second ul li{float:left;width :114px;height :42px;line-height :42px;text-align :center;vertical-align :middle;box-sizing: border-box;-webkit-border-radius:21px;-moz-border-radius:21px;border-radius:21px;}
+.second ul li a{display :inline-block;width :100%;height :100%;font-size :20px;color: #000;text-decoration: none;}
+.second ul li.active{background: #3ed2a1}
+.second ul li.active a{color: #fff;}
+.actives{background :#3ed2a1;color :#fff!important;}

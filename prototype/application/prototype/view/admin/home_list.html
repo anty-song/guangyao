@@ -1,0 +1,41 @@
+{extend name="common/base" /}
+
+{block name="head"}{__block__}{/block}
+
+{block name="body"}
+
+    <div class="container">
+        <div class="layui-collapse">
+            <div class="layui-colla-item">
+                <div class="layui-colla-title">
+                    <p>
+                        <span class="prototype">{$username['username']}的原型链接</span>
+                    </p>
+                </div>
+                <div class="layui-colla-content layui-show">
+                    <ul>
+					{foreach name="list" item="vo"}
+                        <li class="{$vo.itemid}">
+                            <p>
+                                <span>
+                                    <span class="protitle">{$vo.title}：</span>
+                                    <a href="http://{$vo.pro_url}" class="pvalue2">http://{$vo.pro_url}</a>
+                                </span>
+                            </p>
+                            <p>
+                                <span>{$vo.addtime|date='Y-m-d H:i:s',###}</span>
+                                <span class="download"><a href="http://{:APP_URL . 'zip/' . $vo.url . '.zip'}">下载</a></span>
+                            </p>
+                        </li>
+					{/foreach}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+	{$page}
+{/block}
+
+{block name="foot"}
+{__block__}
+{/block}

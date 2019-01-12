@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Description" content=""/>
+    <meta name="Keywords" content=""/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit">
+    <meta name="referrer" content="always">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="bookmark" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/dist/animate.min.css">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <script src="/static/dist/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="/static/dist/axios/dist/axios.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/js/rem.js" type="text/javascript"></script>
+    <title>菜单</title>
+</head>
+<body>
+<div class="content">
+        <div class="container">
+                <!--头部-->
+                <div id="head-bar">
+                        <div class="head-bar">
+                                <div class="head-bar-back">
+                                        <a href="javascript:goBack();" data-direction="reverse" data-ajax="false">
+                                                <img src="/static/images/dialog/icon-back.png">
+                                                <span></span>
+                                        </a>
+                                </div>
+                                <div class="head-bar-title">{$title}</div>
+                                <div class="head-bar-right">
+                                </div>
+                        </div>
+                        <div class="head-bar-fix"></div>
+                </div>
+                <div class="title">
+                        <div>
+                                <span class="title_before"></span>
+                                <span class="title_p">疯狂好礼</span>
+                                <span class="title_after"></span>
+                        </div>
+                        <img src="/static/images/GameLobby/title.png" alt="">
+                </div>
+                <div class="wrapper">
+                        <div class="menu">
+                                <ul>
+                                        <!-- 脑洞答题 -->
+                                        <li data-num="1" class="item item1 animated bounceInDown">
+                                                <!--<a href="{:url('h5/game.answer/home')}">-->
+                                                        <i class="flag"></i>
+                                                        <img src="/static/images/GameLobby/nddt.png" alt="">
+                                                <!--</a>-->
+                                        </li>
+                                        <!-- 福利彩票 -->
+                                        <li data-num="2" class="item item2 animated bounceInDown">
+                                                <!--<a href="{:url('h5/game.lottery/home')}">-->
+                                                        <i class="flag"></i>
+                                                        <img src="/static/images/GameLobby/flcpf.png" alt="">
+                                                <!--</a>-->
+                                        </li>
+                                        <!-- 刺激抓奖机 -->
+                                        <li data-num="3" class="item item3 animated bounceInRight">
+                                                <!--<a href="{:url('h5/game.tongs/home')}">-->
+                                                        <i class="flag"></i>
+                                                        <img src="/static/images/GameLobby/cjzjj.png" alt="">
+                                                <!--</a>-->
+                                        </li>
+                                        <!-- 绚丽浇花游戏 -->
+                                        <li data-num="4" class="item item4 animated bounceInLeft">
+                                                <!--<a href="{:url('h5/game.water_flower/home')}">-->
+                                                        <i class="flag"></i>
+                                                        <img src="/static/images/GameLobby/xlxgy.png" alt="">
+                                                <!--</a>-->
+                                        </li>
+                                        <li data-num="101" class="item item5 bounce animated">
+                                            <div class="redpack">
+                                        <img src="/static/images/GameLobby/sjyx.png" alt="">
+                                </div>
+                                        </li>
+                                </ul>
+                        </div>
+                        <div class="boats">
+                                <div class="boat boat1"></div>
+                                <div class="boat boat2"></div>
+                                <div class="boat boat3"></div>
+                        </div>
+                        <div class="land">
+                                <div class="land_wrap">
+                                        <img src="/static/images/GameLobby/yxhbdb.png" alt="">
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>
+
+    <div class="ui-mask"></div>
+    <div class="dialog dialog_again animated slideInDown">
+            <div class="close close_again"></div>
+            <div class="dialog_body" style="position: relative;">
+                    <button class="refuse" id="refuse">残忍拒绝</button>
+                    <button class="againBtn" id="againBtn">继续玩</button>
+            </div>
+    </div>
+</body>
+<script src="/static/dist/crypto.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/encode.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/tipError.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/public.js" type="text/javascript"></script>
+
+<script src="/static/js/menu/main.js" type="text/javascript"></script>
+</html>

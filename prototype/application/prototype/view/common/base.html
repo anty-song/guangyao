@@ -1,0 +1,68 @@
+{block name="head"}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Axure原型发布工具</title>
+    {load file="/static/style/prototype/css/reset.css" /}
+    {load file="/static/style/prototype/lib/layui/css/layui.css" /}
+    {load file="/static/style/prototype/css/index.css" /}
+    {load file="/static/style/prototype/js/jquery.min.js" /}
+    {load file="/static/style/prototype/js/js.js" /}
+    <script>
+        !function(n) {
+            var e = n.document,
+                t = e.documentElement,
+                i = 720,
+                d = i / 100,
+                o = "orientationchange" in n ? "orientationchange" : "resize",
+                a = function() {
+                    var n = t.clientWidth || 320;
+                    n > 720 && (n = 720), t.style.fontSize = n / d + "px"
+                };
+            e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
+        }(window);
+    </script>
+</head>
+{/block}
+
+<body>
+<div class="header">
+        <div class="topItem">
+            <p><a href="/"><img src="/static/style/prototype/images/log_in_title@2x.png" alt=""></a></p>
+            <ul>
+                {if condition="($Think.session.user.userid == 1)"}
+                <li><a href="/admin">帐户管理</a></li>
+                {/if}
+                <li><a href="/index">项目列表</a></li>
+                <li><a href="javascript:;" userid="{$Think.session.user.userid}" class="userID"><img src="/static/style/prototype/images/adminpic.png" alt="">{$Think.session.user.username}</a></li>
+            </ul>
+            <span>
+                <a href="javascript:;"><img src="/static/style/prototype/images/suo.png" alt="">修改密码</a>
+                {notempty name="Think.session.user.username"}
+                <a href="/loginout" class="exit"><img src="/static/style/prototype/images/tuichu.png" alt="">退出</a>
+                {/notempty}
+            </span>
+        </div>
+    </div>
+<div class="replacePwdBox">
+    <div class="mylayer2 admin2">
+        <img class="close-layer" src="/static/style/prototype/images/link_generation_tc_close@2x.png" alt="">
+        <p class="h2">修改密码</p>
+        <input type="text" class="layui-input oldpassword" name="uname" placeholder="原密码" autocomplete='new-password' lay-verify="required">
+        <input type="password" class="layui-input newpassword" name="upassword" placeholder="新密码" autocomplete="off" lay-verify="required">
+        <button type="button" class="cancel" style="margin-right: .3rem;">取消</button>
+        <button type="button" class="sure">确认</button>
+    </div>
+</div>
+{block name="body"}
+
+</body>
+{/block}
+
+{load file="/static/style/prototype/lib/layui/layui.js" /}
+{block name="foot"}
+</html>
+{/block}

@@ -1,0 +1,48 @@
+*{padding: 0;margin: 0;border: none;}
+document,body{width: 100%;height: 100%;}
+#game_wrapper{width: 100%;height: 100%;}
+#content{overflow: hidden;width: 100%;height: 100%;}
+#canvas_bg{position: absolute;left: 0;top: 48px;}
+#canvas_elf{position: absolute;left: 0;top: 48px;z-index: 99;}
+.rules{
+    padding: 5px 15px;
+    border-radius: 20px;
+    text-align: center;
+    position: fixed;
+    font-size: 14px;
+    color: #FFFFFF;
+    top: 60px;
+    z-index: 100;
+    left: 12px;
+    background: rgba(0,0,0,.3);
+}
+.my_price{
+	position: fixed;
+	z-index: 100;
+	top: 48px;
+	right: 0px;
+	width: 50px;
+	height: 50px;
+	background: url("../images/Tongs/myprice.png") no-repeat;
+	background-size: contain;
+}
+#toast{
+	width: 300px;
+	height: 300px;
+	display: block;
+	transition: .5s;
+	background: #FFFFFF;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.nextgame{position: absolute;display: none;z-index: 99;bottom: 6%;width: 24%;right: 0;}
+.tips_box{position: absolute;z-index: 99;margin: auto;top: 30%;width: 100%;}
+.tips_box p{font-size: .24rem;color: #FFFFFF;text-align: center;background: #191970;width: 36%;margin: auto;border-radius: 0.08rem;}
+
+.notice{width: 3.2rem;height: .74rem;margin:auto;top: 1.25rem; background: transparent;overflow: hidden;position: absolute;z-index: 100;left: 0;right: 0;}
+.notice_box{position: relative;height: .74rem;width: 100%;overflow: hidden;}
+.notice_list{position: absolute;margin: 0;padding: 0;width: 100%;height:1.26rem;left: 0;top: 0;font-size: 0;}
+.notice_item{width: 100%;height:.74rem;display: inline-block;}
+.notice p{line-height: .8rem;margin: 0;text-align: center;font-size: .26rem;color: #FFFFFF;white-space: nowrap;overflow: hidden; text-overflow: ellipsis;}

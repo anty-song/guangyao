@@ -1,0 +1,827 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>奥盛特评论列表_品评网</title>
+    <meta name="keywords" content="奥盛特评论列表"/>
+    <meta name="description" content="奥盛特评论列表"/>
+    <link rel="stylesheet" type="text/css" href="http://img.10pinping.com/skin/10/comment.css"/>
+    <link rel="shortcut icon" href="http://img.10pinping.com/favicon.ico"/>
+    <link rel="bookmark" href="http://img.10pinping.com/favicon.ico"/>
+    <script type="text/javascript" src="http://img.10pinping.com/file/script/public.js"></script>
+    <script type="text/javascript" src="http://img.10pinping.com/file/script/jquery.js"></script>
+    <script type="text/javascript" src="http://img.10pinping.com/skin/10/js/uploadPreview.min.js"></script>
+    <script type="text/javascript" src="http://img.10pinping.com/file/script/page.js"></script>
+    <!--新加入的样式-->
+    <link rel="stylesheet" href="../css/pinping_pinlun.css">
+    <!--改--------------------------------------->
+    <style>
+        .bac-pinping12 {
+            display: inline-block;
+            background: url('http://img.10pinping.com/skin/10/comment/pinping-12.png') no-repeat;
+            width: 22px;
+            height: 20px;
+            overflow: hidden;
+        }
+        .comment_floor .bac-pinping12 {
+            margin-left: 22px;
+            vertical-align: sub;
+        }
+        .comment_vote .bac-pinping12 {
+            margin-right: 5px;
+            vertical-align: bottom;
+        }
+        .bac-zan1 {
+            background-position: -19px -19px;;
+        }
+        .bac-zan2 {
+            color: red;
+            background-position: -57px -19px !important;
+        }
+        .bac-fenxiang {
+            background-position: -171px -19px;
+        }
+        .bac-huifu {
+            background-position: -96px -19px;
+        }
+        .bac-jvbao {
+            background-position: -133px -19px;
+        }
+    </style>
+    <script>
+        function hongxing(k,ii,aa){
+            var x = 100;
+            var y = 900;
+            var num = Math.floor(Math.random() * 9 + 1);
+            var index=$(".demos"+k).children('img').length;
+            var less=parseInt(Math.random() * 100);
+            var rand = parseInt(Math.random() * (x - y + 1) + y);
+
+            $(".demos"+k).append("<img src=''  style='z-index:10000; width: 20px; height: 20px; position: absolute;  '>");//添加上
+            $(".demos"+k+' img:eq(' + index + ')').attr('src','http://img.10pinping.com/skin/10/comment/images/'+num+'.png');
+            $(".demos"+k+" img").animate({
+                opacity:"0",
+                left:-less,
+                top: -rand,
+            },3000);
+            V2V(ii, 1, aa);
+        }
+
+        //        点赞图片和字体变红
+        function changeZan(el) {
+            $(el).addClass('bac-zan2');
+            $('#num_zan_box').css('color', 'red');
+        }
+        //        判断赞的数量，如果小于等于0，隐藏
+        function judjeZanNumber() {
+            var nums = $('#num_zan').text();
+            if (nums <= 0) {
+                $('#num_zan_box').hide()
+            } else {
+                $('#num_zan_box').show()
+            }
+        }
+        //        改变星星显示
+        function changeStar(num) {
+            $('.pcomment_star span').remove();
+            var a = 3;
+            var str = '';
+            for (var i = 0; i < a; i++) {
+                if (i < num) {
+                    str += '<span class=xing1></span>'
+                } else {
+                    str += '<span class=xing2></span>'
+                }
+            }
+            $('.pcomment_star').append(str);
+        }
+    </script>
+
+    <!--0------------------------------------------------------------------------------------------->
+</head>
+<body oncontextmenu="return false">
+<div id="bc_comment">
+    <a name="top"></a>
+    <div class="stat">
+        <!--table属性改变-->
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td width="100">
+                    <img src="../images/static/ppxq_lxxs_img.png" alt="" class="shixin_star">
+                    <img src="../images/static/ppxq_lxxs_img.png" alt="" class="shixin_star">
+                    <img src="../images/static/ppxq_lxxs_img.png" alt="" class="shixin_star">
+                    好评
+                    <!--<img src="http://img.10pinping.com/file/image/star3.gif" width="36" height="12" alt="" align="absmiddle"/>-->
+                    <!--新加入的标签-->
+                </td>
+                <td><div class="stat_p"><div style="width:89.23%;"></div></div></td>
+                <td class="stat_c" width="100">89.23%</td>
+                <td class="stat_t" width="80" bgcolor="#E1F0FB">58</td>
+            </tr>
+            <tr >
+                <td>
+                    <img src="../images/static/ppxq_lxxk_img.png" alt="" class="shixin_star">
+                    <img src="../images/static/ppxq_lxxs_img.png" alt="" class="shixin_star">
+                    <img src="../images/static/ppxq_lxxs_img.png" alt="" class="shixin_star">
+
+                    中评
+                    <!--<img src="http://img.10pinping.com/file/image/star2.gif" width="36" height="12" alt="" align="absmiddle"/>-->
+                </td>
+                <td><div class="stat_p"><div style="width:4.62%;"></div></div></td>
+                <td>4.62%</td>
+                <td bgcolor="#F2F8FD">3</td>
+            </tr>
+            <tr >
+                <td>
+                    <img src="../images/static/ppxq_lxxk_img.png" alt="" class="shixin_star">
+                    <img src="../images/static/ppxq_lxxk_img.png" alt="" class="shixin_star">
+                    <img src="../images/static/ppxq_lxxs_img.png" alt="" class="shixin_star">
+
+                    差评
+                    <!--<img src="http://img.10pinping.com/file/image/star1.gif" width="36" height="12" alt="" align="absmiddle"/>-->
+                </td>
+                <td><div class="stat_p"><div style="width:6.15%;"></div></div></td>
+                <td>6.15%</td>
+                <td bgcolor="#F9FCFE">4</td>
+            </tr>
+        </table>
+    </div>
+
+    <!--改过的 0----------------------------------------------------------------------------->
+    <div class="comment comment_sp" style="clear:both;border-top: 1px solid #CCCCCC;margin-left: 10px;">
+        <!--头部-->
+        <div class="comment_title">
+            <!--右边图标-->
+            <span class="comment_floor" style="color:#999999;">
+                <!--图标赞-->
+<div class="demos0"   style="position:relative;font:right;"></div>
+                <a href="javascript:" onclick="hongxing(0,7762824, 0);"><div class="bac-pinping12 bac-zan1"></div></a>
+                <!--赞的数量-->
+                <span id="num_zan_box">&nbsp;<span id="v_7762824_1">0</span>&nbsp;</span>
+                <!--图标回复-->
+                <a href="javascript:" onclick="Q(7762824);"><div class="bac-pinping12 bac-huifu" ></div></a>
+            </span>
+            <span id="i_7762824" style="display: block;height: 20px;">
+     <img style="display:block;float:left;width: 20px;border-radius: 50%;" src="http://www.10pinping.com/api/avatar/show.php?userid=&amp;size=large">
+ <label style="display: block;float:left;height: 20px;line-height: 20px;margin-left:5px;">网友</label>
+                <!--评论时间-->
+                <span style="color: #999999;float: left;margin-left: 10px;line-height: 20px;">21分钟前</span>
+    </span>
+
+        </div>
+        <a href="javascript:" onclick="Q(7762824);" style="text-decoration:none "><div class="comment_content" style="color: #1a1a1a;" id="c_7762824"><span id="cc_7762824">质量杠杠的，价格划算。
+</span>
+        </div>
+        </a>           <div class="comment_info">
+            <span class="comment_vote" style="color: #999999">
+                <!--底部举报图标-->
+            <a href="javascript:" onclick="R(7762824);" style="color: #999999"><div class="bac-pinping12 bac-jvbao"></div></a>
+                <!--此处删除一条竖杠-->
+                &nbsp;  &nbsp;
+                <!--底部分享图标-->
+            <a href="javascript:" onClick="alert_window('cc_7762824');" style="color: #999999"><div class="bac-pinping12 bac-fenxiang"></div></a>
+            </span>
+
+        <!--换图片-->
+        <img src="../images/static/star0.png" width="36" height="12" alt="" align="absmiddle"/>
+    </div>
+    </div>
+    <!--0---------------------------------------------------------------------->
+
+    <!--改过的 0----------------------------------------------------------------------------->
+    <div class="comment" style="clear:both;border-top: 1px solid #CCCCCC;margin-left: 10px;">
+        <!--头部-->
+        <div class="comment_title">
+            <!--右边图标-->
+            <span class="comment_floor" style="color:#999999;">
+                <!--图标赞-->
+<div class="demos1"   style="position:relative;font:right;"></div>
+                <a href="javascript:" onclick="hongxing(1,7761500, 0);"><div class="bac-pinping12 bac-zan1"></div></a>
+                <!--赞的数量-->
+                <span id="num_zan_box">&nbsp;(<span id="v_7761500_1">0</span>)&nbsp;</span>
+                <!--图标回复-->
+                <a href="javascript:" onclick="Q(7761500);"><div class="bac-pinping12 bac-huifu" ></div></a>
+            </span>
+            <span id="i_7761500" style="display: block;height: 20px;">
+     <img style="display:block;float:left;width: 20px;border-radius: 50%;" src="http://www.10pinping.com/api/avatar/show.php?userid=&amp;size=large">
+ <label style="display: block;float:left;height: 20px;line-height: 20px;margin-left:5px;">网友</label>
+                <!--评论时间-->
+                <span style="color: #999999;float: left;margin-left: 10px;line-height: 20px;">1小时前</span>
+    </span>
+
+        </div>
+        <a href="javascript:" onclick="Q(7761500);" style="text-decoration:none "><div class="comment_content" style="color: #1a1a1a;" id="c_7761500"><span id="cc_7761500">质量挺不错的，很方便安装
+</span>
+        </div>
+        </a>           <div class="comment_info">
+            <span class="comment_vote" style="color: #999999">
+                <!--底部举报图标-->
+            <a href="javascript:" onclick="R(7761500);" style="color: #999999"><div class="bac-pinping12 bac-jvbao"></div>举报</a>
+                &nbsp; | &nbsp;
+                <!--底部分享图标-->
+            <a href="javascript:" onClick="alert_window('cc_7761500');" style="color: #999999"><div class="bac-pinping12 bac-fenxiang"></div>分享</a>
+            </span>
+        <img src="../images/static/star1.png" width="36" height="12" alt="" align="absmiddle"/>
+    </div>
+    </div>
+    <!--0---------------------------------------------------------------------->
+
+    <!--改过的 0----------------------------------------------------------------------------->
+    <div class="comment comment_sp" style="clear:both;border-top: 1px solid #CCCCCC;margin-left: 10px;">
+        <!--头部-->
+        <div class="comment_title">
+            <!--右边图标-->
+            <span class="comment_floor" style="color:#999999;">
+                <!--图标赞-->
+<div class="demos2"   style="position:relative;font:right;"></div>
+                <a href="javascript:" onclick="hongxing(2,7759772, 0);"><div class="bac-pinping12 bac-zan1"></div></a>
+                <!--赞的数量-->
+                <span id="num_zan_box">&nbsp;(<span id="v_7759772_1">0</span>)&nbsp;</span>
+                <!--图标回复-->
+                <a href="javascript:" onclick="Q(7759772);"><div class="bac-pinping12 bac-huifu" ></div></a>
+            </span>
+            <span id="i_7759772" style="display: block;height: 20px;">
+     <img style="display:block;float:left;width: 20px;border-radius: 50%;" src="http://www.10pinping.com/api/avatar/show.php?userid=&amp;size=large">
+ <label style="display: block;float:left;height: 20px;line-height: 20px;margin-left:5px;">网友</label>
+                <!--评论时间-->
+                <span style="color: #999999;float: left;margin-left: 10px;line-height: 20px;">2小时前</span>
+    </span>
+
+        </div>
+        <a href="javascript:" onclick="Q(7759772);" style="text-decoration:none "><div class="comment_content" style="color: #1a1a1a;" id="c_7759772"><span id="cc_7759772">奥盛特质量有保障，产品信得过。
+</span>
+        </div>
+        </a>           <div class="comment_info">
+            <span class="comment_vote" style="color: #999999">
+                <!--底部举报图标-->
+            <a href="javascript:" onclick="R(7759772);" style="color: #999999"><div class="bac-pinping12 bac-jvbao"></div>举报</a>
+                &nbsp; | &nbsp;
+                <!--底部分享图标-->
+            <a href="javascript:" onClick="alert_window('cc_7759772');" style="color: #999999"><div class="bac-pinping12 bac-fenxiang"></div>分享</a>
+            </span>
+        <img src="../images/static/star2.png" width="36" height="12" alt="" align="absmiddle"/>
+    </div>
+    </div>
+    <!--0---------------------------------------------------------------------->
+
+    <!--改过的 0----------------------------------------------------------------------------->
+    <div class="comment" style="clear:both;border-top: 1px solid #CCCCCC;margin-left: 10px;">
+        <!--头部-->
+        <div class="comment_title">
+            <!--右边图标-->
+            <span class="comment_floor" style="color:#999999;">
+                <!--图标赞-->
+<div class="demos3"   style="position:relative;font:right;"></div>
+                <a href="javascript:" onclick="hongxing(3,7759009, 1);"><div class="bac-pinping12 bac-zan1"></div></a>
+                <!--赞的数量-->
+                <span id="num_zan_box">&nbsp;(<span id="v_7759009_1">1</span>)&nbsp;</span>
+                <!--图标回复-->
+                <a href="javascript:" onclick="Q(7759009);"><div class="bac-pinping12 bac-huifu" ></div></a>
+            </span>
+            <span id="i_7759009" style="display: block;height: 20px;">
+     <img style="display:block;float:left;width: 20px;border-radius: 50%;" src="http://www.10pinping.com/api/avatar/show.php?userid=&amp;size=large">
+ <label style="display: block;float:left;height: 20px;line-height: 20px;margin-left:5px;">网友</label>
+                <!--评论时间-->
+                <span style="color: #999999;float: left;margin-left: 10px;line-height: 20px;">2小时前</span>
+    </span>
+
+        </div>
+        <a href="javascript:" onclick="Q(7759009);" style="text-decoration:none "><div class="comment_content" style="color: #1a1a1a;" id="c_7759009"><span id="cc_7759009">液压凿岩除金属撞击声外，无废气排放声音
+</span>
+        </div>
+        </a>           <div class="comment_info">
+            <span class="comment_vote" style="color: #999999">
+                <!--底部举报图标-->
+            <a href="javascript:" onclick="R(7759009);" style="color: #999999"><div class="bac-pinping12 bac-jvbao"></div>举报</a>
+                &nbsp; | &nbsp;
+                <!--底部分享图标-->
+            <a href="javascript:" onClick="alert_window('cc_7759009');" style="color: #999999"><div class="bac-pinping12 bac-fenxiang"></div>分享</a>
+            </span>
+        <img src="../images/static/star3.png" width="36" height="12" alt="" align="absmiddle"/>
+    </div>
+    </div>
+    <!--0---------------------------------------------------------------------->
+
+    <!--改过的 0----------------------------------------------------------------------------->
+    <div class="comment comment_sp" style="clear:both;border-top: 1px solid #CCCCCC;margin-left: 10px;">
+        <!--头部-->
+        <div class="comment_title">
+            <!--右边图标-->
+            <span class="comment_floor" style="color:#999999;">
+                <!--图标赞-->
+<div class="demos4"   style="position:relative;font:right;"></div>
+                <a href="javascript:" onclick="hongxing(4,7757828, 0);"><div class="bac-pinping12 bac-zan1"></div></a>
+                <!--赞的数量-->
+                <span id="num_zan_box">&nbsp;(<span id="v_7757828_1">0</span>)&nbsp;</span>
+                <!--图标回复-->
+                <a href="javascript:" onclick="Q(7757828);"><div class="bac-pinping12 bac-huifu" ></div></a>
+            </span>
+            <span id="i_7757828" style="display: block;height: 20px;">
+     <img style="display:block;float:left;width: 20px;border-radius: 50%;" src="http://www.10pinping.com/api/avatar/show.php?userid=&amp;size=large">
+ <label style="display: block;float:left;height: 20px;line-height: 20px;margin-left:5px;">网友</label>
+                <!--评论时间-->
+                <span style="color: #999999;float: left;margin-left: 10px;line-height: 20px;">3小时前</span>
+    </span>
+
+        </div>
+        <a href="javascript:" onclick="Q(7757828);" style="text-decoration:none "><div class="comment_content" style="color: #1a1a1a;" id="c_7757828"><span id="cc_7757828">奥盛特运行平稳，噪音低。
+</span>
+        </div>
+        </a>           <div class="comment_info">
+            <span class="comment_vote" style="color: #999999">
+                <!--底部举报图标-->
+            <a href="javascript:" onclick="R(7757828);" style="color: #999999"><div class="bac-pinping12 bac-jvbao"></div>举报</a>
+                &nbsp; | &nbsp;
+                <!--底部分享图标-->
+            <a href="javascript:" onClick="alert_window('cc_7757828');" style="color: #999999"><div class="bac-pinping12 bac-fenxiang"></div>分享</a>
+            </span>
+        <img src="http://img.10pinping.com/file/image/star3.gif" width="36" height="12" alt="" align="absmiddle"/>
+    </div>
+    </div>
+    <!--0---------------------------------------------------------------------->
+
+    <!--改过的 0----------------------------------------------------------------------------->
+    <div class="comment" style="clear:both;border-top: 1px solid #CCCCCC;margin-left: 10px;">
+        <!--头部-->
+        <div class="comment_title">
+            <!--右边图标-->
+            <span class="comment_floor" style="color:#999999;">
+                <!--图标赞-->
+<div class="demos5"   style="position:relative;font:right;"></div>
+                <a href="javascript:" onclick="hongxing(5,7753198, 0);"><div class="bac-pinping12 bac-zan1"></div></a>
+                <!--赞的数量-->
+                <span id="num_zan_box">&nbsp;(<span id="v_7753198_1">0</span>)&nbsp;</span>
+                <!--图标回复-->
+                <a href="javascript:" onclick="Q(7753198);"><div class="bac-pinping12 bac-huifu" ></div></a>
+            </span>
+            <span id="i_7753198" style="display: block;height: 20px;">
+     <img style="display:block;float:left;width: 20px;border-radius: 50%;" src="http://www.10pinping.com/api/avatar/show.php?userid=&amp;size=large">
+ <label style="display: block;float:left;height: 20px;line-height: 20px;margin-left:5px;">网友</label>
+                <!--评论时间-->
+                <span style="color: #999999;float: left;margin-left: 10px;line-height: 20px;">6小时前</span>
+    </span>
+
+        </div>
+        <a href="javascript:" onclick="Q(7753198);" style="text-decoration:none "><div class="comment_content" style="color: #1a1a1a;" id="c_7753198"><span id="cc_7753198">质量不错，挺满意
+</span>
+        </div>
+        </a>           <div class="comment_info">
+            <span class="comment_vote" style="color: #999999">
+                <!--底部举报图标-->
+            <a href="javascript:" onclick="R(7753198);" style="color: #999999"><div class="bac-pinping12 bac-jvbao"></div>举报</a>
+                &nbsp; | &nbsp;
+                <!--底部分享图标-->
+            <a href="javascript:" onClick="alert_window('cc_7753198');" style="color: #999999"><div class="bac-pinping12 bac-fenxiang"></div>分享</a>
+            </span>
+        <img src="http://img.10pinping.com/file/image/star3.gif" width="36" height="12" alt="" align="absmiddle"/>
+    </div>
+    </div>
+    <!--0---------------------------------------------------------------------->
+
+    <!--改过的 0----------------------------------------------------------------------------->
+    <div class="comment comment_sp" style="clear:both;border-top: 1px solid #CCCCCC;margin-left: 10px;">
+        <!--头部-->
+        <div class="comment_title">
+            <!--右边图标-->
+            <span class="comment_floor" style="color:#999999;">
+                <!--图标赞-->
+<div class="demos6"   style="position:relative;font:right;"></div>
+                <a href="javascript:" onclick="hongxing(6,7753040, 0);"><div class="bac-pinping12 bac-zan1"></div></a>
+                <!--赞的数量-->
+                <span id="num_zan_box">&nbsp;(<span id="v_7753040_1">0</span>)&nbsp;</span>
+                <!--图标回复-->
+                <a href="javascript:" onclick="Q(7753040);"><div class="bac-pinping12 bac-huifu" ></div></a>
+            </span>
+            <span id="i_7753040" style="display: block;height: 20px;">
+     <img style="display:block;float:left;width: 20px;border-radius: 50%;" src="http://www.10pinping.com/api/avatar/show.php?userid=&amp;size=large">
+ <label style="display: block;float:left;height: 20px;line-height: 20px;margin-left:5px;">网友</label>
+                <!--评论时间-->
+                <span style="color: #999999;float: left;margin-left: 10px;line-height: 20px;">6小时前</span>
+    </span>
+
+        </div>
+        <a href="javascript:" onclick="Q(7753040);" style="text-decoration:none "><div class="comment_content" style="color: #1a1a1a;" id="c_7753040"><span id="cc_7753040">就冲奥盛特这个牌子来的，品质很好。
+</span>
+        </div>
+        </a>           <div class="comment_info">
+            <span class="comment_vote" style="color: #999999">
+                <!--底部举报图标-->
+            <a href="javascript:" onclick="R(7753040);" style="color: #999999"><div class="bac-pinping12 bac-jvbao"></div>举报</a>
+                &nbsp; | &nbsp;
+                <!--底部分享图标-->
+            <a href="javascript:" onClick="alert_window('cc_7753040');" style="color: #999999"><div class="bac-pinping12 bac-fenxiang"></div>分享</a>
+            </span>
+        <img src="http://img.10pinping.com/file/image/star3.gif" width="36" height="12" alt="" align="absmiddle"/>
+    </div>
+    </div>
+    <!--0---------------------------------------------------------------------->
+
+    <!--改过的 0----------------------------------------------------------------------------->
+    <div class="comment" style="clear:both;border-top: 1px solid #CCCCCC;margin-left: 10px;">
+        <!--头部-->
+        <div class="comment_title">
+            <!--右边图标-->
+            <span class="comment_floor" style="color:#999999;">
+                <!--图标赞-->
+<div class="demos7"   style="position:relative;font:right;"></div>
+                <a href="javascript:" onclick="hongxing(7,7750625, 0);"><div class="bac-pinping12 bac-zan1"></div></a>
+                <!--赞的数量-->
+                <span id="num_zan_box">&nbsp;(<span id="v_7750625_1">0</span>)&nbsp;</span>
+                <!--图标回复-->
+                <a href="javascript:" onclick="Q(7750625);"><div class="bac-pinping12 bac-huifu" ></div></a>
+            </span>
+            <span id="i_7750625" style="display: block;height: 20px;">
+     <img style="display:block;float:left;width: 20px;border-radius: 50%;" src="http://www.10pinping.com/api/avatar/show.php?userid=&amp;size=large">
+ <label style="display: block;float:left;height: 20px;line-height: 20px;margin-left:5px;">网友</label>
+                <!--评论时间-->
+                <span style="color: #999999;float: left;margin-left: 10px;line-height: 20px;">8小时前</span>
+    </span>
+
+        </div>
+        <a href="javascript:" onclick="Q(7750625);" style="text-decoration:none "><div class="comment_content" style="color: #1a1a1a;" id="c_7750625"><span id="cc_7750625">质量不错，挺满意
+</span>
+        </div>
+        </a>           <div class="comment_info">
+            <span class="comment_vote" style="color: #999999">
+                <!--底部举报图标-->
+            <a href="javascript:" onclick="R(7750625);" style="color: #999999"><div class="bac-pinping12 bac-jvbao"></div>举报</a>
+                &nbsp; | &nbsp;
+                <!--底部分享图标-->
+            <a href="javascript:" onClick="alert_window('cc_7750625');" style="color: #999999"><div class="bac-pinping12 bac-fenxiang"></div>分享</a>
+            </span>
+        <img src="http://img.10pinping.com/file/image/star3.gif" width="36" height="12" alt="" align="absmiddle"/>
+    </div>
+    </div>
+    <!--0---------------------------------------------------------------------->
+
+    <!--改过的 0----------------------------------------------------------------------------->
+    <div class="comment comment_sp" style="clear:both;border-top: 1px solid #CCCCCC;margin-left: 10px;">
+        <!--头部-->
+        <div class="comment_title">
+            <!--右边图标-->
+            <span class="comment_floor" style="color:#999999;">
+                <!--图标赞-->
+<div class="demos8"   style="position:relative;font:right;"></div>
+                <a href="javascript:" onclick="hongxing(8,7750570, 0);"><div class="bac-pinping12 bac-zan1"></div></a>
+                <!--赞的数量-->
+                <span id="num_zan_box">&nbsp;(<span id="v_7750570_1">0</span>)&nbsp;</span>
+                <!--图标回复-->
+                <a href="javascript:" onclick="Q(7750570);"><div class="bac-pinping12 bac-huifu" ></div></a>
+            </span>
+            <span id="i_7750570" style="display: block;height: 20px;">
+     <img style="display:block;float:left;width: 20px;border-radius: 50%;" src="http://www.10pinping.com/api/avatar/show.php?userid=&amp;size=large">
+ <label style="display: block;float:left;height: 20px;line-height: 20px;margin-left:5px;">网友</label>
+                <!--评论时间-->
+                <span style="color: #999999;float: left;margin-left: 10px;line-height: 20px;">8小时前</span>
+    </span>
+
+        </div>
+        <a href="javascript:" onclick="Q(7750570);" style="text-decoration:none "><div class="comment_content" style="color: #1a1a1a;" id="c_7750570"><span id="cc_7750570">奥盛特性价比高，很满意。
+</span>
+        </div>
+        </a>           <div class="comment_info">
+            <span class="comment_vote" style="color: #999999">
+                <!--底部举报图标-->
+            <a href="javascript:" onclick="R(7750570);" style="color: #999999"><div class="bac-pinping12 bac-jvbao"></div>举报</a>
+                &nbsp; | &nbsp;
+                <!--底部分享图标-->
+            <a href="javascript:" onClick="alert_window('cc_7750570');" style="color: #999999"><div class="bac-pinping12 bac-fenxiang"></div>分享</a>
+            </span>
+        <img src="http://img.10pinping.com/file/image/star3.gif" width="36" height="12" alt="" align="absmiddle"/>
+    </div>
+    </div>
+    <!--0---------------------------------------------------------------------->
+
+    <!--改过的 0----------------------------------------------------------------------------->
+    <div class="comment" style="clear:both;border-top: 1px solid #CCCCCC;margin-left: 10px;">
+        <!--头部-->
+        <div class="comment_title">
+            <!--右边图标-->
+            <span class="comment_floor" style="color:#999999;">
+                <!--图标赞-->
+<div class="demos9"   style="position:relative;font:right;"></div>
+                <a href="javascript:" onclick="hongxing(9,7748105, 0);"><div class="bac-pinping12 bac-zan1"></div></a>
+                <!--赞的数量-->
+                <span id="num_zan_box">&nbsp;(<span id="v_7748105_1">0</span>)&nbsp;</span>
+                <!--图标回复-->
+                <a href="javascript:" onclick="Q(7748105);"><div class="bac-pinping12 bac-huifu" ></div></a>
+            </span>
+            <span id="i_7748105" style="display: block;height: 20px;">
+     <img style="display:block;float:left;width: 20px;border-radius: 50%;" src="http://www.10pinping.com/api/avatar/show.php?userid=&amp;size=large">
+ <label style="display: block;float:left;height: 20px;line-height: 20px;margin-left:5px;">网友</label>
+                <!--评论时间-->
+                <span style="color: #999999;float: left;margin-left: 10px;line-height: 20px;">9小时前</span>
+    </span>
+
+        </div>
+        <a href="javascript:" onclick="Q(7748105);" style="text-decoration:none "><div class="comment_content" style="color: #1a1a1a;" id="c_7748105"><span id="cc_7748105">奥盛特操作更简便，安全性更好。
+</span>
+        </div>
+        </a>           <div class="comment_info">
+            <span class="comment_vote" style="color: #999999">
+                <!--底部举报图标-->
+            <a href="javascript:" onclick="R(7748105);" style="color: #999999"><div class="bac-pinping12 bac-jvbao"></div>举报</a>
+                &nbsp; | &nbsp;
+                <!--底部分享图标-->
+            <a href="javascript:" onClick="alert_window('cc_7748105');" style="color: #999999"><div class="bac-pinping12 bac-fenxiang"></div>分享</a>
+            </span>
+        <img src="http://img.10pinping.com/file/image/star3.gif" width="36" height="12" alt="" align="absmiddle"/>
+    </div>
+    </div>
+    <!--0---------------------------------------------------------------------->
+    <a name="last"></a>
+    <div class="pages"><input type="hidden" id="bc_previous" value="http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page=7"/><a href="http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page=7">&nbsp;&#171;上一页&nbsp;</a> <strong>&nbsp;1&nbsp;</strong>  <a href="http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page=2">&nbsp;2&nbsp;</a>  &nbsp;&#8230;&nbsp; <a href="http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page=3">&nbsp;3&nbsp;</a>   <a href="http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page=4">&nbsp;4&nbsp;</a>   <a href="http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page=5">&nbsp;5&nbsp;</a>  &nbsp;&#8230;&nbsp; <a href="http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page=6">&nbsp;6&nbsp;</a>   <a href="http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page=7">&nbsp;7&nbsp;</a>  <a href="http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page=2">&nbsp;下一页&#187;&nbsp;</a> <input type="hidden" id="bc_next" value="http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page=2"/>&nbsp;<cite>共65条/7页</cite>&nbsp;<input type="text" class="pages_inp" id="bc_pageno" value="1" onkeydown="if(event.keyCode==13 && this.value) {window.location.href='http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page={bc_page}'.replace(/\{bc_page\}/, this.value);return false;}"> <input type="button" class="pages_btn" value="GO" onclick="if(Dd('bc_pageno').value>0)window.location.href='http://www.10pinping.com/extend/comment.php?mid=13&itemid=104198&page={bc_page}'.replace(/\{bc_page\}/, Dd('bc_pageno').value);"/></div>    <iframe src="" name="send" id="send" style="display:none;" scrolling="no" frameborder="0"></iframe>
+    <div id="thumbDetail"></div>
+    <div class="comment_form"  style="padding-top:50px;">
+        <form action="http://www.10pinping.com/extend/comment.php" method="post" enctype="multipart/form-data" target="send" onsubmit="return C();">
+            <input type="hidden" name="mid" value="13"/>
+            <input type="hidden" name="itemid" value="104198"/>
+            <input type="hidden" name="items" value="65"/>
+            <input type="hidden" name="page" value="1"/>
+            <input type="hidden" name="qid" value="0" id="qid"/>
+            <input type="hidden" name="submit" value="1"/>
+            <table cellpadding="10" cellspacing="1" width="100%">
+                <tr>
+                    <td id="qbox" style="display:none;" bgcolor="#F9FCFE"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="float:right;"><a href="#top">返回顶部</a></span>
+                        <input type="radio" name="star" value="3" id="star_3" checked/><label for="star_3"> 好评 <img src="../images/static/star3.png" width="36" height="12" alt="" align="absmiddle"/></label>
+                        <input type="radio" name="star" value="2" id="star_2"/><label for="star_2"> 中评 <img src="../images/static/star2.png" width="36" height="12" alt="" align="absmiddle"/></label>
+                        <input type="radio" name="star" value="1" id="star_1"/><label for="star_1"> 差评 <img src="../images/static/star1.png" width="36" height="12" alt="" align="absmiddle"/></label>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div style="float:left"><input type="radio" name="icon" value="1" id="icon_1"/><label for="icon_1"> <img src="http://img.10pinping.com/skin/10//comment/1.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="2" id="icon_2"/><label for="icon_2"> <img src="http://img.10pinping.com/skin/10//comment/2.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="3" id="icon_3"/><label for="icon_3"> <img src="http://img.10pinping.com/skin/10//comment/3.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="4" id="icon_4"/><label for="icon_4"> <img src="http://img.10pinping.com/skin/10//comment/4.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="5" id="icon_5"/><label for="icon_5"> <img src="http://img.10pinping.com/skin/10//comment/5.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="6" id="icon_6"/><label for="icon_6"> <img src="http://img.10pinping.com/skin/10//comment/6.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="7" id="icon_7"/><label for="icon_7"> <img src="http://img.10pinping.com/skin/10//comment/7.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="8" id="icon_8"/><label for="icon_8"> <img src="http://img.10pinping.com/skin/10//comment/8.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="9" id="icon_9"/><label for="icon_9"> <img src="http://img.10pinping.com/skin/10//comment/9.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="10" id="icon_10"/><label for="icon_10"> <img src="http://img.10pinping.com/skin/10//comment/10.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="11" id="icon_11"/><label for="icon_11"> <img src="http://img.10pinping.com/skin/10//comment/11.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="12" id="icon_12"/><label for="icon_12"> <img src="http://img.10pinping.com/skin/10//comment/12.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="13" id="icon_13"/><label for="icon_13"> <img src="http://img.10pinping.com/skin/10//comment/13.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="14" id="icon_14"/><label for="icon_14"> <img src="http://img.10pinping.com/skin/10//comment/14.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="15" id="icon_15"/><label for="icon_15"> <img src="http://img.10pinping.com/skin/10//comment/15.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="16" id="icon_16"/><label for="icon_16"> <img src="http://img.10pinping.com/skin/10//comment/16.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="17" id="icon_17"/><label for="icon_17"> <img src="http://img.10pinping.com/skin/10//comment/17.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="18" id="icon_18"/><label for="icon_18"> <img src="http://img.10pinping.com/skin/10//comment/18.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="19" id="icon_19"/><label for="icon_19"> <img src="http://img.10pinping.com/skin/10//comment/19.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="20" id="icon_20"/><label for="icon_20"> <img src="http://img.10pinping.com/skin/10//comment/20.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="21" id="icon_21"/><label for="icon_21"> <img src="http://img.10pinping.com/skin/10//comment/21.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="22" id="icon_22"/><label for="icon_22"> <img src="http://img.10pinping.com/skin/10//comment/22.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="23" id="icon_23"/><label for="icon_23"> <img src="http://img.10pinping.com/skin/10//comment/23.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="24" id="icon_24"/><label for="icon_24"> <img src="http://img.10pinping.com/skin/10//comment/24.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="25" id="icon_25"/><label for="icon_25"> <img src="http://img.10pinping.com/skin/10//comment/25.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="26" id="icon_26"/><label for="icon_26"> <img src="http://img.10pinping.com/skin/10//comment/26.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="27" id="icon_27"/><label for="icon_27"> <img src="http://img.10pinping.com/skin/10//comment/27.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                        <div style="float:left"><input type="radio" name="icon" value="28" id="icon_28"/><label for="icon_28"> <img src="http://img.10pinping.com/skin/10//comment/28.gif" width="24" height="24" alt="" align="absmiddle"/></label></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img id="thumbBtn" class="thumbBtn" src="http://img.10pinping.com/skin/10/comment/upload_pic.gif" width="77" height="24"  align="absmiddle" /> 手机浏览可拍照上传图片<br />
+                        <textarea class="comment_area" onfocus="F();" onkeyup="S();" name="content" id="content"></textarea><br />
+                        <div class="thumbArea" id="thumbArea">
+                            <div class="thumbBox" id="thumbBox1">
+                                <input name="thumb1" id="thumb1" type="file" accept="image/*" class="hidefile" />
+                                <img id="ImgPr1" class="thumbImg" /><br />
+                                <img class="thumbDelete" src="http://img.10pinping.com/skin/10/image/btn_move.gif" width="50" height="20" />
+                            </div>
+                        </div>
+                        <script language="javascript">
+                            var imgNum = 1;
+                            var imgMax = 6;
+                            //Add a Pic Info
+                            function addUpInfo() {
+                                $("#thumbBox"+imgNum).show();
+                                imgNum = imgNum + 1;
+                                $("#thumbArea").append('<div class="thumbBox" id="thumbBox' + imgNum + '"><input name="thumb' + imgNum + '" type="file" id="thumb' + imgNum + '" accept="image/*" class="hidefile" /><img id="ImgPr' + imgNum + '" class="thumbImg" /><img  class="thumbDelete" src="http://img.10pinping.com/skin/10/image/btn_move.gif" width="50" height="20" /></div>');
+                                $("#thumb" + imgNum).uploadPreview({ Img: "ImgPr" + imgNum, Width: 100, Height: 100, ImgType: ["gif", "jpeg", "jpg", "bmp", "png"], Callback: function() {addUpInfo();} });
+                            }
+                            //upfile Pic Click
+                            $(function() {
+//绑定file到img预览
+                                $("#thumb1").uploadPreview({ Img: "ImgPr1", Width: 100, Height: 100, ImgType: ["gif", "jpeg", "jpg", "bmp", "png"], Callback: function() {addUpInfo();}});
+                                $("#thumbBtn").click(function() {
+                                    if(imgNum < imgMax){
+                                        $("#thumb"+imgNum).click();
+                                    } else {
+                                        alert('最多只能上传5张图片');
+                                    }
+                                });
+//click Zoom
+                                $(".thumbImg").live("click",function(){
+                                    thumbPreview($(this).attr("src"),$(this).css("top"));
+                                });
+//Input Info Delete
+                                $(".thumbDelete").live("click",function(){
+                                    imgMax++;
+                                    $(this).parent().remove();
+                                });
+                            });
+                        </script>
+                        <script language="javascript">
+                            $(function() {
+                                $('.listThumb').find('li').click(function() {
+                                    if($(this).hasClass("on")){
+                                        $(this).animate({
+                                                height: "102px"
+                                            },
+                                            100).removeClass('on');
+                                        $(this).find('.in').css('left', '0');
+                                    }
+                                    else
+                                    {
+                                        $(this).addClass('on');
+                                        $(this).find('.in').css('left', '0');
+                                    }
+                                });
+                            });
+                            function thumbPreview(src,top)
+                            {
+                                $("#thumbDetail").show();
+                                $("#thumbDetail").html( '<a href="javascript:thumbClose();" class="thumbClose"><img  src="'+src+'" /><br />关闭</a></p>');
+                            }
+                            function thumbClose(id){
+                                $("#thumbDetail").hide();
+                            }
+                        </script></td>
+                </tr>
+                <tr id="tr_captcha" style="display:none;">
+                    <td><div class="comment_input">&nbsp;<span>*</span> 验证码：&nbsp;<input name="captcha" id="captcha" type="text" size="6" onfocus="showcaptcha();" value="点击显示" onkeyup="checkcaptcha(this.value);" onblur="checkcaptcha(this.value);" class="f_gray" style="margin:10px 0 10px 0;"/>&nbsp;<img src="http://img.10pinping.com/skin/10/image/loading.gif" title="验证码,看不清楚?请点击刷新&#10;字母不区分大小写" alt="" align="absmiddle" id="captchapng" onclick="reloadcaptcha();" style="display:none;cursor:pointer;width:100px"/><span id="ccaptcha"></span>
+                        <script type="text/javascript">
+                            function showcaptcha() {
+                                if(Dd('captchapng').style.display=='none') {
+                                    Dd('captchapng').style.display='';
+                                }
+                                if(Dd('captchapng').src.indexOf('loading.gif') != -1) {
+                                    Dd('captchapng').src='http://www.10pinping.com/api/captcha.png.php?action=image';
+                                }
+                                if(Dd('captcha').value=='点击显示') {
+                                    Dd('captcha').value='';
+                                }
+                                Dd('captcha').className = '';
+                            }
+                            function reloadcaptcha() {
+                                Dd('captchapng').src = 'http://www.10pinping.com/api/captcha.png.php?action=image&refresh='+Math.random();
+                                Dd('ccaptcha').innerHTML = '';
+                                Dd('captcha').value = '';
+                            }
+                            function checkcaptcha(s) {
+                                if(!is_captcha(s)) return;
+                                makeRequest('action=captcha&captcha='+s, AJPath, '_checkcaptcha');
+                            }
+                            function _checkcaptcha() {
+                                if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+                                    if(xmlHttp.responseText == '0') {
+                                        Dd('ccaptcha').innerHTML = '&nbsp;&nbsp;<img src="http://img.10pinping.com/skin/10/image/check_right.gif" align="absmiddle"/>';
+                                    } else {
+                                        Dd('captcha').focus;
+                                        Dd('ccaptcha').innerHTML = '&nbsp;&nbsp;<img src="http://img.10pinping.com/skin/10/image/check_error.gif" align="absmiddle"/>';
+                                    }
+                                }
+                            }
+                        </script></div></td>
+                </tr>
+                <tr>
+                    <td>
+
+
+
+
+                        <!--新的图片改动-->
+                        &nbsp;<input id="btnSubmit" type="image" src="../images/static/ppxq_fb_btn.png" align="absmiddle"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="hidden" value="1" checked="checked"/> 匿名发表
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#666666;">(内容限5至500字)
+&nbsp;&nbsp;&nbsp;&nbsp;当前已经输入 <span style="color:red;" id="chars">0</span> 字
+</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <form method="post" action="http://www.10pinping.com/guestbook/index.php" id="r_form" target="_blank">
+        <input type="hidden" name="content" id="r_content" value=""/>
+        <input type="hidden" name="catid" value="41290"/>
+    </form>
+</div>
+<script>
+    function R(id) {
+    Dd('r_content').value = '评论举报，评论ID:'+id+'\n评论内容:\n'+Dd('cc_'+id).innerHTML+'\n--------------------------\n举报理由:\n';
+    Dd('r_form').submit();
+    }
+    var v_id = 0;
+    var v_op = 1;
+    var v_nm = 0;
+    function V(id, op, nm) {
+    v_id = id;
+    v_op = op;
+    v_nm = nm;
+    if(get_cookie('comment_vote_13_104198_'+id)) {
+    confirm('您已经对此评论表过态了');
+    return;
+    }
+    makeRequest('action=vote&mid=13&itemid=104198&cid='+id+'&op='+op, '?', '_V');
+    }
+    function V2V(id, op, nm) {
+    v_id = id;
+    v_op = op;
+    v_nm = nm;
+    if(get_cookie('comment_vote_13_104198_'+id)) {
+    return;
+    }
+    makeRequest('action=vote&mid=13&itemid=104198&cid='+id+'&op='+op, '?', '_V');
+    }
+    function _V() {
+    if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+    if(xmlHttp.responseText == -2) {
+    confirm('抱歉，您没有投票权限');
+    } else if (xmlHttp.responseText == -1) {
+    confirm('您已经对此评论表过态了');
+    } else if (xmlHttp.responseText == 0) {
+    alert('参数错误，如有疑问请联系管理员');
+    } else if (xmlHttp.responseText == 1) {
+    if(v_op == 1) {
+    Inner('v_'+v_id+'_1', ++v_nm);
+    } else {
+    Inner('v_'+v_id+'_0', ++v_nm);
+    }
+    }
+    }
+    }
+    function Q(qid){
+    Dd('qid').value = qid;
+    Ds('qbox');
+    Dd('qbox').innerHTML = '&nbsp;<strong>引用:</strong><div class="title">'+Dd('i_'+qid).innerHTML+'</div><div class="content">'+Dd('c_'+qid).innerHTML+'</div>';
+    H();
+    Dd('content').focus();
+    }
+    function S() {
+    Inner('chars', Dd('content').value.length);
+    }
+    function C() {
+    var user_status = 3;
+    if(user_status == 1) {
+    alert('您的会员组没有评论权限');
+    return false;
+    }
+    if(user_status == 2) {
+    if(confirm('您还没有登录,是否现在登录?')) {
+    top.location = 'http://www.10pinping.com/member/login.php?forward=http%3A%2F%2Fwww.10pinping.com%2Fbrand%2Fshow-htm-itemid-104198.html';
+    }
+    return false;
+    }
+    if(Dd('star_3').checked == false && Dd('star_2').checked == false && Dd('star_1').checked == false) {
+    confirm('请选择您的评价');
+    Dd('star_3').focus();
+    return false;
+    }
+    if(Dd('content').value.length < 5) {
+    confirm('内容最少需要5字');
+    Dd('content').focus();
+    return false;
+    }
+    if(Dd('content').value.length > 500) {
+    confirm('内容最多500字');
+    Dd('content').focus();
+    return false;
+    }
+    if(!is_captcha(Dd('captcha').value)) {
+    confirm('请填写验证码');
+    Ds('tr_captcha');
+    H();
+    Dd('captcha').focus();
+    return false;
+    }
+    $("#btnSubmit").attr("src","http://img.10pinping.com/skin/10/image/btn_comment_save.gif");
+    $("#btnSubmit").attr("disabled","disabled");
+    return true;
+    }
+    function F() {
+    Ds('tr_captcha');
+    H();
+    }
+    try{parent.Dd('comment_count').innerHTML = 65;}catch(e){}
+    function H() {
+    try{parent.Dd('bc_comment').style.height = (Dd('bc_comment').scrollHeight+120)+'px';}
+    catch(e){}
+    }
+    H();
+    function alert_window(picur)
+    {
+    window.top.window.toshare(picur);
+    }
+</script>
+</body>
+</html>

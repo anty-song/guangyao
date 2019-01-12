@@ -1,0 +1,11 @@
+function tipError(a){
+    var str='<div class="tip-error" style="position:fixed;top:70%;width:100%;height:30px;line-height:30px;text-align:center;z-index:999;"><span style="display:inline-block;padding:0 10px;border-radius:4px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.8);font-size:12px;"></span></div>';
+
+    $("body").append(str);
+    $(".tip-error span").text(a);
+    $(".tip-error").fadeIn();
+    setTimeout(function(){
+        $(".tip-error span").text('');
+        $(".tip-error").remove();
+    },1500);
+}

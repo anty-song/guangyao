@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>layui</title>
+</head>
+<body>
+    <select name="" id="">
+        <option value="1">111</option>
+        <option value="2">222</option>
+        <option value="3">333</option>
+        <option value="4">444</option>
+    </select>
+    <p id="results"><b>Results: </b> </p>
+    <form>
+        <select name="single">
+            <option>Single</option>
+            <option>Single2</option>
+        </select>
+        <select name="multiple" multiple="multiple">
+            <option selected="selected">Multiple</option>
+            <option>Multiple2</option>
+            <option selected="selected">Multiple3</option>
+        </select><br />
+        <input type="checkbox" name="check" value="check1" /> check1
+        <input type="checkbox" name="check" value="check2" checked="checked" /> check2
+        <input type="radio" name="radio" value="radio1" checked="checked" /> radio1
+        <input type="radio" name="radio" value="radio2" /> radio2
+    </form>
+    <div class="out">
+        <h1 id="h1">123</h1>
+        <div class="mid">
+            <button>change</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        $("button").click(function(){
+            console.log($(this).parents(".out"))
+            $(this).parents(".out").find("#h1").text("changed")
+        })
+        $(document).ready(function() {
+            $("#results").append("<tt>" + $("form").serialize() + "</tt>");
+        })
+        
+        // $("div").on("click", "input", function(e){console.log(e);e.stopPropagation();})
+        // song 配置右侧开关按钮点击带动了layui-colla-conten的显隐(需修改)
+        // $(".layui-form-switch").click(function (event) {
+        //     console.log(event);
+        //     window.event ? window.event.cancelBubble = true : event.stopPropagation();
+        // });
+        
+    </script>
+</body>
+</html>

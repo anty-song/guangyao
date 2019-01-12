@@ -1,0 +1,31 @@
+layui.use(['element','layer','laydate'],function(){
+    var element=layui.element;
+    var layer=layui.layer;
+    var laydate=layui.laydate;
+    //数据统计-新增日活-开始日期
+    var insStart1 = laydate.render({
+        elem: '#staticStart1',
+        // min: 0,//设定起始时间，默认1970-1-1,0表示当前日期
+        showBottom:false,
+        done: function(value, date){
+            //更新结束日期的最小日期
+            insEnd1.config.min = lay.extend({}, date, {
+                month: date.month - 1
+            });
+            //自动弹出结束日期的选择器
+            insEnd1.config.elem[0].focus();
+        }
+    });
+    //数据统计-新增日活-结束日期
+    var insEnd1 = laydate.render({
+        elem: '#staticEnd1',
+        // min: 0,//设定起始时间，默认1970-1-1,0表示当前日期
+        showBottom:false,
+        done: function(value, date){
+            //更新开始日期的最大日期
+            insStart1.config.max = lay.extend({}, date, {
+                month: date.month - 1
+            });
+        }
+    });
+});

@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @Author   Hulkzero
+ * @DateTime 2018-08-31T11:44:46+0800
+ * @Email    hulkzero@163.com
+ * @Explain  趣味彩票
+ */
+
+namespace app\h5\controller\game;
+
+use think\Request;
+
+class Lottery extends GameLobby
+{
+    /**
+     * 趣味彩票接口详情
+     *
+     * @return \think\Response
+     */
+    public function home()
+    {    
+        // 中奖滚动信息
+        $roll_data = array(
+                            array('roll_title'=>'恭喜古拉加斯中了0.3元'  	, 'roll_id'  =>'1'),
+                            array('roll_title'=>'恭喜Zzz中了0.2元' 		, 'roll_rate'=>'2'),
+                            array('roll_title'=>'恭喜寒风中了0.3元'  		, 'roll_rate'=>'3'),
+                            array('roll_title'=>'恭喜猎鹰中了0.1元'  		, 'roll_rate'=>'4'),
+                        );
+        //模板变量赋值
+        $this->assign('title','幸运彩票');
+        // 彩票游戏奖品列表数据
+        $prize_data = $this->get_prize_list(2);
+        // 渲染模板
+        $this->assign('prize_data',$prize_data);
+
+        //模板输出
+        return $this->fetch('game/Lottery/home');
+    }
+
+   
+}

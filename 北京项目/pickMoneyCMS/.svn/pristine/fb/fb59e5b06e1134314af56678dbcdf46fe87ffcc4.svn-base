@@ -1,0 +1,81 @@
+layui.use(['element','layer','laydate'],function(){
+    var element=layui.element;
+    var layer=layui.layer;
+    var laydate=layui.laydate;
+    //趣味游戏-开始日期
+    var insStart1 = laydate.render({
+        elem: '#staticStart1',
+        // min: 0,//设定起始时间，默认1970-1-1,0表示当前日期
+        showBottom:false,
+        done: function(value, date){
+            //更新结束日期的最小日期
+            insEnd1.config.min = lay.extend({}, date, {
+                month: date.month - 1
+            });
+            //自动弹出结束日期的选择器
+            insEnd1.config.elem[0].focus();
+        }
+    });
+    //趣味游戏-结束日期
+    var insEnd1 = laydate.render({
+        elem: '#staticEnd1',
+        // min: 0,//设定起始时间，默认1970-1-1,0表示当前日期
+        showBottom:false,
+        done: function(value, date){
+            //更新开始日期的最大日期
+            insStart1.config.max = lay.extend({}, date, {
+                month: date.month - 1
+            });
+        }
+    });
+    //百万红包-开始日期
+    var insStart2 = laydate.render({
+        elem: '#staticStart2',
+        // min: 0,//设定起始时间，默认1970-1-1,0表示当前日期
+        showBottom:false,
+        done: function(value, date){
+            //更新结束日期的最小日期
+            insEnd2.config.min = lay.extend({}, date, {
+                month: date.month - 1
+            });
+            //自动弹出结束日期的选择器
+            insEnd2.config.elem[0].focus();
+        }
+    });
+    //百万红包-结束日期
+    var insEnd2 = laydate.render({
+        elem: '#staticEnd2',
+        // min: 1900-1-1,//设定起始时间，默认1970-1-1,0表示当前日期
+        showBottom:false,
+        done: function(value, date){
+            //更新开始日期的最大日期
+            insStart2.config.max = lay.extend({}, date, {
+                month: date.month - 1
+            });
+        }
+    });
+    //广告-开始日期
+    var insStart3 = laydate.render({
+        elem: '#staticStart3',
+        // min: 0,//设定起始时间，默认1970-1-1,0表示当前日期
+        done: function(value, date){
+            //更新结束日期的最小日期
+            insEnd3.config.min = lay.extend({}, date, {
+                month: date.month - 1
+            });
+            //自动弹出结束日期的选择器
+            insEnd3.config.elem[0].focus();
+        }
+    });
+    //广告-结束日期
+    var insEnd3 = laydate.render({
+        elem: '#staticEnd3',
+        // min: 0,//设定起始时间，默认1970-1-1,0表示当前日期
+        done: function(value, date){
+            //更新开始日期的最大日期
+            insStart3.config.max = lay.extend({}, date, {
+                month: date.month - 1
+            });
+        }
+    });
+});

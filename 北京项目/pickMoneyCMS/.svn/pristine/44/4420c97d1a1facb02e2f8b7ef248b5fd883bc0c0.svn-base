@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>活动管理-百万红包-拆包记录</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/page.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .config-empty{display: block;width: 70px;margin: 10px auto}
+        .layui-form-label{overflow: visible}
+    </style>
+</head>
+<body>
+    <div>
+        <!-- 内容主体区域 -->
+        <div class="layui-fluid bwhb">
+            <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title">
+                    <li><a href="{:url('admin/millions/config','id='.$id)}">红包规则设置</a></li>
+                 <!--   <li><a href="{:url('admin/millions/content_config','id='.$id)}">内容配置</a></li>-->
+                    <li class="layui-this"><a href="{:url('admin/millions/task','id='.$id)}">拆包记录</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form action="{:url('admin/millions/task')}" method="post" class="layui-form layui-row">
+                            <div class="layui-form-item layui-col-md12 layui-col-sm12 layui-col-xs12" style="margin-bottom: 0;">
+                                <label class="layui-form-label layui-col-md1 layui-col-sm2 layui-col-xs4">用户组：</label>
+                                <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs8">
+                                    <select name="table_id" lay-verify="required">
+                                        <option value=""></option>
+                                        {for start="0" end="10"}
+                                        <option value="{$i}" {if $form_data.table_id == $i} selected {/if}>用户组{$i}</option>
+                                        {/for}
+                                    </select>
+                                </div>
+                                <label class="layui-form-label layui-col-md1 layui-col-sm2 layui-col-xs4">筛选状态：</label>
+                                <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs8">
+                                    <select name="status" lay-verify="required">
+                                        <option value=""></option>
+                                        <option value="0" {if $form_data.status == 0} selected {/if}>全部</option>
+                                        <option value="1" {if $form_data.status == 1} selected {/if}>未帮拆</option>
+                                        <option value="3" {if $form_data.status == 3} selected {/if}>拆包中</option>
+                                        <option value="4" {if $form_data.status == 4} selected {/if}>已拆完</option>
+                                        <option value="5" {if $form_data.status == 5} selected {/if}>待提现</option>
+                                        <option value="6" {if $form_data.status == 6} selected {/if}>已提现</option>
+                                        <option value="8" {if $form_data.status == 8} selected {/if}>已过期</option>
+                                        <option value="9" {if $form_data.status == 9} selected {/if}>已删除</option>
+                                    </select>
+                                </div>
+                                <label class="layui-form-label layui-col-md1 layui-col-sm2 layui-col-xs3">筛选时间：</label>
+                                <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs8 tt">
+                                    <input type="text" value="{$form_data.start_time}" class="layui-input startTime" id="seltime1" required name="start_time" lay-verify="required" autocomplete="off" placeholder="请选择" readonly>
+                                </div>
+                                <label class="layui-form-label layui-col-md1 layui-col-sm2 layui-col-xs3 tts">至：</label>
+                                <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs8">
+                                    <input type="text" value="{$form_data.end_time}" class="layui-input endTime" id="seltime2" required name="end_time" lay-verify="required" autocomplete="off" placeholder="请选择" readonly>
+                                </div>
+                                <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-hide-xs">
+                                    <input type="text" class="layui-input" name="keywords" value="{$form_data.keywords}"  autocomplete="off" placeholder="输入用户昵称">
+                                </div>
+                                <div class="layui-btn-container layui-input-inline layui-col-md2 layui-col-sm4 layui-col-xs-8" style="text-align: right;">
+                                    <button class="layui-btn layui-btn-normal" id="searchBtn" lay-filter="searchBtn">搜索</button>
+                                    <input type="hidden" name="id" value="{$id}">
+                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                    <button class="excel-export layui-btn layui-btn-warm">导出</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!--<p>用户总数：<span class="whatname">1234</span>人 邀请总人数：<span class="whatname">23456</span>人</p>-->
+                        <div style="overflow-x: auto;">
+                            <table class="layui-table" lay-even>
+                                <thead>
+                                    <tr>
+                                        <th>UID</th>
+                                        <th>用户昵称</th>
+                                        <th>拆包金额</th>
+                                        <th>额定邀请人数</th>
+                                        <th>已邀请人数</th>
+                                        <th>首次拆包时间</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {volist name="task_list" id="vo" empty="$empty"}
+                                <tr>
+                                    <td>{$vo.t_uid}</td>
+                                    <td>{$vo.nickname}</td>
+                                    <td>{$vo.t_money_value}</td>
+                                    <td>{$vo.t_need_count}</td>
+                                    <td>{$vo.t_ready_count}</td>
+                                    <td>{$vo.addtime}</td>
+                                    <td>{$vo.status}</td>
+                                    <td><a href="">详情</a></td>
+                                </tr>
+                                {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>用户总数：<span class="whatname">{$count_res.all_friend_num}</span>人 邀请总人数：<span class="whatname">{$count_res.all_share_num}</span>人</p>
+                        {$page|raw}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {load href="/static/admin/layui/layui.js" /}
+    {load href="/static/admin/layui/lay/table.js" /}
+    {load href="/static/admin/js/activity.js" /}
+    <script>
+        layui.use('form',function () {
+            var form = layui.form
+                ,layer = layui.layer;
+            form.on('submit(searchBtn)',function (data) {
+                data.field.id = $('#act_id').val();
+                var url = "{:url('admin/millions/task')}";
+                return false;
+            });
+        });
+        $(".excel-export").click(function() {
+            table.exportFile(['名字', '性别', '年龄'], [
+                ['张三', '男', '20'],
+                ['李四', '女', '18'],
+                ['王五', '女', '19']
+            ], 'xls');
+        })
+    </script>
+</body>
+</html>

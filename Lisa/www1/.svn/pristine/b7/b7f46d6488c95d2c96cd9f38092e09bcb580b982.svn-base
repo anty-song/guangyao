@@ -1,0 +1,29 @@
+$.ajax({
+		type: "post",
+		url: "http://110.249.185.45:8094/app/website/website_one.php?action=main",
+		async:true,
+		dataType:"json",
+		success: function(res) {
+			console.log(res)
+			var navData = res.data.logo;
+			//logo
+			var logo = navData.logo_imgurl;
+			var company = navData.company;
+			var logoimg="<img src='"+logo+"'alt='' />";
+			$(".logoimg").html(logoimg);
+			$(".company").html(company);
+			//版权
+			var copyright=res.data.logo.copyright_logo;
+			var copyrighthtml="<p>"+copyright+"</p>";
+			$("footer>.container").html(copyrighthtml);
+			
+		},
+		complete: function(data) {
+			console.log(data);
+		},
+		error: function() {
+			
+		}
+		
+	});
+		

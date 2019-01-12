@@ -1,0 +1,426 @@
+var ticks,              //倒计时定时器
+cha,                    //倒计时时间
+uid,                   //用户ID
+auth,                 //用户权
+key_auth,
+device,
+p_id,               //红包ID
+ad_url,              //广告链接
+time=Math.round(new Date() / 1000),                  //请求时间戳
+game_type=4,
+tick,                //喷水定时器
+i = 0,               //喷水单次步进
+j = 1,              //文字泡索引
+m = 0,              //喷水总步进
+price_time=parseInt($(".tips_box p strong").text()),         //抽奖剩余次数
+isClick = true,                 //是否允许浇花
+isAgain=false;               //是否是再来一次
+window.onload=function(){
+	if(window.localStorage.getItem('nextShow')){
+		$('.nextgame').show();
+	}
+	uid=window.localStorage.getItem('uid');
+	auth=window.localStorage.getItem('auth');
+	device=window.localStorage.getItem('device');
+	if(!window.localStorage.getItem('water_alert')){
+		window.localStorage.setItem('water_alert','2');
+	}
+	var paramData={'uid':uid,'time':time,'auth':auth,'device':device,'game_type':game_type};
+	key_auth=auth.substring(0,8);
+	paramData=JSON.stringify(paramData);
+	paramData=encryptByDES(paramData,key_auth);
+	var action_url;
+	if(auth.length<16){
+		return false;
+	}
+	if(window.localStorage.getItem('water_alert') =='2'){
+		action_url='judge_game_num';
+		$.ajax({
+			type:'post',
+			url:water.load.url,
+			data:{action:action_url,uid:uid,reqType:2,paramData:paramData},
+			dataType:'json',
+			success:function(data){
+				console.log(data);
+				var datas=decryptByDES(data.res_data, key_auth);
+				datas=JSON.parse(datas);
+				console.log(datas);
+				console.log(datas.game_all_num[4].again_count);
+				showError(datas.game_all_num[4].once_count+'@_@'+datas.game_all_num[4].again_count);
+				cha=datas.count_down;
+				$('.tips_box p strong').text(datas.num);
+				p_id=datas.p_id;
+				ad_url=datas.entry_game_popout.ad_url;
+				if(datas.num==0){
+					$('.dialog_end .curtime').text(leftTime(cha));
+					ticks = setInterval(function () {
+						if (cha > 0) {
+							$('.dialog_end .curtime').text(leftTime(cha));
+						} else {
+							clearInterval(ticks);
+							window.localStorage.setItem('water_alert',2);
+							window.location.reload();
+						}
+						cha--;
+					}, 1000);
+					$(".dialog_end").show();
+				}else{
+					if(datas.entry_game_popout.tips_type==2){
+						$('.dialog_price .adv img').attr('src',datas.entry_game_popout.redpacket_img);
+						$('.dialog_end .adv img').attr('src',datas.entry_game_popout.redpacket_img);
+						$('.dialog_price .price_con p').text(datas.entry_game_popout.redpacket_money);
+						if(window.localStorage.getItem('water_alert')!=='1'){
+							$(".dialog_price").show();
+
+						}
+					}else{
+						$('.dialog_success .ad_img').attr('src',datas.entry_game_popout.ad_img);
+						$('.dialog_end .adv img').attr('src',datas.entry_game_popout.ad_img);
+						// $(".dialog_success .show_bottom p").text(datas.entry_game_popout.ad_title);
+						if(window.localStorage.getItem('water_alert')!=='1'){
+							$(".dialog_success ").show();
+						}
+					}
+				}
+				$(".ui-mask").fadeIn();
+			},
+			error:function(){
+				tipError("数据请求失败，请检查当前网络");
+			}
+		});
+	}else{
+		action_url='get_refresh';
+		$.ajax({
+			type:'post',
+			url:water.load.url,
+			data:{action:action_url,uid:uid,reqType:2,paramData:paramData},
+			dataType:'json',
+			success:function(data){
+				console.log(data);
+				var datas=decryptByDES(data.res_data, key_auth);
+				datas=JSON.parse(datas);
+				console.log(datas.count_down);
+				showError(datas.game_all_num[4].once_count+'@_@'+datas.game_all_num[4].again_count);
+				cha=datas.count_down;
+				$('.tips_box p strong').text(datas.num);
+				if(agent.isAndroid && agent.isPhone) {
+					ad_url='http://www.zsyouxue.com/app/appversion/zhangshangyouxue_studyshow_1.0.5.apk';
+				} else if(agent.isIOS && agent.isPhone) {
+					ad_url="https://itunes.apple.com/cn/app/%E6%8E%8C%E4%B8%8A%E4%BC%98%E5%AD%A6/id1382476478?mt=8";
+				}
+
+				if(datas.count_down!=0){
+					$('.dialog_end .curtime').text(leftTime(cha));
+					$(".dialog_end").show();
+					$(".ui-mask").fadeIn();
+					clearInterval(ticks);
+					
+					ticks = setInterval(function () {
+						if (cha > 0) {
+							$('.dialog_end .curtime').text(leftTime(cha));
+						} else {
+							clearInterval(ticks);
+							window.localStorage.setItem('water_alert',2);
+							window.location.reload();
+						}
+						cha--;
+					}, 1000);
+				}
+			},
+			error:function(){
+				tipError("数据请求失败，请检查当前网络");
+			}
+		});
+	}
+};
+var water = new waterConfig();
+//  中奖信息滚动显示
+var ul = $(".notice_list");
+var li_size = $(".notice_item").length;
+var li_h = $(".notice_item").outerHeight(true);
+ul.css("height", li_h * li_size);
+setInterval(function () {
+	ul.stop(true, true).animate({"top": -li_h}, 1000, function () {
+		ul.append($(".notice_item").first());
+		ul.css({"top": 0});
+	});
+}, 2500);
+//点击浇花
+$(".draw_item").click(function () {
+	var that = $(this);
+	price_time=parseInt($(".tips_box p strong").text());
+	if (price_time == 0) {
+		$(".ui-mask").fadeIn();
+		$(".dialog_end").show();
+		clearInterval(ticks);
+		ticks = setInterval(function () {
+			if (cha > 0) {
+				$('.dialog_end .curtime').text(leftTime(cha));
+			} else {
+				clearInterval(ticks);
+				window.location.reload();
+			}
+			cha--;
+		}, 1000);
+	}else{
+    //	前后端交互返回中奖情况
+    key_auth=auth.substring(0,8);
+    time=Math.round(new Date() / 1000);
+    var paramData={'uid':uid,'time':time,'auth':auth,'device':device,'game_type':game_type};
+    paramData=JSON.stringify(paramData);
+    paramData=encryptByDES(paramData,key_auth);
+    var random;
+    $.ajax({
+    	type:'post',
+    	url:water.load.url,
+    	data:{action:'start_water_flower',uid:uid,reqType:2,paramData:paramData},
+    	dataType:'json',
+    	success:function(data){
+    		var datas=decryptByDES(data.res_data, key_auth);
+    		datas=JSON.parse(datas);
+    		console.log(datas);
+    		showError(datas.game_all_num[4].once_count+'@_@'+datas.game_all_num[4].again_count);
+    		cha=datas.count_down;
+    		p_id=datas.p_id;
+    		ad_url=datas.entry_game_popout.ad_url;
+    		if(datas.num==0){
+    			ticks = setInterval(function () {
+    				if (cha > 0) {
+    					$('.dialog_end .curtime').text(leftTime(cha));
+    				} else {
+    					clearInterval(ticks);
+    				}
+    				cha--;
+    			}, 1000);
+    			$('.dialog_end .curtime').text(leftTime(cha));
+    		}
+    		random=datas.entry_game_popout.tips_type;
+    		if(datas.entry_game_popout.tips_type==2){
+    			$('.dialog_price .adv img').attr('src',datas.entry_game_popout.redpacket_img);
+    			$('.dialog_end .adv img').attr('src',datas.entry_game_popout.redpacket_img);
+    			$('.dialog_price .price_con p').text(datas.entry_game_popout.redpacket_money);
+    		}else{
+    			$('.dialog_success .ad_img').attr('src',datas.entry_game_popout.ad_img);
+    			$('.dialog_end .adv img').attr('src',datas.entry_game_popout.ad_img);
+      	// $(".dialog_success .show_bottom p").text(datas.entry_game_popout.ad_title);
+      }
+      if (!isClick) {
+      	return false;
+      }
+      isClick = false;
+      clearInterval(tick);
+          var this_X = that.offset().left + getWidth() / 375 * 15;      //喷壶位置X
+          var this_Y = that.offset().top - getWidth() / 375 * 30;       //喷壶位置Y
+          $(".watering_can").addClass("active").css({left: this_X, top: this_Y});
+          i = 0;
+          m = 0;
+          wateringPlant();
+          that.addClass("active");
+          price_time--;
+          $(".tips_box p strong").text(price_time);
+          setTimeout(function () {
+          	$(".ui-mask").fadeIn();
+          	if (random==2) {
+          		$(".dialog_price").show();
+          	} else {
+          		$(".dialog_success").show();
+          	}
+          	that.removeClass("active");
+          	isClick = true;
+          }, 1500);
+
+          $('.tips_box strong').text(datas.num);
+      },
+      error:function(){
+      	tipError("数据请求失败，请检查当前网络");
+      }
+  });
+}
+});
+//喷壶喷水
+function wateringPlant() {
+	tick = setInterval(function () {
+		if (m < 60 && i < 20) {
+			$(".watering_can").css("background-position", -2.6 * i + "rem");
+			i++;
+			m++;
+		} else if (m < 60 && i >= 20) {
+			$(".watering_can").css("background-position", "0 0");
+			i = 1;
+			m++;
+		} else {
+			$(".watering_can").css("background-position", "0 0");
+			$(".watering_can").css({left: "auto", top: "auto"}).removeClass("active");
+			clearInterval(tick);
+		}
+	}, 30);
+}
+//浇花气泡
+setInterval(function () {
+	if (j > 6) {
+		j = 1;
+	}
+	$(".water").removeClass("active");
+	$(".draw_item:nth-child(" + j + ") .water").addClass("active");
+	j++;
+}, 1000);
+//花叶摇动
+setInterval(function () {
+	$(".draw_item .flower_hb").each(function () {
+		if ($(this).hasClass("active")) {
+			$(this).removeClass("active");
+		} else {
+			$(this).addClass("active");
+		}
+	});
+}, 500);
+
+//跳转下个游戏的链接
+setTimeout(function(){
+	var paramData={'uid':uid,'time':time,'auth':auth,'device':device,'g_id':game_type};
+	paramData=JSON.stringify(paramData);
+	paramData=encryptByDES(paramData,key_auth);
+	$.ajax({
+		type:'post',
+		url:water.load.url,
+		data:{action:'fifteen_appear_game',uid:uid,reqType:2,paramData:paramData},
+		dataType:'json',
+		success:function(data){
+			console.log(data);
+			if(data.status==1){
+				$('.nextgame').css('display','block');
+				window.localStorage.setItem('nextShow','true');
+			}
+		},
+		error:function(){
+			tipError('数据请求失败，请检查当前网络');
+		}
+	});
+},8000);
+$('.nextgame').click(function(){
+	var paramData={'uid':uid,'time':time,'auth':auth,'device':device,'g_id':game_type};
+	paramData=JSON.stringify(paramData);
+	paramData=encryptByDES(paramData,key_auth);
+	$.ajax({
+		type:'post',
+		url:water.load.url,
+		data:{action:'fifteen_entry_game',uid:uid,reqType:2,paramData:paramData},
+		dataType:'json',
+		success:function(data){
+			if(data.status==1){
+				window.localStorage.removeItem('nextShow');
+				window.location.href="/h5/game.answer/home.html";
+			}
+		},
+		error:function(){
+			tipError('数据请求失败，请检查当前网络');
+		}
+	});
+
+});
+// 查看规则弹框
+$(".rules").click(function () {
+	$(".ui-mask").fadeIn();
+	$(".dialog_rules").show();
+});
+
+//获奖弹出框点击领取
+$(".getBtn").click(function () {
+	$(".ui-mask").fadeOut();
+	$(".dialog.dialog_price").hide();
+	isOK = false;
+	var paramData={'uid':uid,'time':time,'auth':auth,'device':device,'p_id':p_id};
+	console.log(paramData);
+	paramData=JSON.stringify(paramData);
+	paramData=encryptByDES(paramData,key_auth);
+	$.ajax({
+		type:'post',
+		url:water.load.url,
+		data:{action:'receice_award',uid:uid,reqType:2,paramData:paramData},
+		dataType:'json',
+		success:function(data){
+			console.log(data);
+			if(data.status==1){
+				if(agent.isAndroid && agent.isPhone) {
+          an.jumpToAdvHb(p_id);//andriod
+      } else if(agent.isIOS && agent.isPhone) {
+      	window.webkit.messageHandlers.scan.postMessage({'action':'goPrizeDetail','prize_id':p_id});
+      }
+  }else{
+  	console.log(data.msg);
+  }
+},
+error:function(){
+	tipError("数据请求失败，请检查当前网络");
+}
+});
+});
+//点击广告领取
+$(".ad_img, .successBtn").click(function(){
+	$(this).parents(".dialog").hide();
+	$('.ui-mask').hide();
+	if(agent.isAndroid && agent.isPhone) {
+		an.jumpToBrowser(ad_url);
+	}else if(agent.isIOS && agent.isPhone) {
+		window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':ad_url});
+	}
+});
+//点击再来一次
+$('.dialog_end .endBtn').click(function(){
+	$(this).parents('.dialog').hide();
+	$('.ui-mask').fadeOut();
+  //跳转到广告详情
+  if(agent.isAndroid && agent.isPhone) {
+    an.jumpToAdvDetail(game_type)//andriod
+}else if(agent.isIOS && agent.isPhone) {
+	window.webkit.messageHandlers.scan.postMessage({'action':'goDetail','item':game_type});
+}
+});
+
+function backAnswer(){
+	window.localStorage.setItem('water_alert','1');
+	window.location.reload();
+}
+// 查看我的奖品
+function toPrice() {
+  //点击我的奖品跳转
+  if(agent.isAndroid && agent.isPhone) {
+    an.jumpToMyReward(game_type);//andriod
+} else if(agent.isIOS && agent.isPhone) {
+	window.webkit.messageHandlers.scan.postMessage({'action':'goPrice','item':game_type});
+}
+}
+
+//离开游戏弹框
+$(".againBtn").click(function () {
+	$(".ui-mask").fadeOut();
+	$(".dialog_again").hide();
+});
+// 残忍拒绝
+$('.refuse').click(function(){
+	window.localStorage.setItem('water_alert','2');
+	window.location.href="/h5/game.game_lobby/home";
+	window.localStorage.removeItem('nextShow');
+});
+
+//点击关闭弹框
+$(".close").click(function(){
+	$(this).parents('.dialog').hide();
+	if(($(this).parent().hasClass("dialog_price")&&$('.tips_box p strong').text()=='0')||($(this).parent().hasClass("dialog_success")&&$('.tips_box p strong').text()=='0')){
+		$(".dialog_end").show();
+	}else{
+		$('.ui-mask').fadeOut();
+	}
+	
+});
+
+
+
+//从广告页跳转回来
+function goBack() {
+	$(".dialog").hide();
+	$(".dialog_again").show();
+	$(".ui-mask").show();
+}
+
+

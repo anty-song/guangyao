@@ -1,0 +1,63 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:88:"E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\password.html";i:1539939129;}*/ ?>
+
+    <link rel="stylesheet" type="text/css" href="/static/style/prototype/css/css.css" />
+    <link rel="stylesheet" type="text/css" href="/static/style/prototype/css/reset.css" />
+    <script type="text/javascript" src="/static/style/prototype/js/jquery.min.js"></script>
+    <script>
+        !function(n) {
+            var e = n.document,
+                t = e.documentElement,
+                i = 720,
+                d = i / 100,
+                o = "orientationchange" in n ? "orientationchange" : "resize",
+                a = function() {
+                    var n = t.clientWidth || 320;
+                    n > 720 && (n = 720), t.style.fontSize = n / d + "px"
+                };
+            e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
+        }(window);
+    </script>
+</head>
+<body layadmin-themealias="default" style="background:#f4f4f4;">
+    <div class="user-entry">
+        <h2>OA项目原型</h2>
+        <form class="layui-form myEntry">
+            <input type="password" class="layui-input entrypassword" name="entrypassword" placeholder="输入密码" autocomplete="off" lay-verify="required">
+            <input type="hidden" name="itemid" class="itemid" value="<?php echo $itemid; ?>">
+            <button type="button" class="entry">进入</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="/static/style/prototype/lib/layui/layui.js"></script>
+    <script>
+        $(function(){
+            layui.use(['element','form','laypage','layer','laydate','upload','carousel'],function(){
+                var element=layui.element;
+                var form=layui.form;
+                var laypage=layui.laypage;
+                var layer=layui.layer;
+                var laydate=layui.laydate;
+                var upload=layui.upload;
+                var carousel=layui.carousel;
+                /* 弹层-功能演示-触发弹层 */
+                var admin=layui.admin;
+                element.render();
+                // 进入
+                $('.entry').click(function(){
+                    var entrypassword=$('.entrypassword').val();
+                    var itemid=$('.itemid').val();
+                    $.ajax({
+                        type:'post',
+                        url:'/cpassword',
+                        data:{password_show:entrypassword,itemid:itemid},
+                        success:function(data){
+                            window.location.href=data.data;
+                        },
+                        error: function(data) {
+                            var json = data.responseText;
+                            layer.msg(JSON.parse(json).msg);
+                        }
+                    })
+                })
+            })
+        })
+    </script>

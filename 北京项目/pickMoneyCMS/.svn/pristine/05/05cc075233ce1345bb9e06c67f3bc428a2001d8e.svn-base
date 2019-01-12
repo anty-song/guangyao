@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <link rel="stylesheet" href="/static/dist/animate.min.css">
+    <link rel="stylesheet" href="/static/css/water_flower.css">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <script src="/static/dist/jquery-2.1.1.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/static/js/rem.js" type="text/javascript"></script>
+    <title>爱心浇水</title>
+</head>
+<body>
+    <div class="content">
+        <!--头部-->
+        <div id="head-bar">
+            <div class="head-bar">
+                <div class="head-bar-back">
+                    <a href="javascript:goBack();" data-direction="reverse" data-ajax="false">
+                        <img src="/static/images/dialog/icon-back.png">
+                        <span></span>
+                    </a>
+                </div>
+                <div class="head-bar-title">{$title}</div>
+                <div class="head-bar-right">
+                </div>
+            </div>
+            <div class="head-bar-fix"></div>
+        </div>
+        <div class="banner">
+            <span class="rules"></span>
+            <span class="my_price" onclick="toPrice()"></span>
+        </div>
+        <div class='notice'>
+            <div class="notice_box">
+                <ul class="notice_list">
+                    {volist name="roll_data" id="vo"}
+                    <li class="notice_item"><p>{$vo.roll_title}</p></li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+        <div class='draw_box'>
+            <ul class='draw_list'>
+                <li class="draw_item"><span class="flower_hb"></span><span class="water active"></span></li>
+                <li class="draw_item"><span class="flower_hb"></span><span class="water"></span></li>
+                <li class="draw_item"><span class="flower_hb"></span><span class="water"></span></li>
+                <li class="draw_item"><span class="flower_hb"></span><span class="water"></span></li>
+                <li class="draw_item"><span class="flower_hb"></span><span class="water"></span></li>
+                <li class="draw_item"><span class="flower_hb"></span><span class="water"></span></li>
+            </ul>
+        </div>
+        <div class='tips_box'>
+            <p>您还有&nbsp;<strong></strong>&nbsp;次抽奖机会</p>
+        </div>
+        <div class="price_box">
+            <h3>奖品展示</h3>
+            <div class="price_wrap">
+                <ul class="price_list">
+                    {volist name="prize_data" id="pd"}
+                    <li class="price_item">
+                        <div class="price_img_box">
+                            <img src="{$pd.p_img}">
+                        </div>
+                        <p class="price_name">iphoneX</p>
+                        </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+        <div class="watering_can"></div>
+    </div>
+    <div class="ui-mask"></div>
+    <!--弹出框，中奖弹出框-->
+    <div class="dialog dialog_price animated zoomIn">
+        <div class="close"></div>
+        <div class="dialog_header">
+            <img src="/static/images/WaterFlow/dialog/yellow_light.png" alt="">
+        </div>
+        <div class="dialog_body">
+            <div class="adv"><img class="ad_img" src="" alt="" /></div>
+            <div class="adv_bottom"><p class="ad_title">恭喜中奖，限时领取</p></div>
+            <div class="show">
+                <p class="title">恭喜你获得了</p>
+                <div class="price_con">
+                    <p>现金红包</p>
+                </div>
+                <button class="getBtn pulse" id="getBtn"></button>
+            </div>
+            <div class="flower"></div>
+        </div>
+    </div>
+    <!--弹出框，中奖弹出框，纯广告-->
+    <div class="dialog dialog_success animated fadeIn">
+        <div class="close"></div>
+        <div class="dialog_header">
+            <img src="/static/images/Lottery/yello_light.png" alt="">
+        </div>
+        <div class="dialog_body">
+            <div class="show">
+              <img class='ad_img' src='' alt="">
+          </div>
+          <div class='adv_bottom'><p class='ad_title'>恭喜中奖，限时领取</p></div>
+          <button class="successBtn pulse" id="successBtn"></button>
+      </div>
+  </div>
+  <!--弹出框，离开游戏-->
+  <div class="dialog dialog_again animated slideInDown">
+    <div class="close"></div>
+    <div class="dialog_body" style="position: relative;">
+        <button class="refuse" id="refuse">残忍拒绝</button>
+        <button class="againBtn" id="againBtn">继续玩</button>
+    </div>
+</div>
+<!--弹出框，次数用完-->
+<div class="dialog dialog_end animated zoomIn">
+    <div class="close"></div>
+    <div class="dialog_body">
+        <div class="result">
+            <div class="adv">
+                <img class='ad_img' src="/static/images/normal_ad.png" alt="">
+            </div>
+        </div>
+        <div class="show_bottom"><p class="ad_title">恭喜中奖，限时领取</p></div>
+        <div class="bag">
+            <p class="bag_title">本轮抽奖活动次数已经用光</p>
+            <p class="bag_title">再抽一次可能会中奖哦~</p>
+            <div class="time"><p>倒计时：<span class="curtime">2:59:59</span></p></div>
+            <button class="endBtn pulse" id="endBtn"></button>
+        </div>
+    </div>
+</div>
+<!--活动规则-->
+<div class="dialog dialog_rules animated zoomIn">
+    <div class="dialog_body">
+        <div class="rules_con">
+            <div class="text">
+                <p class="title"><i></i>活动规则<i></i></p>
+                <p>参与活动即有机会获得幸运奖~每轮抽奖机会8次免费。此活动为概率中奖，奖品数量有限，祝好运！<br>
+                  惊喜一：iPhoneXs max<br>
+                  惊喜二：iPhoneXR<br>
+                  惊喜三：华为p10<br>
+                  惊喜四：Beats 3<br>
+                  惊喜五：小米9号<br>
+                  惊喜六：50~100红包<br>
+                  惊喜七：0~10红包<br>
+                  惊喜八：福利袋<br>
+                  重要声明：<br>
+                  1.奖品将在中奖后5-10个工作日安排发放，请耐心等待<br>
+                  2.请兑换后仔细阅读使用流程，如有疑问，可直接联系<br>
+                  qq:3451211984<br>
+                  qq:1092394513<br>
+                  (工作日9:00-12:00  13:30-18:00)<br>
+                  3.通过非法途径获得奖品的，主办方有权不提供奖品<br>
+              </p>
+          </div>
+      </div>
+      <button class="rules_close close" id="rulesClose"></button>
+  </div>
+</div>
+<img class="nextgame" src="/static/images/WaterFlow/jhyx/game_enter.png" alt="" />
+<script src="/static/dist/crypto.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/encode.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/tipError.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/water/config.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/public.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/water/water_flower.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

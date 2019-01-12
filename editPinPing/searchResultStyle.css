@@ -1,0 +1,105 @@
+/* 全局中设置 */
+/* 在 webkit 内核浏览器中表现良好 */
+div#sidebar_tips::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* 首页 */
+.shouding {
+    top: 80px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.5);
+    background: #fff;
+}
+.shouding a:nth-child(1) li {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.shouding a:last-child li {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+
+/* 十大投票页 */
+#catTitle,
+#sidebar_tips {
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.3);
+}
+#sidebar_tips {
+    top: 90px;
+    height: 500px;
+    overflow: auto;
+    border-radius: 15px;
+}
+
+
+/* 十大投票内页 */
+#sidebar_tips {
+    background: #f3f3f3;
+    border-radius: 18px;
+    height: 720px;
+    overflow: scroll;
+    margin-top: -20px;
+}
+#sidebar_tips>div {
+    font-size: 16px;
+    padding-left: 28px;
+    line-height: 72px;
+    color: #555;
+    cursor: pointer;
+}
+#sidebar_tips>div:hover {
+    background: #cce0f6;
+}
+
+/* 投票结果 */
+.titlebar {
+    background-size: 50px 50px;
+}
+.ui_dialog_body {
+    line-height: 30px;
+}
+#ui_dialog_title {
+    padding-top: 75px;
+    font-size: 16px;
+}
+.ui_brandlist_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.ui_brandlist_content .ui_brandlist_one {
+    float: none;
+    margin: 10px 0;
+    font-size: 14px;
+    height: 75px;
+}
+.ui_brandlist_content .ui_brandlist_one img {
+    height: 50px;
+}
+/* 两个 span 标签外面套一个容器 --------*/
+.span-wrap {
+    display: flex;
+    padding: 0 10px;
+}
+.span-wrap span:nth-child(1) {
+    flex-shrink: 0;
+}
+.span-wrap span:nth-child(2) {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/* ---------------------------------- */
+.ui_brandlist_content span {
+    width: auto;
+    height: auto;
+}
+.ui_catlist_content a {
+    margin: 5px 10px;
+}
+.ui_catlist_more {
+    margin: 10px 0;
+}

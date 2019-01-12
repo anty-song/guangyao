@@ -1,0 +1,273 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+a{
+    text-decoration: none;
+    color:#666;
+}
+img{
+    border:none;
+}
+ul li{
+    list-style:none;
+}
+
+.pinping_botom{
+    width:100%;
+    font-size:12px;
+    background: #292929;
+    color:#fff;
+    height:40px;
+    text-align:Center;
+
+}
+
+.div_client {
+    float:left;
+}
+
+
+
+.kefu_box{z-index: 0;position: fixed;right:5px;bottom:50px; height:300px;}
+/*.kefu_box ul{float: right;}*/
+.kefu_box ul li{
+    position: relative;
+
+}
+.kefu_box ul li .kefu_qq,.kefu_phone,.kefu_wx,.kefu_fk,.back_top{
+    cursor: pointer;
+    background: #d2d2d2;
+    display: block;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 1px;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    border-bottom: 1px #fff solid;
+}
+.kefu_phone{
+    top: 61px;
+    right: 5px;
+}
+.kefu_wx{
+    top: 122px;
+    right: 5px;
+}
+.kefu_fk{
+    top: 183px;
+    right: 5px;
+}
+
+.back_top{
+    top: 244px;
+    right: 5px;
+}
+.kefu_qq_list{
+    background: #fff;
+    display: none;
+    position: absolute;
+    right:65px;
+    border: 1px solid #1d89fe;
+    width: 183px;
+}
+.kefu_qq_list a{
+    float: left;
+    display: block;
+    width: 90px;
+    padding:18.5px 0px;
+    color: #666;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border: 1px solid #ccc;
+    border-left:none;
+    border-top:none;
+}
+.kefu_qq_list a:before{
+    content: '';
+    float: left;
+    margin: 0 10px 0 0px;
+    display: block;
+    width: 25px;
+    height: 20px;
+    background: url(../images/static/incs.png) no-repeat;
+    background-position: 0 -39px;
+}
+.kefu_qq_list a:nth-child(3n){
+    border-right:none;
+}
+.kefu_phone_list{
+    display:none;
+    color:#333;
+    position: absolute;
+    right:65px;
+    border: 1px solid #1d89fe;
+    width: 272px;
+    background: #fff;
+    top: 62px;
+    width: 120px;
+    height:50px;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-top: 8px;
+    line-height: 23px
+}
+.kefu_wx_info{
+    position: absolute;
+    background: #fff;
+    display: none;
+    right:65px;
+    top: 122px;
+    width: 88px;
+    height:88px;
+    border: 1px solid #1d89fe;
+}
+.kefu_box ul li i{display: none}
+
+.kefu_qq i,.kefu_phone i,.kefu_wx i,.kefu_fk i,.back_top i{
+    font-style: normal;
+    color: #fff;
+    width: 55px;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 16px
+}
+.kefu_fk a{
+    color: #fff;
+}
+.kefu_qq span,.kefu_phone span,.kefu_wx span,.kefu_fk span,.back_top span{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 35px;
+    height: 35px;
+    display: block;
+}
+.kefu_qq span{
+    background: url(../images/static/incs.png) no-repeat;
+    background-position: 0px 0px;
+}
+.kefu_phone span{
+    background: url(../images/static/incs.png) no-repeat;
+    background-position: -37px 0px;
+}
+.kefu_wx span{
+    background: url(../images/static/phone.png) no-repeat;
+    background-position: 0px 0px;
+}
+.kefu_fk span{
+    background: url(../images/static/incs.png) no-repeat;
+    background-position: -124px 0px;
+}
+.back_top span{
+    background: url(../images/static/incs.png) no-repeat;
+    background-position: -163px 0px;
+}
+
+.title_style{
+    text-align: center;
+    padding: 32px 0;
+    background: url(index/b1.png) repeat-x 0 center;
+}
+
+.title_style strong{
+    font-size: 24px;
+    padding: 0 20px;
+    color: #666666;
+    letter-spacing: 1px;
+    background: #fff;
+}
+.kefu_phone_bj{background:url(../images/static/incs.png) -37px 0px no-repeat}
+.kefu_wx_bj{background:url(../images/static/incs.png) -84px 0px no-repeat}
+.kefu_fk_bj{background:url(../images/static/incs.png) -124px 0px no-repeat}
+.back_top_bj{background:url(../images/static/incs.png) -163px 0px no-repeat}
+
+.leftbah{float: left;font-size: 12px;}
+.rightinfo{float: right;font-size: 12px;}
+@media only screen and (min-width: 00px) and (max-width: 1200px) {
+    #footer{
+        width: 1200px;
+    }
+}
+
+
+
+/*侧边二维码*/
+.qrcodeBox{
+    width: 132px;
+    position: fixed;
+    left: 20px;
+    top: 40%;
+    z-index: 1;
+    /*margin-left: -732px;*/
+    text-align: center;
+    font-size: 12px;
+    line-height: 18px;
+    background: #fff;
+    padding: 10px;
+}
+.qrcodeBox .qrcodePic {
+    width: 110px;
+    height: 110px;
+    margin: auto;
+    padding: 10px;
+    background: #f1f1f1;
+    margin: 10px 0;
+    /*box-shadow: 2px 2px 2px;*/
+}
+.qrcodeBox .qrcodePic img {
+    width: 100%;
+    height: 100%;
+}
+.qrcodeBox p {
+    display: block;
+    color: #007aff;
+    font-size: 14px;
+    position: relative;
+}
+.close_qrcodeBox {
+    display: block;
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    top: -3px;
+    right: -4px;
+    background: url(http://img.10pinping.com/skin/10/image/close_qrcodeBox.png) no-repeat center center;
+    background-size: 19px 19px;
+}
+
+
+.m1024 {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.leftbah{float: left;font-size: 12px;}
+.rightinfo{float: right;font-size: 12px;}
+@media only screen and (min-width: 00px) and (max-width: 1200px) {
+    #footer{
+        width: 1200px;
+    }
+}
+
+.rightinfo a {
+    color: #fff;
+}
+
+
+.qrcodeBox span{
+    color:#666;
+}
+
+.leftbah{
+    line-height:40px;
+}
+.rightinfo a{
+    line-height:40px;
+}

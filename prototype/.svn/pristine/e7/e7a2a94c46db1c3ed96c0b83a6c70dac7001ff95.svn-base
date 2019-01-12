@@ -1,0 +1,667 @@
+---------------------------------------------------------------
+[ 2018-10-18T16:35:20+08:00 ] 192.168.1.189 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.083526s][吞吐率：11.97req/s] [内存消耗：3,111.73kb] [文件加载：57]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002533s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005843s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000379s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000394s ]
+---------------------------------------------------------------
+[ 2018-10-18T16:36:05+08:00 ] 192.168.1.189 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.772299s][吞吐率：1.29req/s] [内存消耗：3,452.74kb] [文件加载：59]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'content-length' => '2601980',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryaE5ZxTCKZ53WBaUA',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'origin' => 'http://192.168.1.189:9001',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://192.168.1.189:9001/',
+  'x-lantern-version' => '4.8.2',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => '1',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '',
+  '__token__' => '2a9deb6419751bde75d1606c80774ad4',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ error ] [8]A non well formed numeric value encountered[E:\xampp\htdocs\demo\prototype\extend\pclzip\pclzip.lib.php:1846]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000552s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005125s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('1' , 1 , '') [ RunTime:0.007564s ]
+[ sql ] [ SQL ] UPDATE `pr_prototype_name`  SET `prototypename_url`='192.168.1.189:9001/project/201810/pro/07fd9b3b4ea5ca32bd7776fade65e0b01539851764/',`zip_url`='192.168.1.189:9001/project/201810/zip/07fd9b3b4ea5ca32bd7776fade65e0b01539851764.zip',`root_url_zip`='201810/zip/07fd9b3b4ea5ca32bd7776fade65e0b01539851764.zip',`root_url_pro`='201810/pro/07fd9b3b4ea5ca32bd7776fade65e0b01539851764/',`pro_url`='192.168.1.189:9001/transferlink/MjY01539851764_10',`addtime`=1539851764  WHERE  `itemid` = 264 [ RunTime:0.002012s ]
+---------------------------------------------------------------
+[ 2018-10-18T16:36:06+08:00 ] 192.168.1.189 GET /transferlink/MjY01539851764_10
+[ info ] 192.168.1.189:9001/transferlink/MjY01539851764_10 [运行时间：0.048660s][吞吐率：20.55req/s] [内存消耗：2,846.45kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://192.168.1.189:9001/',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/MjY01539851764_10' => '',
+  'base_itemid' => 'MjY01539851764_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000577s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007405s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 264 LIMIT 1 [ RunTime:0.001004s ]
+---------------------------------------------------------------
+[ 2018-10-18T16:36:10+08:00 ] 192.168.1.189 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.064223s][吞吐率：15.57req/s] [内存消耗：2,939.66kb] [文件加载：55]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://192.168.1.189:9001/',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000697s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.008002s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.001958s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000485s ]
+---------------------------------------------------------------
+[ 2018-10-18T16:53:25+08:00 ] 192.168.1.189 GET /dologin
+[ info ] 192.168.1.189:9005/dologin [运行时间：0.034504s][吞吐率：28.98req/s] [内存消耗：1,374.28kb] [文件加载：35]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'dologin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+  '/dologin' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-18T16:53:28+08:00 ] 192.168.1.189 GET /
+[ info ] 192.168.1.189:9005/ [运行时间：0.071698s][吞吐率：13.95req/s] [内存消耗：2,939.41kb] [文件加载：55]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017425s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006301s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000390s ]
+---------------------------------------------------------------
+[ 2018-10-18T16:53:58+08:00 ] 192.168.1.189 GET /
+[ info ] 192.168.1.189:9005/ [运行时间：0.080276s][吞吐率：12.46req/s] [内存消耗：2,939.59kb] [文件加载：55]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000756s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005938s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000487s ]
+---------------------------------------------------------------
+[ 2018-10-18T16:53:58+08:00 ] 192.168.1.189 GET /
+[ info ] 192.168.1.189:9005/ [运行时间：0.050293s][吞吐率：19.88req/s] [内存消耗：2,939.59kb] [文件加载：55]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000567s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005228s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000399s ]
+---------------------------------------------------------------
+[ 2018-10-18T16:58:10+08:00 ] 192.168.1.189 POST /addupdate
+[ info ] 192.168.1.189:9005/addupdate [运行时间：0.823138s][吞吐率：1.21req/s] [内存消耗：3,345.95kb] [文件加载：54]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'content-length' => '2601980',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryOUNkdujcqlnIzA24',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'origin' => 'http://192.168.1.189:9005',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://192.168.1.189:9005/',
+  'x-lantern-version' => '4.8.2',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => '1',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '',
+  '__token__' => 'f88238c5bde55d9819d06173a72b8e7e',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]A non well formed numeric value encountered[E:\xampp\htdocs\demo\prototype\extend\pclzip\pclzip.lib.php:1846]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000615s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005239s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('1' , 1 , '') [ RunTime:0.008003s ]
+---------------------------------------------------------------
+[ 2018-10-18T17:27:22+08:00 ] 192.168.1.189 GET /
+[ info ] 192.168.1.189:9005/ [运行时间：0.066576s][吞吐率：15.02req/s] [内存消耗：2,839.59kb] [文件加载：54]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [1045]SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)[E:\xampp\htdocs\demo\prototype\thinkphp\library\think\db\Connection.php:295]
+---------------------------------------------------------------
+[ 2018-10-18T17:27:37+08:00 ] 192.168.1.189 GET /
+[ info ] 192.168.1.189:9005/ [运行时间：0.082797s][吞吐率：12.08req/s] [内存消耗：2,940.28kb] [文件加载：55]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010807s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006976s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000515s ]
+---------------------------------------------------------------
+[ 2018-10-18T17:27:43+08:00 ] 192.168.1.189 POST /addupdate
+[ info ] 192.168.1.189:9005/addupdate [运行时间：0.805280s][吞吐率：1.24req/s] [内存消耗：3,453.43kb] [文件加载：59]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'content-length' => '2601982',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarynoYbBwrBOQJEnSOv',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'origin' => 'http://192.168.1.189:9005',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://192.168.1.189:9005/',
+  'x-lantern-version' => '4.8.2',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => '123',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '',
+  '__token__' => '587acf4fdc545c11dfd9c54849a27f5f',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ error ] [8]A non well formed numeric value encountered[E:\xampp\htdocs\demo\prototype\extend\pclzip\pclzip.lib.php:1846]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000646s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005594s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('123' , 1 , '') [ RunTime:0.005463s ]
+[ sql ] [ SQL ] UPDATE `pr_prototype_name`  SET `prototypename_url`='192.168.1.189:9005/project/201810/pro/07fd9b3b4ea5ca32bd7776fade65e0b01539854862/',`zip_url`='192.168.1.189:9005/project/201810/zip/07fd9b3b4ea5ca32bd7776fade65e0b01539854862.zip',`root_url_zip`='201810/zip/07fd9b3b4ea5ca32bd7776fade65e0b01539854862.zip',`root_url_pro`='201810/pro/07fd9b3b4ea5ca32bd7776fade65e0b01539854862/',`pro_url`='192.168.1.189:9005/transferlink/MjY21539854862_10',`addtime`=1539854862  WHERE  `itemid` = 266 [ RunTime:0.002232s ]
+---------------------------------------------------------------
+[ 2018-10-18T17:27:44+08:00 ] 192.168.1.189 GET /transferlink/MjY21539854862_10
+[ info ] 192.168.1.189:9005/transferlink/MjY21539854862_10 [运行时间：0.047645s][吞吐率：20.99req/s] [内存消耗：2,847.14kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://192.168.1.189:9005/',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/MjY21539854862_10' => '',
+  'base_itemid' => 'MjY21539854862_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000635s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.004965s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 266 LIMIT 1 [ RunTime:0.000428s ]
+---------------------------------------------------------------
+[ 2018-10-18T17:41:23+08:00 ] 192.168.1.189 GET /transferlink/MjY21539854862_10
+[ info ] 192.168.1.189:9005/transferlink/MjY21539854862_10 [运行时间：0.056703s][吞吐率：17.64req/s] [内存消耗：2,847.14kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://192.168.1.189:9005/',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/MjY21539854862_10' => '',
+  'base_itemid' => 'MjY21539854862_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004342s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005961s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 266 LIMIT 1 [ RunTime:0.000481s ]
+---------------------------------------------------------------
+[ 2018-10-18T17:46:36+08:00 ] 192.168.1.189 GET /transferlink/MjY21539854862_10
+[ info ] 192.168.1.189:9005/transferlink/MjY21539854862_10 [运行时间：0.065245s][吞吐率：15.33req/s] [内存消耗：2,847.14kb] [文件加载：52]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'transferLink',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9005',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; cgg_mobile=touch; userName=18617534502; passWord=Aa123456; cgg_username=18617534502; cgg_auth=fb81ihmYKeBZe9Zs-P-fHeMFoVQK8SDUo5lQryh9lYmV8Nl2XiLHcTRrc7Xrqm6VZZbLVgypfXc65XRG7DkmGnQ6GCCd8; PHPSESSID=qk6sr6mjemf5f40ccs019li4ff',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://192.168.1.189:9005/',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '4.8.2',
+)
+[ info ] [ PARAM ] array (
+  '/transferlink/MjY21539854862_10' => '',
+  'base_itemid' => 'MjY21539854862_10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->transferLink[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004651s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006465s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `itemid` = 266 LIMIT 1 [ RunTime:0.000496s ]

@@ -1,0 +1,19 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: zhushengli
+ * Date: 18/9/17
+ * Time: 下午12:44
+ */
+
+namespace app\admin\controller\game;
+
+use app\admin\controller\BaseController;
+
+class WaterFlower extends BaseController
+{
+    public function home()
+    {
+        return $this->fetch('game/waterflower/home');
+    }
+}

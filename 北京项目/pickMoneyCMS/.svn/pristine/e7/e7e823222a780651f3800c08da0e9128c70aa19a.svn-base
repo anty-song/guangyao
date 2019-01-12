@@ -1,0 +1,20 @@
+
+
+    // 点击下载按钮-统计人数
+    function download_btn() {
+        var ajax_url = $("#ajax_url").val();
+        $.ajax({
+            type: "POST",
+            url: ajax_url,
+            data:'',
+            dataType: "json",
+            success: function(data){
+                // console.log(data);
+                window.location.href = 'https://sj.qq.com/myapp/detail.htm?apkName=com.yuanmakj.jianqian';
+            },   
+            error:function(e){
+                 // console.log(e);
+            }
+        });
+    }
+

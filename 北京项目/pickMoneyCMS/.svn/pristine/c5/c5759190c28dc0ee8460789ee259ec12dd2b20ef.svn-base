@@ -1,0 +1,80 @@
+<?php /*a:1:{s:65:"D:\WWW\tp_test\qianbao\admin\view\statistics\reward_log_list.html";i:1541125559;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>数据统计-百万红包</title>
+    <link rel="stylesheet" type="text/css" href="/static/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/page.css" />
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/index.css" />
+    <script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body layadmin-themealias="default">
+<div class="layui-fluid staticList">
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+            <li><a href="<?php echo url('admin/statistics/game_count'); ?>">趣味游戏统计</a></li>
+            <li><a href="<?php echo url('admin/statistics/million_count'); ?>">百万红包统计</a></li>
+            <li><a href="<?php echo url('admin/statistics/ad_count'); ?>">广告数据统计</a></li>
+            <li class="layui-this"><a href="<?php echo url('admin/statistics/question_count'); ?>">双11活动数据统计</a></li>
+        </ul>
+    </div>
+    <div class="layui-card">
+        <div class="layui-card-header">装备名称: <?php echo htmlentities($title); ?></div>
+        <form class="layui-form" action="<?php echo url('admin/statistics/reward_log_list',array('reward_id'=>$reward_id)); ?>" method="post">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label layui-col-md1 layui-col-sm2 layui-col-xs4">筛选状态：</label>
+                    <div class="layui-input-inline layui-col-sm2 layui-col-xs8">
+                        <select name="type" lay-verify="required" style="min-width: 150px;">
+                            <option value="1" <?php if(($type==1)): ?>class="layui-this" selected<?php endif; ?>>生成人数</option>
+                            <option value="2" <?php if(($type==2)): ?>class="layui-this" selected<?php endif; ?>>识别人数</option>
+                        </select>
+                    </div>
+
+                    <label class="layui-form-label">活动日期</label>
+                    <div class="layui-input-inline">
+                        <input name="start_time" value="<?php echo htmlentities($start_time); ?>" type="text" class="layui-input" id="staticStart1" placeholder="开始日期" lay-key="1" autocomplete="off">
+                    </div>
+                    <div class="layui-form-mid">-</div>
+                    <div class="layui-input-inline">
+                        <input name="end_time" value="<?php echo htmlentities($end_time); ?>" type="text" class="layui-input" id="staticEnd1" placeholder="结束日期" lay-key="2" autocomplete="off">
+                    </div>
+                    <button class="layui-btn layui-btn-normal beSure" type="submit">确定</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>人数</th>
+            
+                </tr>
+                </thead>
+                <tbody>
+                <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "$empty" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                <tr>
+                    <td><?php echo htmlentities($vo['datetime']); ?></td>
+                    <td><?php echo htmlentities($vo['count']); ?></td>
+                </tr>
+                <?php endforeach; endif; else: echo "$empty" ;endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/admin/layui/layui.js"></script>
+<script type="text/javascript" src="/static/admin/js/index.js"></script>
+<script type="text/javascript" src="/static/admin/js/statistics.js"></script>
+</body>
+</html>

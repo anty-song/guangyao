@@ -1,0 +1,77 @@
+body{
+    font-size: 14px;
+    font-family: "HelveticaNeue","LucidaGrande","SegoeUI",Arial, Helvetica, Verdana, sans-serif;
+    color: #696969;
+    background-color:rgb(151, 223, 185);
+    margin:0 auto;
+    padding:0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/log_in_bg@2x.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+html{
+    margin:0 auto;
+    padding:0;
+    height: 100%;
+}
+/*进入页面*/
+.user-login{
+    padding:.8rem .3rem .4rem;
+    width:4.3rem;
+    height:5rem;
+    background:#fff;
+    border-radius:6px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -2.15rem 0 0 -2.5rem;
+    text-align: center;
+}
+.user-entry{
+   padding:.5rem .5rem .6rem;
+    width:5.6rem;
+    height:3.8rem;
+    background:#fff;
+    border-radius:6px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -2.15rem 0 0 -2.5rem;
+    text-align: center;
+}
+.user-entry h2{
+    color: #0084ff;
+    font-size: .24rem;
+    margin-bottom: .9rem;
+}
+.logo{
+    width: 3.65rem;
+    height:.36rem;
+    margin-bottom: .9rem;}
+.myForm input,
+.myEntry input{
+    width:100%;
+    height: .5rem;
+    border:1px solid rgba(221,221,221,1);
+    margin:0 auto .4rem;
+    font-size: .18rem;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+}
+.myEntry input{
+    margin-bottom: .7rem;
+    padding-left: .2rem;
+}
+.login,
+.entry{
+    width:100%;
+    height:.5rem;
+    background:rgba(0,132,255,1);
+    color: #fff;
+    font-size: .18rem;
+    text-align: center;
+    outline: none;
+    border: none;
+}

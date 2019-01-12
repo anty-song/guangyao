@@ -1,0 +1,704 @@
+var Path = function() {
+    this.src = "/static/images/Lottery/";
+};
+var path = new Path();
+//新增加载所有图片方法
+function getAllImage(){
+    var image_arr={image:[]};
+    Object.defineProperty(image_arr,'image',{
+        writable: true,
+        value: [
+        "banner.png",
+        "bg.png",
+        "game_bg.png",
+        "hdjl.png",
+        "head_img.png",
+        "my_price.png",
+        "redpack_logo.png",
+        "slide_image.png",
+        "startBtn.png",
+        "timg.jpg",
+        "yello_light.png"
+        ]
+    });
+    var image_num=0;
+    var tick;
+    tick=setInterval(function(){
+        var img=new Image();
+        img.src=path.src+image_arr.image[image_num];
+        img.onload=function(){
+            image_num++;
+            if(image_num===image_arr.image.length){
+                clearInterval(tick);
+            }
+        }
+    },500/image_arr.image.length);
+}
+getAllImage();
+function backInterval(){
+    localStorage.setItem("issaw","yes");
+    window.location.reload();
+}
+//Android手机底部返回点击
+function goBack() {
+    $('.dialog_again').show();
+    $('.dialog_end').hide();
+    $('.dialog_price').hide();
+    $('.dialog_success').hide();
+    $('.dialog_rules').hide();
+    $('.dialog_end').hide();
+    $('.ui-mask').show();
+}
+var ggl = new gglConfig();
+var gameNum;
+//配置画布
+var can_confg = {
+    linwid: 40,
+    lincap: "round",
+    strokestyle: "white",
+    gmaskwid: 966,
+    gmaskhei: 464
+};
+
+//定义变量
+var canvas = document.getElementById('canvas'),
+context = canvas.getContext('2d'),
+gameWrap = document.getElementById('game'),
+isOK = false,
+game_start = false,
+req = false,
+startBtn = document.getElementsByClassName("start")[0],
+tips = document.getElementsByClassName("start_tips")[0],
+adinfor1,adinfor2,
+    decreseTime,//倒计时的事件戳
+    image = new Image();
+    image.src = ggl.image_src+"bg.png";
+    var max = 0;
+var key,//加密的key
+device,
+auth,
+uid,
+game_type=2,
+time =  Math.round(new Date().getTime()/1000),
+isNextgame=false;           //下个游戏弹窗是否飞出
+
+//页面加载完毕
+window.onload = function() {
+    if(window.localStorage) {
+        device = window.localStorage.getItem("device");
+        auth = window.localStorage.getItem("auth");
+        uid = window.localStorage.getItem("uid");
+        //将这三个参数传到ggl.unique这个对象中
+        ggl.unique.device = device;
+        ggl.unique.auth = auth;
+        ggl.unique.uid = parseInt(uid);
+    } else {
+        window.history.go(-1);         //如果没有这三个值，那么返回上一个界面
+    }
+    //key值取前8位的auth
+    key = ggl.unique.auth.slice(0,8);
+    //如果没有弹出过弹窗以及当前次数不为0
+    //设置paramData这个参数
+    var paramData={};
+    paramData={"time":time,"uid":ggl.unique.uid,"auth":ggl.unique.auth,'game_type':game_type,'g_id':2,'device':ggl.unique.device};
+    ggl.load.data.uid = ggl.unique.uid;//设置uid这个参数
+    ggl.fresh.data.uid = ggl.unique.uid;//设置uid这个参数
+    paramData = JSON.stringify(paramData);//转化为JSON格式字符串
+    ggl.load.data.paramData = encryptByDES(paramData,key);//加密
+    ggl.fresh.data.paramData = encryptByDES(paramData,key);//加密
+    /*
+    * 请求数据，ggl.load接口
+    * */
+    if(window.localStorage.getItem('isAlert')=='yes'){
+        axios({
+            url: ggl.fresh.url,
+            method:ggl.fresh.type,
+            data:ggl.fresh.data
+        })
+        .then(function(res) {
+            var data = decryptByDES(res.data.res_data,key);
+            data = JSON.parse(data);
+            console.log(data);
+            if(data.num==8 && window.localStorage.getItem('decreseTime')=='yes'){
+                window.localStorage.setItem('decreseTime','no');
+                axios({
+                    url: ggl.load.url,
+                    method:ggl.load.type,
+                    data:ggl.load.data
+                })
+                .then(function(res) {
+                    window.localStorage.setItem('isAlert','yes');
+                    var data = decryptByDES(res.data.res_data,key);
+                    data = JSON.parse(data);
+                    console.log(data);
+                    $(".start_tips strong").text(data.num);
+                    if(data.num=='0'){
+                        cha=data.count_down;
+                        $('.dialog_end .curtime').text(leftTime(cha));
+                        $('.dialog_end .adv img').attr({'src':data.entry_game_popout.ad_img,'adurl':data.entry_game_popout.ad_url});
+                        
+                        $(".dialog_end").show();
+                        $(".ui-mask").fadeIn();
+                        var ticks = setInterval(function () {
+                            if (cha > 0) {
+                                $('.dialog_end .curtime').text(leftTime(cha));
+                            } else {
+                                clearInterval(ticks);
+                            }
+                            cha--;
+                        }, 1000);
+                    }else{
+                            //通过获取页面上的次数来判断是否还有机会玩
+                            gameNum = data.num;
+                            ggl.gameover = gameNum == 0? true:false;
+                            var issaw = localStorage.getItem("issaw");
+                            if(issaw == "yes") {
+                                localStorage.setItem("issaw","no");
+                            } else {
+                                $(".ui-mask").fadeIn();
+                                //确定弹框的类型
+                                if(data.entry_game_popout.tips_type == 2) {
+                                    popup("price",data.entry_game_popout.ad_img,data.entry_game_popout.redpacket_money,data.entry_game_popout.ad_url,data.p_id);
+                                    $(".dialog_price").attr("data-id",data.entry_game_popout.r_id);
+                                } else {
+                                    popup("success",data.entry_game_popout.ad_img,data.entry_game_popout.ad_title,data.entry_game_popout.ad_url,data.p_id);
+                                    $(".dialog_success").attr("data-id",data.p_id);
+                                }
+                            }
+                        }
+                        
+                    });
+            }else{
+                $(".start_tips strong").text(data.num);
+                if(data.num==0){
+                    cha=data.count_down;
+                    $('.dialog_end .curtime').text(leftTime(cha));
+                    $(".dialog_end").show();
+                    $(".ui-mask").fadeIn();
+                    var ticks = setInterval(function () {
+                        if (cha > 0) {
+                            $('.dialog_end .curtime').text(leftTime(cha));
+                        } else {
+                            clearInterval(ticks);
+                            window.location.reload();
+                        }
+                        cha--;
+                    }, 1000);
+                }
+                if(data.num==1){
+                    setTimeout(function(){
+                        window.location.reload();
+                    },55000);
+                }
+                gameNum = data.num;
+                ggl.gameover = gameNum == 0? true:false;
+
+                var issaw = localStorage.getItem("issaw");
+                if(issaw == "yes") {
+                    localStorage.setItem("issaw","no");
+                }
+                // if(data.entry_game_popout.tips_type == 2) {
+                //     $(".dialog_price .adv img").attr({"src":data.entry_game_popout.ad_img,'adurl':data.entry_game_popout.ad_url});
+                //     $(".dialog_price .price_con p").text(data.entry_game_popout.redpacket_money);
+                //     $(".dialog_price .getBtn").attr('ad_id',data.p_id);
+                //     $(".dialog_price").attr("data-id",data.entry_game_popout.r_id);
+                // } else {
+                //     $(".adv_success").attr({"src":data.entry_game_popout.ad_img,'adurl':data.entry_game_popout.ad_url});
+                //     $(".dialog_success .successBtn").attr('ad_id',adid);
+                //     $(".dialog_success").attr("data-id",data.p_id);
+                // }
+            }
+            if(data.game_all_num[3].once_count!=0||data.game_all_num[3].again_count!=0){
+                isNextgame=true;
+                $('.redpack_logo').fadeIn();
+            }
+        },function(){
+            tipError('数据请求失败，请检查当前网络');
+        });
+}else{
+    axios({
+        url: ggl.load.url,
+        method:ggl.load.type,
+        data:ggl.load.data
+    })
+    .then(function(res) {
+        window.localStorage.setItem('isAlert','yes');
+        console.log(res.data);
+        var data = decryptByDES(res.data.res_data,key);
+        data = JSON.parse(data);
+        console.log(data);
+        $(".start_tips strong").text(data.num);
+        if(data.num==0){
+            cha=data.count_down;
+            $('.dialog_end .curtime').text(leftTime(cha));
+            $('.dialog_end .adv img').attr({'src':data.entry_game_popout.ad_img,'adurl':data.entry_game_popout.ad_url});
+            $(".dialog_end").show();
+            $(".ui-mask").fadeIn();
+            var ticks = setInterval(function () {
+                if (cha > 0) {
+                    $('.dialog_end .curtime').text(leftTime(cha));
+                } else {
+                    clearInterval(ticks);
+                }
+                cha--;
+            }, 1000);
+        }else{
+                //通过获取页面上的次数来判断是否还有机会玩
+                gameNum = data.num;
+                ggl.gameover = gameNum == 0? true:false;
+                var issaw = localStorage.getItem("issaw");
+                if(issaw == "yes") {
+                    localStorage.setItem("issaw","no");
+                } else {
+                    $(".ui-mask").show();
+                    if(data.entry_game_popout.tips_type == 2) {
+                        popup("price",data.entry_game_popout.ad_img,data.entry_game_popout.redpacket_money,data.entry_game_popout.ad_url,data.p_id,data.entry_game_popout.ad_title);
+                        $(".dialog_price").attr("data-id",data.entry_game_popout.r_id);
+                    } else {
+                        popup("success",data.entry_game_popout.ad_img,data.entry_game_popout.ad_title,data.entry_game_popout.ad_url,data.p_id,data.entry_game_popout.ad_title);
+                        $(".dialog_success").attr("data-id",data.p_id);
+                    }
+                }
+            }
+            if(data.game_all_num[3].once_count!=0||data.game_all_num[3].again_count!=0){
+                isNextgame=true;
+            }
+        },function(){
+            tipError('数据请求失败，请检查当前网络');
+        });
+}
+    // 手动刷新页面的时候换接口
+    startBtn.onclick = function() {
+        var _this = this;
+        //前端判断是否次数用完
+        if(gameNum > 0 && !ggl.gameover) {
+            game_start = true;//开始游戏状态变化
+            //参数设置
+            ggl.begin.data.uid = ggl.unique.uid;
+            var paramData = {};
+            paramData["time"] = Math.round(new Date().getTime()/1000);
+            paramData["uid"] = uid;
+            paramData["auth"] = auth;
+            paramData["device"] = device;
+            // paramData['game_type']=2;
+            paramData = JSON.stringify(paramData);
+            ggl.begin.data.paramData = encryptByDES(paramData,key);
+            /*
+            * 走点击开始游戏按钮
+            * */
+            axios({
+                url: ggl.begin.url,
+                method:ggl.begin.type,
+                data:ggl.begin.data
+            })
+            .then(function(res) {
+                var data = decryptByDES(res.data.res_data,key);
+                data = JSON.parse(data);
+                console.log(data);
+                adinfor1=data.p_id;
+                adinfor2=data.p_ad_id;
+                $(".start_tips strong").text(data.num);
+                if(data.entry_game_popout.tips_type==2){
+                    ggl.winner=true;
+                    $(".dialog_price .adv img").attr({"src":data.entry_game_popout.redpacket_img,'adurl':data.entry_game_popout.redpacket_img});
+                    $(".dialog_price .price_con p").text(data.entry_game_popout.redpacket_money);
+                    $('.dialog_price .getBtn').attr('ad_id',data.p_id);
+                    $(".dialog_end .adv img").attr({"src":data.entry_game_popout.redpacket_img,'adurl':data.entry_game_popout.redpacket_img});
+                }else{
+                    ggl.winner = false;
+                    $(".adv_success").attr({'src':data.entry_game_popout.ad_img,'adurl':data.entry_game_popout.ad_url});
+                    $(".dialog_end .adv img").attr({"src":data.entry_game_popout.redpacket_img,'adurl':data.entry_game_popout.redpacket_img});
+                }
+                gameWrap.style.backgroundImage = "url('"+data.entry_game_popout.ad_img+"')";
+                gameWrap.style.backgroundRepeat = "no-repeat";
+                gameWrap.style.backgroundPosition = "center";
+                tips.style.display = "none";
+                $(".start").fadeOut();
+            },function(){
+                tipError('数据请求失败，请检查当前网络');
+            });
+        } else {
+            window.localStorage.setItem('decreseTime','yes');
+            $(".ui-mask").show();
+            $(".dialog_end").show();
+        }
+
+    };
+    $('.um-win').fadeOut();
+    $('.um-win').remove();
+
+    if(window.localStorage.getItem('nextShow')&&isNextgame){
+        $('.redpack_logo').fadeIn();
+    }
+    //  中奖信息滚动显示
+    var ul = $(".notice_list");
+    var li_size = $(".notice_item").length;
+    var li_h = $(".notice_item").outerHeight(true);
+    ul.css("height", li_h * li_size);
+    setInterval(function () {
+        ul.stop(true, true).animate({"top": -li_h}, 1000, function () {
+            ul.append($(".notice_item").first());
+            ul.css({"top": 0});
+        });
+    }, 2500);
+    // 倒计时15s弹出下个游戏入口
+    setTimeout(function () {
+        paramData={"time":time,"uid":ggl.unique.uid,"auth":ggl.unique.auth,'g_id':game_type,'device':ggl.unique.device};
+        $.ajax({
+            type:'post',
+            url:ggl.load.url,
+            data:{action:'fifteen_appear_game',uid:uid,reqType:2,paramData:paramData},
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                if(isNextgame){
+                    $(".redpack_logo").fadeIn();
+                    window.localStorage.setItem('nextShow','true');
+                }
+            },
+            error:function(){
+                console.log('数据请求失败，请检查当前网络');
+                tipError('数据请求失败，请检查当前网络');
+            }
+        });
+    },8000);
+};
+//点击下个游戏的红包入口
+$(".redpack_logo").click(function(){
+    uid=window.localStorage.getItem('uid');
+    auth=window.localStorage.getItem('auth');
+    device=window.localStorage.getItem('device');
+    var auth1=auth.slice(0,8);
+    var time=Math.round(new Date().getTime() / 1000);
+    var paramData={};
+    paramData['uid']=uid;
+    paramData['time']=time;
+    paramData['auth']=auth;
+    paramData['device']=device;
+    paramData['g_id']=2;
+    console.log(paramData);
+    paramData=JSON.stringify(paramData);
+    paramData=encryptByDES(paramData,auth1);
+    $.ajax({
+        type:'post',
+        url:ggl.load.url,
+        data:{action:'fifteen_entry_game',uid:uid,reqType:2,paramData:paramData},
+        dataType:'json',
+        success:function(data){
+            localStorage.setItem("isAlert","no");
+            window.localStorage.removeItem('nextShow');
+            console.log(data);
+            if(data.status==1){
+                window.location.href='/h5/game.tongs/home.html';
+            }
+        },
+        error:function(){
+            console.log('数据请求失败，请检查当前网络');
+            tipError('数据请求失败，请检查当前网络');
+        }
+    });
+});
+image.onload = function() {
+    drawGrayBg();//绘制灰色的涂层
+    gameWrap.style.backgroundImage = "url('"+ggl.images.redpacket_img+"')";//这里来设置中奖图片
+};
+// 开始挂图层的时候的ajax
+function request(){
+    uid=window.localStorage.getItem('uid');
+    auth=window.localStorage.getItem('auth');
+    device=window.localStorage.getItem('device');
+    var paramData = {};
+    paramData["time"] = Math.round(new Date().getTime()/1000);
+    paramData["uid"] = uid;
+    paramData["auth"] = auth;
+    paramData["device"] = device;
+    paramData["p_id"] = adinfor1;
+    paramData["p_ad_id"] = adinfor2;
+    paramData = JSON.stringify(paramData);
+    ggl.begin.data.paramData = encryptByDES(paramData,key);
+
+    /*
+    * 走点击开始游戏按钮
+    * */
+    if(game_start){
+
+    }
+    axios({
+        url: ggl.load.url,
+        method: 'post',
+        data: {action:'get_lottery_result',uid:uid,reqType:2,paramData:ggl.begin.data.paramData}
+    })
+    .then(function(res) {
+        console.log(res.data.res_data);
+        var datas=decryptByDES(res.data.res_data, auth);
+        var json_data=JSON.parse(datas);
+        console.log(json_data);
+        req=false;
+        if (ggl.winner) {
+            $('.dialog_price').show();
+            $('.ui-mask').show();
+        } else {
+            $('.dialog_success').show();
+            $('.ui-mask').show();
+        }
+    },function(){
+        tipError('数据请求失败，请检查当前网络');
+    });
+}
+
+// 手触摸的时候开始事件
+canvas.ontouchstart = function(e) {
+    console.log(req);
+    game_start = true;//开始游戏状态变化
+
+    //参数设置
+    if (game_start) {
+        var bloc = windowToCanvas(e.changedTouches[0].clientX,e.changedTouches[0].clientY);
+        context.moveTo(bloc.x,bloc.y);
+        context.clearRect(0,0,context.canvas.width,context.canvas.height);
+        context.drawImage(image,0,0,can_confg.gmaskwid,can_confg.gmaskhei,0,0,canvas.width,canvas.height);
+        context.save();
+        context.globalCompositeOperation = "destination-out";
+        drawPath(context,bloc);
+        context.restore();
+    }
+};
+//手指滑动
+canvas.ontouchmove = function(e) {
+    if (game_start) {
+        var loc = windowToCanvas(e.changedTouches[0].clientX,e.changedTouches[0].clientY);
+        context.clearRect(0,0,context.canvas.width,context.canvas.height);
+        context.drawImage(image,0,0,can_confg.gmaskwid,can_confg.gmaskhei,0,0,canvas.width,canvas.height);
+        context.save();
+        context.globalCompositeOperation = "destination-out";
+        drawPath(context,loc);
+        context.restore();
+    }
+};
+//触摸结束
+canvas.ontouchend = function() {
+    if(!req){
+        req=true;
+        request();
+    }
+};
+
+//底部的奖品轮播
+var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    freeMode: true
+});
+// dialog_success点击纯广告弹窗的按钮领取
+$(".successBtn").click(function () {
+    $(".ui-mask").fadeOut();
+    $(".dialog.dialog_success").fadeOut();
+    isOK = false;
+    localStorage.setItem("issaw","yes");
+    var adurl=$('.dialog_success .adv_success').attr('adurl');
+    //跳转到广告详情
+    if(agent.isAndroid && agent.isPhone) {
+        an.jumpToBrowser(adurl);
+    }else if(agent.isIOS && agent.isPhone) {
+        window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':adurl})
+    }
+});
+// dialog_success点击纯广告弹窗的图片领取
+$(".adv_success").click(function () {
+    $(".ui-mask").fadeOut();
+    $(".dialog.dialog_success").fadeOut();
+    isOK = false;
+    localStorage.setItem("issaw","yes");
+    var adurl=$(this).attr('adurl');
+    //跳转到广告详情
+    if(agent.isAndroid && agent.isPhone) {
+        an.jumpToBrowser(adurl);
+    }else if(agent.isIOS && agent.isPhone) {
+        window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':adurl})
+    }
+});
+// dialog_price点击有红包的弹框的图片领取
+$(".dialog_price .adv img").click(function () {
+    $(".ui-mask").fadeOut();
+    $(".dialog.dialog_price").fadeOut();
+    isOK = false;
+    localStorage.setItem("issaw","yes");
+    var adurl=$(this).attr('adurl');
+    //跳转到广告详情
+    if(agent.isAndroid && agent.isPhone) {
+        an.jumpToBrowser(adurl);
+    }else if(agent.isIOS && agent.isPhone) {
+        window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':adurl})
+    }
+});
+// dialog_price点击有红包的弹框的按钮领取
+$(".dialog_price .getBtn").click(function () {
+    $(".ui-mask").fadeOut();
+    $(".dialog.dialog_price").fadeOut();
+    isOK = false;
+    localStorage.setItem("issaw","yes");
+    var adid=$(this).attr('ad_id');
+    console.log(adid);
+    uid=window.localStorage.getItem('uid');
+    auth=window.localStorage.getItem('auth');
+    device=window.localStorage.getItem('device');
+    var paramData = {};
+    paramData["time"] = Math.round(new Date().getTime()/1000);
+    paramData["uid"] = uid;
+    paramData["auth"] = auth;
+    paramData["device"] = device;
+    paramData['p_id']=adid;
+    paramData = JSON.stringify(paramData);
+    ggl.begin.data.paramData = encryptByDES(paramData,key);
+    axios({
+        url: ggl.load.url,
+        method: 'post',
+        data: {action:'receice_award',uid:uid,reqType:2,paramData:ggl.begin.data.paramData}
+    })
+    .then(function(res) {
+        console.log(res.data.msg);
+            //跳转到广告详情
+            if(agent.isAndroid && agent.isPhone) {
+                an.jumpToAdvHb(adid);
+            }else if(agent.isIOS && agent.isPhone) {
+                window.webkit.messageHandlers.scan.postMessage({'action':'goPrizeDetail','prize_id':adid});
+            }
+        },function(){
+            tipError('数据请求失败，请检查当前网络');
+        });
+});
+//点击关闭,纯广告弹窗/有红包的弹框/退出挽留，继续游戏
+$(".dialog_success .close, .dialog_price .close, .dialog_again .close, .dialog_again .continueBtn").click(function () {
+    $(".dialog_success").fadeOut();
+    $(".ui-mask").fadeOut();
+    localStorage.setItem("issaw","yes");
+    window.location.reload();
+});
+
+//点击规则按钮
+$(".rules").click(function () {
+    $(".ui-mask").fadeIn();
+    $(".dialog_rules").show();
+});
+//点击我的奖品，跳转奖品列表
+$(".my-price").click(function() {
+    //点击我的奖品跳转
+    if(agent.isAndroid && agent.isPhone) {
+        an.jumpToMyReward('2');//andriod
+    } else if(agent.isIOS && agent.isPhone) {
+        window.webkit.messageHandlers.scan.postMessage({'action':'goPrice','item':'2'});
+    }
+});
+
+// 点击残忍拒绝
+$(".dialog_again #leaveBtn").on('click',function() {
+    window.location.href="/h5/game.game_lobby/home";
+    window.localStorage.setItem('isAlert','no');
+    window.localStorage.removeItem('nextShow');
+});
+
+// 次数用完弹出框
+$(".dialog_end .close").click(function () {
+    $(".dialog_end").fadeOut();
+    $(".ui-mask").fadeOut();
+});
+// 次数用完点击图片广告
+$(".dialog_end .adv img").click(function () {
+    var adurlAn='http://www.zsyouxue.com/app/appversion/zhangshangyouxue_studyshow_1.0.5.apk';
+    var adurlIOS='https://itunes.apple.com/cn/app/%E6%8E%8C%E4%B8%8A%E4%BC%98%E5%AD%A6/id1382476478?mt=8';
+    if(agent.isAndroid && agent.isPhone) {
+        an.jumpToBrowser(adurlAn);//andriod
+    }else if(agent.isIOS && agent.isPhone) {
+        window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':adurlIOS});//IOS
+    }
+});
+// 次数用完再来一次
+$(".dialog_end .endBtn").click(function () {
+    decreseTime=1;
+    console.log(decreseTime);
+    $(".dialog_end").fadeOut();
+    $(".ui-mask").fadeOut();
+    if(agent.isAndroid && agent.isPhone) {
+        an.jumpToAdvDetail('2')//andriod
+    }else if(agent.isIOS && agent.isPhone) {
+        window.webkit.messageHandlers.scan.postMessage({'action':'goDetail','item':'2'});
+    }
+});
+
+//获取像素
+// function getData(context) {
+//     var imgdata = context.getImageData(0,0,canvas.width,canvas.height);
+//     var data = imgdata.data;
+//     var sum = 0;
+//     for(var i = 0; i < data.length; i++) {
+//         sum += parseInt(data[i]);
+//     }
+//     if(sum <= max*0.995 && !isOK) {
+//         isOK = true;
+//         $(".ui-mask").fadeIn();
+//         game_start = false;
+//         // console.log(ggl.winner);
+//         //如果是中奖了
+//         if (ggl.winner) {
+//             $('.dialog_price').show();
+//             $('.ui-mask').show();
+//         } else {
+//             $('.dialog_success').show();
+//             $('.ui-mask').show();
+//         }
+//     }
+// }
+
+//弹出带广告框
+function popup(type,advImg,tips,adurl,adid,adTitle) {
+    switch (type){
+        case 'price':
+        $(".dialog_price").show();
+        $(".dialog_price .adv img").attr({"src":advImg,'adurl':adurl});
+        $(".dialog_price .price_con p").text(tips);
+        $(".dialog_price .ad_title").text(adTitle);
+        $(".dialog_price .getBtn").attr('ad_id',adid);
+        $(".dialog_end .adv img").attr({"src":advImg,'adurl':adurl});
+        break;
+        case 'success':
+        $(".dialog_success").show();
+        $(".adv_success").attr({"src":advImg,'adurl':adurl});
+        $(".dialog_success .successBtn").attr('ad_id',adid);
+        $(".dialog_success .ad_title").text(adTitle);
+        $(".dialog_end .adv img").attr({"src":advImg,'adurl':adurl});
+        break;
+        // case 'end':
+        //     $(".dialog_end").show();
+        //     $(".dialog_end .adv img").attr({"src":advImg,'adurl':adurl});
+        //     break;
+        default:
+        break;
+    }
+}
+
+//绘制涂层的函数
+function drawGrayBg() {
+    context.drawImage(image,0,0,can_confg.gmaskwid,can_confg.gmaskhei,0,0,canvas.width,canvas.height);
+    var imagedata = context.getImageData(0,0,canvas.width,canvas.height).data;
+    for (var j = 0; j < imagedata.length; j++ ) {
+        max += parseInt(imagedata[j]);
+    }
+}
+
+//坐标转换
+function windowToCanvas(x,y) {
+    var bbox = canvas.getBoundingClientRect();
+    return {
+        x: x - bbox.left*(canvas.width/bbox.width),
+        y: y - bbox.top*(canvas.height/bbox.height)
+    }
+}
+
+//绘制手划过的位置
+function drawPath(context,loc) {
+    context.strokeStyle = can_confg.strokestyle;
+    context.lineWidth = can_confg.linwid;
+    context.lineCap = can_confg.lincap;
+    context.lineTo(loc.x,loc.y);
+    context.stroke();
+}

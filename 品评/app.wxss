@@ -5,7 +5,6 @@
 }
 .share {
   position:fixed;
-  z-index:9;
   right:0;
   top:650rpx;
   height:148rpx;
@@ -18,7 +17,6 @@
 }
 .service-img {
   position:fixed;
-  z-index:9;
   right:0;
   top:800rpx;
   height:148rpx;

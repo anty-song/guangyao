@@ -1,0 +1,122 @@
+<?php /*a:1:{s:53:"D:\WWW\tp_test\qianbao\admin\view\question\index.html";i:1541065800;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>双11答题活动-答题管理</title>
+    <link rel="stylesheet" type="text/css" href="/static/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/page.css" />
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/index.css" />
+    <script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .ff{
+            background: rgb(255, 255, 255);
+            border-width: 1px !important;
+            border-style: solid !important;
+            border-color: rgb(247, 133, 89) !important;
+            border-image: initial !important;
+        }
+        </style>
+</head>
+<body>
+    <div>
+        <!-- 内容主体区域 -->
+        <div class="layui-fluid nddt">
+            <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title">
+                    <li class="layui-this"><a href="<?php echo url('admin/question/index'); ?>">题库管理</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <button class="layui-btn createItem">新建</button>
+                        <div style="overflow-x: auto;">
+                            <table class="layui-table" id="questions_management" lay-even>
+                                <thead>
+                                    <tr>
+                                        
+                                        <th>编号</th>
+                                        <th>题目</th>
+                                        
+                                        <th>答案A</th>
+                                        <th>答案B</th>
+                                        <th>答案C</th>
+                                        
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php $ps=1; if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "$empty" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                                    <tr>
+                                        
+                                        <td><?php echo htmlentities($vo['question_id']); ?></td>
+                                        <td><?php echo htmlentities($vo['question']); ?></td>
+                                        <td><?php echo htmlentities($vo['answer1']); ?></td>
+                                        <td><?php echo htmlentities($vo['answer2']); ?></td>
+                                        <td><?php echo htmlentities($vo['answer3']); ?></td>
+                                        
+                                        <td>
+                                            <button href="" class="layui-btn layui-btn-normal layui-btn-xs edit"  data-id="<?php echo htmlentities($vo['question_id']); ?>">编辑</button>
+                                            <button href="" class="layui-btn layui-btn-danger layui-btn-xs deltr" data-id="<?php echo htmlentities($vo['question_id']); ?>">删除</button>
+                                        </td>
+                                    </tr>
+                                <?php $ps++; endforeach; endif; else: echo "$empty" ;endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+
+                        </p>
+                        <?php echo $page; ?>
+                    </div>
+
+                </div>
+                <div class="create-question">
+                    <img class="closeModel" src="/static/admin/images/Close@2x.png" alt="">
+                    <p>上传题目</p>
+                    <form class="layui-form">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">题目名称</label>
+                            <div class="layui-input-block" style="margin-left: 115px;">
+                                <input type="hidden" class="ids" value="" />
+                              <input type="text" name="question" required  lay-verify="required" placeholder="请输入题目名称" autocomplete="off" class="layui-input que_title" style="width: 80%;">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">答案A</label>
+                            <div class="layui-input-inline">
+                              <input type="text" name="answer1" required lay-verify="required" placeholder="请输入答案A" autocomplete="off" class="layui-input ques1">
+                            </div>
+                            
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">答案B</label>
+                            <div class="layui-input-inline">
+                              <input type="text" name="answer2" required lay-verify="required" placeholder="请输入答案B" autocomplete="off" class="layui-input ques2">
+                            </div>
+                            
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">答案C</label>
+                            <div class="layui-input-inline">
+                              <input type="text" name="answer3" required lay-verify="required" placeholder="请输入答案C" autocomplete="off" class="layui-input ques3">
+                            </div>
+                           
+                        </div>
+                        <button class="layui-btn createUpload">上传</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mark"></div>
+    <script type="text/javascript" src="/static/admin/layui/layui.js"></script>
+    <script type="text/javascript" src="/static/admin/js/question.js"></script>
+</body>
+</html>

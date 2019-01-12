@@ -1,0 +1,129 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:84:"E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\admin\admin.html";i:1539939579;s:74:"E:\xampp\htdocs\demo\prototype\application\prototype\view\common\base.html";i:1539851699;}*/ ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Axure原型发布工具</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/prototype/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/static/style/prototype/lib/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="/static/style/prototype/css/index.css" />
+    <script type="text/javascript" src="/static/style/prototype/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/style/prototype/js/js.js"></script>
+    <script>
+        !function(n) {
+            var e = n.document,
+                t = e.documentElement,
+                i = 720,
+                d = i / 100,
+                o = "orientationchange" in n ? "orientationchange" : "resize",
+                a = function() {
+                    var n = t.clientWidth || 320;
+                    n > 720 && (n = 720), t.style.fontSize = n / d + "px"
+                };
+            e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
+        }(window);
+    </script>
+</head>
+
+
+<body>
+<div class="header">
+        <div class="topItem">
+            <p><a href="/"><img src="/static/style/prototype/images/log_in_title@2x.png" alt=""></a></p>
+            <p>
+                <?php if((\think\Session::get('user.userid') == 1)): ?>
+                    <a href="/admin">帐户管理</a>
+                <?php endif; ?>
+                <a href="/index">项目列表</a>
+                <a href="/index" userid="<?php echo \think\Session::get('user.userid'); ?>" class="userID"><?php echo \think\Session::get('user.username'); ?></a>
+                <?php if(!(empty(\think\Session::get('user.username')) || ((\think\Session::get('user.username') instanceof \think\Collection || \think\Session::get('user.username') instanceof \think\Paginator ) && \think\Session::get('user.username')->isEmpty()))): ?>
+                    <a href="/loginout" class="exit">退出</a>
+                <?php endif; ?>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="container" style="margin-top: 0;border: none;">
+        <button class="layui-btn layui-btn-normal create">创建账户</button>
+        <div class="layui-collapse admin-item">
+        <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): if( count($list)==0 ) : echo "" ;else: foreach($list as $key=>$vo): ?>
+            <div class="layui-colla-item" userid="<?php echo $vo['userid']; ?>">
+                <div class="layui-colla-title">
+                    <div>
+                        <span style="width: 2rem;">
+                            <span>用户名：</span>
+                            <span><?php echo $vo['username']; ?></span>
+                        </span>
+                        <span class="span2">
+                            <span>密码：</span>
+                            <!-- <span><?php echo $vo['password_show']; ?></span> -->
+                            <input type="text" class="userpass" value="<?php echo $vo['password_show']; ?>" readonly="readonly">
+                        </span>
+                        <!-- <span class="change-password">修改密码</span> -->
+                        <!-- <span class="beDisable">禁用</span> -->
+                        <form class="layui-form mydisable">
+                            <?php if($vo['status'] == 1): ?>
+                            <input type="checkbox" class="checked<?php echo $vo['status']; ?>" checked lay-skin="switch" lay-text="激活|禁用">
+                            <?php else: ?>
+                            <input type="checkbox" class="checked<?php echo $vo['status']; ?>" lay-skin="switch" lay-text="激活|禁用">
+                            <?php endif; ?>
+                        </form>
+                    </div>
+                    <p>
+                        <?php if(!(empty($vo['erji']) || (($vo['erji'] instanceof \think\Collection || $vo['erji'] instanceof \think\Paginator ) && $vo['erji']->isEmpty()))): ?>
+                            <span class="links">他的链接</span>
+                        <?php endif; if(empty($vo['erji']) || (($vo['erji'] instanceof \think\Collection || $vo['erji'] instanceof \think\Paginator ) && $vo['erji']->isEmpty())): ?>
+                            <span class="unlinks">暂无连接</span>
+                        <?php endif; ?>
+                    </p>
+                </div>
+                <div class="layui-colla-content layui-show">
+                    <ul>
+                    <?php if(is_array($vo['erji']) || $vo['erji'] instanceof \think\Collection || $vo['erji'] instanceof \think\Paginator): if( count($vo['erji'])==0 ) : echo "" ;else: foreach($vo['erji'] as $key=>$vo1): ?>
+                        <li>
+                            <p>
+                                <span>
+                                    <span class="protitle" title="<?php echo $vo1['title']; ?>"><?php echo $vo1['title']; ?>：</span>
+                                    <a target="_blank" href="http://<?php echo $vo1['pro_url']; ?>" class="pvalue2">http://<?php echo $vo1['pro_url']; ?></a>
+                                </span>
+                                <span class="mypassword">
+                                    <span>密码：</span>
+                                    <span><?php echo $vo1['password_show']; ?></span>
+                                </span>
+                            </p>
+                            <p>
+                                <span><?php echo date('Y-m-d H:i:s',$vo1['addtime']); ?></span>
+                                <span class="download"><a href="http://<?php echo APP_URL . 'zip/' . $vo1['url'] . '.zip'; ?>">下载</a></span>
+                            </p>
+                        </li>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </ul>
+                    <a class="loadMore" href="/homelist/<?php echo $vo['userid']; ?>">查看更多 >></a>
+                </div>
+            </div>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
+        </div>
+    </div>
+    <div class="shadow"></div>
+    <div class="mylayer1 admin">
+        <img class="close-layer" src="/static/style/prototype/images/link_generation_tc_close@2x.png" alt="">
+        <p class="h2">创建账户</p>
+        <input type="text" class="layui-input cname" name="uname" placeholder="用户名" autocomplete="off" lay-verify="required">
+        <input type="password" class="layui-input cpassword" name="upassword" placeholder="密码" autocomplete='new-password' lay-verify="required">
+        <button type="button" class="cancel" style="margin-right: .3rem;">取消</button>
+        <?php echo token(); ?>
+        <button type="button" class="sure">确认</button>
+    </div>
+<?php echo $page; ?>
+
+
+<script type="text/javascript" src="/static/style/prototype/lib/layui/layui.js"></script>
+
+
+</html>
+
+

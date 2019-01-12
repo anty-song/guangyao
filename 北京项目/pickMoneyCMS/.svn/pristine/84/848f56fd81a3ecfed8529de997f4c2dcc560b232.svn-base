@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @Author   Hulkzero
+ * @DateTime 2018-08-31T13:34:00+0800
+ * @Email    hulkzero@163.com
+ * @Explain  抓手游戏
+ */
+
+namespace app\h5\controller\game;
+
+use think\Request;
+
+class Tongs extends  GameLobby
+{
+    /**
+     * 抓手游戏接口
+     *
+     * @return \think\Response
+     */
+    public function home()
+    {
+        //模板变量赋值
+        $this->assign('title','趣味抓手');
+        // 游戏奖品列表数据
+        $prize_data = $this->get_prize_list(3);
+        // 渲染模板
+        $this->assign('prize_data',$prize_data);
+        //模板输出
+        return $this->fetch('game/Tongs/home');
+    }
+}

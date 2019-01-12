@@ -1,0 +1,258 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:86:"E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html";i:1540175715;s:74:"E:\xampp\htdocs\demo\prototype\application\prototype\view\common\base.html";i:1539851699;}*/ ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Axure原型发布工具</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/prototype/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/static/style/prototype/lib/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="/static/style/prototype/css/index.css" />
+    <script type="text/javascript" src="/static/style/prototype/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/style/prototype/js/js.js"></script>
+    <script>
+        !function(n) {
+            var e = n.document,
+                t = e.documentElement,
+                i = 720,
+                d = i / 100,
+                o = "orientationchange" in n ? "orientationchange" : "resize",
+                a = function() {
+                    var n = t.clientWidth || 320;
+                    n > 720 && (n = 720), t.style.fontSize = n / d + "px"
+                };
+            e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
+        }(window);
+    </script>
+</head>
+
+
+<body>
+<div class="header">
+        <div class="topItem">
+            <p><a href="/"><img src="/static/style/prototype/images/log_in_title@2x.png" alt=""></a></p>
+            <p>
+                <?php if((\think\Session::get('user.userid') == 1)): ?>
+                    <a href="/admin">帐户管理</a>
+                <?php endif; ?>
+                <a href="/index">项目列表</a>
+                <a href="/index" userid="<?php echo \think\Session::get('user.userid'); ?>" class="userID"><?php echo \think\Session::get('user.username'); ?></a>
+                <?php if(!(empty(\think\Session::get('user.username')) || ((\think\Session::get('user.username') instanceof \think\Collection || \think\Session::get('user.username') instanceof \think\Paginator ) && \think\Session::get('user.username')->isEmpty()))): ?>
+                    <a href="/loginout" class="exit">退出</a>
+                <?php endif; ?>
+            </p>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="/static/style/prototype/css/jquery.searchableSelect.css">
+    <script src="/static/style/prototype/js/jquery.searchableSelect.js"></script>
+    <script src="/static/style/prototype/js/index.js"></script>
+
+    <form class="content" id="myForm">
+        <div class="layui-upload-drag upload" id="test-upload-drag">
+            <img class="icon" src="/static/style/prototype/images/upload_icon@2x.png" alt="">
+            <p class="load-title">文件上传</p>
+            <div class="marks" id="marks">(可直接拖入文件，请将axure生成的html文件压缩成zip格式后上传)</div>
+            <input type="file" name="file" filename="" accept="undefined" id="markss" value="" style="opacity: 0;" onchange="uploadPic(this)">
+        </div>
+        <div class="options">
+            <p class="" style="cursor:pointer;">
+                <i class="selected"></i>
+                <span>创建新链接</span>
+            </p>
+            <p class="" style="cursor:pointer;">
+                <i></i>
+                <span>替换原有链接</span>
+            </p>
+        </div>
+        <div class="option-item">
+            <div class="information">
+                <input type="text" class="upload-name" name="title" placeholder="名称" autocomplete="new-password">
+                <input type="hidden" name="userid" class="uid" value="<?php echo \think\Session::get('user.userid'); ?>">
+                <input type="hidden" name="type" value="1" class="seltype">
+                <input type="password" class="upload-password" name="password_show" placeholder="密码（选填）" autocomplete='new-password'>
+                <input type="text" class="upload-password" name="pid" placeholder="文件夹" autocomplete='new-password'>
+                <?php echo token(); ?>
+            </div>
+            <div class="upurl">
+                <input type="hidden" name="itemid" class="progectID">
+                <select class="uplink">
+                    <option value="">请选择</option>
+                    <?php if(is_array($data['list']) || $data['list'] instanceof \think\Collection || $data['list'] instanceof \think\Paginator): if( count($data['list'])==0 ) : echo "" ;else: foreach($data['list'] as $key=>$vo): ?>
+                        <option class="<?php echo $vo['itemid']; ?>" value="<?php echo $vo['title']; ?>：<?php echo $vo['url']; ?>" title="<?php echo $vo['url']; ?>"><?php echo $vo['title']; ?>：<?php echo $vo['url']; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </div>
+        </div>
+        <button type="button" class="release layui-btn" data-method="notice">发布</button>
+        <!-- <button class="layui-btn submit release" data-method="notice">发布</button> -->
+    </form>
+    <div class="shadow"></div>
+    <!-- <div class="mylayer animated zoomIn"> -->
+    <div class="mylayer">
+        <img class="close-layer" src="/static/style/prototype/images/link_generation_tc_close@2x.png" alt="">
+        <p class="h2"></p>
+        <p>
+            <span class="ptitle">名称</span>
+            <span class="pvalue1"></span>
+        </p>
+        <p>
+            <span class="ptitle">链接</span>
+            <a target="_blank" href="" class="pvalue2" style="width: 3.9rem" type="text" value="" readonly></a>
+        </p>
+        <p>
+            <span class="ptitle">密码</span>
+            <span class="pvalue3"></span>
+        </p>
+        <button class="copy" data-type="test12">复制链接</button>
+    </div>
+    <script src="/static/style/prototype/lib/layui/layui.js"></script>
+    <script>
+        $(function(){
+            $('select').searchableSelect();
+        });
+        // form表格提交全部value
+        (function($) {
+            $.fn.extend({
+                serializeObject: function() {
+                    if (this.length > 1) {
+                        return false;
+                    }
+                    var arr = this.serializeArray();
+                    var obj = new Object;
+                    $.each(arr, function(k, v) {
+                        obj[v.name] = v.value;
+                    });
+                    return obj;
+                }
+            });
+        })(jQuery);
+        function uploadPic(source) {
+            var file = source.files[0].name;
+            console.log(file);
+            $('#markss').attr('value',file);
+            $('#marks').text(file);
+        }
+        //获取抄送人员名单
+        // var search = {
+        //     searchKeyword: function () {
+        //         var nWord = $(".keywords").val();
+        //         //var temarray = nWord.split(""); //分割
+        //         // var array=this.unique(nWord.split(""));
+        //         var array=nWord;
+        //         console.log(array);
+        //         var dsa = $("#search").find("ul li span");//获取全部列表
+        //         console.log(dsa);
+        //         var linumber = 0;
+
+        //         $("#search ul li").show();
+        //         for (var t = 0; t < dsa.length; t++) {
+        //             $(dsa[t]).html($(dsa[t]).text());
+        //             var temstr = ($(dsa[t]).text()).split("");
+        //             var yes = false;
+        //             for (var i = 0; i < array.length; i++) {
+        //                 var posarr = this.findAll(temstr, array[i]);
+        //                 if (posarr.length > 0) {
+        //                     yes = true;
+        //                     for (var j = 0; j < posarr.length; j++) {
+        //                         temstr[posarr[j]] = "<em style='color:red;'>" + temstr[posarr[j]] + "</em>";
+        //                     }
+        //                 }
+        //             }
+        //             if (!yes) {
+        //                 $(dsa[t]).closest("li").hide();
+        //             }
+        //             else {
+        //                 linumber++;
+        //                 var htmlstr = "";
+        //                 for (var m = 0; m < temstr.length; m++) {
+        //                     htmlstr += temstr[m];
+        //                 }
+        //                 $(dsa[t]).html(htmlstr);
+        //             }
+
+        //         }
+        //         if (linumber == 0) {
+        //             $("#search ul li").show();
+        //             $("#search ul").slideDown(200);
+        //         }
+        //     },
+        //     findAll: function (arr, str) {
+        //         var results = [],
+        //             len = arr.length,
+        //             pos = 0;
+        //         while (pos < len) {
+        //             pos = arr.indexOf(str, pos);
+        //             if (pos === -1) {
+        //                 break;
+        //             }
+        //             results.push(pos);
+        //             pos++;
+        //         }
+        //         return results;
+        //     },
+        //     unique: function (arr) {
+        //         var new_arr = [];
+        //         for (var i = 0; i < arr.length; i++) {
+        //             var items = arr[i];
+        //             //判断元素是否存在于new_arr中，如果不存在则插入到new_arr的最后
+        //             if ($.inArray(items, new_arr) == -1) {
+        //                 new_arr.push(items);
+        //             }
+        //         }
+        //         return new_arr;
+        //     },
+        //     changeValue: function (obj) {
+        //         $('.dropdown ul').slideUp(200);
+        //         var input = $(obj).find('.dropdown-selected');
+        //         var ul = $(obj).find('ul');
+        //         if (!ul.is(':visible')) {
+        //             ul.slideDown('fast');
+        //         } else {
+        //             ul.slideUp('fast');
+        //         }
+
+        //         $(obj).find('ul a').click(function () {
+        //             input.val($(this).text());
+        //             $(this).parent().addClass('active');
+        //             $(this).parent().siblings().removeClass('active')
+        //             $(this).closest('ul').slideUp(200);
+        //             return false;
+        //         })
+        //         var e = this.getEvent();
+        //         window.event ? e.cancelBubble = true : e.stopPropagation();
+        //     },
+        //     _init: function () {
+        //         $("#search").on("click", "ul li span", function () {
+        //             $(".keywords").val($(this).text());
+        //             $(this).parent().addClass('active');
+        //             $(this).parent().siblings().removeClass('active')
+        //             $(this).closest('ul').slideUp(200);
+        //             return false;
+        //         })
+        //     },
+        //     getEvent: function(){
+        //         if(window.event){
+        //             return window.event;
+        //         }
+        //         var f = arguments.callee.caller;
+        //         do{
+        //             var e = f.arguments[0];
+        //             if(e && (e.constructor === Event || e.constructor===MouseEvent || e.constructor===KeyboardEvent)){
+        //                 return e;
+        //             }
+        //         }while(f=f.caller);
+        //     }
+        // }
+        // search._init();
+    </script>
+
+
+<script type="text/javascript" src="/static/style/prototype/lib/layui/layui.js"></script>
+
+
+</html>
+
+

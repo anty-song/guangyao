@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>广告管理-商家logo管理</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/page.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="sjlogo sjlggl">
+    <!-- 内容主体区域 -->
+    <div class="layui-fluid">
+        <div class="layui-tab layui-tab-card">
+            <ul class="layui-tab-title">
+                <li><a href="{:url('admin/ad/home')}">广告管理</a></li>
+                <li><a href="{:url('admin/ad/advertiser')}">商家广告管理</a></li>
+                <li class="layui-this"><a href="{:url('admin/ad/trader')}">商家logo管理</a></li>
+            </ul>
+            <div class="layui-tab-content">
+                <!--<div class="layui-tab-item">
+                    <div class="layui-collapse gggg">
+                        <div class="layui-colla-item">
+                            <div class="layui-colla-title">
+                                <h2>配置1</h2>
+                                <form class="layui-form" action="">
+                                    <div class="layui-input-block" style="margin-left: 0;">
+                                        <input type="checkbox" name="switch" lay-skin="switch" lay-text="ON|OFF">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="layui-colla-content layui-show">
+                                <form class="layui-form layui-row">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告展示位置</label>
+                                        <div class="layui-input-block layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                            <select name="adposition" lay-verify="required" disabled="disabled">
+                                                &lt;!&ndash; <option value=""></option> &ndash;&gt;
+                                                <option value="0">百万抢红包详情页</option>
+                                                <option value="1">规则说明页</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告类型</label>
+                                        <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                            <input type="radio" name="adtype" value="腾讯广告" title="腾讯广告" disabled="disabled">
+                                            <input type="radio" name="adtype" value="淘宝商品广告" title="淘宝商品广告" checked disabled="disabled">
+                                            <input type="radio" name="adtype" value="商家广告" title="商家广告" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                        <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                            &lt;!&ndash; <div class="layui-input-inline layui-form-mid layui-col-md1 layui-col-sm2 layui-col-xs5">权重设置：</div> &ndash;&gt;
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重设置：</label>
+                                            <div class="layui-input-inline layui-col-md2 layui-col-sm4 layui-col-xs7">
+                                                <select name="city" lay-verify="required" disabled="disabled">
+                                                    &lt;!&ndash; <option value=""></option> &ndash;&gt;
+                                                    <option value="0">自定义</option>
+                                                    <option value="1">随机</option>
+                                                    <option value="2">重置权重</option>
+                                                    <option value="3">同比设置</option>
+                                                </select>
+                                            </div>
+                                            <div class="layui-form-mid layui-word-aux layui-col-md-1 layui-col-sm-2 layui-col-xs-3">当前权重：1200</div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item" data-num="1">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                        <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                            &lt;!&ndash; <div class="layui-input-inline layui-form-mid layui-col-md1 layui-col-sm2 layui-col-xs-3">广告1：</div> &ndash;&gt;
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告1：</label>
+                                            <div class="layui-input-inline layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                                <select name="city" lay-verify="required" disabled="disabled">
+                                                    &lt;!&ndash; <option value=""></option> &ndash;&gt;
+                                                    <option value="0">千元名表免费拿</option>
+                                                    <option value="1">100元红包到你手</option>
+                                                    <option value="2">最高借贷10万，3分钟审核放款</option>
+                                                </select>
+                                            </div>
+                                            &lt;!&ndash; <div class="layui-input-inline layui-form-mid layui-col-md1 layui-col-sm2 layui-col-xs-3">权重</div> &ndash;&gt;
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重：</label>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs-3">
+                                                <input type="text" class="layui-input" value="800" disabled="disabled">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item" data-num="2">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                        <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                            &lt;!&ndash; <div class="layui-input-inline layui-form-mid layui-col-md1 layui-col-sm2 layui-col-xs-3">广告2：</div> &ndash;&gt;
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告2：</label>
+                                            <div class="layui-input-inline layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                                <select name="city" lay-verify="required" disabled="disabled">
+                                                    &lt;!&ndash; <option value=""></option> &ndash;&gt;
+                                                    &lt;!&ndash; <option value="0">千元名表免费拿</option> &ndash;&gt;
+                                                    <option value="1">100元红包到你手</option>
+                                                    <option value="2">最高借贷10万，3分钟审核放款</option>
+                                                </select>
+                                            </div>
+                                            &lt;!&ndash; <div class="layui-input-inline layui-form-mid layui-col-md1 layui-col-sm2 layui-col-xs-3">权重</div> &ndash;&gt;
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重：</label>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs-3">
+                                                <input type="text" class="layui-input" value="1000" disabled="disabled">
+                                            </div>
+                                            <div class="layui-form-mid layui-word-aux layui-col-md-1 layui-col-sm-2 layui-col-xs-3 deladver">删除</div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="layui-form-item" style="display: none;text-align: left;">
+                                    <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5"></label>
+                                    <button class="layui-btn layui-btn-primary layui-input-block addadver">添加广告</button>
+                                </div>
+                                <div class="layui-btn-container">
+                                    <button class="layui-btn layui-btn-danger delpz">删除</button>
+                                    <button class="layui-btn layui-btn-normal edit">编辑</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-colla-item pzmodel">
+                            <div class="layui-colla-title">
+                                <h2>配置1</h2>
+                                <form class="layui-form" action="">
+                                    <div class="layui-input-block" style="margin-left: 0;">
+                                        <input type="checkbox" name="switch" lay-skin="switch" lay-text="ON|OFF">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="layui-colla-content">
+                                <form class="layui-form layui-row peizhi2">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告展示位置</label>
+                                        <div class="layui-input-block layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                            <select name="adposition" lay-verify="required">
+                                                <option value=""></option>
+                                                <option value="0">百万抢红包详情页</option>
+                                                <option value="1">规则说明页</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告类型</label>
+                                        <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                            <input type="radio" name="adtype" value="腾讯广告" title="腾讯广告" checked>
+                                            <input type="radio" name="adtype" value="淘宝商品广告" title="淘宝商品广告">
+                                            <input type="radio" name="adtype" value="商家广告" title="商家广告">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                        <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重设置：</label>
+                                            <div class="layui-input-inline layui-col-md2 layui-col-sm4 layui-col-xs7">
+                                                <select name="city" lay-verify="required">
+                                                    <option value=""></option>
+                                                    <option value="0">自定义</option>
+                                                    <option value="1">随机</option>
+                                                    <option value="2">重置权重</option>
+                                                    <option value="3">同比设置</option>
+                                                </select>
+                                            </div>
+                                            <div class="layui-form-mid layui-word-aux layui-col-md-1 layui-col-sm-2 layui-col-xs-3">当前权重：1200</div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item" data-num="1">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                        <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5 ad1">广告1：</label>
+                                            <div class="layui-input-inline layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                                <select name="city" lay-verify="required">
+                                                    <option value=""></option>
+                                                    <option value="0">千元名表免费拿</option>
+                                                    <option value="1">100元红包到你手</option>
+                                                    <option value="2">最高借贷10万，3分钟审核放款</option>
+                                                </select>
+                                            </div>
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重：</label>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs-3">
+                                                <input type="text" class="layui-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item" data-num="2">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                        <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5 ad2">广告2：</label>
+                                            <div class="layui-input-inline layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                                <select name="city" lay-verify="required">
+                                                    <option value=""></option>
+                                                    <option value="0">千元名表免费拿</option>
+                                                    <option value="1">100元红包到你手</option>
+                                                    <option value="2">最高借贷10万，3分钟审核放款</option>
+                                                </select>
+                                            </div>
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重：</label>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs-3">
+                                                <input type="text" class="layui-input">
+                                            </div>
+                                            <div class="layui-form-mid layui-word-aux layui-col-md-1 layui-col-sm-2 layui-col-xs-3 deladver">删除</div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="layui-form-item" style="text-align: left;">
+                                    <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5"></label>
+                                    <button class="layui-btn layui-btn-primary layui-input-block addadver">添加广告</button>
+                                </div>
+                                <div class="layui-btn-container">
+                                    <button class="layui-btn layui-btn-danger delpz">删除</button>
+                                    <button class="layui-btn layui-btn-success edit">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="layui-btn layui-btn-normal addpeizhi" style="margin-top: 10px;">增加配置</button>
+                    <div style="margin-top: 20px;">
+                        <p>管理日志</p>
+                        <p>2018-08-12 19:12:36 admin 删除了 app下载投放</p>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <form action="" class="layui-form layui-row">
+                        <div class="layui-form-item layui-col-md12 layui-col-xs12 layui-col-xs12">
+                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">投放类型：</label>
+                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs8">
+                                <select name="goods" lay-verify="required">
+                                    <option value=""></option>
+                                    <option value="0">APP下载</option>
+                                    <option value="1">图文链接</option>
+                                </select>
+                            </div>
+                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">状态：</label>
+                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs8">
+                                <select name="goods" lay-verify="required">
+                                    <option value=""></option>
+                                    <option value="0">未投放</option>
+                                    <option value="1">投放中</option>
+                                    <option value="2">暂停中</option>
+                                    <option value="3">以结束</option>
+                                </select>
+                            </div>
+                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">出价方式：</label>
+                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs8">
+                                <select name="goods" lay-verify="required">
+                                    <option value=""></option>
+                                    <option value="0">cpc</option>
+                                    <option value="1">cpm</option>
+                                    <option value="2">cpa</option>
+                                    <option value="3">cps</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs8">
+                                <input type="text" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off" placeholder="输入关键字" title="关键字">
+                            </div>
+                            <div class="layui-btn-container layui-input-inline layui-col-md2 layui-col-sm6 layui-col-xs-12 btnWrapper">
+                                <button class="layui-btn layui-btn-success">搜索</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                <button class="layui-btn layui-btn-normal jumpAddAdver" style="margin-right: 0;">创建广告</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="layui-collapse">
+                        <div class="layui-colla-item">
+                            <p class="layui-colla-title">
+                                <input type="checkbox">
+                                <span>广告名称：app下载投放</span>
+                                <span>广告主：猿马科技</span>
+                                <span style="float: right;">状态：投放中</span>
+                                <span style="float: right;">出价方式：cpc</span>
+                            </p>
+                            <div class="layui-colla-content layui-show">
+                                <table class="layui-table" lay-even lay-skin="nob">
+                                    <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>投放时间</th>
+                                        <th>广告位展示</th>
+                                        <th>链接</th>
+                                        <th>数据</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>0123</td>
+                                        <td>2016-11-29 19:23<br>至2018-11-29:19:23</td>
+                                        <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                        <td>安卓：http://www.baidu.apk<br>iOS：http://www.baidu.ipa</td>
+                                        <td>展示次数：123<br>点击次数：12</td>
+                                        <td>
+                                            <div class="layui-btn-group">
+                                                <button class="layui-btn layui-btn-danger layui-btn-sm">删除</button>
+                                                <button class="layui-btn layui-btn-sm">数据</button>
+                                                <button class="layui-btn layui-btn-normal layui-btn-sm">详情</button>
+                                                <button class="layui-btn layui-btn-warm layui-btn-sm">日志</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="layui-colla-item">
+                            <p class="layui-colla-title">
+                                <input type="checkbox">
+                                <span>广告名称：名表免费领取</span>
+                                <span>广告主：猿马科技</span>
+                                <span style="float: right;">状态：投放中</span>
+                                <span style="float: right;">出价方式：cpc</span>
+                            </p>
+                            <div class="layui-colla-content layui-show">
+                                <table class="layui-table" lay-even lay-skin="nob">
+                                    <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>投放时间</th>
+                                        <th>广告位展示</th>
+                                        <th>链接</th>
+                                        <th>数据</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>0123</td>
+                                        <td>2016-11-29 19:23<br>至2018-11-29:19:23</td>
+                                        <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                        <td>安卓：http://www.baidu.apk<br>iOS：http://www.baidu.ipa</td>
+                                        <td>展示次数：123<br>点击次数：12</td>
+                                        <td>
+                                            <div class="layui-btn-group">
+                                                <button class="layui-btn layui-btn-danger layui-btn-sm">删除</button>
+                                                <button class="layui-btn layui-btn-sm">数据</button>
+                                                <button class="layui-btn layui-btn-normal layui-btn-sm">详情</button>
+                                                <button class="layui-btn layui-btn-warm layui-btn-sm">日志</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="layui-colla-item">
+                            <p class="layui-colla-title">
+                                <input type="checkbox">
+                                <span>广告名称：红包到你手</span>
+                                <span>广告主：猿马科技</span>
+                                <span style="float: right;">状态：投放中</span>
+                                <span style="float: right;">出价方式：cpc</span>
+                            </p>
+                            <div class="layui-colla-content layui-show">
+                                <table class="layui-table" lay-even lay-skin="nob">
+                                    <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>投放时间</th>
+                                        <th>广告位展示</th>
+                                        <th>链接</th>
+                                        <th>数据</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>0123</td>
+                                        <td>2016-11-29 19:23<br>至2018-11-29:19:23</td>
+                                        <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                        <td>安卓：http://www.baidu.apk<br>iOS：http://www.baidu.ipa</td>
+                                        <td>展示次数：123<br>点击次数：12</td>
+                                        <td>
+                                            <div class="layui-btn-group">
+                                                <button class="layui-btn layui-btn-danger layui-btn-sm">删除</button>
+                                                <button class="layui-btn layui-btn-sm">数据</button>
+                                                <button class="layui-btn layui-btn-normal layui-btn-sm">详情</button>
+                                                <button class="layui-btn layui-btn-warm layui-btn-sm">日志</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-container" style="margin-left: 0;margin-top: 10px;">
+                        <input type="checkbox">
+                        <button class="layui-btn layui-btn-primary layui-btn-xs">启用</button>
+                        <button class="layui-btn layui-btn-primary layui-btn-xs">暂停</button>
+                        <button class="layui-btn layui-btn-primary layui-btn-xs">删除</button>
+                    </div>
+                    <div id="demo11" style="text-align: center;"></div>
+                    <div style="margin-top: 20px;">
+                        <p>管理日志</p>
+                        <p>2018-08-12 19:12:36 admin 删除了 app下载投放</p>
+                    </div>
+                </div>-->
+                <div class="layui-tab-item layui-show">
+                    <div class="logo-header" style="height: 35px;">
+                        <!--<div style="float: left;">-->
+                            <!--<button class="layui-btn layui-btn-primary layui-btn-xs" data-num="1">启用</button>-->
+                            <!--<button class="layui-btn layui-btn-primary layui-btn-xs" data-num="2">暂停</button>-->
+                            <!--<button class="layui-btn layui-btn-primary layui-btn-xs" data-num="3">结束</button>-->
+                            <!--<button class="layui-btn layui-btn-primary layui-btn-xs" data-num="9">删除</button>-->
+                        <!--</div>-->
+                        <button class="layui-btn layui-btn-normal addLogo" style="float: right;">新增</button>
+                    </div>
+                    <table class="layui-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="selAll" style="width: 20px;height: 20px;vertical-align: middle;margin-left: 10px;"></th>
+                                <th>编号</th>
+                                <th>商家名称</th>
+                                <th>商家logo</th>
+                                <th>展示次数</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {volist name="list" id="vo" empty="$empty"}
+                            <tr>
+                                <td><input type="checkbox" style="width: 20px;height: 20px;vertical-align: middle;margin-left: 10px;"></td>
+                                <td>{$vo.id}</td>
+                                <td>{$vo.t_name}</td>
+                                <td><img src="{$vo.t_logo}" alt="" style="height: 35px"></td>
+                                <td>{$vo.show_num}</td>
+                                <td style="min-width:50px;">
+                                    <form class="layui-form" action="">
+                                        <div class="layui-input-block" style="margin-left: 0;">
+                                            <input type="checkbox" name="switch" value="{$vo.id}" lay-skin="switch" lay-filter="status" lay-text="启用|停用" {eq name="vo.status" value="1"}checked{/eq}>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td><a onclick="return false;" href="javascript:;" class="delLogo" data-id="{$vo.id}">删除</a></td>
+                            </tr>
+                            {/volist}
+                        </tbody>
+                    </table>
+                    {$page|raw}
+                    <div style="margin-top: 20px;">
+                        <p>管理日志</p>
+                        <p>2018-08-12 19:12:36 admin 删除了 app下载投放</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mark"></div>
+    <div class="logo-model">
+        <div class="model-title">
+            <span>添加LOGO</span>
+            <i class="layui-icon layui-icon-close"></i>
+        </div>
+        <div class="model-body">
+            <form action="" class="layui-form" id="MyLogoAdd" enctype="multipart/form-data" style="text-align: center;">
+                <div class="layui-form-item">
+                    <label class="layui-form-label" style="min-width: 100px;">商家名称：</label>
+                    <div class="layui-input-block" style="margin-left: 115px;">
+                        <input type="text" name="name" required  lay-verify="required" placeholder="请输入商家名称" autocomplete="off" class="layui-input" style="width: 80%;">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" style="min-width: 100px;">商家logo：</label>
+                    <div class="layui-input-block" style="margin-left: 130px;">
+                        <div class="img-wrapper">
+                            <!--/static/admin/images/personal_center_logo.png-->
+                            <img id="show" src="" alt="">
+                            <input id="file" type="file" name="image" accept="image/*" value="" size="80" onchange="changepic(this)">
+                        </div>
+                    </div>
+                </div>
+                <button class="layui-btn layui-btn-normal add-logo-sure">确定</button>
+            </form>
+        </div>
+    </div>
+</div>
+{load href="/static/admin/layui/layui.js" /}
+{load href="/static/admin/js/index.js" /}
+{load href="/static/admin/js/advertisement.js" /}
+</body>
+</html>

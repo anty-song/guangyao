@@ -1,0 +1,385 @@
+$(function(){
+
+    var token=$("input[name='__token__']").val();
+    // 头部admin展开
+    var adminBtn=$('.header>.topItem>ul>li:last-child');
+    var adminBox=$('.header>.topItem>span')
+    adminBtn.on('click',function () {
+        if(adminBox.css('display')=='block'){
+            adminBox.css('display','none');
+            $(this).css('backgroundImage',"url('/static/style/prototype/images/adminup.png')")
+            $(this).removeClass('on')
+        }else {
+            adminBox.css('display','block')
+            $(this).css('backgroundImage',"url('/static/style/prototype/images/admindown.png')")
+            $(this).addClass('on')
+        }
+    })
+
+    // 头部修改密码
+    var replacePwdBtn=$('.header>.topItem>span>a').eq(0);
+    var replacePwdBox=$('.mylayer2.admin2')
+    replacePwdBtn.on('click',function () {
+        replacePwdBox.parent().css('display','block');
+        replacePwdBox.css('display','block');
+    })
+// _______________________________________________________________________________________________
+
+    // 选择文件夹按钮
+    var thatPid=0
+    var thatName=[];
+    var typeBagsBtn=$('.option-item>.information>input[type=button]');
+    var uploadBox=$('.uploadBox>.oaMain_uploadinging');
+    var uploadBagsList=$('.oaMain_uploadinging>.move_window>.moveMain')
+    var uploadWindonX = $('.oaMain_uploadinging>.move_window>p>a');
+    var uploadAddBtn = $('.oaMain_uploadinging>.move_window>#moveAddBtn');
+    var uploadYesBtn = $('.oaMain_uploadinging>.move_window>#moveYesBtn');
+    var uploadNoBtn = $('.oaMain_uploadinging>.move_window>#moveNoBtn');
+
+    // 点击显示上传到弹窗
+    typeBagsBtn.on('click',function () {
+        thatPid=0
+        $('input[name="pid"]').val(thatPid);
+        $('.option-item>.information>p>span').html("根目录");
+        uploadBox.css('display','block');
+        $.ajax({
+            type:"GET",
+            url:"/showFolder",
+            contentType:'application/json',
+            success: function(data){
+                $('.oaMain_uploadinging>.move_window>.moveMain').html(data)
+            }
+        })
+    })
+    // 上传到弹窗X关闭
+    uploadWindonX.on('click', function () {
+        uploadBox.css('display', 'none')
+        thatPid=0
+        $('input[name="pid"]').val(thatPid);
+        $('.option-item>.information>p>span').html('根目录');
+
+    })
+    // 上传到弹窗取消
+    uploadNoBtn.on('click', function () {
+        uploadBox.css('display', 'none')
+        thatPid=0
+        $('input[name="pid"]').val(thatPid);
+        $('.option-item>.information>p>span').html('根目录');
+        // console.log($('input[name="pid"]').val());
+
+    })
+
+// 上传到中的新建
+    uploadAddBtn.on('click', function () {
+        var addBagName = prompt('要创建的文件夹名字')
+        token=$("input[name='__token__']").val();
+        var url=$(this).attr('data-addUrl')
+        if(addBagName!=null){
+            var obj={title:addBagName,token:token,pid:thatPid}
+            $.ajax({
+                type:'GET',
+                url:url,
+                contentType: 'application/json',
+                data:obj,
+                success:function (data) {
+                    if(data.code==1){
+                        alert(data.msg);
+                    }else{
+                        alert(data.msg)
+                    }
+                }
+            })
+        }
+    })
+// 上传到确认
+    uploadYesBtn.on('click', function () {
+        if(thatPid==0){
+            thatName='根目录';
+        }
+        $('input[name="pid"]').val(thatPid);
+        $('.option-item>.information>p>span').html(thatName);
+        uploadBox.css('display', 'none')
+    })
+
+// 移动到中的展开和关闭文件夹
+    uploadBagsList.on('click','ul li a',function () {
+        thatName=[];
+        thatPid=$(this).parent().attr('itemid');
+        $('input[name="pid"]').val(thatPid);
+        // 删除点亮展开
+        if($(this).parent().next().is('ul')){
+            $(this).parent().next().remove();
+            $(this).parent().addClass('on');
+        } else {
+            // 展开点亮
+            var obj={pid:thatPid};
+            $(this).parent().siblings('ul').remove();
+            $(this).parent().siblings('li').removeClass('on')
+            $(this).parent().addClass('on');
+            var that=$(this);
+            $.ajax({
+                type:"GET",
+                url:"/showFolder",
+                data:obj,
+                contentType:'application/json',
+                success: function(data){
+                    if((that).parent().after().is('li')){
+                        that.parent().after(data);
+                    }
+                }
+            })
+        }
+        $('.oaMain_uploadinging>.move_window>.moveMain ul li').each(function (idx,ele) {
+            if($(ele).hasClass('on')){
+                thatName.push($(ele).find('span').html())
+            }
+        })
+        thatName=thatName.join(' > ')
+        // console.log(thatPid);
+        console.log(thatName);
+    })
+
+
+
+
+
+
+    // ______________________________________________________________________________________
+
+    $("input[type='password']").each(function(){
+        $(this).attr('autocomplete','new-password');
+    })
+    // ie浏览器文件上传点击隐藏光标
+    $('#markss').click(function(){
+        $(this).blur();
+    })
+    // 获取当前用户的itemid
+    $('.uid').val($('.userID').attr('userid'));
+    // if($('.admin-item .layui-colla-content ul li').length>3){
+    //     console.log($(this));
+    //     $(this).parents('.layui-colla-content').find('.loadMore').css('display','block');
+    // }
+    // 每个卡片内ul列表li数量超过5个，显示查看更多按钮
+    $('.admin-item .layui-colla-content ul').each(function(){
+        if($(this).find('li').length>=5){
+            $(this).next().css('display','block');
+        }
+    })
+    layui.use(['element','form','laypage','layer','laydate','upload','carousel'],function(){
+        var element=layui.element;
+        var form=layui.form;
+        var laypage=layui.laypage;
+        var layer=layui.layer;
+        var laydate=layui.laydate;
+        var upload=layui.upload;
+        var carousel=layui.carousel;
+        /* 弹层-功能演示-触发弹层 */
+        var admin=layui.admin;
+        element.render();
+        var active = {
+            test12: function(){
+                layer.msg('已复制完成');
+            },
+            test13: function(){
+                layer.msg('修改成功');
+            },
+        };
+        // 复制路径
+        $('.copy').on('click', function(){
+            var type = $(this).data('type');
+            active[type] && active[type].call(this);
+            $('.pvalue2').select();
+            document.execCommand("copy");
+        });
+        // 选择创建新连接或者替换原有链接
+        $('.options p').click(function(){
+            $(this).find('i').addClass('selected');
+            $(this).siblings().find('i').removeClass('selected');
+            var index=$(this).index()+1;
+            $('.option-item>div:nth-child('+index+')').css('display','block').siblings().css('display','none');
+        })
+        // 鼠标移出隐藏下拉框
+        $('.upurl').mouseleave(function(){
+            $('.searchable-select-dropdown').addClass('searchable-select-hide');
+        })
+        // 选择下拉框
+        // $('.down-wrapper ul').on('click','li',function(){
+        //     $('.upurl .down-wrapper').css('height','0');
+        //     $('.layui-icon-down').removeClass('rotatei');
+        //     $('.upload-url').val($(this).find('span').text());
+        //     $('.progectID').val($(this).attr('class'));
+        //     $('.searchable-select-input').val('');
+        // })
+        // 发布
+        $('.release').click(function(){
+            if($('#markss').attr('value')==''){
+                alert('上传文件不能为空!');
+            }else{
+                var index=$('.selected').parent().index()+1;
+                $('.seltype').val(index);
+                if(index==1 && $('.upload-name').val()==''){
+                    alert('请补全名称！');
+                }else{
+                    var formData = new FormData($("#myForm")[0]);
+                    console.log(formData);
+                    $.ajax({
+                        url: '/addupdate',
+                        type: 'POST',
+                        data: formData,
+                        async: false,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function(data) {
+                            console.log(data);
+                            $('.shadow').css('display','block');
+                            $('.mylayer').fadeIn();
+                            $('.mylayer .pvalue2').text(data.data.pro_url).attr('href','http://'+data.data.pro_url);
+                            $('.mylayer .pvalue3').text(data.data.password_show);
+                            $('.mylayer .pvalue1').text(data.data.title);
+                            $('.mylayer .h2').text(data.msg);
+                        },
+                        error: function(data) {
+                            var json = data.responseText;
+                            layer.msg(JSON.parse(json).msg);
+                        }
+                    });
+                    console.log($('input[name="pid"]').val(thatPid));;
+                }
+            }
+        })
+        // 关闭弹框
+        $('.close-layer').click(function(){
+            $('.shadow').css('display','none');
+            $('.mylayer').css('display','none');
+            $('.mylayer1').css('display','none');
+            $('.mylayer2').css('display','none');
+            window.location.reload();
+        })
+
+        // 管理账户修改密码
+        $('.layui-collapse').on('click','.userpass',function(e){
+            e.stopPropagation();
+            console.log('aaa');
+            var t=$(this).val();
+            $(this).removeAttr('readonly').val('').focus().val(t);
+        })
+        // 管理员修改密码
+        $('.userpass').blur(function(){
+            $(this).attr('readonly','readonly');
+            var userid=$(this).parents('.layui-colla-item').attr('userid');
+            var repassword=$(this).val();
+            $.ajax({
+                type:'post',
+                url:'/editpassword',
+                data:{ow:2,repassword:repassword,userid:userid},
+                dataType:'json',
+                success:function(data){
+                    layer.msg(data.msg);
+                    setTimeout(function(){
+                        window.location.reload();
+                    },500);
+                },
+                error: function(data) {
+                    var json = data.responseText;
+                    layer.msg(JSON.parse(json).msg);
+                }
+            })
+        })
+        // 创建账户
+        $('.create').click(function(){
+            $('.shadow').css('display','block');
+            $('.admin').fadeIn();
+        })
+        // 创建账户确认
+        $('.admin .sure').click(function(){
+            var username=$('.cname').val();
+            var password=$('.cpassword').val();
+            var token=$(".admin input[name='__token__']").val();
+            if(username==''||password==''){
+                alert('请补全信息！');
+            }else{
+                $.ajax({
+                    type:'post',
+                    url:'/adduser',
+                    data:{username:username,password:password,__token__:token},
+                    dataType:'json',
+                    success:function(data){
+                        layer.msg('创建成功');
+                        $('.shadow').css('display','none');
+                        $('.mylayer1').fadeOut();
+                        setTimeout(function(){
+                            window.location.reload();
+                        },500);
+                    },
+                    error: function(data) {
+                        var json = data.responseText;
+                        layer.msg(JSON.parse(json).msg);
+                    }
+                })
+            }
+        })
+        // 个人中心点击修改密码
+        $('.modify').click(function(e){
+            e.stopPropagation();
+            $('.shadow').css('display','block');
+            $('.mylayer2').fadeIn();
+            var userid=$('.userID').attr('userid');
+        })
+        // 个人中心修改密码提交
+        $('.mylayer2 .sure').click(function(){
+            var userid=$('.userID').attr('userid');
+            var repassword=$('.newpassword').val();
+            var oldpassword=$('.oldpassword').val();
+            $.ajax({
+                type:'post',
+                url:'/editpassword',
+                data:{ow:1,userid:userid,repassword:repassword,password:oldpassword},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    $('.shadow').css('display','none');
+                    $('.mylayer2').fadeOut();
+                    layer.msg('密码修改成功');
+                    setTimeout(function(){
+                        window.location.href="/loginout";
+                    },1000)
+                },
+                error: function(data) {
+                    var json = data.responseText;
+                    layer.msg(JSON.parse(json).msg);
+                }
+            })
+        })
+        // 模态框取消
+        $('.cancel').click(function(){
+            $('.shadow').css('display','none');
+            $('.mylayer1').css('display','none');
+        })
+        // 禁用
+        $('.layui-collapse').on('click','form div',function(e){
+            e.stopPropagation();
+            var userid=$(this).parents('.layui-colla-item').attr('userid');
+            var status;
+            if($(this).hasClass('layui-form-onswitch')){
+                status=1;
+            }else{
+                status=2;
+            }
+            $.ajax({
+                type:'post',
+                url:'/disable',
+                data:{userid:userid,status:status},
+                // dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    layer.msg('修改成功');
+                },
+                error: function(data) {
+                    var json = data.responseText;
+                    layer.msg(JSON.parse(json).msg);
+                }
+            })
+        })
+    });
+})

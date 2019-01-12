@@ -1,0 +1,54 @@
+{extend name="common/base" /}
+
+{block name="head"}{__block__}{/block}
+
+{block name="body"}
+
+    <script src="/static/style/prototype/js/admin.js"></script>
+    <div class="container" style="margin-top: 0;border: none;">
+        <button class="layui-btn layui-btn-normal create">创建账户</button>
+        <div class="layui-collapse admin-item">
+        {foreach name="list" item="vo"}
+            <div class="layui-colla-item" userid="{$vo.userid}">
+                <div class="layui-colla-title">
+                    <div>
+                        <span style="width: 2rem;">
+                            <span>用户名：</span>
+                            <span>{$vo.username}</span>
+                        </span>
+                        <span class="span2">
+                            <span>密码：</span>
+                            <input type="text" class="userpass" value="{$vo.password_show}" readonly="readonly">
+                        </span>
+                        <form class="layui-form mydisable">
+                            {if condition="$vo.status == 1"}
+                            <input type="checkbox" class="checked{$vo.status}" checked lay-skin="switch" lay-text="激活|禁用">
+                            {else /}
+                            <input type="checkbox" class="checked{$vo.status}" lay-skin="switch" lay-text="激活|禁用">
+                            {/if}
+                        </form>
+                    </div>
+                    <p>
+                        <a class="loadMore" href="/index?userid={$vo['userid']}">查看他的项目</a>
+                    </p>
+                </div>
+            </div>
+        {/foreach}
+        </div>
+    </div>
+    <div class="shadow"></div>
+    <div class="mylayer1 admin">
+        <img class="close-layer" src="/static/style/prototype/images/link_generation_tc_close@2x.png" alt="">
+        <p class="h2">创建账户</p>
+        <input type="text" class="layui-input cname" name="uname" placeholder="用户名" autocomplete="off" lay-verify="required">
+        <input type="password" class="layui-input cpassword" name="upassword" placeholder="密码" autocomplete='new-password' lay-verify="required">
+        <button type="button" class="cancel" style="margin-right: .3rem;">取消</button>
+        {:token()}
+        <button type="button" class="sure">确认</button>
+    </div>
+{$page}
+{/block}
+
+{block name="foot"}
+{__block__}
+{/block}

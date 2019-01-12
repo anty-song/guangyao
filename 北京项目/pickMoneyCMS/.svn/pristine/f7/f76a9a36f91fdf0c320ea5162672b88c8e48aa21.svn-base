@@ -1,0 +1,555 @@
+<?php
+/**
+ * 数据统计model
+ * User: zhushengli
+ * Date: 18/9/18
+ * Time: 上午9:09
+ */
+namespace app\admin\model;
+
+
+use Think\Db;
+
+class StatisticsModel extends BaseModel
+{
+    protected $config_table = 'b_millions_config';
+    protected $game_ad_table = 'b_game_ad_list';
+    protected $millions_count_table = 'b_millions_count';
+    protected $question_reward_table = 'b_question_reward';
+    protected $question_reward_data_table = 'b_question_reward_data';
+    protected $question_count_table = 'b_question_count';
+    protected $adv_list_table = 'b_adv_list';
+    protected $adv_config_table = 'b_adv_config';
+    protected function initialize()
+    {
+        parent::initialize();
+    }
+
+    /**
+     * 百万红包数据统计
+     * @param string $start_time [开始时间,时间戳]
+     * @param string $end_time [结束时间,时间戳]
+     * @return array
+     */
+    public function getMillionCount($start_time = '',$end_time = '')
+    {
+        //百万红包拆完金额sql
+        $openRedMoneySql = "SELECT sum(c_103) as b FROM `b_millions_count` where addtime between $start_time and $end_time";
+//        $openRedMoney = Db::table($this->millions_count_table)->whereBetweenTime('addtime',$start_time,$end_time)->sum('c_103');
+        //百万红包点击数sql
+        $clickCountSql = "SELECT sum(c_105) as b FROM `b_millions_count` where addtime between $start_time and $end_time";
+        //邀请成功人数
+        $inviteSuccessSql = "SELECT sum(c_104) as b FROM `b_millions_count` where addtime between $start_time and $end_time";
+        //拆包个数统计sql
+        $openRedSql = "SELECT sum(c_102) as b FROM `b_millions_count` where addtime between $start_time and $end_time";
+        //百万红包拆完金额
+        $openRedMoney = Db::query($openRedMoneySql);
+        //百万红包点击数
+        $clickCount = Db::query($clickCountSql);
+        //邀请成功人数
+        $inviteSuccess = Db::query($inviteSuccessSql);
+        //拆红包个数
+        $openRed = Db::query($openRedSql);
+        //每个档位红包拆包成功率
+        $successRes = Db::table($this->config_table)->where([
+            ['c_act_id','=',1],
+            ['status','=',1]
+        ])->field('c_all_task_num,c_all_task_success')->select();
+        $data = [
+            'openRed'=>$openRed,
+            'openRedMoney'=>$openRedMoney,
+            'clickCount'=>$clickCount,
+            'inviteSuccess'=>$inviteSuccess,
+            'successRes' =>$successRes
+        ];
+        return $data;
+    }
+
+    /**
+     * 双11活动数据统计
+     * @param string $start_time [开始时间,时间戳]
+     * @param string $end_time [结束时间,时间戳]
+     * @return array
+     */
+    public function getQuestionCount($start_time = '',$end_time = '')
+    {
+        //每种装备的生成人数、识别人数
+        $res = Db::table($this->question_reward_table)->select();
+
+        // 进入活动人数
+        $enter = Db::query("SELECT * FROM `b_question_count` where type=1 and createtime between $start_time and $end_time");
+
+        // 弹层打开人数
+        $layer = Db::query("SELECT count(ip) as num FROM `b_question_count` where type=2 and createtime between $start_time and $end_time");
+
+        // 下载页打开人数
+        $download_open = Db::query("SELECT count(ip) as num FROM `b_question_count` where type=3 and createtime between $start_time and $end_time");
+
+        // 下载页下载人数
+        $download_down = Db::query("SELECT count(ip) as num FROM `b_question_count` where type=4 and createtime between $start_time and $end_time");
+        
+        // 活动首页的退出率
+        $quit_num = 0;
+        foreach ($enter as $k => $v) {
+            // 统计退出人数
+            $where = "ip = '" . $v['ip'] . "' and type != 1 and createtime between " . $start_time . " and " . $end_time;
+            $info = Db::table($this->question_count_table)->where($where)->count();
+            if($info==0){
+            
+                $quit_num++;
+            }
+       
+        }
+   
+        // 退出率
+        if(count($enter)){
+            $quit_rate = round(($quit_num/count($enter) * 100),2);
+        }else{
+            $quit_rate = 0;
+        }
+        
+        $data = [
+            'res' =>$res,
+            'enter_num' =>count($enter),
+            'layer_num' =>$layer[0]['num'],
+            'download_open_num' =>$download_open[0]['num'],
+            'download_down_num' =>$download_down[0]['num'],
+            'quit_rate' =>$quit_rate,
+        ];
+        return $data;
+    }
+
+    /**
+     * 双11活动数据统计 - 每日装备生成数据列表
+     * @param string $start_time [开始时间,时间戳]
+     * @param string $end_time [结束时间,时间戳]
+     * @return array
+     */
+    public function getRewardList($reward_id,$start_time = '',$end_time = '',$type = 1)
+    {
+        $where = "reward_id = ".$reward_id;
+
+        $reward_info = Db::table($this->question_reward_table)->field('title')->where($where)->find();
+
+        if($start_time!=''&&$end_time!=''){
+            $where .= " AND createtime >= ".$start_time." AND createtime <=".$end_time;
+        }
+        $where .= " AND type=".$type; //人数类型
+        $field = "count(id) as count, FROM_UNIXTIME(createtime, '%Y-%m-%d') as datetime";
+        //每种装备的生成人数、识别人数
+        $res = Db::table($this->question_reward_data_table)->field($field)->where($where)->group('datetime')->select();
+        
+        $data['res'] = $res;
+        $data['title'] = $reward_info['title'];
+
+        return $data;
+    }
+
+    /**
+     * 广告数据统计
+     * @param string $start_time [开始时间]
+     * @param string $end_time [结束时间]
+     * @return array
+     */
+
+    /**
+     * 广告数据统计
+     * @param string $day [某一天]
+     */
+    public function initAddCount($day = '')
+    {
+
+        $start_time = strtotime($day.' 00:00:00');//开始时间
+        $end_time = $start_time + 60 * 60 * 24 - 1;//结束时间
+
+        //定义一些表
+        $adv_show_table = get_db_table_name('adv_show',1,$day);
+        $adv_count_day_table = get_db_table_name('adv_count_day');
+        //百万红包广告
+        $old_adv_show_table = get_db_table_name('1_adv_show',1,$day);
+        $old_adv_img_table = get_db_table_name('1_adv_img');
+
+        $day_where = null;
+        $day_where[] = ['day','=',date('Ymd',$start_time)];
+        $is_have_data = Db::table($adv_count_day_table)->where($day_where)->find();
+        if (!$is_have_data) {//没有结果
+
+            $new_adv_list = Db::table($this->adv_list_table)->field('id,ad_title')->where('status=1')->select();
+            foreach ($new_adv_list as $one) {
+                //初始化统计数据
+                $count1 = 0;
+                $count2 = 0;
+                $count3 = 0;
+                //新广告统计
+                //去b_adv_show_m1810取一天某广告ID的数据=count1
+                $adv_config_where = null;
+                $adv_config_where[] = ['ad_list_id', '=', $one['id']];
+                $list_id = Db::table($this->adv_config_table)->where($adv_config_where)->field('id')->select();
+                foreach ($list_id as $two) {
+                    $adv_show_where = null;
+                    $adv_show_where[] = ['l_gid', '=', $two['id']];
+                    $adv_show_where[] = ['addtime', 'between time', [$start_time, $end_time]];
+                    $count1 += Db::table($adv_show_table)->where($adv_show_where)->count();
+                }
+
+                //游戏广告统计
+                //去game_prize取一天某广告ID的数据=count2
+                if ($end_time < strtotime('2018-11-02 00:00:00')) {
+                    $game_adv_where = null;
+                    $game_adv_where[] = ['ad_title', '=', $one['ad_title']];
+                    $list_id = Db::table($this->game_ad_table)->where($game_adv_where)->field('id')->select();
+                } else {
+                    $game_adv_where = null;
+                    $game_adv_where[] = ['ad_list_id', '=', $one['id']];
+                    $list_id = Db::table($this->adv_config_table)->where($game_adv_where)->field('id')->select();
+                }
+
+                foreach ($list_id as $two) {
+                    $ad_id = $two['id'];
+                    $adShowSql = "SELECT sum(a.cc) as all_num FROM (
+            SELECT count(id) as cc,uid FROM `b_game_prize_u0` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+            union all
+            SELECT count(id) as cc,uid FROM `b_game_prize_u1` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+            union all
+            SELECT count(id) as cc,uid FROM `b_game_prize_u2` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+            union all
+            SELECT count(id) as cc,uid FROM `b_game_prize_u3` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+            union all
+            SELECT count(id) as cc,uid FROM `b_game_prize_u4` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+            union all
+            SELECT count(id) as cc,uid FROM `b_game_prize_u5` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+            union all
+            SELECT count(id) as cc,uid FROM `b_game_prize_u6` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+            union all
+            SELECT count(id) as cc,uid FROM `b_game_prize_u7` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+            union all
+            SELECT count(id) as cc,uid FROM `b_game_prize_u8` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+            union all
+            SELECT count(id) as cc,uid FROM `b_game_prize_u9` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+            ) as a";
+
+                    $db_ad_list = Db::query($adShowSql);
+                    $count2 += $db_ad_list['0']['all_num'];
+                }
+
+                //百万红包广告
+                //去b_1_adv_show_m1810取一天某广告ID的数据=count3
+                $old_adv_config_where = null;
+                $old_adv_config_where[] = ['ad_title', '=', $one['ad_title']];
+                $list_id = Db::table($old_adv_img_table)->where($old_adv_config_where)->field('id')->select();
+                foreach ($list_id as $two) {
+                    $adv_show_where = null;
+                    $adv_show_where[] = ['l_gid', '=', $two['id']];
+                    $adv_show_where[] = ['addtime', 'between time', [$start_time, $end_time]];
+                    $count3 += Db::table($old_adv_show_table)->where($adv_show_where)->count();
+                }
+
+                //查询时间条件在adv_count_day中是否有记录，如果没有就添加，有就更新
+                $count_day_where = null;
+                $count_day_where[] = ['day', '=', date('Ymd', $start_time)];
+                $count_day_where[] = ['gid', '=', $one['id']];
+                $count_day_res = Db::table($adv_count_day_table)->where($count_day_where)->find();
+                if ($count_day_res) {//有结果更新数据
+                    $up_data['count1'] = $count1;
+                    $up_data['count2'] = $count2;
+                    $up_data['count3'] = $count3;
+                    $up_data['count'] = $count1 + $count2 + $count3;
+                    $up_where = null;
+                    $up_where['id'] = $count_day_res['id'];
+                    Db::table($adv_count_day_table)->where($up_where)->data($up_data)->update();
+                } else {//无结果插入数据
+                    $add_data['count1'] = $count1;
+                    $add_data['count2'] = $count2;
+                    $add_data['count3'] = $count3;
+                    $add_data['count'] = $count1 + $count2 + $count3;
+                    $add_data['gid'] = $one['id'];
+                    $add_data['day'] = date('Ymd', $start_time);
+                    $add_data['addtime'] = get_time();
+                    Db::table($adv_count_day_table)->data($add_data)->insert();
+                }
+            }
+        }
+    }
+
+    /**
+     * 初始化30天广告统计数据
+     * @param $day [初始化结束时间]
+     */
+    public function initThirty($day1,$day2)
+    {
+        //30天之前时间戳
+        //$thirty_days_ago = $day - 60 * 60 * 24 * 30;
+        for ($i = $day1;$i <= $day2;$i += 60 * 60 * 24){
+            $this->initAddCount(date('Y-m-d',$i));
+        }
+    }
+
+    /**
+     * 广告数据统计
+     * @param string $start_time [开始时间]
+     * @param string $end_time [结束时间]
+     * @return array
+     */
+    public function getAdCount($start_time = '',$end_time = '')
+    {
+        //每次点击统计前7天的数据
+        $today = get_time();
+        //7天前时间戳
+        $seven_day_ago = $today - 60 * 60 * 24 * 7;
+        for($i = $seven_day_ago;$i < $today;$i += 60 * 60 * 24){
+            $this->initAddCount(date('Y-m-d',$i));
+        }
+        //v2 Jason 2018-11-06
+        $adv_count_day_table = get_db_table_name('adv_count_day');
+        $where[] = ['day', '>=', date('Ymd',$start_time)];
+        $where[] = ['day', '<=', date('Ymd',$end_time)];
+        //所有广告展示总数
+        $count = Db::table($adv_count_day_table)->where($where)->sum('count');
+        $ad_list_show = Db::table($adv_count_day_table)
+            ->alias('c')
+            ->field('l.ad_title as name,sum(c.count) as count')
+            ->leftJoin($this->adv_list_table.' l','c.gid = l.id')
+            ->group('gid')
+            ->where($where)
+            ->select();
+        $data = [
+            'ad_all_show'=>$count,
+            'ad_list_show'=>$ad_list_show,
+        ];
+        return $data;
+
+        //统计广告曝光数
+        /*if(time() < strtotime('2018-12-01')){
+
+            //----第一部分:游戏广告----
+//            $adPersonsSql = "SELECT sum(a.b) as all_num FROM (
+//			SELECT count(id) as b,uid FROM `b_game_prize_u0` where p_status = 1 and addtime between $start_time and $end_time group by uid
+//			union all
+//			SELECT count(id) as b,uid FROM `b_game_prize_u1` where p_status = 1 and addtime between $start_time and $end_time group by uid
+//			union all
+//			SELECT count(id) as b,uid FROM `b_game_prize_u2` where p_status = 1 and addtime between $start_time and $end_time group by uid
+//			union all
+//			SELECT count(id) as b,uid FROM `b_game_prize_u3` where p_status = 1 and addtime between $start_time and $end_time group by uid
+//			union all
+//			SELECT count(id) as b,uid FROM `b_game_prize_u4` where p_status = 1 and addtime between $start_time and $end_time group by uid
+//			union all
+//			SELECT count(id) as b,uid FROM `b_game_prize_u5` where p_status = 1 and addtime between $start_time and $end_time group by uid
+//			union all
+//			SELECT count(id) as b,uid FROM `b_game_prize_u6` where p_status = 1 and addtime between $start_time and $end_time group by uid
+//			union all
+//			SELECT count(id) as b,uid FROM `b_game_prize_u7` where p_status = 1 and addtime between $start_time and $end_time group by uid
+//			union all
+//			SELECT count(id) as b,uid FROM `b_game_prize_u8` where p_status = 1 and addtime between $start_time and $end_time group by uid
+//			union all
+//			SELECT count(id) as b,uid FROM `b_game_prize_u9` where p_status = 1 and addtime between $start_time and $end_time group by uid
+//			) as a";
+//            //统计广告曝光数
+//            $adPersons = Db::query($adPersonsSql);
+
+            $i_game_all = 0;
+            $game_ad_list = Db::table($this->game_ad_table)->field('id,ad_title')->where("ad_status = 1")->select();
+            //每个广告的展现统计
+            foreach ($game_ad_list as $k => $v) {
+                $ad_id = $v['id'];
+                $time_range = " and addtime between $start_time and $end_time";
+                $time_range = " ";
+                $adShowSql = "SELECT sum(a.cc) as all_num FROM (
+				SELECT count(id) as cc,uid FROM `b_game_prize_u0` where p_type = 1 and p_id = $ad_id $time_range
+				union all
+				SELECT count(id) as cc,uid FROM `b_game_prize_u1` where p_type = 1 and p_id = $ad_id $time_range
+				union all
+				SELECT count(id) as cc,uid FROM `b_game_prize_u2` where p_type = 1 and p_id = $ad_id $time_range
+				union all
+				SELECT count(id) as cc,uid FROM `b_game_prize_u3` where p_type = 1 and p_id = $ad_id $time_range
+				union all
+				SELECT count(id) as cc,uid FROM `b_game_prize_u4` where p_type = 1 and p_id = $ad_id $time_range
+				union all
+				SELECT count(id) as cc,uid FROM `b_game_prize_u5` where p_type = 1 and p_id = $ad_id $time_range
+				union all
+				SELECT count(id) as cc,uid FROM `b_game_prize_u6` where p_type = 1 and p_id = $ad_id $time_range
+				union all
+				SELECT count(id) as cc,uid FROM `b_game_prize_u7` where p_type = 1 and p_id = $ad_id $time_range
+				union all
+				SELECT count(id) as cc,uid FROM `b_game_prize_u8` where p_type = 1 and p_id = $ad_id $time_range
+				union all
+				SELECT count(id) as cc,uid FROM `b_game_prize_u9` where p_type = 1 and p_id = $ad_id $time_range
+				) as a";
+                $db_ad_list = Db::query($adShowSql);
+                $i_game_all = $i_game_all + $db_ad_list[0]['all_num'];
+                $adShow[$v['ad_title']] = $db_ad_list[0]['all_num'];
+            }
+
+            //----第二部分:百万广告----
+            $i_million_all = 0;
+            $million_all_sql = "SELECT SUM(ad_count) as cc from b_1_adv_img where status = 1";
+            $db_million_all = Db::query($million_all_sql);
+            $i_million_all = $db_million_all[0]['cc'];
+
+            $million_list_sql = "SELECT ad_title,SUM(ad_count) as cc from b_1_adv_img where status = 1 GROUP BY ad_title ;";
+            $db_million_list = Db::query($million_list_sql);
+            foreach ($db_million_list as $v){
+                $adShow2[$v['ad_title']] = $v['cc'];
+            }
+
+
+            //----第三部分:最新广告----
+            $i_new_all = 0;
+            $new_all_sql = "SELECT SUM(ad_show_count) as cc from b_adv_config where status = 1";
+            $db_new_all = Db::query($new_all_sql);
+            $i_new_all = $db_new_all[0]['cc'];
+
+            $new_list_sql = "SELECT ad_title,SUM(ad_show_count) as cc from b_adv_config where status = 1 GROUP BY ad_title ;";
+            $db_new_list = Db::query($new_list_sql);
+            foreach ($db_new_list as $v){
+                $adShow3[$v['ad_title']] = $v['cc'];
+            }
+
+            //----第三部分:汇总----
+            $ad_all_show = $i_game_all + $i_million_all + $i_new_all;
+
+            foreach ( $adShow3 as $k=>$v){
+                $arr = [];
+                $arr['name'] = $k;
+                $i1 = isset($adShow[$k]) ? $adShow[$k]: 0;
+                $i2 = isset($adShow2[$k]) ? $adShow2[$k]: 0;
+                $i3 = isset($adShow3[$k]) ? $adShow3[$k]: 0;
+                $arr['count'] = $i1 + $i2 + $i3;
+                $ad_list_show[] = $arr;
+            }
+
+        } else {
+            $i_new_all = 0;
+            $new_all_sql = "SELECT SUM(ad_count) as cc from b_adv_config where status = 1";
+            $db_new_all = Db::query($new_all_sql);
+            $i_new_all = $db_new_all[0]['cc'];
+
+            $new_list_sql = "SELECT ad_title,SUM(ad_count) as cc from b_adv_config where status = 1 GROUP BY ad_title ;";
+            $db_new_list = Db::query($new_list_sql);
+            foreach ($db_new_list as $v){
+                $adShow3[$v['ad_title']] = $v['cc'];
+            }
+
+            $ad_all_show = $i_new_all;
+            $ad_list_show = $db_new_list;
+        }
+        $data = [
+            'ad_all_show'=>$ad_all_show,
+            'ad_list_show'=>$ad_list_show,
+        ];
+        return $data;*/
+    }
+
+    /**
+     * 游戏数据统计
+     * @param string $start_time [开始时间]
+     * @param string $end_time [结束时间]
+     * @return array
+     */
+    public function getGameCount($start_time = '',$end_time = '')
+    {
+        //红包未领取sql
+        $noReceivedSql = "SELECT sum(a.b) as all_num FROM (
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u0` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u1` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u2` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u3` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u4` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u5` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u6` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u7` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u8` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u9` where red_status = 1 and addtime between $start_time and $end_time group by uid
+) as a";
+        //红包领取sql
+        $receivedSql = "SELECT sum(a.b) as all_num FROM (
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u0` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u1` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u2` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u3` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u4` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u5` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u6` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u7` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u8` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u9` where red_status = 2 and addtime between $start_time and $end_time group by uid
+) as a";
+        //总消耗sql
+        $totalUseSql = "SELECT sum(a.b) as all_num FROM (
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u0` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u1` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u2` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u3` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u4` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u5` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u6` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u7` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u8` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u9` where addtime between $start_time and $end_time group by uid
+) as a";
+        //未领取红包数
+        $noReceived = Db::query($noReceivedSql);
+        //已领取红包数
+        $received = Db::query($receivedSql);
+        //总消耗
+        $totalUse = Db::query($totalUseSql);
+        //统计游戏的人数
+        $gamePersonsSql = "SELECT count(a.b) as all_num FROM (
+SELECT count(id) as b,uid FROM `b_game_prize_u0` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u1` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u2` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u3` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u4` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u5` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u6` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u7` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u8` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u9` where  addtime between $start_time and $end_time group by uid
+) as a";
+        //统计游戏的人数
+        $gamePersons = Db::query($gamePersonsSql);
+        $data = [
+            'gamePersons'=>$gamePersons,
+            'noReceived'=>$noReceived,
+            'received'=>$received,
+            'totalUse'=>$totalUse,
+        ];
+        return $data;
+
+    }
+}

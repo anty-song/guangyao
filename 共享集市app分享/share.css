@@ -1,0 +1,523 @@
+/* ===============================================================
+Reset Styles 
+================================================================*/
+@charset "utf-8";
+
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    /* 解决IOS默认滑动很卡的情况 */
+    -webkit-overflow-scrolling : touch;
+}
+
+/* 禁止缩放表单 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+    resize: none;
+    border: none;
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* 图片自适应 */
+img {
+    width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    display: block;
+    -ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 12px/1.5 'Microsoft YaHei','宋体', Tahoma, Arial, sans-serif;
+    color: #555;
+    background-color: #fff;
+}
+em, i {
+    font-style: normal;
+}
+ul,li{
+    list-style-type: none;
+}
+strong {
+    font-weight: normal;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+a {
+    text-decoration: none;
+    color: #969696;
+    font-family: 'Microsoft YaHei', Tahoma, Arial, sans-serif;
+}
+a:hover {
+    text-decoration: none;
+}
+ul, ol {
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-family: 'Microsoft YaHei';
+}
+img {
+    border: none;
+}
+input{
+    font-family: 'Microsoft YaHei';
+}
+/*单行溢出*/
+.one-txt-cut{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*多行溢出 手机端使用*/
+.txt-cut{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+}
+/* 移动端点击a链接出现蓝色背景问题解决 */
+a:link,a:active,a:visited,a:hover {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+.w50{
+    width: 50%;
+}
+.w25{
+    width: 25%;
+}
+.w20{
+    width: 20%;
+}
+.w33{
+    width: 33.333333%;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.db{
+    display: block !important;
+}
+.dn{
+    display: none;
+}
+/* ===============================================================
+Share Contents 
+================================================================*/
+.share-wrap {
+    width: 10rem;
+    margin: 0 auto;
+}
+.share-top {
+    height: 1.87rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: .01rem solid #ccc;
+    border-bottom: .01rem solid #ccc;
+    padding: 0 .4rem;
+}
+.owner {
+    display: flex;
+    align-items: center;
+}
+.owner-img {
+    width: 1.07rem;
+    height: 1.07rem;
+    margin-right: .24rem;
+    border-radius: .05rem;
+    overflow: hidden;
+}
+.owner-nickname {
+    font-size: .37rem;
+    color: #222;
+}
+.owner-info {
+    font-size: .32rem;
+    color: #888;
+}
+.chat {
+    width: 2rem;
+    height: 1.07rem;
+    border-radius: .53rem;
+    color: #fff;
+    font-size: .4rem;
+    line-height: 1.07rem;
+    background: #3cbdec;
+    text-align: center;
+}
+/* 轮播 */
+.device {
+    width: 8.53rem;
+    height: 4rem;
+    margin: .07rem auto;
+    position: relative;
+    box-shadow: 0 .07rem .13rem 0 rgba(0,0,0,.3);
+}
+.device .swiper-container {
+    height: 4rem;
+    width: 8.53rem;
+}
+.device .pagination {
+    position: absolute;
+    left: 0;
+    text-align: center;
+    bottom:.07rem;
+    width: 100%;
+    z-index: 1;
+}
+.device .swiper-pagination-switch {
+    display: inline-block;
+    width: .13rem;
+    height: .13rem;
+    border-radius: .13rem;
+    background: #ccc;
+    box-shadow: 0px 1px 2px #555 inset;
+    margin: 0 .07rem;
+    cursor: pointer;
+}
+.device .swiper-active-switch {
+    background: #808080;
+    width: .24rem;
+}
+.good-info {
+    background: #fafafa;
+}
+.good-info-head {
+    padding: .47rem .4rem;
+}
+.good-name,
+.good-price {
+    font-size: 0;
+}
+.good-name span {
+    display: inline-block;
+    vertical-align: top;
+}
+.good-name span:nth-child(1) {
+    width: 1.07rem;
+    height: .48rem;
+    font-size: .27rem;
+    background: #3cbdec;
+    color: #fff;
+    text-align: center;
+    line-height: .48rem;
+    border-radius: .24rem;
+}
+.good-name span:nth-child(2) {
+    font-size: .43rem;
+    color: #3c3c3c;
+    margin-left: .45rem;
+    line-height: .48rem;
+}
+.good-price {
+    margin-top: .4rem;
+}
+.good-price span:nth-child(1) {
+    font-size: .32rem;
+    color: #3cbdec;
+}
+.good-price span:nth-child(2) {
+    font-size: .61rem;
+    line-height: .61rem;
+    margin: 0 4px;
+    color: #3cbdec;
+}
+.good-price span:nth-child(3) {
+    font-size: .32rem;
+    color: #999;
+}
+.good-info-body {
+    background: #fff;
+    padding: 0 .4rem;
+}
+.good-info-item {
+    height: 1.17rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    font-size: .37rem;
+    color: #666;
+}
+.note {
+    color: #3cbdec;
+}
+.location-ico {
+    width: .36rem;
+    height: .43rem;
+    margin-right: .2rem;
+}
+.arrow-ico {
+    width: .23rem;
+    height: .4rem;
+}
+.good-info-foot {
+    margin-top: .21rem;
+    height: 1.68rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 .4rem 0 .67rem;
+    background: #fff;
+}
+.owner1 {
+    display: flex;
+    align-items: center;
+}
+.owner1-img {
+    width: 1.07rem;
+    height: 1.07rem;
+    margin-right: .27rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.dongjia {
+    width: 1.07rem;
+    height: .67rem;
+}
+.owner1-nickname {
+    display: flex;
+}
+.owner1-nickname span {
+    font-size: .4rem;
+    color: #333;
+    margin-right: .29rem;
+}
+.owner1-info {
+    font-size: .35rem;
+    color: #888;
+}
+.chat1 {
+    width: 1.47rem;
+    height: .69rem;
+    border: 1px solid #3cbdec;
+    color: #3cbdec;
+    border-radius: .13rem;
+    font-size: .37rem;
+    text-align: center;
+    line-height: .67rem;
+    box-sizing: border-box;
+}
+.panel-block {
+    background: #fafafa;
+    padding-bottom: .72rem;
+}
+.switch-btns {
+    padding: .33rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+.switch-btn {
+    width: 2.27rem;
+    height: .8rem;
+    border-radius: .4rem;
+    text-align: center;
+    line-height: .8rem;
+    font-size: .37rem;
+    color: #808080;
+}
+.panel {
+    width: 9.47rem;
+    margin: 0 auto;
+    border-radius: .11rem;
+    overflow: hidden;
+    box-shadow: 0 0 .13rem 0 rgba(0,0,0,.1);
+}
+.block {
+    display: block;
+}
+.none {
+    display: none;
+}
+.panel-body {
+    background: #fff;
+}
+.panel1 .panel-body {
+    padding: .4rem .53rem;
+    font-size: .32rem;
+    line-height: .53rem;
+    color: #3c3c3c;
+}
+.panel-heading {
+    height: .8rem;
+    color: #3c3c3c;
+    font-size: .37rem;
+    text-align: center;
+    line-height: .8rem;
+    background-color: #dcf2ff;
+}
+.panel2 .panel-body {
+    padding: 0 .27rem;
+}
+.record {
+    height: 1.17rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: .37rem;
+}
+.record-left,
+.record-right {
+    display: flex;
+    align-items: center;
+}
+.record-avatar {
+    width: .53rem;
+    height: .53rem;
+    border-radius: 50%;
+}
+.record-name {
+    color: #222;
+    margin: 0 .21rem;
+}
+.record-state {
+    width: 1.2rem;
+    height: .4rem;
+    border: 1px solid #3cbdec;
+    font-size: .29rem;
+    line-height: .4rem;
+    text-align: center;
+    color: #3cbdec;
+    border-radius: .05rem;
+}
+.record-time {
+    color: #b3b3b3;
+    margin-right: .32rem;
+}
+.record-arrow {
+    width: .23rem;
+    height: .4rem;
+}
+.more-record {
+    padding: .2rem 0;
+    font-size: .32rem;
+    color: #3cbdec;
+    text-align: center;
+    background: #fff;
+}
+.record-down-btn {
+    width: .31rem;
+    height: .16rem;
+    margin: .21rem auto 0;
+}
+.switch-btns .active {
+    color: #3c3c3c;
+    background: #fff;
+    box-shadow: 0 0 .13rem 0 rgba(0,0,0,.1);
+}
+.torent {
+    height: 1.19rem;
+    padding-top: .12rem;
+}
+.torent a {
+    display: block;
+    width: 9.2rem;
+    margin: 0 auto;
+    height: 1.07rem;
+    line-height: 1.07rem;
+    font-size: .4rem;
+    color: #fff;
+    text-align: center;
+    border-radius: .53rem;
+    background: #3cbdec;
+}
+/* ===============================================================
+Basic Swiper Styles 
+================================================================*/
+.swiper-container {
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	/* Fix of Webkit flickering */
+	z-index:1;
+}
+.swiper-wrapper {
+	position:relative;
+	width:100%;
+	-webkit-transition-property:-webkit-transform, left, top;
+	-webkit-transition-duration:0s;
+	-webkit-transform:translate3d(0px,0,0);
+	-webkit-transition-timing-function:ease;
+	
+	-moz-transition-property:-moz-transform, left, top;
+	-moz-transition-duration:0s;
+	-moz-transform:translate3d(0px,0,0);
+	-moz-transition-timing-function:ease;
+	
+	-o-transition-property:-o-transform, left, top;
+	-o-transition-duration:0s;
+	-o-transform:translate3d(0px,0,0);
+	-o-transition-timing-function:ease;
+	-o-transform:translate(0px,0px);
+	
+	-ms-transition-property:-ms-transform, left, top;
+	-ms-transition-duration:0s;
+	-ms-transform:translate3d(0px,0,0);
+	-ms-transition-timing-function:ease;
+	
+	transition-property:transform, left, top;
+	transition-duration:0s;
+	transform:translate3d(0px,0,0);
+	transition-timing-function:ease;
+
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.swiper-free-mode > .swiper-wrapper {
+	-webkit-transition-timing-function: ease-out;
+	-moz-transition-timing-function: ease-out;
+	-ms-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	margin: 0 auto;
+}
+.swiper-slide {
+	float: left;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+	-ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+	-ms-touch-action: pan-x;
+}

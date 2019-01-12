@@ -1,0 +1,958 @@
+<?php
+//特别注意:数据库写接口调用日志索引[index]默认到200，如果超过200必须去b_1_api_count表增加字段，否则sql报错!!!
+return ['api_list' => 
+
+array(
+    array(
+        'ads_list_index',			//APP客户端唯一标识
+        'ads_list_index',			//PHP端参数action值
+        '2.0/ads/get.ads.php',		//接口地址
+        '1',						//哪个服务器
+        '2',						//是否加密1：不加密，2：加密
+        array('old_action' => ''),	//接口备注
+        array(),					//接口参数
+        '101'						//接口序号
+    ),
+    array(
+        'member_activate_invite',
+        'member_activate_invite',
+        '2.0/member/activate_invite_code.php',
+        '2',
+        '2',
+        array('old_action' => 'activate_invite_code'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'invite_code'
+        ),
+        '102'
+    ),
+    array(
+        'member_contact_index',
+        'member_contact_index',
+        '2.0/member/contact.php',
+        '2',
+        '2',
+        array('old_action' => 'contact'),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '103'
+    ),
+    array(
+        'member_login_apply',
+        'member_login_apply',
+        '2.0/member/member.php',
+        '1',
+        '2',
+        array('old_action' => 'third_login'),
+        array(
+            'time',
+            'openid',
+            'avatar_url',
+            'nickname',
+            'type',
+            'device_token',
+            'login_type',
+            'unionid'
+        ),
+        '104'
+    ),
+    array(
+        'member_invite_friends',
+        'member_invite_friends',
+        '2.0/member/member.php',
+        '2',
+        '2',
+        array('old_action' => 'invite_friends'),
+        array(
+            'time',
+            'uid',
+            'query_date',
+        ),
+        '105'
+    ),
+    array(
+        'member_invite_record',
+        'member_invite_record',
+        '2.0/member/member.php',
+        '2',
+        '2',
+        array('old_action' => 'invite_award_record'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'type',
+            'query_date',
+        ),
+        '106'
+    ),
+//    array(
+//        'get_server_info',
+//        'get_server_info',
+//        '2.0/member/member.php',
+//        '1',
+//        '2',
+//        array('old_action' => ''),
+//        array(
+//            'time',
+//            'uid',
+//            'auth'
+//        )
+//    ),
+    array(
+        'member_upload_img',
+        'member_upload_img',
+        '2.0/member/member.php',
+        '1',
+        '2',
+        array('old_action' => 'get_upload_img_info'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'get_type',
+            'img_type'
+        ),
+        '107'
+    ),
+//    array(
+//        'member_red_package_edit',//myred_post
+//        'member_red_package_edit',//myred_post
+//        '2.0/member/myred.php',
+//        '1',
+//        '2',
+//        array('old_action' => ''),
+//        array(
+//            'time',
+//            'uid',
+//            'auth',
+//            'type',
+//            'ad_text',
+//            'money',
+//            'num',
+//            'range',
+//            'is_password',
+//            'password',
+//            'lng',
+//            'lat',
+//        )
+//    ),
+    array(
+        'member_red_package_edit',
+        'member_red_package_edit',
+        '2.0/member/myred.php',
+        '1',
+        '2',
+        array('old_action' => 'post'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'type',
+            'ad_text',
+            'money',
+            'num',
+            'range',
+            'is_password',
+            'password',
+            'lng',
+            'lat',
+            'img_type',
+        ),
+        '108'
+    ),
+    array(
+        'member_red_package_record',
+        'member_red_package_record',
+        '2.0/member/myred.php',
+        '2',
+        '2',
+        array('old_action' => 'record'),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '109'
+    ),
+    array(
+        'member_red_package_comment',
+        'member_red_package_comment',
+        '2.0/member/myred.php',
+        '2',
+        '2',
+        array('old_action' => 'comment'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'ad_id',
+            'content',
+        ),
+        '110'
+    ),
+    array(
+        'member_red_package_like',
+        'member_red_package_like',
+        '2.0/member/myred.php',
+        '2',
+        '2',
+        array('old_action' => 'like'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'ad_id',
+            'comment_id',
+        ),
+        '111'
+    ),
+    array(
+        'member_stock_trend',
+        'member_stock_trend',
+        '2.0/member/myred.php',
+        '2',
+        '2',
+        array('old_action' => 'stock_trend'),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '112'
+    ),
+    array(
+        'member_my_stock',
+        'member_my_stock',
+        '2.0/member/myred.php',
+        '1',
+        '2',
+        array('old_action' => 'my_stock'),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '113'
+    ),
+    array(
+        'member_msg_list',
+        'member_msg_list',
+        '2.0/member/myred.php',
+        '2',
+        '2',
+        array('old_action' => 'msg'),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '114'
+    ),
+    array(
+        'member_notice_roll',
+        'member_notice_roll',
+        '2.0/member/notice.php',
+        '2',
+        '2',
+        array('old_action' => 'roll'),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '115'
+    ),
+    array(
+        'member_report_edit',
+        'member_report_edit',
+        '2.0/member/post.report.php',
+        '1',
+        '2',
+        array('old_action' => 'add'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'feedback_id',
+            'feedback_title',
+            'ad_id',
+            'content',
+        ),
+        '116'
+    ),
+    array(
+        'member_report_type',
+        'member_report_type',
+        '2.0/member/post.report.php',
+        '2',
+        '2',
+        array('old_action' => 'type'),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '117'
+    ),
+    array(
+        'member_system_msg',
+        'member_system_msg',
+        '2.0/member/push.php',
+        '1',
+        '2',
+        array('old_action' => 'push'),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '118'
+    ),
+    array(
+        'member_detail_msg',
+        'member_detail_msg',
+        '2.0/member/push.php',
+        '1',
+        '2',
+        array('old_action' => 'push_detail'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'pushid',
+        ),
+        '119'
+    ),
+    array(
+        'member_shop_sign',
+        'member_shop_sign',
+        '2.0/member/shop_sign.php',
+        '1',
+        '2',
+        array('old_action' => 'member_shop_sign'),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '120'
+    ),
+    array(
+        'member_shop_pay',
+        'member_wxpay_pay',
+        '2.0/member/shop_wxpay.php',
+        '1',
+        '2',
+        array('old_action' => 'pay'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'order_no',
+            'spbill_create_ip',
+        ),
+        '121'
+    ),
+    array(
+        'member_wxpay_pay',
+        'member_wxpay_pay',
+        '2.0/member/wxpay.php',
+        '1',
+        '2',
+        array('old_action' => 'pay'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'order_no',
+            'spbill_create_ip',
+        ),
+        '122'
+    ),
+    array(
+        'red_packet_invite_list',
+        'red_packet_invite_list',
+        '2.0/redpacket/post.invitepacket.php',
+        '1',
+        '2',
+        array('old_action' => 'list'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'page',
+            'query_date',
+        ),
+        '123'
+    ),
+    array(
+        'red_packet_invite_open',
+        'red_packet_invite_open',
+        '2.0/redpacket/post.invitepacket.php',
+        '1',
+        '2',
+        array('old_action' => 'open'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'inviteid',
+            'query_date',
+        ),
+        '124'
+    ),
+    array(
+        'red_packet_invite_comment',
+        'red_packet_invite_comment',
+        '2.0/redpacket/post.invitepacket.php',
+        '2',
+        '2',
+        array('old_action' => 'comment_list'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'adid',
+            'page',
+        ),
+        '125'
+    ),
+    array(
+        'red_packet_list',
+        'red_packet_list',
+        '2.0/redpacket/post.redpacket.php',
+        '1',
+        '2',
+        array('old_action' => 'list'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'lat',
+            'lng',
+        ),
+        '126'
+    ),
+    array(
+        'red_packet_open',
+        'red_packet_open',
+        '2.0/redpacket/post.redpacket.php',
+        '3',
+        '2',
+        array('old_action' => 'open'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'adid',
+            'password',
+        ),
+        '127'
+    ),
+    array(
+        'red_packet_wallet_stock',
+        'red_packet_wallet_stock',
+        '2.0/redpacket/wallet.php',
+        '1',
+        '2',
+        array('old_action' => 'stock_price'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'adid',
+            'password',
+        ),
+        '128'
+    ),
+    array(
+        'rule_about_us',
+        'rule_about_us',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'aboutus'),
+        array(),
+        '129'
+    ),
+    array(
+        'rule_pass_package',
+        'rule_pass_package',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'pas_rule'),
+        array(),
+        '130'
+    ),
+    array(
+        'rule_red_package',
+        'rule_red_package',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'redPack_rule'),
+        array(),
+        '131'
+    ),
+    array(
+        'rule_activity_dec',
+        'rule_activity_dec',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'redPack_rules'),
+        array(),
+        '132'
+    ),
+    array(
+        'rule_pay_question',
+        'rule_pay_question',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'zfquestion'),
+        array(),
+        '133'
+    ),
+    array(
+        'rule_user_guide',
+        'rule_user_guide',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'newrules'),
+        array(),
+        '134'
+    ),
+    array(
+        'rule_service_agree',
+        'rule_service_agree',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'service_agree'),
+        array(),
+        '135'
+    ),
+    array(
+        'rule_down_info',
+        'rule_down_info',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'download_app'),
+        array(),
+        '136'
+    ),
+    array(
+        'rule_complaint_info',
+        'rule_complaint_info',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'complaint'),
+        array(),
+        '137'
+    ),
+    array(
+        'rule_public_standard',
+        'rule_public_standard',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'publication_standard'),
+        array(),
+        '138'
+    ),
+    array(
+        'rule_cooperation_info',
+        'rule_cooperation_info',
+        '2.0/rule/get_rule.php',
+        '2',
+        '2',
+        array('old_action' => 'cooperation_url'),
+        array(),
+        '139'
+    ),
+    array(
+        'stock_my_record',
+        'stock_my_record',
+        '2.0/stock/get_my_record.php',
+        '2',
+        '2',
+        array('old_action' => 'my_stock_note'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'type',
+            'query_date',
+        ),
+        '140'
+    ),
+    array(
+        'stock_price_index',
+        'stock_price_index',
+        '2.0/stock/get_price.php',
+        '2',
+        '2',
+        array('old_action' => ''),
+        array(),
+        '141'
+    ),
+    array(
+        'stock_trend_index',
+        'stock_trend_index',
+        '2.0/stock/get_trend.php',
+        '2',
+        '2',
+        array('old_action' => ''),
+        array(),
+        '142'
+    ),
+    array(
+        'wallet_red_record_send',
+        'wallet_red_record_send',
+        '2.0/wallet/redrecord.php',
+        '2',
+        '2',
+        array('old_action' => 'post'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'query_date',
+        ),
+        '143'
+    ),
+    array(
+        'wallet_red_record_gain',
+        'wallet_red_record_gain',
+        '2.0/wallet/redrecord.php',
+        '2',
+        '2',
+        array('old_action' => 'get'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'query_date',
+        ),
+        '144'
+    ),
+    array(
+        'wallet_red_package_gain_list',
+        'wallet_red_package_gain_list',
+        '2.0/wallet/redrecord.php',
+        '1',
+        '2',
+        array('old_action' => 'get_one'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'id',
+        ),
+        '145'
+    ),
+    array(
+        'wallet_red_package_send_list',
+        'wallet_red_package_send_list',
+        '2.0/wallet/redrecord.php',
+        '2',
+        '2',
+        array('old_action' => 'post_one'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'adid',
+        ),
+        '146'
+    ),
+    array(
+        'wallet_red_package_gain_detail',
+        'wallet_red_package_gain_detail',
+        '2.0/wallet/redrecord.php',
+        '2',
+        '2',
+        array('old_action' => 'get_detail'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'ad_id',
+        ),
+        '147'
+    ),
+    array(
+        'wallet_stock_price',
+        'wallet_stock_price',
+        '2.0/wallet/wallet.php',
+        '2',
+        '2',
+        array('old_action' => 'stock_price_history'),
+        array(
+            'time',
+            'uid',
+            'auth',
+            'ad_id',
+        ),
+        '148'
+    ),
+    array(
+        'wallet_withdraw_record',
+        'wallet_withdraw_record',
+        '2.0/wallet/wallet.php',
+        '1',
+        '2',
+        array('old_action' => 'withdraw_record'),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '149'
+    ),
+    array(
+        'get_sts_key',
+        'get_sts_key',
+        '2.0/get_stskey.php',
+        '1',
+        '2',
+        array('old_action' => ''),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '150'
+    ),
+    array(
+        'member_update_avatar',
+        'member_update_avatar',
+        '2.0/member/member.php',
+        '1',
+        '2',
+        array('old_action' => ''),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '151'
+    ),
+    array(//提现接口
+        'member_withdraw_deposit',
+        'member_withdraw_deposit',
+        'weixin2.0/1.01/cash.php',
+        '1',
+        '2',
+        array('old_action' => ''),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '152'
+    ),
+    array(//分享图片
+        'member_share_pictures',
+        'member_share_pictures',
+        'weixin2.0/get_share_pic.php',
+        '1',
+        '2',
+        array('old_action' => ''),
+        array(
+            'time',
+            'uid',
+            'auth',
+        ),
+        '153'
+    ),
+    array(//获取百万红包用户状态
+        'millions_user_status',
+        'millions_user_status',
+        'millions/index',           //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '154'                       //接口序号
+    ),
+    array(                          //好友帮拆页
+        'millions_friend_show',
+        'millions_friend_show',
+        'millions/index',           //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '155'                       //接口序号
+    ),
+    array(//当日红包已领完页面
+        'millions_all_get',
+        'millions_all_get',
+        'millions/index',           //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '156'                       //接口序号
+    ),
+    array(                          //百万红包待领红包页面
+        'millions_get_packet',
+        'millions_get_packet',
+        'millions/index',           //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '157'                       //接口序号
+    ),
+    array(                          //百万红包正在拆红包
+        'millions_open_packet',
+        'millions_open_packet',
+        'millions/index',           //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '158'                       //接口序号
+    ),
+    array(                          //百万红包提现
+        'millions_get_cash',
+        'millions_get_cash',
+        'millions/index',           //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '159'                       //接口序号
+    ),
+    array(                          //百万红包首次拆红包
+        'millions_first_packet',
+        'millions_first_packet',
+        'millions/index',           //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '160'                       //接口序号
+    ),
+    array(                          //百万红包规则页
+        'millions_rules_url',
+        'millions_rules_url',
+        'millions/index',           //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '161'                       //接口序号
+    ),
+    /*array(//百万红包分享（获取分享图片）
+        'millions_share_pic',
+        'millions_share_pic',
+        'millions/index',			//接口地址
+        '4',						//哪个服务器
+        '1',						//是否加密1：不加密，2：加密
+        array('old_action' => ''),	//接口备注
+        array(),					//接口参数
+        '162'						//接口序号
+    ),*/
+    array(                          //百万红包分享（获取分享图片）
+        'millions_share_pic',
+        'millions_share_pic',
+        'weixin2.0/millions_share_pic.php',//接口地址
+        '1',                        //哪个服务器
+        '1',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '162'                       //接口序号
+    ),
+    array(                          //百万红包好友帮拆
+        'millions_friend_open',
+        'millions_friend_open',
+        'millions/index',           //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '163'                       //接口序号
+    ),
+    array(//2018-09-11 16:48        APP游戏--奖品红包详情接口
+        'get_redpacket_detail',     //
+        'get_redpacket_detail',     //
+        'game/index',               //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '165'                       //接口序号
+    ),
+    array(//2018-09-11 16:51        APP游戏--我的奖品 接口
+        'get_game_prize_list',      //
+        'get_game_prize_list',      //
+        'game/index',               //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '166'                       //接口序号
+    ),
+    array(//2018-09-11 16:53        APP游戏--淘宝客商品列表
+        'get_tbk_list',             //
+        'get_tbk_list',             //
+        'game/index',               //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '167'                       //接口序号
+    ),
+    array(//2018-09-20 16:53        进入游戏验证初始化
+        'init_game_param',             //
+        'init_game_param',             //
+        'game/index',               //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '168'                       //接口序号
+    ),
+    array(                             //广告控制
+        'red_packet_ad_control',       //
+        'red_packet_ad_control',       //
+        '2.0/member/member.php',       //接口地址
+        '2',                           //哪个服务器
+        '2',                           //是否加密1：不加密，2：加密
+        array(),                       //接口备注
+        array(                         //接口参数
+            'type',                    //
+            'mark',                    //
+        ),                             //
+        '169'                          //接口序号
+    ),
+    array(//2018-09-27 16:53        首页游戏红包进入，判断次数
+        'entry_game',               //
+        'entry_game',               //
+        'game/index',               //接口地址
+        '4',                        //哪个服务器
+        '2',                        //是否加密1：不加密，2：加密
+        array('old_action' => ''),  //接口备注
+        array(),                    //接口参数
+        '170'                       //接口序号
+    ),
+
+
+
+),
+
+];

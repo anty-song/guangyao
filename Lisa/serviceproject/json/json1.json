@@ -1,0 +1,70 @@
+{
+	"status": 1,
+	"time": 1541063549,
+	"data": {
+		"case_data": [{
+			"caseid": "169",
+			"case_title": "的风格风格的",
+			"case_explains": "电饭锅电饭锅",
+			"case_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/case\/201811\/01\/1558026374515.jpg"
+		}, {
+			"caseid": "168",
+			"case_title": "的范德萨发生发生",
+			"case_explains": "的师傅的说法是发",
+			"case_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/case\/201811\/01\/1557492025545.jpg"
+		}, {
+			"caseid": "167",
+			"case_title": "案例展示",
+			"case_explains": "案例展示",
+			"case_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/case\/201811\/01\/1547438974951.jpg"
+		}, {
+			"caseid": "166",
+			"case_title": "新的案例",
+			"case_explains": "我是第二条案例啦",
+			"case_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/case\/201811\/01\/1013072545138.jpg"
+		}],
+		"bus_data": [{
+			"businessid": "170",
+			"title": "的范德萨发生",
+			"explains": "水电费第三方",
+			"bus_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/business\/201811\/01\/1557208352682.jpg"
+		}, {
+			"businessid": "169",
+			"title": "的官方的说法是",
+			"explains": "的范德萨发生",
+			"bus_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/business\/201811\/01\/1557034497707.jpg"
+		}, {
+			"businessid": "168",
+			"title": "水电费的说法是",
+			"explains": "的是范德萨范德萨",
+			"bus_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/business\/201811\/01\/1556438872133.jpg"
+		}, {
+			"businessid": "167",
+			"title": "是水电费水电费",
+			"explains": "的是发生发的是",
+			"bus_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/business\/201811\/01\/1556295989054.jpg"
+		}],
+		"news_data": [{
+			"newsid": "74",
+			"articletitle": "新闻标题1",
+			"addtime": "2018.11.01"
+		}],
+		"con_data": [{
+			"lxrname": "联系人2",
+			"phone": "15412525212",
+			"lxr_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/contacts\/201811\/01\/1548227783565.jpg"
+		}, {
+			"lxrname": "联系人1",
+			"phone": "15412525252",
+			"lxr_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/contacts\/201811\/01\/1548063078082.jpg"
+		}],
+		"logo": {
+			"logo_imgurl": "http:\/\/110.249.185.45:8100\/file\/upload\/login\/201810\/30\/1821538381270.jpg",
+			"company": "xxx公司",
+			"copyright_logo": "Copyright @ 2018.All rights reserved.",
+			"website": "www.gongxiang.com",
+			"slideshow": "http:\/\/110.249.185.45:8100\/file\/upload\/login\/201810\/30\/1821535493132.jpg"
+		}
+	},
+	"msg": ""
+}

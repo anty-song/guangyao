@@ -1,0 +1,13 @@
+window.onload=function(){
+	$.ajax({
+		type:"",
+		url:"",
+		data:"",
+		success:function(){
+
+		},
+		error:function(){
+
+		}
+	})
+}

@@ -1,0 +1,76 @@
+<?php /*a:1:{s:49:"D:\WWW\tp_test\qianbao\admin\view\login\home.html";i:1540956425;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="/static/admin/layui/css/layui.css" />
+    <script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body{background: #f2f2f2}
+        .login-main{
+            width: 600px;height: 300px;margin: 10% auto;text-align: center;
+        }
+        .login-title{
+            font-size: 30px;font-weight: 300;margin-bottom: 10px;color: #000
+        }
+        .layui-input-block{margin: 0}
+        .layui-form-item{
+            width: 260px;
+        }
+        .layui-btn{width: 260px}
+    </style>
+</head>
+<body>
+<div class="login-main">
+    <h2 class="login-title">登录</h2>
+    <form class="login-box layui-form" style="width: 260px;height:150px;margin: 0 auto">
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input type="text" name="username" required lay-verify="required" placeholder="账号" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="login">登 入</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="/static/admin/layui/layui.js"></script>
+<script>
+    layui.use('form', function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,url = "<?php echo url('admin/login/do_login'); ?>";
+        form.on('submit(login)',function (data) {
+            $.post(url,data.field,function (result) {
+                if(result.status == 1){
+                    return msgAndJump(result.msg,result.url,1000);
+                }else{
+                    return layer.msg(result.msg);
+                }
+            },'json');
+            return false;
+        });
+    });
+    function msgAndJump(message,url,second) {
+        layer.msg(message);
+        setTimeout(function () {
+            document.location.href=url;
+        },second);
+    }
+</script>
+</body>
+</html>

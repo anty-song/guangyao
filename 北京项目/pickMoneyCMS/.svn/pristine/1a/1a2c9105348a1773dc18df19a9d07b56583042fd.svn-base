@@ -1,0 +1,458 @@
+var tick,timer;
+var a=8.9;var ctx;var arcx;var r;var start=-90;var end=-90;var _width;
+function goBack() {
+    $('.dialog_success').hide();
+    $('.dialog_rules').hide();
+    $('.result1').hide();
+    $('.result2').hide();
+    $('.result3').hide();
+    $('.dialog_again').show();
+    $('.marsker').show();
+    clearInterval(tick);
+    clearInterval(timer);
+}
+// 锁屏
+function closeInterval(){
+    clearInterval(tick);
+    clearInterval(timer);
+}
+// 开屏
+function backInterval(){
+    if($('.marsker').css('display')=='none'){
+        timer=setInterval(fun2,100);
+        tick=setInterval(fun1,21.5);
+    }
+}
+// 从广告页面再返回答题游戏页面
+function backAnswer(){
+    if($('.response input').hasClass('selyes')){
+        nextItem();
+        $(".marsker").fadeOut();
+        $(".dialog_again").hide();
+    }else{
+        $(".marsker").fadeOut();
+        $(".dialog_again").hide();
+    }
+}
+window.onload=function(){
+    _width=$('.timer').width();
+    var Path = function() {
+        this.src = PATH_WEB+"/static/images/Answer/"
+    };
+    var path = new Path();
+    //新增加载所有图片方法
+    function getAllImage(){
+        var image_arr={image:[]};
+        Object.defineProperty(image_arr,'image',{
+            writable: true,
+            value: [
+                "bodybg.png",
+                "Close@2x.png",
+                "Correct__Rectangle@21x.png",
+                "icon-back.png",
+                "hb.png",
+                "nav_fh@2x.png",
+                "redpack_logo.png",
+                "rules_bg.png",
+                "rules_btn.png",
+                "Wronganswer_Cartoon@2x.png",
+                "Wronganswer_Rectangle@2x.png",
+                "ys@2x.png"
+            ]
+        });
+        var image_num=0;
+        var tick;
+        tick=setInterval(function(){
+            var img=new Image();
+            img.src=path.src+image_arr.image[image_num];
+            img.onload=function(){
+                image_num++;
+                // imgLoad(image_num,image_arr.image.length);
+                if(image_num===image_arr.image.length){
+                    clearInterval(tick);
+                }
+            }
+        },500/image_arr.image.length);
+
+        // function imgLoad(a,b){
+        //     return console.log("当前图片加载"+a+"/"+b);
+        // }
+    }
+    getAllImage();
+    $('.um-win').fadeOut();
+    $('.um-win').remove();
+};
+    var HB = new hbdtConfig();
+	$('.nav i').click(function(){
+	    goBack();
+    });
+	// 初始化答题
+    function huabu(){
+        // canvas绘制时间倒计时
+        arcx=_width;
+        r=_width/1.2;
+        ctx =document.getElementById('c1').getContext('2d');
+        ctx.beginPath();
+        ctx.arc(arcx,arcx,r, 0, 2*Math.PI);
+        ctx.strokeStyle = '#ff4b87';
+        ctx.lineWidth =9;
+        ctx.stroke();
+    }
+    var fun1=function(){
+        huabu();
+        ctx.beginPath();
+        ctx.arc(arcx,arcx,r,start*Math.PI/180, end*Math.PI/180);
+        end += 1;
+        ctx.strokeStyle = '#eee';
+        ctx.lineWidth =10;
+        ctx.stroke();
+        if(end==280){
+            clearInterval(tick);
+        }
+    };
+    // 数字倒计时
+    var fun2=function(){
+        a-=0.1;
+        $('.timer span').text(parseInt(a));
+        if(parseInt($('.timer span').text())<4){
+            $('.timer span').css('color','red');
+            // $('.timer span').animate({'font-size':'.6rem'}).animate({'font-size':'.4rem'});
+        }
+        if(parseInt(a)<1){
+            clearInterval(timer);
+            clearInterval(tick);
+            $('.marsker').fadeIn();
+            $('.result2').show();
+            $('.result2 .delay').val('delay');
+            $('.result2 .aduu').text($('.result2 a').attr('href'));
+            a=8.9;end=-90;
+        }
+    };
+    window.localStorage.setItem('hb_alert',false);
+    var uid=window.localStorage.getItem('uid');
+    var auth=window.localStorage.getItem('auth');
+    // auth="ab123456ab123456";
+    var device=window.localStorage.getItem('device');
+    var auth1=auth.slice(0,8);
+    console.log(auth1);
+    console.log(uid,auth,device);
+    var time=Math.round(new Date().getTime() / 1000);
+    var paramData={};
+    paramData['uid']=uid;
+    paramData['time']=time;
+    paramData['auth']=auth;
+    paramData['device']=device;
+    paramData['g_id']=1;
+    console.log(paramData);
+    paramData=JSON.stringify(paramData);
+    paramData=encryptByDES(paramData,auth1);
+    // 进入游戏弹框关闭开始玩
+    $('.result3 .clo3').click(function(){
+        $('.marsker').fadeOut();
+        $('.result3').css('display','none');
+        tick = setInterval(fun1,21.5);
+        timer=setInterval(fun2,100);
+        setTimeout(function(){
+            $.ajax({
+                type:'post',
+                url:HB.load.url,
+                data:{action:'fifteen_appear_game',uid:uid,reqType:2,paramData:paramData},
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    $('.nextgame').css('display','block');
+                },
+                error:function(){
+                    console.log('数据请求失败，请检查当前网络');
+                    tipError('数据请求失败，请检查当前网络');
+                }
+            });
+        },15000);
+    });
+    var questions=[];
+    function init(i){
+        $('.s1').text(questions[i].q_id+'/'+questions.length);
+        $('.question').html('<p class="'+questions[i].q_id+'" data-num="'+questions[i].q_option_answer+'">'+questions[i].q_id+'.'+questions[i].q_title+'</p>');
+        $('.question p').animate({'font-size':'.3rem','opacity':1});
+        var _html='';
+        for(key in questions[i].q_option){
+            _html+='<input type="button" data-num="'+key+'" value="'+questions[i].q_option[key]+'" class="animated fadeIn">';
+        }
+        // showError(JSON.stringify(questions[i]));
+        $('.response').html(_html);
+    }
+    $.ajax({
+        type:'post',
+        url:HB.load.url,
+        data:{action:'get_question_list',uid:uid,reqType:2,paramData:paramData},
+        dataType:'json',
+        success:function(data){
+            data=decryptByDES(data.res_data, auth1);
+            data=JSON.parse(data);
+            console.log(data);
+            questions=data.question_data;
+            // showError(questions);
+            //data中返回中将类型
+            $('.result2 a').attr('href',data.get_answer_ad_popout.ad_url);
+            var adurl=data.get_answer_ad_popout.ad_img;
+            var url=data.get_answer_ad_popout.ad_url;
+            var id=data.get_answer_ad_popout.id;
+            $('.advimg').attr({'src':adurl,'adurl':url});
+            $('.receive1').attr('id',id);
+// 			此处避免刷新页面重新弹出红包弹窗
+            if(localStorage.getItem('hb_alert')==true){
+                $('.marsker').fadeOut();
+                $('.result3').hide();
+            }else{
+                $('.marsker').fadeIn();
+                $('.result3').show();
+            }
+            init(0);
+        },
+        error:function(){
+            console.log('数据请求失败，请检查当前网络');
+            tipError('数据请求失败，请检查当前网络');
+        }
+    });
+    $('.response').on('click','input',function(){
+        console.log('weqqew');
+        $('.withe_mark').css('z-index',10);
+        //判断当前的题号
+        // var curQuestion=$('.question p').attr('class');
+        // 判断当前题的正确答案
+        var curCorrect=parseInt($('.question p').attr('data-num'))+1;
+        //判断所点击的选项
+        var inputIndex=parseInt($(this).attr('data-num'))+1;
+        var time=Math.round(new Date().getTime() / 1000);
+        var paramData={};
+        paramData['uid']=1001;
+        paramData['time']=time;
+        paramData['auth']=auth;
+        paramData['device']=device;
+        paramData=JSON.stringify(paramData);
+        paramData=encryptByDES(paramData,auth1);
+        $.ajax({
+            type:'post',
+            url:HB.correct.url,
+            data:{action:'get_next_question',uid:uid,reqType:2,paramData:paramData},
+            dataType:'json',
+            success:function(data){
+                $('.withe_mark').css('z-index',-1);
+                //data中应包含广告的路径、正确的题号
+                data=decryptByDES(data.res_data, auth);
+                data=JSON.parse(data);
+                console.log(data);
+                $('.response input').attr('disabled','disabled');
+                clearInterval(tick);
+                clearInterval(timer);
+                a=8.9;end=-90;
+                $('.result2 a').attr('href',data.ad_url);
+                // 判断是否正确答案
+                if(inputIndex==curCorrect){
+                    $('.response input:nth-child('+inputIndex+')').addClass('selyes');
+                    $('.counts').text(parseInt($('.counts').text())+1);
+                    $('.advimg').attr('src',data.ad_img);
+                    $('.advimg').attr('adurl',data.ad_url);
+                    $('.result1 .receive1').attr('id',data.id);
+                    setTimeout(function(){
+                        $('.marsker').fadeIn();
+                        $('.result1').css('display','block');
+                    },300)
+                }else{
+                    $('.response input:nth-child('+inputIndex+')').addClass('selno');
+                    $('.response input:nth-child('+curCorrect+')').addClass('selyes');
+                    $('.advimg').attr('src',data.ad_img);
+                    $('.advimg').attr('adurl',data.ad_url);
+                    setTimeout(function(){
+                        $('.marsker').fadeIn();
+                        $('.result2').css('display','block');
+                    },300)
+                }
+            },
+            error:function(){
+                console.log('数据请求失败，请检查当前网络');
+                tipError('数据请求失败，请检查当前网络');
+            }
+        })
+    });
+    // 叉号点击事件
+    function nextItem(){
+        $('.marsker').fadeOut();
+        $('.result1').css('display','none');
+        $('.result2').css('display','none');
+        var titleItem=parseInt($('.s1').text().split('/')[0]);
+        var total=parseInt($('.s1').text().split('/')[1]);
+        var correctNum=$('.counts').text();
+        if(titleItem<total){
+            init(titleItem);
+            $('.timer span').text('8').css('color','#000');
+        }else{
+            var paramData={};
+            paramData['uid']=uid;
+            paramData['time']=Math.round(new Date() / 1000);
+            paramData['auth']=auth;
+            paramData['device']=device;
+            paramData['answer_all_num']=total;
+            paramData['answer_right_num']=correctNum;
+            paramData=JSON.stringify(paramData);
+            paramData=encryptByDES(paramData,auth1);
+            $.ajax({
+                type:'post',
+                url:HB.end.url,
+                data:{action:'get_answer_last_result',uid:uid,reqType:2,paramData:paramData},
+                success:function(data){
+                    data=JSON.parse(data);
+                    data=decryptByDES(data.res_data, auth1);
+                    data=JSON.parse(data);
+                    console.log(data);
+                    window.location.href='answer_result.html?num='+correctNum+'&total='+total+'&result_sign='+data.answer_last_result.answer_result_sign+'&timestamp='+data.answer_last_result.times_tamp;
+                },
+                error:function(){
+                    console.log('数据请求失败，请检查当前网络');
+                    tipError('数据请求失败，请检查当前网络');
+                }
+            });
+        }
+    }
+    $('.clo').click(function(){
+        nextItem();
+        setTimeout(function(){
+            timer=setInterval(fun2,100);
+            tick=setInterval(fun1,21.5);
+        },100);
+    });
+    //	判断当前登陆设备
+    var agent = {
+        isAndroid: null,
+        isIOS: null,
+        isPhone: null,
+        isPC: null
+    };
+    var u = navigator.userAgent;
+    if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+        agent.isAndroid = true;
+        agent.isPhone = true;
+    } else if(u.indexOf('iPhone') > -1) {
+        agent.isIOS = true;
+        agent.isPhone = true;
+    } else {
+        agent.isPC = true;
+    }
+
+    // 查看规则
+    $('.ckgz').click(function(){
+        $('.marsker').fadeIn();
+        $('.dialog_rules').show();
+        clearInterval(tick);
+        clearInterval(timer);
+    });
+    // 关闭规则
+    $(".rules_close").click(function () {
+        $(".marsker").fadeOut();
+        $(".dialog_rules").hide();
+        timer=setInterval(fun2,100);
+        tick=setInterval(fun1,21.5);
+    });
+    // 退出挽留
+    $('.close_again').click(function(){
+        $(".marsker").fadeOut();
+        $(".dialog_again").hide();
+        timer=setInterval(fun2,100);
+        tick=setInterval(fun1,21.5);
+    });
+    // 继续玩
+    $('.againBtn').click(function(){
+        if($('.response input').hasClass('selyes')){
+            nextItem();
+            setTimeout(function(){
+                timer=setInterval(fun2,100);
+                tick=setInterval(fun1,21.5);
+            },100);
+            $(".marsker").fadeOut();
+            $(".dialog_again").hide();
+        }else{
+            $(".marsker").fadeOut();
+            $(".dialog_again").hide();
+            timer=setInterval(fun2,100);
+            tick=setInterval(fun1,21.5);
+        }
+    });
+    // 残忍拒绝
+    $('.refuse').click(function(){
+        window.location.href=PATH_WEB + "/h5/game.game_lobby/home";
+    });
+    // 下一个游戏
+    $('.nextgame').click(function(){
+        $.ajax({
+            type:'post',
+            url:HB.load.url,
+            data:{action:'fifteen_entry_game',uid:uid,reqType:2,paramData:paramData},
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                if(data.status==1){
+                    window.location.href=PATH_WEB + "/h5/game.lottery/home.html";
+                }
+            },
+            error:function(){
+                console.log('数据请求失败，请检查当前网络');
+                tipError('数据请求失败，请检查当前网络');
+            }
+        });
+    });
+
+    // 获奖弹出框点击"领"跳转app红包详情页面
+    $(".receive1").click(function () {
+        var adurl=$(this).prev().attr('adurl');
+        console.log(adurl);
+        $('.marsker').fadeOut();
+        $('.result1').hide();
+        $('.result3').hide();
+        if($('.response input').hasClass('selyes')){
+            nextItem();
+            $(".dialog_again").hide();
+        }
+        localStorage.setItem('hb_alert',true);
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToBrowser(adurl);
+        }else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':adurl});
+        }
+    });
+    // 点击广告跳转到外部广告链接
+    $('.advimg').click(function(){
+        var adurl=$(this).attr('adurl');
+        $('.marsker').fadeOut();
+        $('.result1').hide();
+        $('.result2').hide();
+        $('.result3').hide();
+        if($('.response input').hasClass('selyes')){
+            nextItem();
+            $(".dialog_again").hide();
+        }else if($('.result2 .delay').val()=='delay'){
+            nextItem();
+            $(".marsker").fadeOut();
+            $(".result2").hide();
+        }
+        localStorage.setItem('hb_alert',true);
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToBrowser(adurl);
+        }else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'openUrl','url':adurl});
+        }
+    });
+    // 跳转我的奖品页面
+    $(".my-price").click(function() {
+        clearInterval(tick);
+        clearInterval(timer);
+        //点击我的奖品跳转
+        if(agent.isAndroid && agent.isPhone) {
+            an.jumpToMyReward('1');//andriod
+        } else if(agent.isIOS && agent.isPhone) {
+            window.webkit.messageHandlers.scan.postMessage({'action':'goPrice','item':'1'});
+        }
+    });
+    function showError(a){
+        $('.nav').css('line-height','14px');
+        $('.nav span').text(a).css({'font-size':'10px','white-space':'normal','line-height':'14px','word-wrap':'break-word'});
+    }

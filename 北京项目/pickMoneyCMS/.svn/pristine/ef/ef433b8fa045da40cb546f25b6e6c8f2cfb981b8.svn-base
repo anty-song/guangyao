@@ -1,0 +1,52 @@
+/*
+*识别移动设备
+*检测相应的设备
+*/ 
+// var ua = navigator.userAgent;
+// var system = {
+// 	win: false,
+// 	mac: false,
+// 	x11: false,
+// 	//mobile
+// 	iphone: false,
+// 	ipad: false,
+// 	ios: false,
+// 	android: false,
+// 	winMobile: false
+// };
+//
+// var p = navigator.platform;
+//
+// system.win = p.indexOf('Win') == 0;
+// system.mac = p.indexOf('Mac') == 0;
+// system.x11 = (p == 'x11') || (p.indexOf('Linux') == 0);
+//
+// system.iphone = ua.indexOf('iPhone') > 1;
+// system.ipad = ua.indexOf('iPad') > -1;
+// system.andriod = ua.indexOf('Android') > -1;
+
+//获取屏幕大小
+function getViewPort() {
+	var viewHeight = window.innerHeight||document.documentElement.clientHeight,
+		viewWidth = window.innerWidth||document.documentElement.clientWidth;
+// 	console.log(viewHeight,viewWidth);
+// 	
+	// if(system.iphone) {
+		document.body.style.width = viewWidth;
+		canWidth = viewWidth;
+		canHeight = viewHeight - 48;
+	// }else if(system.win) {
+// 		canWidth = 600;
+// 		canHeight = 900;
+// 	}
+}
+
+getViewPort();
+
+//设置尺寸
+
+//绘制背景
+function drawBackground(){
+    ctxBg.drawImage(bgPic, 0, 0, canWidth, canHeight);
+}
+

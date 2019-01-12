@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>广告管理-广告管理</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="sjlogo gggl">
+        <!-- 内容主体区域 -->
+        <div class="layui-fluid">
+            <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title">
+                    <li class="layui-this"><a href="{:url('admin/ad/home')}">广告管理</a></li>
+                    <li><a href="{:url('admin/ad/advertiser')}">商家广告管理</a></li>
+                    <li><a href="{:url('admin/ad/trader')}">商家logo管理</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-collapse gggg" lay-accordion>
+                            <div class="layui-colla-item">
+                                <div class="layui-colla-title">
+                                    <h2>配置1</h2>
+                                    <form class="layui-form" action="">
+                                        <div class="layui-input-block" onclick="window.event ? window.event.cancelBubble = true : event.stopPropagation();" style="margin-left: 0;">
+                                            <input type="checkbox" name="switch" onclick="window.event ? window.event.cancelBubble = true : event.stopPropagation();" lay-skin="switch" lay-text="ON|OFF" checked>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="layui-colla-content layui-show">
+                                    <form class="layui-form layui-row">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告展示位置</label>
+                                            <div class="layui-input-block layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                                <select name="adposition" lay-verify="required" disabled="disabled">
+                                                    <!-- <option value=""></option> -->
+                                                    <option value="0">百万抢红包详情页</option>
+                                                    <option value="1">规则说明页</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告类型</label>
+                                            <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                                <input type="radio" name="adtype" value="腾讯广告" title="腾讯广告" disabled="disabled">
+                                                <input type="radio" name="adtype" value="淘宝商品广告" title="淘宝商品广告" checked disabled="disabled">
+                                                <input type="radio" name="adtype" value="商家广告" title="商家广告" disabled="disabled">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                            <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                                <!-- <div class="layui-input-inline layui-form-mid layui-col-md1 layui-col-sm2 layui-col-xs5">权重设置：</div> -->
+                                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重设置：</label>
+                                                <div class="layui-input-inline layui-col-md2 layui-col-sm4 layui-col-xs7">
+                                                    <select name="city" lay-verify="required" disabled="disabled">
+                                                        <!-- <option value=""></option> -->
+                                                        <option value="0">自定义</option>
+                                                        <option value="1">随机</option>
+                                                        <option value="2">重置权重</option>
+                                                        <option value="3">同比设置</option>
+                                                    </select>
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux layui-col-md-1 layui-col-sm-2 layui-col-xs-3">当前权重：1200</div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item" data-num="1">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                            <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                                <!-- <div class="layui-input-inline layui-form-mid layui-col-md1 layui-col-sm2 layui-col-xs-3">广告1：</div> -->
+                                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告1：</label>
+                                                <div class="layui-input-inline layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                                    <select name="city" lay-verify="required" disabled="disabled">
+                                                        <!-- <option value=""></option> -->
+                                                        <option value="0">千元名表免费拿</option>
+                                                        <option value="1">100元红包到你手</option>
+                                                        <option value="2">最高借贷10万，3分钟审核放款</option>
+                                                    </select>
+                                                </div>
+                                                <!-- <div class="layui-input-inline layui-form-mid layui-col-md1 layui-col-sm2 layui-col-xs-3">权重</div> -->
+                                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重：</label>
+                                                <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs-3">
+                                                    <input type="number" class="layui-input" value="800" disabled="disabled">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item" data-num="2">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                            <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                                <!-- <div class="layui-input-inline layui-form-mid layui-col-md1 layui-col-sm2 layui-col-xs-3">广告2：</div> -->
+                                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告2：</label>
+                                                <div class="layui-input-inline layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                                    <select name="city" lay-verify="required" disabled="disabled">
+                                                        <!-- <option value=""></option> -->
+                                                        <!-- <option value="0">千元名表免费拿</option> -->
+                                                        <option value="1">100元红包到你手</option>
+                                                        <option value="2">最高借贷10万，3分钟审核放款</option>
+                                                    </select>
+                                                </div>
+                                                <!-- <div class="layui-input-inline layui-form-mid layui-col-md1 layui-col-sm2 layui-col-xs-3">权重</div> -->
+                                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重：</label>
+                                                <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs-3">
+                                                    <input type="number" class="layui-input" value="1000" disabled="disabled">
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux layui-col-md-1 layui-col-sm-2 layui-col-xs-3 deladver">删除</div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="layui-form-item" style="display: none;text-align: right;">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5"></label>
+                                        <button class="layui-btn layui-btn-primary layui-input-block addadver">添加广告</button>
+                                    </div>
+                                    <div class="layui-btn-container" style="text-align: right;">
+                                        <button class="layui-btn layui-btn-danger delpz">删除</button>
+                                        <button class="layui-btn layui-btn-normal edit">编辑</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-colla-item pzmodel">
+                                <div class="layui-colla-title">
+                                    <h2>配置2</h2>
+                                    <form class="layui-form" action="">
+                                        <div class="layui-input-block" style="margin-left: 0;">
+                                            <input type="checkbox" name="switch" lay-skin="switch" lay-text="ON|OFF" checked>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="layui-colla-content">
+                                    <form class="layui-form layui-row peizhi2">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告展示位置</label>
+                                            <div class="layui-input-block layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                                <select name="adposition" lay-verify="required">
+                                                    <option value=""></option>
+                                                    <option value="0">百万抢红包详情页</option>
+                                                    <option value="1">规则说明页</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告类型</label>
+                                            <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                                <input type="radio" name="adtype" value="腾讯广告" title="腾讯广告" checked>
+                                                <input type="radio" name="adtype" value="淘宝商品广告" title="淘宝商品广告">
+                                                <input type="radio" name="adtype" value="商家广告" title="商家广告">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                            <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重设置：</label>
+                                                <div class="layui-input-inline layui-col-md2 layui-col-sm4 layui-col-xs7">
+                                                    <select name="city" lay-verify="required">
+                                                        <option value=""></option>
+                                                        <option value="0">自定义</option>
+                                                        <option value="1">随机</option>
+                                                        <option value="2">重置权重</option>
+                                                        <option value="3">同比设置</option>
+                                                    </select>
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux layui-col-md-1 layui-col-sm-2 layui-col-xs-3">当前权重：1200</div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item" data-num="1">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                            <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5 ad1">广告1：</label>
+                                                <div class="layui-input-inline layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                                    <select name="city" lay-verify="required">
+                                                        <option value=""></option>
+                                                        <option value="0">千元名表免费拿</option>
+                                                        <option value="1">100元红包到你手</option>
+                                                        <option value="2">最高借贷10万，3分钟审核放款</option>
+                                                    </select>
+                                                </div>
+                                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重：</label>
+                                                <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs-3">
+                                                    <input type="number" class="layui-input">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item" data-num="2">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>
+                                            <div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">
+                                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5 ad2">广告2：</label>
+                                                <div class="layui-input-inline layui-col-md2 layui-col-xs4 layui-col-xs7">
+                                                    <select name="city" lay-verify="required">
+                                                        <option value=""></option>
+                                                        <option value="0">千元名表免费拿</option>
+                                                        <option value="1">100元红包到你手</option>
+                                                        <option value="2">最高借贷10万，3分钟审核放款</option>
+                                                    </select>
+                                                </div>
+                                                <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重：</label>
+                                                <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs-3">
+                                                    <input type="number" class="layui-input">
+                                                </div>
+                                                <div class="layui-form-mid layui-word-aux layui-col-md-1 layui-col-sm-2 layui-col-xs-3 deladver">删除</div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="layui-form-item" style="text-align: left;">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5"></label>
+                                        <button class="layui-btn layui-btn-primary layui-input-block addadver">添加广告</button>
+                                    </div>
+                                    <div class="layui-btn-container" style="text-align: right;">
+                                        <button class="layui-btn layui-btn-danger delpz">删除</button>
+                                        <button class="layui-btn layui-btn-success edit">保存</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                $("input[name='switch']").click(function(event){
+                                    window.event ? event.cancelBubble = true : event.stopPropagation();
+                                });
+                            </script>
+                        </div>
+                        <button class="layui-btn layui-btn-normal addpeizhi" style="margin-top: 10px;">增加配置</button>
+                        <div style="margin-top: 20px;">
+                            <p>管理日志</p>
+                            <p>2018-08-12 19:12:36 admin 删除了 app下载投放</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mark"></div>
+    </div>
+    {load href="/static/admin/layui/layui.js" /}
+    {load href="/static/admin/js/index.js" /}
+    {load href="/static/admin/js/advertisement.js" /}
+</body>
+</html>

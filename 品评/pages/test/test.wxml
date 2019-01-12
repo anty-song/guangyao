@@ -2,7 +2,6 @@
 <view class='banner'>
   <image src='../../images/sdtpy_banner_img.png'></image>
 </view>
-  
   <image class='a_bg' src='../../images/tp_dy_bg.png'></image>
   <view class='champion'>
     <view class='a_l'>
@@ -11,26 +10,71 @@
     </view>
     <view>
       <image class='a_img_m' src='http://pic.10pinping.com/201405/29/14-43-45-77-2.gif'></image>
-      <button>立即投票</button>
+      <button class='a_votebtn'>立即投票</button>
     </view>
     <view>
       <view style='font-size:26rpx;text-align:center;'>票数:</view>
       <view style='font-size:40rpx;'>123票</view>
     </view>
   </view>
-  <view class='second'>
+  <view class='top_3'>
     <view class='left'>
       <view class='band'>
         <image src='../../images/tp_de_icon.png'></image>
       </view>
-      <image class='a_img_m' src='http://pic.10pinping.com/201405/29/14-43-45-77-2.gif'></image>
+      <image class='o_img_m' src='http://pic.10pinping.com/201405/29/14-43-45-77-2.gif'></image>
       <view class='vote'>
-        <view>名称</view>
-        <view>票数:111票</view>
+        <view class='item-name'>名称</view>
+        <view class='item-votes'>票数:111票</view>
       </view>
     </view>
     <view class='vote-btn'>
-      <button>立即投票</button>
+      <button class='o_votebtn'>立即投票</button>
+    </view>
+  </view>
+  <view class='top_3'>
+    <view class='left'>
+      <view class='band'>
+        <image src='../../images/tp_ds_icon.png'></image>
+      </view>
+      <image class='o_img_m' src='http://pic.10pinping.com/201405/29/14-43-45-77-2.gif'></image>
+      <view class='vote'>
+        <view class='item-name'>名称</view>
+        <view class='item-votes'>票数:111票</view>
+      </view>
+    </view>
+    <view class='vote-btn'>
+      <button class='o_votebtn'>立即投票</button>
+    </view>
+  </view>
+  <view class='top_10'>
+    <view class='left'>
+      <view class='band'>
+        <image src='../../images/tp_hm_icon.png'></image>
+      </view>
+      <image class='o_img_m' src='http://pic.10pinping.com/201405/29/14-43-45-77-2.gif'></image>
+      <view class='vote'>
+        <view class='item-name'>名称</view>
+        <view class='item-votes'>票数:111票</view>
+      </view>
+    </view>
+    <view class='vote-btn'>
+      <button class='o_votebtn'>立即投票</button>
+    </view>
+  </view>
+  <view class='others'>
+    <view class='left'>
+      <view class='band'>
+        111
+      </view>
+      <image class='o_img_m' src='http://pic.10pinping.com/201405/29/14-43-45-77-2.gif'></image>
+      <view class='vote'>
+        <view class='item-name'>名称</view>
+        <view class='item-votes'>票数:111票</view>
+      </view>
+    </view>
+    <view class='vote-btn'>
+      <button class='o_votebtn'>立即投票</button>
     </view>
   </view>
 </view>

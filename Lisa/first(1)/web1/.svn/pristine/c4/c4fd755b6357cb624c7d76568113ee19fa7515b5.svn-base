@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/idangerous.swiper.css" />
+		<link rel="stylesheet" type="text/css" href="css/content.css"/>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/media.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<header>
+				<div class="logo hidden-sm hidden-xs">
+					<div class="container">
+						<div class="logo_wb">
+							<div class="logolf">
+								<div class="logoimg"><img src="images/logo.png" alt="" /></div>
+								<!-- <div class="logoimg"><img src="{{logo.logo_imgurl ? logo.logo_imgurl : images/logo.png}}" alt="" /></div> -->
+								<div class="logowz">
+									<h3>{{logo.company}}</h3>
+									<span>{{logo.website}}</span>
+								</div>
+							</div>
+							<div class="logort wz">XXXXXX公司欢迎你</div>
+						</div>
+					</div>
+				</div>
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+							<span class="sr-only">切换导航</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="logo hidden-lg hidden-md">
+								<div class="logo_wb">
+									<div class="logoimg"><img src="images/logo.png" alt=""/></div>
+									<div class="logowz">
+										<h3>公司名称</h3>
+										<span>WWW.12345.com</span>
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="collapse navbar-collapse" id="example-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="index.html" target="">首页</a></li>
+							<li><a href="fwxm.html" target="">服务项目</a></li>
+							<li><a href="news.html" target="">新闻中心</a></li>
+							<li><a href="alzs.html" target="">案例展示</a></li>
+							<li><a href="contactus.html" target="">联系我们</a></li>
+						</ul>
+					</div>
+					</div>
+				</nav>
+			</header>
+			
+			<section class="banner">
+				<div class="swiper-container hidden-sm hidden-xs">
+					<div class="swiper-wrapper">
+						<!-- <div class="swiper-slide"><img src="{{logo.slideshow}}" alt=""></div>
+						<div class="swiper-slide"><img src="{{logo.slideshow}}" alt=""></div>
+						<div class="swiper-slide"><img src="{{logo.slideshow}}" alt=""></div> -->
+						<div class="swiper-slide"><img src="./images/index_banner_img.png" alt=""></div>
+						<div class="swiper-slide"><img src="./images/index_banner_img.png" alt=""></div>
+						<div class="swiper-slide"><img src="./images/index_banner_img.png" alt=""></div>
+					</div>
+					<!-- 如果需要分页器 -->
+					<div class="pagination"></div>
+
+				</div>
+				<div class="swiper-container1 hidden-lg hidden-md">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="images/index_banner_img.png" alt=""></div>
+						<div class="swiper-slide"><img src="images/index_banner_img.png" alt=""></div>
+						<div class="swiper-slide"><img src="images/index_banner_img.png" alt=""></div>
+				
+					</div>
+					<!-- 如果需要分页器 -->
+					<div class="pagination2"></div>
+			
+				</div>
+			</section>
+			
+			<section class="fwxm">
+				<div class="container">
+					<div class="tit">
+						<div class="titone"><hr class="tit_hr" /><h2>服务项目</h2><hr class="tit_hr" /></div>
+						<p>我们提供最优质的服务</p>
+					</div>
+					<ul class="fwxmlist">
+						<li class="wb">
+							<div class="ms">
+								<a href="" target=""><h4>标题标题标题</h4></a>
+								<a href="" target=""><p>说明性内容说明性内容说明性内容说明性内容说明性内容说明性</p></a>
+							</div>
+						</li>
+						<li class="pic"><img src="images/index_fwxm2_img.png"/></li>
+						<li class="wb">
+							<div class="ms">
+								<a href="" target=""><h4>标题标题标题</h4></a>
+								<a href="" target=""><p>说明性内容说明性内容说明性内容说明性内容说明性内容说明性</p></a>
+							</div>
+						</li>
+						<li class="pic"><img src="images/index_fwxm4_img.png"/></li>
+						
+						<li class="pic"><img src="images/index_fwxm1_img.png"/></li>
+						<li class="wb">
+							<div class="ms">
+								<a href="" target=""><h4>标题标题标题</h4></a>
+								<a href="" target=""><p>说明性内容说明性内容说明性内容说明性内容说明性内容说明性</p></a>
+							</div>
+						</li>
+						<li class="pic"><img src="images/index_fwxm3_img.png"/></li>
+						<li class="wb">
+							<div class="ms">
+								<a href="" target=""><h4>标题标题标题</h4></a>
+								<a href="" target=""><p>说明性内容说明性内容说明性内容说明性内容说明性内容说明性</p></a>
+							</div>
+						</li>
+						<div class="clear hidden-md hidden-sm hidden-xs"></div>
+					</ul>
+				</div>
+			</section>
+			
+			<section class="news">
+				<div class="container">
+					<div class="tit">
+						<div class="titone"><hr class="tit_hr" /><h2>新闻动态</h2><hr class="tit_hr" /></div>
+						<p>最新的动态新闻</p>
+					</div>
+					<ul class="newslist">
+						<li>
+							<i></i>
+							<a href="" target=""><h1>的发几个号东方红返回打个电话覅u海底换发过来东方红利伐沙班结构化的立法的覅街道</h1></a>
+							<a href="" target=""><time>2018.10.25</time></a>
+						</li>
+						<li>
+							<i></i>
+							<a href="" target=""><h1>的发几个号东方红返回打个电话覅u海底换发过来东方红利伐沙班结构化的立法的覅街道</h1></a>
+							<a href="" target=""><time>2018.10.25</time></a>
+						</li>
+						<li>
+							<i></i>
+							<a href="" target=""><h1>的发几个号东方红返回打个电话覅u海底换发过来东方红利伐沙班结构化的立法的覅街道</h1></a>
+							<a href="" target=""><time>2018.10.25</time></a>
+						</li>
+						<li>
+							<i></i>
+							<a href="" target=""><h1>的发几个号东方红返回打个电话覅u海底换发过来东方红利伐沙班结构化的立法的覅街道</h1></a>
+							<a href="" target=""><time>2018.10.25</time></a>
+						</li>
+						<li>
+							<i></i>
+							<a href="" target=""><h1>的发几个号东方红返回打个电话覅u海底换发过来东方红利伐沙班结构化的立法的覅街道</h1></a>
+							<a href="" target=""><time>2018.10.25</time></a>
+						</li>
+						<li>
+							<i></i>
+							<a href="" target=""><h1>的发几个号东方红返回打个电话覅u海底换发过来东方红利伐沙班结构化的立法的覅街道</h1></a>
+							<a href="" target=""><time>2018.10.25</time></a>
+						</li>
+						<li>
+							<i></i>
+							<a href="" target=""><h1>的发几个号东方红返回打个电话覅u海底换发过来东方红利伐沙班结构化的立法的覅街道</h1></a>
+							<a href="" target=""><time>2018.10.25</time></a>
+						</li>
+						<li>
+							<i></i>
+							<a href="" target=""><h1>的发几个号东方红返回打个电话覅u海底换发过来东方红利伐沙班结构化的立法的覅街道</h1></a>
+							<a href="" target=""><time>2018.10.25</time></a>
+						</li>
+						<div class="clear"></div>
+					</ul>
+					<div class="more"><a href="javascript:;" target="">查看全部</a></div>
+				</div>
+			</section>
+			
+			<section class="alzs">
+				<div class="container">
+					<div class="tit">
+						<div class="titone"><hr class="tit_hr" /><h2>案例展示</h2><hr class="tit_hr" /></div>
+						<p>更多最新案例  成功案例展示</p>
+					</div>
+					<ul class="alzslist">
+						<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+							<div class="bor">
+								<a href="" target="">
+									<dl>
+										<dt><img src="images/index_alzs1_img.png"/></dt>
+										<dd><h4>案例1</h4></dd>
+										<dd><p>案例一介绍介绍介绍介绍案例一介绍介绍介绍介绍</p></dd>
+									</dl>
+								</a>
+							</div>
+						</li>
+						<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+							<div class="bor">
+								<a href="" target="">
+									<dl>
+										<dt><img src="images/index_alzs1_img.png"/></dt>
+										<dd><h4>案例1</h4></dd>
+										<dd><p>案例一介绍介绍介绍介绍案例一介绍介绍介绍介绍</p></dd>
+									</dl>
+								</a>
+							</div>
+						</li>
+						<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+							<div class="bor">
+								<a href="" target="">
+									<dl>
+										<dt><img src="images/index_alzs1_img.png"/></dt>
+										<dd><h4>案例1</h4></dd>
+										<dd><p>案例一介绍介绍介绍介绍案例一介绍介绍介绍介绍</p></dd>
+									</dl>
+								</a>
+							</div>
+						</li>
+						<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+							<div class="bor">
+								<a href="" target="">
+									<dl>
+										<dt><img src="images/index_alzs1_img.png"/></dt>
+										<dd><h4>案例1</h4></dd>
+										<dd><p>案例一介绍介绍介绍介绍案例一介绍介绍介绍介绍</p></dd>
+									</dl>
+								</a>
+							</div>
+						</li>
+						<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+							<div class="bor">
+								<a href="" target="">
+									<dl>
+										<dt><img src="images/index_alzs1_img.png"/></dt>
+										<dd><h4>案例1</h4></dd>
+										<dd><p>案例一介绍介绍介绍介绍案例一介绍介绍介绍介绍</p></dd>
+									</dl>
+								</a>
+							</div>
+						</li>
+						<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+							<div class="bor">
+								<a href="" target="">
+									<dl>
+										<dt><img src="images/index_alzs1_img.png"/></dt>
+										<dd><h4>案例1</h4></dd>
+										<dd><p>案例一介绍介绍介绍介绍案例一介绍介绍介绍介绍</p></dd>
+									</dl>
+								</a>
+							</div>
+						</li>
+						<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+							<div class="bor">
+								<a href="" target="">
+									<dl>
+										<dt><img src="images/index_alzs1_img.png"/></dt>
+										<dd><h4>案例1</h4></dd>
+										<dd><p>案例一介绍介绍介绍介绍案例一介绍介绍介绍介绍</p></dd>
+									</dl>
+								</a>
+							</div>
+						</li>
+						<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+							<div class="bor">
+								<a href="" target="">
+									<dl>
+										<dt><img src="images/index_alzs1_img.png"/></dt>
+										<dd><h4>案例1</h4></dd>
+										<dd><p>案例一介绍介绍介绍介绍案例一介绍介绍介绍介绍</p></dd>
+									</dl>
+								</a>
+							</div>
+						</li>
+						
+						<div class="clear"></div>
+					</ul>
+				</div>
+			</section>
+			
+			<section class="contactus">
+				<div class="container">
+					<div class="tit">
+						<div class="titone"><hr class="tit_hr" /><h2>联系我们</h2><hr class="tit_hr" /></div>
+						<p>微信电话多个联系人的联系方式</p>
+					</div>
+					<ul class="conulist">
+						<li class="col-lg-3 col-sm-4 col-xs-6">
+							<div class="all">
+								<div class="bj"></div>
+								<div class="con">
+									<span>微信二维码</span>
+									<div class="erweima"><img src="images/index_erweim_img.png" alt="" /></div>
+									<h4>联系人名字</h4>
+									<div class="tel"><i></i><a href="tel">13546213486</a></div>
+									
+								</div>
+							</div>
+						</li>
+						<li class="col-lg-3 col-sm-4 col-xs-6">
+							<div class="all">
+								<div class="bj"></div>
+								<div class="con">
+									<span>微信二维码</span>
+									<div class="erweima"><img src="images/index_erweim_img.png" alt="" /></div>
+									<h4>联系人名字</h4>
+									<div class="tel"><i></i><a href="tel">13546213486</a></div>
+									
+								</div>
+							</div>
+						</li>
+						<li class="col-lg-3 col-sm-4 col-xs-6">
+							<div class="all">
+								<div class="bj"></div>
+								<div class="con">
+									<span>微信二维码</span>
+									<div class="erweima"><img src="images/index_erweim_img.png" alt="" /></div>
+									<h4>联系人名字</h4>
+									<div class="tel"><i></i><a href="tel">13546213486</a></div>
+									
+								</div>
+							</div>
+						</li>
+						<li class="col-lg-3 col-sm-4 col-xs-6">
+							<div class="all">
+								<div class="bj"></div>
+								<div class="con">
+									<span>微信二维码</span>
+									<div class="erweima"><img src="images/index_erweim_img.png" alt="" /></div>
+									<h4>联系人名字</h4>
+									<div class="tel"><i></i><a href="tel">13546213486</a></div>
+									
+								</div>
+							</div>
+						</li>
+						<li class="col-lg-3 col-sm-4 col-xs-6">
+							<div class="all">
+								<div class="bj"></div>
+								<div class="con">
+									<span>微信二维码</span>
+									<div class="erweima"><img src="images/index_erweim_img.png" alt="" /></div>
+									<h4>联系人名字</h4>
+									<div class="tel"><i></i><a href="tel">13546213486</a></div>
+									
+								</div>
+							</div>
+						</li>
+						<li class="col-lg-3 col-sm-4 col-xs-6">
+							<div class="all">
+								<div class="bj"></div>
+								<div class="con">
+									<span>微信二维码</span>
+									<div class="erweima"><img src="images/index_erweim_img.png" alt="" /></div>
+									<h4>联系人名字</h4>
+									<div class="tel"><i></i><a href="tel">13546213486</a></div>
+									
+								</div>
+							</div>
+						</li>
+						<li class="col-lg-3 col-sm-4 col-xs-6">
+							<div class="all">
+								<div class="bj"></div>
+								<div class="con">
+									<span>微信二维码</span>
+									<div class="erweima"><img src="images/index_erweim_img.png" alt="" /></div>
+									<h4>联系人名字</h4>
+									<div class="tel"><i></i><a href="tel">13546213486</a></div>
+									
+								</div>
+							</div>
+						</li>
+						<li class="col-lg-3 col-sm-4 col-xs-6">
+							<div class="all">
+								<div class="bj"></div>
+								<div class="con">
+									<span>微信二维码</span>
+									<div class="erweima"><img src="images/index_erweim_img.png" alt="" /></div>
+									<h4>联系人名字</h4>
+									<div class="tel"><i></i><a href="tel">13546213486</a></div>
+									
+								</div>
+							</div>
+						</li>
+						<div class="clear"></div>
+					</ul>
+					<div class="more"><a href="javascript:;" target="">查看全部</a></div>
+					
+				</div>
+			</section>
+			<footer>
+				<div class="container">
+					<p>Copyright © 2018XXXXXXXX ®</p>
+				</div>
+			</footer>
+		</div>
+		
+		<style type="text/css">
+			.pagination {
+				  position: absolute;
+				  z-index: 20;
+				  bottom: 10px;
+				  width: 100%;
+				  text-align: center;
+				}
+				.pagination2 {
+				  position: absolute;
+				  z-index: 20;
+				  bottom: 0;
+				  width: 100%;
+				  text-align: center;
+				}
+				.swiper-pagination-switch {
+				  display: inline-block;
+				  width: 8px;
+				  height: 8px;
+				  border-radius: 8px;
+				  background: #555;
+				  margin: 0 5px;
+				  opacity: 0.8;
+				  border: 1px solid #fff;
+				  cursor: pointer;
+				}
+				.swiper-active-switch {
+				  background: #fff;
+				}
+				.swiper-button-prev{
+					position: absolute;
+				    width: 60px;
+				    height: 60px;
+				    top: 50%;
+				    left: 0;
+				    transform: translate(0%,-50%);
+			    }
+				.swiper-button-next{
+					position: absolute;
+				    width: 60px;
+				    height: 60px;
+				    top: 50%;
+				    right:0;
+				    transform: translate(0%,-50%);
+				}
+		</style>	
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/idangerous.swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/window.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+			  var mySwiper = new Swiper('.swiper-container',{
+			    loop: true,
+			    mode:'horizontal',
+			    resizeReInit : true,
+			    calculateHeight : true,
+			    autoplay: 0,
+			    speed: 300,
+			   	pagination : '.pagination',
+				createPagination :true,
+				
+				onInit: function(swiper){
+			      swiper.swipeNext()
+			    }
+				    //其他设置
+				});  
+				var mySwiper1 = new Swiper('.swiper-container1',{
+			    loop: true,
+			    mode:'horizontal',
+			    resizeReInit : true,
+			    calculateHeight : true,
+			    autoplay: 0,
+			    speed: 300,
+			   	pagination : '.pagination2',
+				createPagination :true,
+					
+				    //其他设置
+				});  
+
+			}
+		</script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: "#app",
+				data: {
+					logo: {}
+				},
+				created: function() {
+					var that = this;
+					$.ajax({
+						type: "post",
+						url: "http://110.249.185.45:8100/app/website_one.php?action=main",
+						dataType: "json",
+						success: function(res) {
+							console.log(this);
+							console.log(that);
+							console.log(res.data.logo)
+							that.logo = res.data.logo;
+						}
+					})
+				}
+			})
+		</script>
+	</body>
+</html>

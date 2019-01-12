@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @Author: "Hulkzero"
+ * @Date:   2018-09-19 19:30:23
+ * @Email: "hulkzero@163.com"
+ * @Last Modified time: 2018-10-10 19:04:00
+ */
+namespace app\api\model\game;
+
+use app\api\model\CommonModel;
+use think\Db;
+
+class GameQuestionBank extends CommonModel
+{   
+    /**
+     * 未分表，使用base基类
+     * 
+     * @Author   Hulkzero
+     * @DateTime 2018-09-15T17:05:37+0800
+     * @Email    hulkzero@163.com
+     * @param    integer                  $uid        [用户id]
+     * @param    integer                  $g_id [奖品类型]
+     * @return   [type]                               [description]
+     */
+    public function getQuestionList($table, $num)
+    {
+    	// $count = Db::table($table)->count();
+    	// $min = Db::table($table)->min('id');
+    	// if ($count < $num) {
+    	// 	$num = $count;
+    	// }
+    	// $i = 1;
+    	// $flag = 0;
+    	// $arr= [];
+    	// while ($i <= $num) {
+    	// 	$rund_num = rand($min, $count);
+    	// 	if ($flag != $rund_num) {
+    	// 		if (!in_array($rund_num, $arr)) {
+    	// 			$arr[] = $rund_num;
+    	// 			$flag = $rund_num;
+    	// 		} else {
+    	// 			$i--;
+    	// 		}
+    	// 		$i++;
+    	// 	}
+    	// }
+    	// $res = Db::table($table)->where('id', 'in', $arr)->select();
+        $res = Db::query("SELECT * FROM ".$table."  WHERE status = 1 ORDER BY RAND() LIMIT 15");
+    	return $res;
+    }
+
+}

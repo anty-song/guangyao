@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问题反馈</title>
+    <link rel="stylesheet" href="css/question_helper.css">
+    <script src="js/jquery-1.8.0.min.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/messages_zh.js"></script>
+</head>
+<body>
+    <div class="question_wraper">
+        <div class="question_banner"></div>
+        <div class="fankui_demo">
+            <form action="" id="help_center_textarea">
+                <textarea name="question_fan" id="question_fan" cols="30" rows="10" placeholder="反馈字数，要求5-1000字"></textarea>
+                <div class="bottom_mudole">
+                    <div class="charry_pic">
+                        <i class="help_up_file"></i>
+                        插入图片
+                        <input type='file' id="file_help">
+                    </div>
+                    <p class="pic_up_p">手机浏览可拍照上传图片</p>
+                    <input type="submit" value="立即反馈" class="submit_up">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $('#help_center_textarea').validate({
+        rules: {
+            // 验证文本域
+            question_fan: {
+                required: true,
+                rangelength:[5,1000]
+            }
+        },
+        messages: {
+            question_fan: {
+                required: '请输入反馈信息',
+                isMobile: '正输入字数在5-1000的反馈信息'
+            }
+        },
+        //重写showErrors，用layer显示错误信息
+        showErrors: function(errorMap, errorList) {
+            var msg = "";
+            $.each(errorList, function(i, v) {
+                //msg += (v.message + "\r\n");
+                //在此处用了layer的方法,显示效果更美观
+                layer.msg(v.message, {
+                    time: 1000
+                });
+                return false;
+            })
+
+        }
+    });
+
+</script>

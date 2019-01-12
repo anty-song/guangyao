@@ -1,0 +1,19 @@
+[
+   {
+     "text":"我是新闻1",
+     "imgs":"http://pic33.photophoto.cn/20141022/0019032438899352_b.jpg",
+      "date":"2018.10.25"
+   
+   },
+   {
+     "text":"我是新闻2",
+     "imgs":"http://pic.pptbz.com/201506/2015070581208537.JPG",
+      "date":"2018.10.26" 
+   
+   },
+   {
+     "text":"我是新闻3",
+     "imgs":"http://img.zcool.cn/community/01d5a45541aaf2000001a64b6a89d5.jpg@1280w_1l_2o_100sh.jpg",
+      "date":"2018.10.27"
+   }
+]

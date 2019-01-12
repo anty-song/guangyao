@@ -8,85 +8,116 @@
     <image src='../../images/sdtpy_banner_img.png'></image>
   </view>
   <view class="wrap">
-    <view class="bg-color champion">
-      <view class="info">
-        <view class='logo-box'><image class="logo" src="{{champion[0].thumb}}"></image></view>
-        <view class="name">{{champion[0].title}}</view>
+    <image class='a_bg' src='../../images/tp_dy_bg.png'></image>
+    <view class='champion'>
+      <view class='a_l'>
+        <image class='a_img_l' src='../../images/tp_dy_icon.png'></image>
+        <view style='font-size:34rpx;text-align:center;'>{{champion[0].title}}</view>
       </view>
-      <view class="rank">
-        <image class="champion-cup" src="../../images/champion.png"></image>
-        <view class="vote-num">票数：{{champion[0].toupiao}}</view>
-      </view>      
-      <button class="vote-btn"
-              form-type="submit"
-              data-tit="{{champion[0].title}}"
-              data-img="{{champion[0].thumb}}"
-              data-id="{{champion[0].itemid}}"
-              data-yzm="{{champion[0].captcha}}"
-              data-num="{{champion[0].toupiao}}"
-              bindtap="showMark">立即投票</button>
-    </view>
-    <view class="bg-color item second">
-      <image class="second-cup" src="../../images/second.png"></image>
-      <view class='logo-box'><image class="logo" src="{{second[0].thumb}}"></image></view>
-      <view class="name">{{second[0].title}}</view>
-      <view class="vote-num">票数:<text>{{second[0].toupiao}}</text></view>
-      <button class="vote-btn"
-              form-type="submit"
-              data-tit="{{second[0].title}}"
-              data-img="{{second[0].thumb}}"
-              data-id="{{second[0].itemid}}"
-              data-yzm="{{second[0].captcha}}"
-              data-num="{{second[0].toupiao}}"
-              bindtap="showMark">立即投票</button>
-    </view>
-    <view class="bg-color item third">
-      <image class="third-cup" src="../../images/third.png"></image>
-      <view class='logo-box'><image class="logo" src="{{third[0].thumb}}"></image></view>
-      <view class="name">{{third[0].title}}</view>
-      <view class="vote-num">票数:<text>{{third[0].toupiao}}</text></view>
-      <button class="vote-btn"
-              form-type="submit"
-              data-tit="{{third[0].title}}"
-              data-img="{{third[0].thumb}}"
-              data-id="{{third[0].itemid}}"
-              data-yzm="{{third[0].captcha}}"
-              data-num="{{third[0].toupiao}}"
-              bindtap="showMark">立即投票</button>
-    </view>
-    <view class="bg-color item" wx:for="{{topTen}}">
-      <view class="front-rank-box">
-        <image class="front-rank-pic" src="../../images/front_rank.png"></image>
-        <text>{{item.ranking}}</text>
+      <view>
+        <image class='a_img_m' src='{{champion[0].thumb}}'></image>
+        <button class='a_votebtn'
+                form-type="submit"
+                data-tit="{{champion[0].title}}"
+                data-img="{{champion[0].thumb}}"
+                data-id="{{champion[0].itemid}}"
+                data-yzm="{{champion[0].captcha}}"
+                data-num="{{champion[0].toupiao}}"
+                bindtap="showMark">立即投票</button>
       </view>
-      <view class='logo-box'><image class="logo" src="{{item.thumb}}"></image></view>
-      <view class="name">{{item.title}}</view>
-      <view class="vote-num">票数:<text>{{item.toupiao}}</text></view>
-      <button class="vote-btn"
-              form-type="submit"
-              data-tit="{{item.title}}"
-              data-img="{{item.thumb}}"
-              data-id="{{item.itemid}}"
-              data-yzm="{{item.captcha}}"
-              data-num="{{item.toupiao}}"
-              bindtap="showMark">立即投票</button>
-    </view>
-    <view class="item" wx:for="{{others}}">
-      <view class="back-rank-box">
-        <image class="back-rank-pic" src="../../images/back_rank.png"></image>
-        <text>{{item.ranking}}</text>
+      <view>
+        <view style='font-size:26rpx;text-align:center;'>票数:</view>
+        <view style='font-size:40rpx;'>{{champion[0].toupiao}}票</view>
       </view>
-      <view class='logo-box'><image class="logo" src="{{item.thumb}}"></image></view>
-      <view class="name">{{item.title}}</view>
-      <view class="vote-num">票数:<text>{{item.toupiao}}</text></view>
-      <button class="vote-btn"
-              form-type="submit"
-              data-tit="{{item.title}}"
-              data-img="{{item.thumb}}"
-              data-id="{{item.itemid}}"
-              data-yzm="{{item.captcha}}"
-              data-num="{{item.toupiao}}"
-              bindtap="showMark">立即投票</button>
+    </view>
+    <view class='top_3'>
+      <view class='left'>
+        <view class='band'>
+          <view class='rank' style='color:#606060;font-size:28rpx;'>2</view>
+          <image src='../../images/tp_de_icon.png'></image>
+        </view>
+        <image class='o_img_m' src='{{second[0].thumb}}'></image>
+        <view class='vote'>
+          <view class='item-name'>{{second[0].title}}</view>
+          <view class='item-votes'>票数:{{second[0].toupiao}}票</view>
+        </view>
+      </view>
+      <view class='vote-btn'>
+        <button class='o_votebtn'
+                form-type="submit"
+                data-tit="{{second[0].title}}"
+                data-img="{{second[0].thumb}}"
+                data-id="{{second[0].itemid}}"
+                data-yzm="{{second[0].captcha}}"
+                data-num="{{second[0].toupiao}}"
+                bindtap="showMark">立即投票</button>
+      </view>
+    </view>
+    <view class='top_3'>
+      <view class='left'>
+        <view class='band'>
+          <view class='rank' style='color:#724106;font-size:28rpx;'>3</view>
+          <image src='../../images/tp_ds_icon.png'></image>
+        </view>
+        <image class='o_img_m' src='{{third[0].thumb}}'></image>
+        <view class='vote'>
+          <view class='item-name'>{{third[0].title}}</view>
+          <view class='item-votes'>票数:{{third[0].toupiao}}票</view>
+        </view>
+      </view>
+      <view class='vote-btn'>
+        <button class='o_votebtn'
+                form-type="submit"
+                data-tit="{{third[0].title}}"
+                data-img="{{third[0].thumb}}"
+                data-id="{{third[0].itemid}}"
+                data-yzm="{{third[0].captcha}}"
+                data-num="{{third[0].toupiao}}"
+                bindtap="showMark">立即投票</button>
+      </view>
+    </view>
+    <view class='top_10' wx:for="{{topTen}}">
+      <view class='left'>
+        <view class='band'>
+          <view class='rank' style='color:#5e2c13;font-size:26rpx;'>{{item.ranking}}</view>
+          <image src='../../images/tp_hm_icon.png'></image>
+        </view>
+        <image class='o_img_m' src='{{item.thumb}}'></image>
+        <view class='vote'>
+          <view class='item-name'>{{item.title}}</view>
+          <view class='item-votes'>票数:{{item.toupiao}}票</view>
+        </view>
+      </view>
+      <view class='vote-btn'>
+        <button class='o_votebtn'
+                form-type="submit"
+                data-tit="{{item.title}}"
+                data-img="{{item.thumb}}"
+                data-id="{{item.itemid}}"
+                data-yzm="{{item.captcha}}"
+                data-num="{{item.toupiao}}"
+                bindtap="showMark">立即投票</button>
+      </view>
+    </view>
+    <view class='others' wx:for="{{others}}">
+      <view class='left'>
+        <view class='band'>{{item.ranking}}</view>
+        <image class='o_img_m' src='{{item.thumb}}'></image>
+        <view class='vote'>
+          <view class='item-name'>{{item.title}}</view>
+          <view class='item-votes'>票数:{{item.toupiao}}票</view>
+        </view>
+      </view>
+      <view class='vote-btn'>
+        <button class='o_votebtn'
+                form-type="submit"
+                data-tit="{{item.title}}"
+                data-img="{{item.thumb}}"
+                data-id="{{item.itemid}}"
+                data-yzm="{{item.captcha}}"
+                data-num="{{item.toupiao}}"
+                bindtap="showMark">立即投票</button>
+      </view>
     </view>
   </view>
   <view class="mark" style="display:{{displayMark}}">

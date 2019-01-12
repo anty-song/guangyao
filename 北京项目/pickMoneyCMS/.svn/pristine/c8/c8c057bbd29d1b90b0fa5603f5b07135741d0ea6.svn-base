@@ -1,0 +1,18 @@
+<?php
+/**
+ * 趣味游戏-福利彩票馆.
+ * User: zhushengli
+ * Date: 18/9/17
+ * Time: 上午11:49
+ */
+namespace app\admin\controller\game;
+
+use app\admin\controller\BaseController;
+
+class Lottery extends BaseController
+{
+    public function home()
+    {
+        return $this->fetch();
+    }
+}

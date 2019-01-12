@@ -1,0 +1,22 @@
+var game_type,enable,game_url;
+window.onload=function(){
+	$.ajax({
+		type:"",
+		url:"",
+		data:"",
+		success:function(){
+
+		},
+		error:function(){
+
+		}
+	});
+}
+
+$("button").click(function(){
+	if(enable){
+
+	}else{
+
+	}
+})

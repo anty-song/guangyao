@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+		<title>首页</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/publicFan.css" />
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/index.js" ></script>
+		<script src="js/vue.js"></script>	
+	    <style>
+			.layui-layer-loading .layui-layer-content{
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div class="header_box">
+				<div class="header">
+					<div class="company fl" >
+						<a href="index.html"> <img :src=message.logo.logo_imgurl  class="fl"/></a>
+						<div class="fl company_info">
+							<p v-html ="message.logo.company"></p>
+							<p v-html ="message.logo.website"></p>
+						</div>
+					</div>		
+					<div class="fr company_name size16">{{message.logo.company}}欢迎你</div>
+				</div>	
+			</div>	
+			<nav class="navbar navbar-default">
+			    <div class="container-fluid">
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <!--<a class="navbar-brand" href="#">导航的那一栏</a>-->
+				    </div>
+			
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+				        <li class="active"><a href="#">首页 </a></li>
+				        <li><a href="serviceProject.html">服务项目</a></li>
+				        <li><a href="newsCenter.html">新闻中心</a></li>
+				        <li><a href="showCase.html">案例展示</a></li>
+				        <li><a href="contactUs.html">联系我们</a></li>
+				      </ul>
+				    </div>
+			  </div>
+	        </nav>
+			
+	
+	
+		<!--以下为banner-->
+		    <div class="banner">
+		    	<img :src=message.logo.slideshow class="img-responsive"/>
+		    </div>
+	
+	<!--以下为服务项目-->
+	<div class="service_box">
+		<div class="service">
+			<div class="title_box">
+				<div class="title">
+				   <h3>服务项目</h3>
+			     </div>
+				 <p class="describe">我们提供最优质的服务</p>
+			</div>
+			<div class="service_content">
+				<div class="service_list col-xs-6 col-md-3 pad0" v-for="item in message.bus_data">
+					<div class="service_title top">
+						<h3 v-html="item.title"></h3>
+						<div class="news_desc" v-html="item.explains">
+						</div>
+					</div>
+					<div class="service_img bottom" >
+						<img :src=item.bus_imgurl />
+					</div>
+			    </div>
+	
+			</div>
+		</div>
+	</div>	
+
+
+	<!--以下为新闻动态-->
+	<div class="news_box">
+		<div class="title_box">
+			<div class="title">
+			   <h3>新闻动态</h3>
+		     </div>
+			 <p class="describe">最新的动态新闻</p>
+		</div>
+		<div class="news">
+			<div class="news_list">
+				<ul>
+					<li v-for="item in message.news_data" @click="tonewsdetail(item.newsid)" >
+						<p class="fl" v-html="item.articletitle"></p>
+					    <p class="fr date" v-html="item.addtime"></p>
+					</li>
+				</ul>
+		   </div>
+		  
+		</div>
+		<div class="all_btn">查看全部</div>
+	</div>
+		
+<!--案例展示-->	
+
+	<div class="case_box">
+	    <div class="case">
+			<div class="title_box">
+				<div class="title">
+				   <h3>案例展示</h3>
+		        </div>
+				<p class="describe">更多最新案例 成功案例展示</p>
+	        </div>
+		    <div class="case_list">
+		    	<div class="case_alone col-xs-6 col-md-3" v-for="item in message.case_data">
+		    		<div class="case_alone_inline">
+		    		    <img :src=item.case_imgurl /> 
+		    		    <p class="case_title" v-html="item.case_title"></p>
+		    		    <div class="case_desc" v-html="item.case_explains"></div>
+		    		</div>
+		    	</div> 
+		    </div>
+		</div>	
+	</div>
+	
+		
+	<!--联系我们-->	
+	<div class="contact_us_box">
+		<div class="contact_us">
+			<div class="title_box">
+				<div class="title">
+				   <h3>联系我们</h3>
+		        </div>
+				<p class="describe">微信电话多个联系人的联系方式</p>
+		    </div>
+		    <div class="contact_us_list">
+		    	 <div class="contact_us_alone col-xs-6 col-md-3" v-for="con in message.con_data">
+		    	     <p class="ewm_title">微信二维码</p>
+		    	     <div class="contact_info">
+	    	     	 	 <div class="ewm">
+	    	     	 	 	<img :src=con.lxr_imgurl />
+	    	     	 	 </div>
+	    	     	 	 <p class="name" v-html="con.lxrname"></p>
+	    	     	 	 <div class="phone">
+	    	     	 		<i></i>
+	    	     	 	    <span v-html="con.phone"></span>
+	    	     	 	 </div>
+		    	     </div>
+		       </div>
+		    </div>
+		
+		    <div class="all_btn">查看全部</div>
+		</div>
+	</div>	
+	<!--以下为尾部-->
+	<div class="footer">
+	  {{message.logo.copyright_logo}}
+	</div>
+	
+		
+	<div class="qq_service">
+		<a href ="">
+			<img src="img/qq_btn.png" />
+		</a>
+		
+	</div>
+</div>
+	</body>
+
+<script src="js/layer/layer.js"></script>
+ <script src="js/config.js"></script>
+ <script type="text/javascript">
+    var vm = new Vue({
+           el: '#app',
+           data: {
+               message:{
+               	case_data:[
+                    {"case_imgurl": "" }
+               	],
+               	bus_data :[],
+               	news_data :[],
+               	con_data  :[],
+               	logo:{
+               		"logo_imgurl":'img/logo.png',
+               		"slideshow":'http://110.249.185.45:8100/file/upload/logo/201811/02/1025543892103.jpg'
+               	},
+               	qq:""
+               }
+           },
+           created() {
+               // 请求后台接口
+               this.showData ();
+           },
+           methods: {
+                showData: function () {
+                	var config = new Config();
+                    var that = this;
+                    $.ajax({
+                        type:config.homePage.type,
+                        url :config.homePage.url,
+                        async:true,
+                        dataType:"json",
+                        success:function(res) {
+                        	console.log(77,res);
+                        	if(res.status==1){
+                    			 that.message.case_data = res.data.case_data.slice(0,8);
+		                         that.message.bus_data  = res.data.bus_data.slice(0,4);
+		                         that.message.news_data = res.data.news_data.slice(0,8);
+		                         that.message.con_data  = res.data.con_data.slice(0,8);
+		                         that.message.logo = res.data.logo;
+                                 sessionStorage.setItem("logodata", JSON.stringify(res.data.logo));
+                                 that.message.qq = res.data.qq;
+                        	}
+                        },
+                        fail:function(res){
+                        	layer.msg('网络出错.....');
+                        }
+                    });
+                }, 
+                //	 点击新闻列表时
+	             tonewsdetail:function(sid){
+	             	console.log(sid)
+	             	window.location.href='newsDetail.html?sid='+sid
+	             },
+                
+                 toqq:function(){
+                 	window.location.href = this.message.qq;
+                 }
+                
+                
+                
+                
+            }
+          
+        })
+    </script>
+	
+	
+	
+	
+</html>

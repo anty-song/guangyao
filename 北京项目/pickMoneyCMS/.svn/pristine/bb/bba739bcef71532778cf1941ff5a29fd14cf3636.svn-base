@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <link rel="stylesheet" href="/static/css/rule/regulation.css">
+    <script type="text/javascript" src="/static/dist/jquery-2.1.1.min.js" ></script>
+    <script type="text/javascript" src="/static/js/rem.js" ></script>
+</head>
+<body>
+<div class="detail">
+    <div class="information">
+        <div class="regulations">
+            <div class="regulation_list">
+                <div class="titles">
+                    <span class="line"></span>
+                    <i class="dot"></i>
+                    <span class="retitle">天天拆红包</span>
+                    <i class="dot"></i>
+                    <span class="line"></span>
+                </div>
+                <ul>
+                    <li>
+                        <div class="li_number">1</div>
+                        <div class="li_detail">领取红包后，将获得随机金额的红包，最高100元，需分享并邀请新用户（未注册来捡钱App的好友）帮忙拆开。每位好友可帮忙拆开随机金额，全部拆完即可领取！分享越多，赚取现金越多，快去分享给好友吧~</div>
+                    </li>
+                    <li>
+                        <div class="li_number">2</div>
+                        <div class="li_detail">红包获得后，有效期为24小时，需要在有效期内拆完红包才可领取，领取有效期为10天，若24小时还未拆完，红包会逾期失效哦~</div>
+                    </li>
+                    <li>
+                        <div class="li_number">3</div>
+                        <div class="li_detail">只有当前红包全部拆完并领取，或在红包逾期失效后，才可领取下一个红包，每个用户每天最多领取3个红包。</div>
+                    </li>
+                    <!--<li>
+                        <div class="li_number">4</div>
+                        <div class="li_detail">用户通过百万红包活动每邀请1个新用户，则红包领取范围增加100米。</div>
+                    </li>-->
+                </ul>
+                <div class="titles">
+                    <span class="line"></span>
+                    <i class="dot"></i>
+                    <span class="retitle">特殊说明</span>
+                    <i class="dot"></i>
+                    <span class="line"></span>
+                </div>
+                <ul>
+                    <li>
+                        <div class="li_number">1</div>
+                        <div class="li_detail">百万红包活动与邀请好友增加范围活动相互独立，通过哪个活动邀请的新用户则发放对应活动的奖励，而另外一个活动不给予奖励。~</div>
+                    </li>
+                    <li>
+                        <div class="li_number">2</div>
+                        <div class="li_detail">红包转入钱包时会将其中10%的金额均分到平台所有红包股。~</div>
+                    </li>
+                    <li>
+                        <div class="li_number">3</div>
+                        <div class="li_detail">若用户存在违规行为（包括但不限于洗钱、虚假交易、赌博、作弊），主办方将取消用户的活动资格、并有权撤销相关违规交易、收回奖励（包括已提现和消费金额）等利益，同时依照相关规则进行处罚。</div>
+                    </li>
+                    <li>
+                        <div class="li_number">4</div>
+                        <div class="li_detail">若出现不可抗力或情势变更的情况（包括但不限于重大灾害事件、活动受政府机关指令需要停止举办或调整的、活动遭受验证网络攻击或因系统故障需要暂停举办的），则主办方可依相关法律法规的规定主张免责。</div>
+                    </li>
+                    <li>
+                        <div class="li_number">5</div>
+                        <div class="li_detail">最终解释权归来捡钱APP所有。</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

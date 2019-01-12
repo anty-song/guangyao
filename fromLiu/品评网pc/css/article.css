@@ -1,0 +1,156 @@
+/* layout */
+.m1080{
+	width: 1080px;
+	overflow: hidden;
+	margin: 0 auto
+}
+.m940{
+	width: 940px;
+	overflow: hidden;
+	margin: 0 auto
+}
+.infrmtimg{
+	overflow: hidden;
+
+}
+.leftimg{
+	float: left;
+	position: relative;
+}
+.leftimg #infrmtimg1{
+	height:277px;width:609px;display:block;
+	position: absolute;
+	z-index: 0;
+}
+
+.rightimg{
+	float: right;
+	position: relative;
+}
+#infrmtimg2,#infrmtimg3{
+	height:134px;width:465px;display:block;
+	/*position: absolute;
+	z-index: 1;*/
+}
+
+.rightimg img{
+	display: block;
+}
+#infrmtimg3{
+	margin-top: 9px
+}
+.switch{
+	padding: 40px 0 20px 0;
+    background: #f4f4f4;
+}
+.switch span{
+    display: inline-block;
+    margin: 0 10px 0 0;
+    font-size: 22px;
+    width: 140px;
+    color: #000;
+    letter-spacing: 2px;
+    cursor: pointer;
+    height: 60px;
+	line-height: 60px;
+	text-align: center;
+    border-radius: 30px;
+}
+.switch .on{
+	color:#fff;
+    background: #0066d4;
+}
+.newslist{display: none}
+.boxlist{overflow: hidden;padding: 20px 0;border-bottom: 1px solid #ccc;}
+.boxlist:last-child {border:none;}
+#newLogo{
+	float: left;
+	border-radius: 10px;
+	margin-right: 30px;
+}
+
+.boxlist .right{
+	width: 690px;
+	float: left;
+
+}
+.boxlist .right strong{
+	font-size: 20px;
+	letter-spacing: 2px
+}
+.boxlist .right strong a:hover{
+	color: #1d89fe
+}
+.boxlist .right .time{
+	font-size: 14px;
+	color: #666;
+	margin-top: 21px;
+}
+.boxlist .right .desc{
+	margin-top: 11px;
+	font-size: 18px;
+	color: #555;
+	line-height: 20px;
+	letter-spacing: 1px;
+	height: 36px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.boxlist .right .clickVolume{
+	font-size: 12px;
+	color: #666;
+}
+.boxlist .right .clickVolume:before{
+    content: '';
+    float: left;
+    margin: 10px 5px 0 0px;
+    display: block;
+    width: 18px;
+    height: 10px;
+    background: url(image/eye.png) no-repeat;
+}
+.newslist .right{width:930px;margin-left:10px}
+.infrmtloadMore,.newsloadMore{
+	cursor: pointer;
+	padding: 10px;
+	background: #0066d4;
+	text-align: center;
+	font-size: 18px;
+	color: #fff;
+	-moz-border-radius: 3px; /* Firefox */
+  	-webkit-border-radius: 3px; /* Safari 和 Chrome */
+  	border-radius: 3px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+  	margin: 40px 0;
+}
+.newsloadMore{display: none}
+.bjimg1,.bjimg2,.bjimg3{
+	background: url(image/newimgbj1.png);
+	height:206px;
+	width:609px;
+	position: absolute;
+	z-index: 1;
+	top:71px;
+	display: block;
+	text-align: center;
+	line-height: 375px;
+	color:#fff;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+.bjimg2{
+
+	width:465px;
+	height:103px;
+	background: url(image/newimgbj.png);
+	top:31px;
+	line-height: 175px;
+}
+.bjimg3{
+	width:465px;
+	height:103px;
+	background: url(image/newimgbj.png);
+	top:174px;
+	line-height: 175px;
+}

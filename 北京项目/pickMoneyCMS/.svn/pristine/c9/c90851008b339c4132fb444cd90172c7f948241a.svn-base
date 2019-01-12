@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>脱单不用愁，测试你的专属神秘装备</title>
+    <link rel="stylesheet" href="/static/question_style/css/download.css">
+</head>
+<body>
+<img src="http://sdk11.yuanmakj.com/uploads/share_thumb.png" style="position:absolute; top:0; left:0;  width: 80%; z-index:-1;opacity: 0; ">
+<script src="/static/question_style/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+	$(function(){ 
+    pushHistory(); 
+    window.addEventListener("popstate", function(e) { 
+        WeixinJSBridge.call('closeWindow');
+    }, false); 
+    function pushHistory() { 
+        var state = { 
+        title: "来捡钱", 
+        url: "#"
+        }; 
+        window.history.pushState(state, "title", "#"); 
+    } 
+});
+
+</script>
+</body>
+</html>

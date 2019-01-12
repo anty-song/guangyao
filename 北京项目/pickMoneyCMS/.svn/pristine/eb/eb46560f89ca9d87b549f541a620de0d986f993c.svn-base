@@ -1,0 +1,31 @@
+<?php
+// +----------------------------------------------------------------------
+// | 测试演示用CMUserList
+// +----------------------------------------------------------------------
+// | Author: seaboyer <seaboyer@163.com>
+// | Date: 2018-09-06
+// +----------------------------------------------------------------------
+
+namespace app\h5\model\ad;
+
+use app\api\model\CommonModel;
+use think\Db;
+
+class AdvConfig extends CommonModel
+{
+	protected $table = 'b_adv_config';
+
+    protected function initialize()
+    {
+        parent::initialize();
+    }
+
+    public function getUrl ($gid,$login_type)
+    {
+        $where[] = ['id', '=', $gid];
+        $where[] = ['status', '=', 1];
+        $url_type = $login_type == 1 ? 'ad_url1' : 'ad_url2';
+        $field = $url_type;
+        return $this->where($where)->field($field)->find();
+    }
+}

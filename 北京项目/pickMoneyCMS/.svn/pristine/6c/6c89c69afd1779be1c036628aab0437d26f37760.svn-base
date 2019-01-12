@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <link rel="stylesheet" href="/static/dist/animate.min.css">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="/static/css/answer_result.css">
+    <script src="/static/dist/jquery-2.1.1.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/js/rem.js"></script>
+    <title>趣味游戏</title>
+</head>
+<body>
+    <div class="infor">
+        <!--头部-->
+        <div id="head-bar">
+            <div class="head-bar">
+                <div class="head-bar-back">
+                    <a href="javascript:Dbacks();" data-direction="reverse" data-ajax="false">
+                        <img src="/static/images/dialog/icon-back.png">
+                        <span></span>
+                    </a>
+                </div>
+                <div class="head-bar-title">{$title}</div>
+                <div class="head-bar-right">
+                </div>
+            </div>
+            <div class="head-bar-fix"></div>
+        </div>
+        <div class="infortop animated fadeInLeft">
+            <img class="holder animated fadeInLeft" src="/static/images/Answer/lawyer.png" style="position: absolute;left: 0.37rem;z-index: 100;" alt="" />
+            <img class="userimg animated fadeInLeft" src="" style="position: absolute;left: 0.37rem;z-index:200;" alt="" />
+        </div>
+        <div class="inforbottom animated fadeInLeft">
+            <p class="animated bounceIn scores"><span>分</span></p>
+            <span class="animated fadeInLeft"><span class=" paragraph">走上巅峰</span><i></i></span>
+        </div>
+    </div>
+    <div class="result">
+        <div class="trophy">
+            <div class="ribbon"></div>
+            <img class="cup" src="" alt="" />
+        </div>
+        <p class="answer-results animated rubberBand">一共答对了<span class="correctNum"></span>道题</p>
+        <div class="agin">再来一次</div>
+        <div class="get-reward">
+            <span>领取奖励</span>
+            <div class="get-reward-mark"></div>
+        </div>
+
+        <p class="activity">
+            <i></i>
+            <span>参与活动可免费获取奖励</span>
+            <i></i>
+        </p>
+
+        <div class="adver">
+            <img src="" alt="" />
+        </div>
+    </div>
+    <div class="marsker"></div>
+    <!--领红包(广告)-->
+    <div class="result1 animated zoomIn">
+        <div class='close-box'>
+            <img class="clo clo1" src="/static/images/Answer/Close@2x.png" alt="">
+        </div>
+        <img class="advimg" src="/static/images/Answer/hb.png" alt="">
+        <p class="ad_title"></p>
+        <img class="receive1 pulse" src="/static/images/Answer/Correct_Receive@2x.png">
+    </div>
+    <!-- 领红包（现金） -->
+    <div class="result4 animated zoomIn">
+       <div class='close-box'>
+        <img class="clo clo1" src="/static/images/Answer/Close@2x.png" alt="">
+    </div>
+    <img class="advimg" src="/static/images/Answer/hb.png" alt="">
+    <p class="ad_title"></p>
+    <p class='price_tilte'></p>
+    <p class='price_money'></p>
+    <img class="receive1 pulse" src="/static/images/Answer/Correct_Receive@2x.png">
+</div>
+<!--退出-->
+<div class="dialog dialog_again animated slideInDown">
+    <div class="close close_again"></div>
+    <div class="dialog_body" style="position: relative;">
+        <button class="refuse" id="refuse">残忍拒绝</button>
+        <button class="againBtn" id="againBtn">继续玩</button>
+    </div>
+</div>
+<script src="/static/dist/crypto.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/encode.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/hbdt/config.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/tipError.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/public.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/hbdt/result.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

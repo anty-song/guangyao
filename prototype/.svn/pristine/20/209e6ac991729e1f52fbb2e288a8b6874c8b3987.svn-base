@@ -1,0 +1,419 @@
+$(function () {
+
+$('.header>.topItem>ul>li').eq(1).addClass('on').siblings().removeClass('on');
+var token=$("input[name='__token__']").val();
+var oaMainListArray=[];
+var lis = $('.oaMain>.oaMain_list>.oaMainBox')
+
+
+// 前进和后退
+    var bankBtn=$('.oaMain>.oaMain_menu>a').eq(0)
+    var gosBtn=$('.oaMain>.oaMain_menu>a').eq(1)
+    bankBtn.on('click',function () {
+        window.history.go(-1);
+    })
+    gosBtn.on('click',function () {
+        window.history.go(1);
+    })
+
+// 功能项-下载
+var downlisBtn = $('.oaMain>.oaMain_fun>li').eq(1);
+downlisBtn.on('click', function () {
+    if (lis.children('label').find('input:checked').length <= 0) {
+        alert('请选择要下载的文件');
+    } else {
+        $('.oaMain_loading').css('display','block')
+        var url=$(this).attr('data-downUrl');
+        var obj={itemid:oaMainListArray}
+        $.ajax({
+            type:'GET',
+            url:url,
+            contentType: 'application/json',
+            data:obj,
+            success:function (data) {
+                if(data.code==1){
+                    alert(data.msg);
+                    $('.oaMain_loading').css('display','none')
+                    window.location.href='http://'+data.data;
+                }else{
+                    alert(data.msg)
+                }
+            }
+        })
+    }
+})
+
+
+// 功能项-删除
+var dellisBtn = $('.oaMain>.oaMain_fun>li').eq(2);
+dellisBtn.on('click', function () {
+    if (lis.children('label').find('input:checked').length <= 0) {
+        alert('请选择要删除的文件');
+    } else {
+        token=$("input[name='__token__']").val();
+        $('.oaMain_del').css('display', 'block')
+    }
+})
+
+// 删除窗口
+var delWindowX = $('.oaMain_del>.del_window>p>a');
+var delYesBtn = $('.oaMain_del>.del_window>#delYesBtn');
+var delNoBtn = $('.oaMain_del>.del_window>#delNoBtn');
+delWindowX.on('click', function () {
+    $('.oaMain_del').css('display', 'none');
+})
+delNoBtn.on('click', function () {
+    $('.oaMain_del').css('display', 'none');
+})
+delYesBtn.on('click', function () {
+    var url=dellisBtn.attr('data-delUrl')
+    var obj={itemid:oaMainListArray,token:token}
+    $.ajax({
+        type:'GET',
+        url:url,
+        contentType: 'application/json',
+        data:obj,
+        success:function (data) {
+            if(data.code==1){
+                alert(data.msg);
+                $('.oaMain_del').css('display', 'none');
+                window.location.reload();
+            }else{
+                alert(data.msg)
+            }
+        }
+    })
+})
+
+
+// 功能项-新建
+    var addlisBtn = $('.oaMain>.oaMain_fun>li').eq(3);
+addlisBtn.on('click', function () {
+    var addBagName = prompt('要创建的文件夹名字')
+    token=$("input[name='__token__']").val();
+    var url=$(this).attr('data-addUrl')
+    var pid=parseFloat(window.location.href.slice(window.location.href.indexOf('pid=')+4));
+    if(isNaN(pid)){
+        pid=0;
+    }
+    if(addBagName!=null){
+        var obj={title:addBagName,token:token,pid:pid}
+        $.ajax({
+            type:'GET',
+            url:url,
+            contentType: 'application/json',
+            data:obj,
+            success:function (data) {
+                if(data.code==1){
+                    alert(data.msg);
+                    window.location.reload();
+                }else{
+                    alert(data.msg)
+                }
+            }
+        })
+     }
+})
+
+// 功能项-移动到
+var movelisBtn = $('.oaMain>.oaMain_fun>li').eq(4);
+movelisBtn.on('click', function () {
+    if (lis.children('label').find('input:checked').length <= 0) {
+        alert('请选择要移动的文件');
+    } else {
+        // 展示文件夹
+        $('.oaMain_move').css('display', 'block')
+        $.ajax({
+            type:"GET",
+            url:"/showFolder",
+            contentType:'application/json',
+            success: function(data){
+                $('.oaMain_move>.move_window>.moveMain').html(data)
+            }
+        })
+    }
+})
+
+// 移动到窗口
+var thisPid=0;
+var moveBagsList=$('.oaMain_move>.move_window>.moveMain')
+var moveWindonX = $('.oaMain_move>.move_window>p>a');
+var moveAddBtn = $('.oaMain_move>.move_window>#moveAddBtn');
+var moveYesBtn = $('.oaMain_move>.move_window>#moveYesBtn');
+var moveNoBtn = $('.oaMain_move>.move_window>#moveNoBtn');
+moveWindonX.on('click', function () {
+    $('.oaMain_move').css('display', 'none')
+})
+
+moveNoBtn.on('click', function () {
+    $('.oaMain_move').css('display', 'none')
+})
+// 移动到中的新建
+moveAddBtn.on('click', function () {
+    var addBagName = prompt('要创建的文件夹名字')
+    token=$("input[name='__token__']").val();
+    var url=$(this).attr('data-addUrl')
+    if(addBagName!=null){
+        var obj={title:addBagName,token:token,pid:thisPid}
+        $.ajax({
+            type:'GET',
+            url:url,
+            contentType: 'application/json',
+            data:obj,
+            success:function (data) {
+                if(data.code==1){
+                    alert(data.msg);
+                }else{
+                    alert(data.msg)
+                }
+            }
+        })
+
+    }
+
+})
+// 移动到
+moveYesBtn.on('click', function () {
+    var obj={itemid:oaMainListArray,pid:thisPid}
+    var url=$(this).attr('data-moveUrl')
+    $.ajax({
+        type:'GET',
+        url:url,
+        contentType: 'application/json',
+        data:obj,
+        success:function (data) {
+            if(data.code==1){
+                alert(data.msg);
+                window.location.reload();
+            }else{
+                alert(data.msg)
+            }
+        }
+    })
+
+
+})
+
+// 移动到中的展开和关闭文件夹
+moveBagsList.on('click','ul li a',function () {
+    thisPid=$(this).parent().attr('itemid');
+    // 删除点亮展开
+    if($(this).parent().next().is('ul')){
+        $(this).parent().next().remove();
+        $(this).parent().addClass('on');
+    } else {
+        // 展开点亮
+        var obj={pid:thisPid};
+        $(this).parent().siblings('ul').remove();
+        $(this).parent().siblings('li').removeClass('on')
+        $(this).parent().addClass('on');
+        var that=$(this);
+        $.ajax({
+            type:"GET",
+            url:"/showFolder",
+            data:obj,
+            contentType:'application/json',
+            success: function(data){
+                if((that).parent().after().is('li')){
+                    that.parent().after(data);
+                }
+            }
+        })
+    }
+    console.log(thisPid);
+})
+
+
+    $('.oaMain>.oaMain_list').on('dblclick','.oaMainBox',function (e) {
+        if($(this).find('em').html()==''){
+            window.location.href=$(this).children('span').find('a').attr('href');
+        }else {
+            if(e.target.tagName!='EM'){
+                window.location.href=$(this).children('span').find('a').attr('href');
+            }
+        }
+    })
+
+
+
+    // 下方单选
+    var allCheckBtn = $('.oaMain_title>p>label')
+    $('.oaMain>.oaMain_list').on('click','.oaMainBox', function (e) {
+        if(e.target.tagName=='LABEL'||e.target.tagName=='I'||e.target.tagName=='INPUT'){
+            console.log(1);
+            e.preventDefault();
+        }
+        var lisLabelBtn = $('.oaMain>.oaMain_list>.oaMainBox>label')
+        if ($(this).children('label').find('input').prop('checked')) {
+            //未选中
+            $(this).children('label').children('input').prop('checked',false)
+            $(this).children('label').find('i').removeClass('icon-danxuanxuanzhong').addClass('icon-danxuanweixuan')
+            $(this).removeClass('on')
+            var that=$(this);
+
+            $.each(oaMainListArray,function (idx,ele) {
+                if (that.attr('itemid')==ele){
+                    oaMainListArray.splice(idx,1);
+                }
+            })
+
+            allCheckBtn.children('i').removeClass('icon-danxuanxuanzhong').addClass('icon-danxuanweixuan')
+            allCheckBtn.children('input').prop('checked',false)
+            if(lisLabelBtn.find('input:checked').length<=0){
+                downlisBtn.children('a').find('img').attr('src','/static/style/prototype/images/download.png')
+                dellisBtn.children('a').find('img').attr('src','/static/style/prototype/images/del.png')
+                movelisBtn.children('a').find('img').attr('src','/static/style/prototype/images/movebag.png')
+                downlisBtn.children('a').css('color','#8fc7fc')
+                dellisBtn.children('a').css('color','#8fc7fc')
+                movelisBtn.children('a').css('color','#8fc7fc')
+            }
+        }else{
+            // 选中
+            $(this).children('label').children('input').prop('checked',true)
+            $(this).children('label').children('i').removeClass('icon-danxuanweixuan').addClass('icon-danxuanxuanzhong')
+            $(this).addClass('on');
+
+            // 删除数组的添加
+            oaMainListArray.push($(this).attr('itemid'));
+            downlisBtn.children('a').find('img').attr('src','/static/style/prototype/images/downloadON.png')
+            dellisBtn.children('a').find('img').attr('src','/static/style/prototype/images/delON.png')
+            movelisBtn.children('a').find('img').attr('src','/static/style/prototype/images/movebagON.png')
+            downlisBtn.children('a').css('color','#0084ff')
+            dellisBtn.children('a').css('color','#0084ff')
+            movelisBtn.children('a').css('color','#0084ff')
+            // 全选判断
+            if(lisLabelBtn.length == lisLabelBtn.find('input:checked').length){
+                allCheckBtn.find('i').removeClass('icon-danxuanweixuan').addClass('icon-danxuanxuanzhong')
+                allCheckBtn.find('input').prop('checked',true)
+            }
+        }
+        console.log(oaMainListArray);
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// 下方单选
+//     var allCheckBtn = $('.oaMain_title>p>label')
+// $('.oaMain>.oaMain_list').on('click','.oaMainBox>label', function (e) {
+//     e.preventDefault();
+//     var lisLabelBtn = $('.oaMain>.oaMain_list>.oaMainBox>label')
+//     if ($(this).find('input').prop('checked')) {
+//         //未选中
+//         $(this).children('input').prop('checked',false)
+//         $(this).find('i').removeClass('icon-danxuanxuanzhong').addClass('icon-danxuanweixuan')
+//         $(this).parent().removeClass('on')
+//         var that=$(this);
+//
+//         $.each(oaMainListArray,function (idx,ele) {
+//             if (that.parents('.oaMainBox').attr('itemid')==ele){
+//                 oaMainListArray.splice(idx,1);
+//             }
+//         })
+//
+//         allCheckBtn.children('i').removeClass('icon-danxuanxuanzhong').addClass('icon-danxuanweixuan')
+//         allCheckBtn.children('input').prop('checked',false)
+//         if(lisLabelBtn.find('input:checked').length<=0){
+//             downlisBtn.children('a').find('img').attr('src','/static/style/prototype/images/download.png')
+//             dellisBtn.children('a').find('img').attr('src','/static/style/prototype/images/del.png')
+//             movelisBtn.children('a').find('img').attr('src','/static/style/prototype/images/movebag.png')
+//             downlisBtn.children('a').css('color','#8fc7fc')
+//             dellisBtn.children('a').css('color','#8fc7fc')
+//             movelisBtn.children('a').css('color','#8fc7fc')
+//         }
+//     }else{
+//         // 选中
+//         $(this).children('input').prop('checked',true)
+//         $(this).children('i').removeClass('icon-danxuanweixuan').addClass('icon-danxuanxuanzhong')
+//         $(this).parent().addClass('on');
+//
+//         // 删除数组的添加
+//         oaMainListArray.push($(this).parents('.oaMainBox').attr('itemid'));
+//         downlisBtn.children('a').find('img').attr('src','/static/style/prototype/images/downloadON.png')
+//         dellisBtn.children('a').find('img').attr('src','/static/style/prototype/images/delON.png')
+//         movelisBtn.children('a').find('img').attr('src','/static/style/prototype/images/movebagON.png')
+//         downlisBtn.children('a').css('color','#0084ff')
+//         dellisBtn.children('a').css('color','#0084ff')
+//         movelisBtn.children('a').css('color','#0084ff')
+//         // 全选判断
+//         if(lisLabelBtn.length == lisLabelBtn.find('input:checked').length){
+//             allCheckBtn.find('i').removeClass('icon-danxuanweixuan').addClass('icon-danxuanxuanzhong')
+//             allCheckBtn.find('input').prop('checked',true)
+//         }
+//     }
+//     console.log(oaMainListArray);
+// })
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// 全选按钮
+allCheckBtn.on('click', function (e) {
+    var lisLabelBtn = $('.oaMain>.oaMain_list>.oaMainBox>label')
+    e.preventDefault();
+    if ($(this).find('input').prop('checked')) {
+        // 未选
+        $(this).find('input').prop('checked',false)
+        $(this).find('i').removeClass('icon-danxuanxuanzhong').addClass('icon-danxuanweixuan');
+        lisLabelBtn.each(function (index, ele) {
+            $(ele).find('i').removeClass('icon-danxuanxuanzhong').addClass('icon-danxuanweixuan')
+            $(ele).find('input').prop('checked',false)
+            $(ele).parent().removeClass('on')
+            downlisBtn.children('a').find('img').attr('src','/static/style/prototype/images/download.png')
+            dellisBtn.children('a').find('img').attr('src','/static/style/prototype/images/del.png')
+            movelisBtn.children('a').find('img').attr('src','/static/style/prototype/images/movebag.png')
+            downlisBtn.find('a').css('color','#8fc7fc')
+            dellisBtn.find('a').css('color','#8fc7fc')
+            movelisBtn.find('a').css('color','#8fc7fc')
+        })
+        oaMainListArray=[];
+    } else {
+        // 选中
+        $(this).find('input').prop('checked',true)
+        $(this).find('i').removeClass('icon-danxuanweixuan').addClass('icon-danxuanxuanzhong');
+        lisLabelBtn.each(function (index, ele) {
+            $(ele).find('i').removeClass('icon-danxuanweixuan').addClass('icon-danxuanxuanzhong')
+            $(ele).find('input').prop('checked',true)
+            $(ele).parent().addClass('on')
+            downlisBtn.children('a').find('img').attr('src','/static/style/prototype/images/downloadON.png')
+            dellisBtn.children('a').find('img').attr('src','/static/style/prototype/images/delON.png')
+            movelisBtn.children('a').find('img').attr('src','/static/style/prototype/images/movebagON.png')
+            downlisBtn.children('a').css('color','#0084ff')
+            dellisBtn.find('a').css('color','#0084ff')
+            movelisBtn.find('a').css('color','#0084ff')
+        })
+        oaMainListArray=[];
+        $.each(lisLabelBtn,function (idx,ele) {
+            oaMainListArray.push($(ele).parents('.oaMainBox').attr('itemid'));
+        })
+    }
+    console.log(oaMainListArray);
+})
+
+// 各个的链接复制
+var copyBtn=$('.oaMain_list>.oaMainBox>em>a>b');
+copyBtn.on('click',function (e) {
+        console.log(1);
+        e.preventDefault();
+        $(this).siblings('input').val($(this).parent().text().replace('复制',''))
+        var copytext=$(this).siblings('input')
+        copytext.select(); //选择其中的文本
+        document.execCommand("Copy"); //执行浏览器中的自带复制指令
+        alert("已复制到粘贴板");
+    })
+
+
+})

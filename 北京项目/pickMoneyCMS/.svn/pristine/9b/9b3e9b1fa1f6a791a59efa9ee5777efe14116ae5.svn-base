@@ -1,0 +1,36 @@
+//DES 加密
+function encryptByDES(message, key) {
+    var keyHex = CryptoJS.enc.Utf8.parse(key);
+    var encrypted = CryptoJS.DES.encrypt(message, keyHex, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+    });
+    return encrypted.toString();
+}
+
+
+//DES 解密
+function decryptByDES(ciphertext, key) {
+    var keyHex = CryptoJS.enc.Utf8.parse(key);
+    var decrypted = CryptoJS.DES.decrypt({
+        ciphertext: CryptoJS.enc.Base64.parse(ciphertext)
+    }, keyHex, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+    });
+    return decrypted.toString(CryptoJS.enc.Utf8);
+}
+
+//定义base64加密
+function encryptByBase64(msg){
+	// 转换为字符串
+    var str = msg.toString();
+    //base64没问题
+    var base64 = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(str));
+    
+    return base64;
+}
+
+function decryptByBase64(msg) {
+	
+}

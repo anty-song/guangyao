@@ -1,0 +1,68 @@
+var baseUrl = "/index.php/api/game/";
+var gglConfig = function() {
+	//从APP中获取的参数
+	this.unique = {
+		device: null,
+		auth: null,
+		uid: null
+	};
+    //Web游戏中，进入页面时判断 游戏剩余的次数和弹出框
+	this.load = {
+		url: PATH_WEB,
+		type: "post",
+		data: {
+			action: "judge_game_num",
+			uid: null,
+			reqType: 2,
+			paramData: null
+		}
+	};
+	//Web游戏—刮奖游戏—开始刮奖
+	this.begin = {
+		url: PATH_WEB,
+		type: "post",
+		data: {
+			action: "start_lottery",
+			uid: null,
+			reqType: 2,
+			paramData: null
+		}
+	};
+	// 手动刷新页面
+    this.fresh = {
+        url: PATH_WEB,
+        type: "post",
+        data: {
+            action: "get_refresh",
+            uid: null,
+            reqType: 2,
+            paramData: null
+        }
+    };
+	this.success = { //刮完后中奖，把刮完的状态发送给后台
+		url: PATH_WEB,
+		type: "post",
+		data: {
+			isend: "end"
+		}
+	};
+	
+	this.getadv = {
+		url: PATH_WEB,
+		type: "post",
+		data: {}
+	};
+	
+	this.winner = null; //当前用户是不是能获奖
+	this.image_src = "/static/images/Lottery/";//配置图片路径
+	this.gameover = null; //这个是判断是否次数用完
+
+	//图片对象
+	this.images = {
+		ad_img: null,//纯广告图片
+		redpacket_img:null,//广告红包图片
+		price_img: null//刮奖涂层下边的展示图片
+	};
+
+//	this.ggl_isalert = 'false';//当前是否弹出过框
+};

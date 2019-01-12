@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="Description" content=""/>
+        <meta name="Keywords" content=""/>
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+        <meta name="renderer" content="webkit">
+        <meta name="referrer" content="always">
+        <meta name="viewport"
+              content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <meta name="author" content=""/>
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="bookmark" href="img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/static/css/dialog.css">
+        <script src="/static/dist/jquery-2.1.1.min.js" type="text/javascript"></script>
+        <script src="/static/js/rem.js" type="text/javascript"></script>
+        <title>loading</title>
+</head>
+<body>
+<div class="content" style="position:absolute;top: 0;left: 0;bottom: 0;right: 0;background: #fff;">
+        <img src="/static/images/GameLobby/loading.gif" style="width: 100%;position: absolute;top: 25%;" alt="">
+</div>
+<script>
+    window.localStorage.setItem('isAlert','no');
+    window.localStorage.setItem('decreseTime','no');
+    window.localStorage.removeItem('nextShow');
+    // 获取url的某个字段
+    function GetQueryString(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    var game_id=GetQueryString('gid');
+    var url;
+    if(game_id==1){
+        url= '/h5/game.answer/home.html';
+    }else if(game_id==2){
+        url='/h5/game.lottery/home.html';
+    }else if(game_id==3){
+        url='/h5/game.tongs/home.html';
+    }else if(game_id==4){
+        url='/h5/game.water_flower/home.html';
+    }
+    setTimeout(function(){
+        window.location.href=url;
+    },1000);
+</script>
+</body>
+</html>

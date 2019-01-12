@@ -1,0 +1,242 @@
+<?php
+/**
+ * 数据统计model
+ * User: zhushengli
+ * Date: 18/9/18
+ * Time: 上午9:09
+ */
+namespace app\admin\model;
+
+
+use Think\Db;
+
+class StatisticsModel extends BaseModel
+{
+    protected $config_table = 'b_millions_config';
+    protected $game_ad_table = 'b_game_ad_list';
+    protected $millions_count_table = 'b_millions_count';
+    protected function initialize()
+    {
+        parent::initialize();
+    }
+
+    /**
+     * 百万红包数据统计
+     * @param string $start_time [开始时间,时间戳]
+     * @param string $end_time [结束时间,时间戳]
+     * @return array
+     */
+    public function getMillionCount($start_time = '',$end_time = '')
+    {
+        //百万红包拆完金额sql
+        $openRedMoneySql = "SELECT sum(c_103) as b FROM `b_millions_count` where addtime between $start_time and $end_time";
+//        $openRedMoney = Db::table($this->millions_count_table)->whereBetweenTime('addtime',$start_time,$end_time)->sum('c_103');
+        //百万红包点击数sql
+        $clickCountSql = "SELECT sum(c_105) as b FROM `b_millions_count` where addtime between $start_time and $end_time";
+        //邀请成功人数
+        $inviteSuccessSql = "SELECT sum(c_104) as b FROM `b_millions_count` where addtime between $start_time and $end_time";
+        //拆包个数统计sql
+        $openRedSql = "SELECT sum(c_102) as b FROM `b_millions_count` where addtime between $start_time and $end_time";
+        //百万红包拆完金额
+        $openRedMoney = Db::query($openRedMoneySql);
+        //百万红包点击数
+        $clickCount = Db::query($clickCountSql);
+        //邀请成功人数
+        $inviteSuccess = Db::query($inviteSuccessSql);
+        //拆红包个数
+        $openRed = Db::query($openRedSql);
+        //每个档位红包拆包成功率
+        $successRes = Db::table($this->config_table)->where([
+            ['c_act_id','=',1],
+            ['status','=',1]
+        ])->field('c_all_task_num,c_all_task_success')->select();
+        $data = [
+            'openRed'=>$openRed,
+            'openRedMoney'=>$openRedMoney,
+            'clickCount'=>$clickCount,
+            'inviteSuccess'=>$inviteSuccess,
+            'successRes' =>$successRes
+        ];
+        return $data;
+    }
+
+    /**
+     * 广告数据统计
+     * @param string $start_time [开始时间]
+     * @param string $end_time [结束时间]
+     * @return array
+     */
+    public function getAdCount($start_time = '',$end_time = '')
+    {
+        //统计广告曝光数
+        $adPersonsSql = "SELECT sum(a.b) as all_num FROM (
+SELECT count(id) as b,uid FROM `b_game_prize_u0` where p_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u1` where p_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u2` where p_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u3` where p_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u4` where p_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u5` where p_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u6` where p_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u7` where p_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u8` where p_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u9` where p_status = 1 and addtime between $start_time and $end_time group by uid
+) as a";
+        //统计广告曝光数
+        $adPersons = Db::query($adPersonsSql);
+        $game_ad_list = Db::table($this->game_ad_table)->field('id,ad_title')->select();
+        //每个广告的展现
+        foreach ($game_ad_list as $k=>$v) {
+            $ad_id = $v['id'];
+            $adShowSql = "SELECT sum(a.b) as all_num FROM (
+SELECT count(id) as b,uid FROM `b_game_prize_u0` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u1` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u2` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u3` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u4` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u5` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u6` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u7` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u8` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u9` where p_type = 1 and p_id = $ad_id and addtime between $start_time and $end_time
+) as a";
+            $adShow[$v['ad_title']] = Db::query($adShowSql);
+        }
+        $data = [
+            'adPersons'=>$adPersons,
+            'adShow'=>$adShow,
+        ];
+        return $data;
+    }
+
+    /**
+     * 游戏数据统计
+     * @param string $start_time [开始时间]
+     * @param string $end_time [结束时间]
+     * @return array
+     */
+    public function getGameCount($start_time = '',$end_time = '')
+    {
+        //红包未领取sql
+        $noReceivedSql = "SELECT sum(a.b) as all_num FROM (
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u0` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u1` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u2` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u3` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u4` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u5` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u6` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u7` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u8` where red_status = 1 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u9` where red_status = 1 and addtime between $start_time and $end_time group by uid
+) as a";
+        //红包领取sql
+        $receivedSql = "SELECT sum(a.b) as all_num FROM (
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u0` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u1` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u2` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u3` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u4` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u5` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u6` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u7` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u8` where red_status = 2 and addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u9` where red_status = 2 and addtime between $start_time and $end_time group by uid
+) as a";
+        //总消耗sql
+        $totalUseSql = "SELECT sum(a.b) as all_num FROM (
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u0` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u1` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u2` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u3` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u4` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u5` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u6` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u7` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u8` where addtime between $start_time and $end_time group by uid
+union all
+SELECT sum(red_money) as b,uid FROM `b_game_redpacket_u9` where addtime between $start_time and $end_time group by uid
+) as a";
+        //未领取红包数
+        $noReceived = Db::query($noReceivedSql);
+        //已领取红包数
+        $received = Db::query($receivedSql);
+        //总消耗
+        $totalUse = Db::query($totalUseSql);
+        //统计游戏的人数
+        $gamePersonsSql = "SELECT count(a.b) as all_num FROM (
+SELECT count(id) as b,uid FROM `b_game_prize_u0` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u1` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u2` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u3` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u4` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u5` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u6` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u7` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u8` where  addtime between $start_time and $end_time group by uid
+union all
+SELECT count(id) as b,uid FROM `b_game_prize_u9` where  addtime between $start_time and $end_time group by uid
+) as a";
+        //统计游戏的人数
+        $gamePersons = Db::query($gamePersonsSql);
+        $data = [
+            'gamePersons'=>$gamePersons,
+            'noReceived'=>$noReceived,
+            'received'=>$received,
+            'totalUse'=>$totalUse,
+        ];
+        return $data;
+
+    }
+}

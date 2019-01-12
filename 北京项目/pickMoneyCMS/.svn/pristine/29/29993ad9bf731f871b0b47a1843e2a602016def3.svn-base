@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>趣味游戏-浇花得红包</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-tab-title li{
+            padding: 0 15px;
+        }
+        input{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <!-- 内容主体区域 -->
+    <div class="layui-fluid flcp">
+        <div class="layui-tab layui-tab-card">
+            <ul class="layui-tab-title">
+                <li class="layui-this">红包规则设置</li>
+                <!--<li>奖品、规则说明配置</li>-->
+                <!--<li>中奖记录</li>-->
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <form class="layui-form">
+                        <blockquote class="layui-elem-quote" style="background: #fff;">1.免费抽奖-弹窗广告和红包+广告弹窗占比设定：</blockquote>
+                        <div class="layui-input-inline config_list">
+                            <p style="margin: 20px;">弹窗广告占比<input name="type1" value="{$game_config.type1_radio}" type="text" class="layui-input-inline" required="" lay-verify="required" autocomplete="off" style="margin: 0 5px;width: 25px;" disabled>%</p>
+                        </div>
+                        <div class="layui-input-inline config_list">
+                            <p style="margin: 20px;">红包+广告弹窗占比<input name="type2" value="{$game_config.type2_radio}" type="text" class="layui-input-inline" required="" lay-verify="required" autocomplete="off" style="margin: 0 5px;width: 25px;" disabled>%</p>
+                        </div>
+                        <blockquote class="layui-elem-quote" style="background: #fff;">2.再来一次中奖设定：</blockquote>
+                        <!--暂时隐藏-->
+                        <!--<div class="layui-input-inline">
+                            <p style="margin: 20px;">中奖概率：<input type="text" class="layui-input-inline" name="topcount3" autocomplete="off" title="次数上限" style="margin: 0 5px;width: 25px;" disabled>%</p>
+                        </div>
+                        <div class="layui-input-inline">
+                            <p style="margin: 20px;">金额区间：<input type="text" class="layui-input-inline" name="topcount4" autocomplete="off" title="次数上限" style="margin: 0 5px;width: 25px;" disabled>~<input type="text" class="layui-input-inline" name="topcount" autocomplete="off" title="次数上限" style="margin: 0 5px;width: 25px;" disabled>元（精确到0.00000001）</p>
+                        </div>-->
+                        <div class="layui-input-inline">
+                            <p style="margin: 20px;">再来一次的次数：<input type="text" class="layui-input-inline again_times" value="{$game_config.again_count}" required="" name="again_times" autocomplete="off" style="margin: 0 5px;width: 25px;" disabled>次  (次日凌晨生效)</p>
+                        </div>
+                        <div style="text-align: right;margin-bottom: 10px;">
+                            <button class="layui-btn layui-btn-normal edit submit_sure">编辑</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <blockquote class="layui-elem-quote">3.红包配置<button class="layui-btn layui-btn-warm addConfigure" style="float: right;margin-top: -8px;">新增</button></blockquote>
+                    <div class="layui-collapse red_ruls">
+                        <form action="" class="layui-form">
+                            <div class="form-container">
+                                {volist name="red_list" id="vo"}
+                                <div class="layui-colla-item">
+                                    <div class="layui-colla-title"><h2>红包</h2><p class="per">{$vo.red_weight}%</p><span style="float: right;">红包比重</span></div>
+                                    <div class="layui-colla-content layui-show">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">金额区间：</label>
+                                            <div class="layui-input-inline layui-col-md10 layui-col-sm10 layui-col-xs7 fanwei">
+                                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">
+                                                    <input type="number" class="layui-input" required name="red_min" lay-verify="required" value="{$vo.red_min}" autocomplete="off" disabled>
+                                                </div>
+                                                <div class="layui-input-inline">~</div>
+                                                <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">
+                                                    <input type="number" class="layui-input" required name="red_max" lay-verify="required" value="{$vo.red_max}" autocomplete="off" disabled>
+                                                </div>
+                                                <div class="layui-input-inline layui-form-mid">元 (精确到0.00000001)</div>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex;justify-content: space-between;">
+                                            <p style="padding-left: 40px;">
+                                                <!--<span>中奖统计</span>-->
+                                                <!--<span>中奖次数：<i>1234</i>次</span>-->
+                                                <!--<span>中奖人数：<i>1234</i>次</span>-->
+                                                <!--<span>中奖成功率：<i>80</i>%</span>-->
+                                            </p>
+                                            <div>
+                                                <button class="layui-btn layui-btn-primary delpz" data-id="{$vo.id}">删除</button>
+                                                <button class="layui-btn layui-btn-normal edit" data-id="{$vo.id}">编辑</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/volist}
+                                <!--<div class="layui-colla-item">-->
+                                    <!--<div class="layui-colla-title"><h2>红包名称2</h2><p class="per">19%</p><span style="float: right;">红包比重</span></div>-->
+                                    <!--<div class="layui-colla-content layui-show">-->
+                                        <!--<div class="layui-form-item">-->
+                                            <!--<label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">金额区间：</label>-->
+                                            <!--<div class="layui-input-inline layui-col-md10 layui-col-sm10 layui-col-xs7 fanwei">-->
+                                                <!--<div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">-->
+                                                    <!--<input type="number" class="layui-input" required name="keywordMin2" lay-verify="required" autocomplete="off">-->
+                                                <!--</div>-->
+                                                <!--<div class="layui-input-inline">~</div>-->
+                                                <!--<div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">-->
+                                                    <!--<input type="number" class="layui-input" required name="keywordMax2" lay-verify="required" autocomplete="off">-->
+                                                <!--</div>-->
+                                                <!--<div class="layui-input-inline layui-form-mid">元 (精确到0.00000001)</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div style="display: flex;justify-content: space-between;">-->
+                                            <!--<p style="padding-left: 40px;">-->
+                                                <!--&lt;!&ndash;<span>中奖统计</span>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<span>中奖次数：<i>1234</i>次</span>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<span>中奖人数：<i>1234</i>次</span>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<span>中奖成功率：<i>80</i>%</span>&ndash;&gt;-->
+                                            <!--</p>-->
+                                            <!--<div>-->
+                                                <!--<button class="layui-btn layui-btn-primary delpz">删除</button>-->
+                                                <!--<button class="layui-btn layui-btn-primary reset">撤销</button>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            </div>
+                            <!--<button lay-submit lay-filter="formLottery" class="layui-btn layui-btn-normal" style="margin-top: 10px;float: right;">确定</button>-->
+                        </form>
+                    </div>
+                    <div style="margin: 20px 10px;clear:both;">
+                        <!--<p>管理日志</p>-->
+                        <!--<p>2018-08-12 19:12:36<span class="whoname"> admin </span>删除了<span class="whatname"> 红包名称2</span></p>-->
+                    </div>
+                   <!-- <div class="layui-collapse">
+                        <div class="layui-colla-item">
+                            <div class="layui-colla-title"><h2>红包名称2</h2><p class="per">19%</p><span style="float: right;">红包比重</span></div>
+                            <div class="layui-colla-content layui-show">
+                                <form class="layui-form layui-row">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs4">金额区间：</label>
+                                        <div class="layui-input-inline layui-col-md10 layui-col-sm10 layui-col-xs7 fanwei">
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">
+                                                <input type="number" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off" value="1">
+                                            </div>
+                                            <div class="layui-input-inline">~</div>
+                                            <div class="layui-input-inline layui-col-md1 layui-col-xs2 layui-col-xs5">
+                                                <input type="number" class="layui-input" required name="keyword" lay-verify="required" autocomplete="off" value="5">
+                                            </div>
+                                            <div class="layui-input-inline layui-form-mid">元 (精确到0.00000001)</div>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex;justify-content: space-between;">
+                                        <p style="padding-left: 40px;">
+                                            <span>中奖统计</span>
+                                            <span>中奖次数：<i>1234</i>次</span>
+                                            <span>中奖人数：<i>1234</i>次</span>
+                                            <span>中奖成功率：<i>80</i>%</span>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="layui-tab-item">
+                    <form action="" class="layui-form layui-row">
+                        <blockquote class="layui-elem-quote">奖品展示</blockquote>
+                        <div class="layui-form-item layui-col-md12 layui-col-xs12 layui-col-xs12">
+                            <label class="layui-form-label layui-col-md2 layui-col-xs4 layui-col-xs6" style="text-align: left;">展示位置：<span></span>福利彩票馆首页</label>
+                            <label class="layui-form-label layui-col-md2 layui-col-xs4 layui-col-xs6" style="text-align: left;">展示数量：<span>0张</span></label>
+                        </div>
+                        <div class="layui-upload">
+                            <button type="button" class="layui-btn" id="test-upload-more">多图片上传</button><input class="layui-upload-file" type="file" accept="undefined" name="file" multiple="">
+                            <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;min-height: 100px;">
+                                预览图：
+                                <div class="layui-upload-list" id="test-upload-more-list"></div>
+                            </blockquote>
+                        </div>
+                        <blockquote class="layui-elem-quote">规则说明管理</blockquote>
+                        <div class="layui-colla-item">
+                            <div class="layui-colla-content layui-show">
+                                <textarea name="" id="" cols="30" rows="10" placeholder="请输入规则说明"></textarea>
+                            </div>
+                        </div>
+                        <button class="layui-btn layui-btn-primary">上传</button>
+                    </form>
+                    <div style="margin-top: 20px;">
+                        <p>管理日志</p>
+                        <p>2018-08-12 19:12:36<span class="whoname"> admin </span>删除了<span class="whatname"> app下载投放</span></p>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <form action="" class="layui-form layui-row">
+                        <div class="layui-form-item layui-col-md12 layui-col-sm12 layui-col-xs12" style="margin-bottom: 0;">
+                            <label class="layui-form-label layui-col-md1 layui-col-sm2 layui-col-xs4">筛选状态：</label>
+                            <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs8">
+                                <select name="goods" lay-verify="required">
+                                    <option value=""></option>
+                                    <option value="0">全部</option>
+                                    <option value="1">已拆完</option>
+                                    <option value="2">拆包中</option>
+                                    <option value="3">已存入钱包</option>
+                                </select>
+                            </div>
+                            <label class="layui-form-label layui-col-md1 layui-col-sm2 layui-col-xs3">筛选时间：</label>
+                            <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs8 tt">
+                                <input type="text" class="layui-input startTime" id="seltime1" required name="startt1" lay-verify="required" autocomplete="off" placeholder="请选择">
+                            </div>
+                            <label class="layui-form-label layui-col-md1 layui-col-sm2 layui-col-xs3 tts">至：</label>
+                            <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs8">
+                                <input type="text" class="layui-input endTime" id="seltime2" required name="endt1" lay-verify="required" autocomplete="off" placeholder="请选择">
+                            </div>
+                            <div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-hide-xs">
+                                <input type="text" class="layui-input" required name="keyword" value="" lay-verify="required" autocomplete="off" placeholder="输入关键字" title="输入关键字">
+                            </div>
+                            <div class="layui-btn-container layui-input-inline layui-col-md2 layui-col-sm4 layui-col-xs-8">
+                                <button class="layui-btn layui-btn-normal">搜索</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                <button class="layui-btn layui-btn-warm">导出</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div style="overflow-x: auto;">
+                        <table class="layui-table" lay-even>
+                            <thead>
+                            <tr>
+                                <th>选择</th>
+                                <th>编号</th>
+                                <th>奖品名称</th>
+                                <th>中奖用户</th>
+                                <th>头像</th>
+                                <th>中奖时间</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>1</td>
+                                <td>888元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-10 14:12:24</td>
+                                <td>已领取</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>2</td>
+                                <td>100元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-12 18:12:56</td>
+                                <td>已退回</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>3</td>
+                                <td>55元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-12 18:12:56</td>
+                                <td>未领取</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>4</td>
+                                <td>888元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-10 14:12:24</td>
+                                <td>已领取</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>5</td>
+                                <td>100元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-12 18:12:56</td>
+                                <td>已退回</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>6</td>
+                                <td>55元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-12 18:12:56</td>
+                                <td>未领取</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>7</td>
+                                <td>888元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-10 14:12:24</td>
+                                <td>已领取</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>8</td>
+                                <td>100元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-12 18:12:56</td>
+                                <td>已退回</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>9</td>
+                                <td>55元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-12 18:12:56</td>
+                                <td>未领取</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>10</td>
+                                <td>888元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-10 14:12:24</td>
+                                <td>已领取</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>11</td>
+                                <td>100元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-12 18:12:56</td>
+                                <td>已退回</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>12</td>
+                                <td>55元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-12 18:12:56</td>
+                                <td>未领取</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>13</td>
+                                <td>888元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-10 14:12:24</td>
+                                <td>已领取</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>14</td>
+                                <td>100元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-12 18:12:56</td>
+                                <td>已退回</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>15</td>
+                                <td>55元</td>
+                                <td>王晨露</td>
+                                <td><img src="/static/admin/images/120332641.png" alt=""></td>
+                                <td>2018-8-12 18:12:56</td>
+                                <td>未领取</td>
+                                <td><a href="">详情</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>
+                        <input type="checkbox" class="totaltr" style="margin-left: 10px;">
+                        <!--<select name="" id="batch_operation">-->
+                            <!--<option value="">批量操作</option>-->
+                            <!--<option value="0">启用</option>-->
+                            <!--<option value="1">暂停</option>-->
+                            <!--<option value="2">删除</option>-->
+                        <!--</select>-->
+                        <button class="layui-btn layui-btn-normal allDelete" style="margin: 0 10px;">一键删除</button>
+                        用户总数：<span class="whatname">1234</span>人 邀请总人数：<span class="whatname">23456</span>人
+                    </p>
+                    <div id="demo11" style="text-align: center;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {load href="/static/admin/layui/layui.js" /}
+    {load href="/static/admin/js/FunGame/water.js" /}
+</body>
+</html>

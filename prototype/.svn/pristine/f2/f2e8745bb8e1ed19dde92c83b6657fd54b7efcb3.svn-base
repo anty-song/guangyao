@@ -1,0 +1,1512 @@
+---------------------------------------------------------------
+[ 2018-09-05T17:49:49+08:00 ] 192.168.1.106 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.491250s][吞吐率：2.04req/s] [内存消耗：2,412.29kb] [文件加载：59]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '2549170',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryLJNE6A4GD4fRv7Af',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => '原型111',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '2222222',
+  '__token__' => 'acdab032f0c92f435740be4245e80360',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/data/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╔Ω╟δí¬í¬╘÷╝╙╫╩╜≡╙├═╛/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╔Ω╟δ┴≈│╠/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╣▄└φ┴╨▒φ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╣▄└φ┴╨▒φ╥│í¬í¬╘÷╝╙╔╕╤í/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σ_╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿╘▒╣ñ╚╖╚╧═Ω▒╧ú⌐__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╬┤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σ_ú¿╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧0/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿╚╖╚╧═Ω▒╧_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╬┤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/▒¿╧·╣▄└φ╘÷╝╙┴∞┐ε╚╦╤í╘±/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/╜ß╟σ╙α╢ε/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/╜ß╟σ╙α╢ε__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/files/╖╤╙├▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╔Ω╟δí¬í¬╘÷╝╙╫╩╜≡╙├═╛/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╔Ω╟δ┴≈│╠/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╣▄└φ┴╨▒φ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╣▄└φ┴╨▒φ╥│í¬í¬╘÷╝╙╔╕╤í/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σ_╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿╘▒╣ñ╚╖╚╧═Ω▒╧ú⌐__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╬┤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σ_ú¿╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧0/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿╚╖╚╧═Ω▒╧_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╬┤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/▒¿╧·╣▄└φ╘÷╝╙┴∞┐ε╚╦╤í╘±/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/╜ß╟σ╙α╢ε/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/╜ß╟σ╙α╢ε__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/images/╖╤╙├▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/debug/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/debug/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/debug/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/page_notes/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/page_notes/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/page_notes/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/recordplay/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/recordplay/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/sitemap/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/sitemap/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/plugins/sitemap/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/resources/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/resources/chrome/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/resources/css/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/resources/css/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/resources/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/resources/scripts/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/resources/scripts/player/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011029s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005183s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('原型111' , 1 , '2222222') [ RunTime:0.003746s ]
+[ sql ] [ SQL ] UPDATE `pr_prototype_name`  SET `prototypename_url`='192.168.1.189:9001/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/',`zip_url`='192.168.1.189:9001/project/201809/zip/4801c4355f806d433d68fc889f38a4e61536140989.zip',`root_url_zip`='201809/zip/4801c4355f806d433d68fc889f38a4e61536140989.zip',`root_url_pro`='201809/pro/4801c4355f806d433d68fc889f38a4e61536140989/',`pro_url`='192.168.1.189:9001/transferlink/NzY=1536140989_10',`addtime`=1536140989  WHERE  `itemid` = 76 [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:49:52+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.050229s][吞吐率：19.91req/s] [内存消耗：2,395.38kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000601s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006004s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000446s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:49:53+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.054732s][吞吐率：18.27req/s] [内存消耗：2,395.38kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009644s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005423s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000384s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000434s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:50:02+08:00 ] 192.168.1.106 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.051970s][吞吐率：19.24req/s] [内存消耗：2,313.51kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '798',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryX9TjKcJSkHMit0CG',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => '原型21231',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '',
+  '__token__' => '554f2be37b44bc03a91eadd5305b3980',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011104s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005751s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('原型21231' , 1 , '') [ RunTime:0.001902s ]
+[ error ] [0]致命错误: Cannot use object of type think\response\Json as array[E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php:92]
+---------------------------------------------------------------
+[ 2018-09-05T17:50:09+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.050876s][吞吐率：19.66req/s] [内存消耗：2,395.38kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010895s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006449s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000397s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:50:31+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.050639s][吞吐率：19.75req/s] [内存消耗：2,395.38kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010284s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007025s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000533s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000422s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:51:22+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.059363s][吞吐率：16.85req/s] [内存消耗：2,395.38kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010898s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007348s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000296s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:51:45+08:00 ] 192.168.1.106 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.064865s][吞吐率：15.42req/s] [内存消耗：2,313.55kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '808',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundarya9UYfQvGvUgozWvx',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => '爱的飒飒大法师',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '',
+  '__token__' => '8fa040bc2562a1144d01461c39f0fe1e',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010127s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007154s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('爱的飒飒大法师' , 1 , '') [ RunTime:0.001827s ]
+[ error ] [0]致命错误: Cannot use object of type think\response\Json as array[E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php:92]
+---------------------------------------------------------------
+[ 2018-09-05T17:53:01+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.059448s][吞吐率：16.82req/s] [内存消耗：2,395.38kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009839s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006998s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000390s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:58:05+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.069102s][吞吐率：14.47req/s] [内存消耗：2,395.38kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010671s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007802s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000561s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:58:06+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.052727s][吞吐率：18.97req/s] [内存消耗：2,395.38kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000681s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007169s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000406s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000337s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:58:07+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.242734s][吞吐率：4.12req/s] [内存消耗：2,395.69kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001297s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.018723s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000375s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:58:07+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.082229s][吞吐率：12.16req/s] [内存消耗：2,395.69kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000709s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.008391s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000355s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000331s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:58:07+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.074234s][吞吐率：13.47req/s] [内存消耗：2,395.69kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000549s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.012432s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000703s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000562s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:58:16+08:00 ] 192.168.1.106 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.474626s][吞吐率：2.11req/s] [内存消耗：2,412.20kb] [文件加载：59]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '2549181',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryJYFSBNOkeSTnfpRb',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => '交通费添加一条浴巾',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '',
+  '__token__' => 'dd19d545f5189f6338d583eccd55328e',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/data/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╔Ω╟δí¬í¬╘÷╝╙╫╩╜≡╙├═╛/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╔Ω╟δ┴≈│╠/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╣▄└φ┴╨▒φ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╣▄└φ┴╨▒φ╥│í¬í¬╘÷╝╙╔╕╤í/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σ_╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿╘▒╣ñ╚╖╚╧═Ω▒╧ú⌐__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╬┤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σ_ú¿╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧0/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿╚╖╚╧═Ω▒╧_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╬┤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/▒¿╧·╣▄└φ╘÷╝╙┴∞┐ε╚╦╤í╘±/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/╜ß╟σ╙α╢ε/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/╜ß╟σ╙α╢ε__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/files/╖╤╙├▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╔Ω╟δí¬í¬╘÷╝╙╫╩╜≡╙├═╛/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╔Ω╟δ┴≈│╠/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╣▄└φ┴╨▒φ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╣▄└φ┴╨▒φ╥│í¬í¬╘÷╝╙╔╕╤í/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σ_╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿╘▒╣ñ╚╖╚╧═Ω▒╧ú⌐__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╬┤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σ_ú¿╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧0/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿╚╖╚╧═Ω▒╧_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╬┤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/▒¿╧·╣▄└φ╘÷╝╙┴∞┐ε╚╦╤í╘±/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/╜ß╟σ╙α╢ε/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/╜ß╟σ╙α╢ε__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/images/╖╤╙├▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/debug/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/debug/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/debug/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/page_notes/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/page_notes/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/page_notes/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/recordplay/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/recordplay/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/sitemap/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/sitemap/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/plugins/sitemap/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/resources/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/resources/chrome/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/resources/css/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/resources/css/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/resources/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/resources/scripts/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141495/resources/scripts/player/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000496s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.004940s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('交通费添加一条浴巾' , 1 , '') [ RunTime:0.007006s ]
+[ sql ] [ SQL ] UPDATE `pr_prototype_name`  SET `prototypename_url`='192.168.1.189:9001/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536141496/',`zip_url`='192.168.1.189:9001/project/201809/zip/4801c4355f806d433d68fc889f38a4e61536141496.zip',`root_url_zip`='201809/zip/4801c4355f806d433d68fc889f38a4e61536141496.zip',`root_url_pro`='201809/pro/4801c4355f806d433d68fc889f38a4e61536141496/',`pro_url`='192.168.1.189:9001/transferlink/Nzk=1536141496_10',`addtime`=1536141496  WHERE  `itemid` = 79 [ RunTime:0.001901s ]
+---------------------------------------------------------------
+[ 2018-09-05T17:58:20+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.043944s][吞吐率：22.76req/s] [内存消耗：2,395.41kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000567s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005129s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000361s ]
+---------------------------------------------------------------
+[ 2018-09-05T18:01:29+08:00 ] 192.168.1.189 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.056025s][吞吐率：17.85req/s] [内存消耗：2,396.06kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'rmbUser=true; PHPSESSID=3hkh4hugj806hs77b58bggomgi; cgg_username=15210690779; userName=15210690779; passWord=Aa123456; cgg_auth=9abc-S--S-lvhyIpX304Mm4gsTaAymPYRqWiOk1Q-P-zaSmJ5HqoSzIFkJy1Aj663Sl-P-OWlhZE0ValIIs3MPv1IsJUINMhm8M',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000777s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005865s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000548s ]
+---------------------------------------------------------------
+[ 2018-09-05T18:57:48+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.063385s][吞吐率：15.78req/s] [内存消耗：2,395.71kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011464s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.008174s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000708s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000466s ]
+---------------------------------------------------------------
+[ 2018-09-05T18:57:48+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.059405s][吞吐率：16.83req/s] [内存消耗：2,395.71kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011154s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005502s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000416s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000424s ]
+---------------------------------------------------------------
+[ 2018-09-05T18:57:57+08:00 ] 192.168.1.106 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.481758s][吞吐率：2.08req/s] [内存消耗：2,412.13kb] [文件加载：59]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '2549169',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryNbY8HFKh9hN0eJ8B',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => '撒大声地',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '455',
+  '__token__' => '27038d09e4e44e50dd0bcf4dce16a72c',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/data/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╔Ω╟δí¬í¬╘÷╝╙╫╩╜≡╙├═╛/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╔Ω╟δ┴≈│╠/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╣▄└φ┴╨▒φ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╣▄└φ┴╨▒φ╥│í¬í¬╘÷╝╙╔╕╤í/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σ_╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿╘▒╣ñ╚╖╚╧═Ω▒╧ú⌐__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╬┤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σ_ú¿╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧0/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿╚╖╚╧═Ω▒╧_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╬┤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/▒¿╧·╣▄└φ╘÷╝╙┴∞┐ε╚╦╤í╘±/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/╜ß╟σ╙α╢ε/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/╜ß╟σ╙α╢ε__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/files/╖╤╙├▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╔Ω╟δí¬í¬╘÷╝╙╫╩╜≡╙├═╛/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╔Ω╟δ┴≈│╠/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╣▄└φ┴╨▒φ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╣▄└φ┴╨▒φ╥│í¬í¬╘÷╝╙╔╕╤í/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σ_╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿╘▒╣ñ╚╖╚╧═Ω▒╧ú⌐__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╬┤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σ_ú¿╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧0/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿╚╖╚╧═Ω▒╧_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╬┤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/▒¿╧·╣▄└φ╘÷╝╙┴∞┐ε╚╦╤í╘±/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/╜ß╟σ╙α╢ε/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/╜ß╟σ╙α╢ε__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/images/╖╤╙├▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/debug/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/debug/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/debug/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/page_notes/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/page_notes/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/page_notes/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/recordplay/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/recordplay/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/sitemap/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/sitemap/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/plugins/sitemap/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/resources/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/resources/chrome/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/resources/css/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/resources/css/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/resources/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/resources/scripts/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/resources/scripts/player/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000875s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.004925s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('撒大声地' , 1 , '455') [ RunTime:0.006768s ]
+[ sql ] [ SQL ] UPDATE `pr_prototype_name`  SET `prototypename_url`='192.168.1.189:9001/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/',`zip_url`='192.168.1.189:9001/project/201809/zip/4801c4355f806d433d68fc889f38a4e61536145077.zip',`root_url_zip`='201809/zip/4801c4355f806d433d68fc889f38a4e61536145077.zip',`root_url_pro`='201809/pro/4801c4355f806d433d68fc889f38a4e61536145077/',`pro_url`='192.168.1.189:9001/transferlink/ODA=1536145077_10',`addtime`=1536145077  WHERE  `itemid` = 80 [ RunTime:0.002185s ]
+---------------------------------------------------------------
+[ 2018-09-05T18:58:01+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.056553s][吞吐率：17.68req/s] [内存消耗：2,395.41kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000872s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005940s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000441s ]
+---------------------------------------------------------------
+[ 2018-09-05T18:58:55+08:00 ] 192.168.1.106 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.069168s][吞吐率：14.46req/s] [内存消耗：2,313.51kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '799',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryqe7J1E6yOyoevbNS',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => '前端技术',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '',
+  '__token__' => 'e1bdaab958b53b8bd3d486e17747311d',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010577s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006041s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('前端技术' , 1 , '') [ RunTime:0.001815s ]
+[ error ] [0]致命错误: Cannot use object of type think\response\Json as array[E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php:92]
+---------------------------------------------------------------
+[ 2018-09-05T18:59:05+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.061621s][吞吐率：16.23req/s] [内存消耗：2,395.41kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000699s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006757s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000636s ]
+---------------------------------------------------------------
+[ 2018-09-05T18:59:14+08:00 ] 192.168.1.106 POST /addupdate
+[ info ] 192.168.1.189:9001/addupdate [运行时间：0.464569s][吞吐率：2.15req/s] [内存消耗：2,412.20kb] [文件加载：59]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'addUpdate',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'content-length' => '2549180',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.1.189:9001',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryq14qdr2hUD13BGAg',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+  '/addupdate' => '',
+  'title' => '前端哈UI的撒范德萨',
+  'userid' => '1',
+  'type' => '1',
+  'password_show' => '',
+  '__token__' => '50e646011704ff1c803215a5459b1ee2',
+  'itemid' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->addUpdate[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/data/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╔Ω╟δí¬í¬╘÷╝╙╫╩╜≡╙├═╛/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╔Ω╟δ┴≈│╠/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╣▄└φ┴╨▒φ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╣▄└φ┴╨▒φ╥│í¬í¬╘÷╝╙╔╕╤í/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σ_╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿╘▒╣ñ╚╖╚╧═Ω▒╧ú⌐__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╬┤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σ_ú¿╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧0/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿╚╖╚╧═Ω▒╧_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒╕╙├╜≡╧Ω╟Θí¬í¬╬┤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/▒¿╧·╣▄└φ╘÷╝╙┴∞┐ε╚╦╤í╘±/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/╜ß╟σ╙α╢ε/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/╜ß╟σ╙α╢ε__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/files/╖╤╙├▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╔Ω╟δí¬í¬╘÷╝╙╫╩╜≡╙├═╛/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╔Ω╟δ┴≈│╠/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╣▄└φ┴╨▒φ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╣▄└φ┴╨▒φ╥│í¬í¬╘÷╝╙╔╕╤í/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σ_╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿╘▒╣ñ╚╖╚╧═Ω▒╧ú⌐__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╥╤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╣▄└φ╧Ω╟Θ╥│í¬í¬╬┤╜ß╫¬╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σ_ú¿╘▒╣ñ╚╖╚╧ú⌐/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿┤²╘▒╣ñ╚╖╚╧0/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╟σú¿╚╖╚╧═Ω▒╧_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╥╤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒╕╙├╜≡╧Ω╟Θí¬í¬╬┤╜ß╫¬ú¼╬┤╜ß╟σ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/▒¿╧·╣▄└φ╘÷╝╙┴∞┐ε╚╦╤í╘±/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/╜ß╟σ╙α╢ε/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/╜ß╟σ╙α╢ε__1_/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/images/╖╤╙├▒¿╧·╔Ω╟δ/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/debug/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/debug/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/debug/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/page_notes/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/page_notes/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/page_notes/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/recordplay/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/recordplay/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/sitemap/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/sitemap/styles/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/plugins/sitemap/styles/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/resources/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/resources/chrome/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/resources/css/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/resources/css/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/resources/images/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/resources/scripts/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ error ] [2]file_put_contents(E:\xampp\htdocs\demo\prototype\public/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/resources/scripts/player/): failed to open stream: No such file or directory[E:\xampp\htdocs\demo\prototype\application\prototype\controller\Zip.php:47]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000709s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.004558s ]
+[ sql ] [ SQL ] INSERT INTO `pr_prototype_name` (`title` , `userid` , `password_show`) VALUES ('前端哈UI的撒范德萨' , 1 , '') [ RunTime:0.017615s ]
+[ sql ] [ SQL ] UPDATE `pr_prototype_name`  SET `prototypename_url`='192.168.1.189:9001/project/201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/',`zip_url`='192.168.1.189:9001/project/201809/zip/4801c4355f806d433d68fc889f38a4e61536145154.zip',`root_url_zip`='201809/zip/4801c4355f806d433d68fc889f38a4e61536145154.zip',`root_url_pro`='201809/pro/4801c4355f806d433d68fc889f38a4e61536145154/',`pro_url`='192.168.1.189:9001/transferlink/ODI=1536145154_10',`addtime`=1536145154  WHERE  `itemid` = 82 [ RunTime:0.001650s ]
+---------------------------------------------------------------
+[ 2018-09-05T18:59:23+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.057294s][吞吐率：17.45req/s] [内存消耗：2,395.43kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009659s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.005594s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000444s ]
+---------------------------------------------------------------
+[ 2018-09-05T18:59:24+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.054334s][吞吐率：18.40req/s] [内存消耗：2,395.43kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.1.189:9001/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010520s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.006125s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000483s ]
+---------------------------------------------------------------
+[ 2018-09-05T18:59:40+08:00 ] 192.168.1.106 GET /
+[ info ] 192.168.1.189:9001/ [运行时间：0.046446s][吞吐率：21.53req/s] [内存消耗：2,395.08kb] [文件加载：56]
+[ info ] [ LANG ] E:\xampp\htdocs\demo\prototype\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'prototype',
+    1 => 'generateLink',
+    2 => 'Index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.1.189:9001',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'PHPSESSID=3dfht8jgno0gkgdrnsbb8sl2ph',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\prototype\controller\GenerateLink->Index[ E:\xampp\htdocs\demo\prototype\application\prototype\controller\GenerateLink.php ]
+[ info ] [ VIEW ] E:\xampp\htdocs\demo\prototype\public/../application/prototype\view\upload\upload.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001335s ] mysql:host=127.0.0.1;dbname=prototype;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pr_prototype_name` [ RunTime:0.007191s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `pr_prototype_name` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.000409s ]
+[ sql ] [ SQL ] SELECT * FROM `pr_prototype_name` WHERE  `userid` = 1 ORDER BY `addtime` DESC LIMIT 0,3 [ RunTime:0.000459s ]

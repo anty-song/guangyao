@@ -1,0 +1,46 @@
+var waterConfig = function() {
+	this.url=PATH_WEB,
+	this.load = {//页面加载接口
+		action:"judge_game_num",
+		type: "post",
+		data: {}
+	};
+	this.refresh = {//页面重载接口
+		action:"get_refresh",
+		type: "post",
+		data: {
+			
+		}
+	};
+	this.water = {//点击浇花接口
+		action:"start_water_flower",
+		type: "post",
+		data: {}
+	};
+	this.next_appear={  //下个游戏弹出接口
+		action:"fifteen_appear_game",
+		type:"post",
+		data:{}
+	};
+	this.next_entry={   //下个游戏进入接口
+		action:"fifteen_entry_game",
+		type:"post",
+		data:{}
+	};
+	this.receice_award = { //领红包接口
+		action:"receice_award",
+		type: "post",
+		data: {}
+	};
+	this.success = { 
+		type: "post",
+		data: {}
+	};
+	this.winner = null; //当前用户是不是能获奖
+	this.image_src = "images/";//配置图片路径
+	this.gameover = null; //这个是判断是否次数用完
+	this.uid=window.localStorage.getItem('uid');
+	this.auth=window.localStorage.getItem('auth');
+	this.device=window.localStorage.getItem('device');
+
+};

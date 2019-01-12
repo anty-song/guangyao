@@ -1,0 +1,39 @@
+<?php
+/**
+ * 三方游戏model
+ * Author: Jason
+ * Date: 18/10/26
+ * Time: 下午3:40
+ */
+
+namespace app\h5\model\game;
+
+use app\api\model\BaseModel;
+use think\Db;
+
+class ThirdGameModel extends BaseModel
+{
+    protected $third_game_table = 'b_third_game_list';
+    protected $system_table = 'b_1_system';
+    protected function initialize()
+    {
+        parent::initialize();
+    }
+
+    /**
+     * 更新三方游戏点击数+1操作
+     * @param $game_id
+     * @return int|true
+     */
+    public function upCount($game_id)
+    {
+        $where['id'] = $game_id;
+        return Db::table($this->third_game_table)->where($where)->setInc('count');
+    }
+
+    //获取系统时间，多长时间出一批，分钟
+    public function getSystemShowTime($field = '*')
+    {
+        return Db::table($this->system_table)->field($field)->order('id desc')->find();
+    }
+}

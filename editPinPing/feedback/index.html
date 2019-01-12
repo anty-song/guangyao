@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>问题反馈</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .banner img {
+            width: 100%;
+            height: 100%;
+        }
+        .feedback {
+            width: 1160px;
+            padding: 20px 20px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="banner">
+        <img src="./images/wtfk_banner_img.png" alt="">
+    </section>
+    <section class="feedback">
+        <textarea name="feedback" id="" cols="30" rows="10"></textarea>
+    </section>
+    <div class="m1024 divh" style="min-height: 448px;">
+        <div class="title_style"><strong>意见反馈</strong></div>
+        <form action="index.php" method="post" enctype="multipart/form-data" onsubmit="return check();">
+    
+            <textarea class="comment_area" onfocus="F();" onkeyup="S();" name="post[content]" id="content" placeholder="注：反馈内容字数要求5-1000字"></textarea><br><img
+                id="thumbBtn" class="thumbBtn" src="http://img.10pinping.com/skin/10/comment/upload_pic.gif" width="77"
+                height="24" align="center"> 手机浏览可拍照上传图片<input type="submit" name="submit" value=" 立即反馈 " id="immediate_feedback"
+                style="
+        float:  right;
+    ">
+            <div class="thumbArea" id="thumbArea">
+                <div class="thumbBox" id="thumbBox1">
+                    <input name="thumb1" id="thumb1" type="file" accept="image/*" class="hidefile">
+                    <img id="ImgPr1" class="thumbImg" style=""><br>
+                    <img class="thumbDelete" src="http://img.10pinping.com/skin/10/image/btn_move.gif" width="50" height="20"
+                        style="">
+                </div>
+            </div>
+            <script language="javascript">
+                var imgNum = 1;
+                var imgMax = 6;
+                //Add a Pic Info
+                function addUpInfo() {
+                    $("#thumbBox" + imgNum).show();
+                    imgNum = imgNum + 1;
+                    $("#thumbArea").append('<div class="thumbBox" id="thumbBox' + imgNum + '"><input name="thumb' + imgNum + '" type="file" id="thumb' + imgNum + '" accept="image/*" class="hidefile" /><img id="ImgPr' + imgNum + '" class="thumbImg" /><img  class="thumbDelete" src="http://img.10pinping.com/skin/10/image/btn_move.gif" width="50" height="20" /></div>');
+                    $("#thumb" + imgNum).uploadPreview({ Img: "ImgPr" + imgNum, Width: 100, Height: 100, ImgType: ["gif", "jpeg", "jpg", "bmp", "png"], Callback: function () { addUpInfo(); } });
+                }
+                //upfile Pic Click
+                $(function () {
+                    //绑定file到img预览
+                    $("#thumb1").uploadPreview({ Img: "ImgPr1", Width: 100, Height: 100, ImgType: ["gif", "jpeg", "jpg", "bmp", "png"], Callback: function () { addUpInfo(); } });
+                    $("#thumbBtn").click(function () {
+                        if (imgNum < imgMax) {
+                            $("#thumb" + imgNum).click();
+                        } else {
+                            alert('最多只能上传5张图片');
+                        }
+                    });
+                    //click Zoom
+                    $(".thumbImg").live("click", function () {
+                        thumbPreview($(this).attr("src"), $(this).css("top"));
+                    });
+                    //Input Info Delete
+                    $(".thumbDelete").live("click", function () {
+                        imgMax++;
+                        $(this).parent().remove();
+                    });
+                });
+            </script>
+            <script language="javascript">
+                $(function () {
+                    $('.listThumb').find('li').click(function () {
+                        if ($(this).hasClass("on")) {
+                            $(this).animate({
+                                height: "102px"
+                            },
+                                100).removeClass('on');
+                            $(this).find('.in').css('left', '0');
+                        }
+                        else {
+                            $(this).addClass('on');
+                            $(this).find('.in').css('left', '0');
+                        }
+                    });
+                });
+                function thumbPreview(src, top) {
+                    $("#thumbDetail").show();
+                    $("#thumbDetail").html('<a href="javascript:thumbClose();" class="thumbClose"><img  src="' + src + '" /><br />关闭</a></p>');
+                }
+                function thumbClose(id) {
+                    $("#thumbDetail").hide();
+                }
+            </script><input name="post[catid]" id="catid" type="hidden" value="0">
+            &nbsp;
+        </form>
+    </div>
+</body>
+
+</html>

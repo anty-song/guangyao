@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>数据统计-月度报表-地区</title>
+    {load href="/static/admin/layui/css/layui.css" /}
+    {load href="/static/admin/css/page.css" /}
+    {load href="/static/admin/css/index.css" /}
+    {load href="/static/admin/js/jquery.min.js" /}
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="layui-fluid staticList">
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+            <li class="layui-this"><a href="{:url('admin/statistics/monthly_area')}">省份访问统计</a></li>
+            <li><a href="{:url('admin/statistics/monthly_api')}">接口访问统计</a></li>
+            <!--<li><a href="{:url('admin/statistics/monthly_hour')}">时段</a></li>-->
+        </ul>
+        <a href="{:url('admin/statistics/monthly_area')}"><i class="layui-icon layui-icon-refresh"></i></a>
+    </div>
+    <div class="layui-card">
+        <form class="layui-form" action="" method="post">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">选择月份范围：</label>
+                    <div class="layui-input-inline">
+                        <input name="month" value="{$month}" type="text" class="layui-input" id="staticStart3" placeholder="yyyy-MM" lay-key="4" autocomplete="off">
+                    </div>
+                    <button class="layui-btn layui-btn-normal beSure" type="submit">确定</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    <!--<button type="reset" class="layui-btn">导出数据</button>-->
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <div class="table-content">
+                <table class="layui-table" style="margin-bottom: 0;">
+                    <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>地区</th>
+                        <th>访问量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="list" id="vo" empty="$empty"}
+                    <tr>
+                        <td>{$vo.month}</td>
+                        <td>{$vo.p_name}</td>
+                        <td>{$vo.count}</td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{load href="/static/admin/layui/layui.js" /}
+{load href="/static/admin/js/index.js" /}
+{load href="/static/admin/js/statistics/monthly_life.js" /}
+</body>
+</html>

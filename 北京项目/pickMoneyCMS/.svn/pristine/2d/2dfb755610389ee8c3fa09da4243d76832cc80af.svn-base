@@ -1,0 +1,609 @@
+// 商家广告管理创建广告
+$('.jumpAddAdver').click(function(e){
+    e.preventDefault();
+    $('.adver-model').show();
+});
+// 创建广告返回
+$('.adver-back').click(function(){
+    $('.adver-model').hide();
+});
+// 商家广告新增logo点击事件
+$('.addLogo').click(function(){
+    $('.mark').show();
+    $('.logo-model').fadeIn();
+});
+// 新增商家logo管理弹框关闭
+$('.layui-icon-close').click(function(){
+    $('.logo-model').hide();
+    $('.mark').fadeOut();
+});
+// ===================
+var whereAdShow; // ====若此变量不为全局用 可更换定义位置
+// 广告管理-广告管理部分，点击编辑进行更改
+$('.gggl .edit').click(function(){
+    if($(this).text()=='编辑'){
+        $(this).parents('.layui-colla-content').find('input').removeAttr('disabled');
+        $(this).parents('.layui-colla-content').find('select').removeAttr('disabled');
+        $(this).text('保存').removeClass('edit').removeClass('layui-btn-normal').addClass('layui-btn-success').addClass('resave');
+        $(this).parent().prev().css('display','block');
+        layui.form.render();
+        layui.element.init();
+    }else{
+        $(this).parents('.layui-colla-content').find('input').attr('disabled','disabled');
+        $(this).parents('.layui-colla-content').find('select').attr('disabled','disabled');
+        $(this).text('编辑').removeClass('resave').removeClass('layui-btn-success').addClass('layui-btn-normal').addClass('edit');
+        $(this).parent().prev().css('display','none');
+        // ==== 点击保存按钮 改变配置标题 ====
+        const ADCONFIGITEM_SELECTOR = $(this).parents(".layui-colla-content").find(".layui-form-item");
+        whereAdShow = ADCONFIGITEM_SELECTOR.eq(0).find('.layui-this').text();
+        $(this).parents(".layui-colla-item").find("#config-title").text(whereAdShow);
+        // ====
+        layui.form.render();
+        layui.element.init();
+    }
+});
+
+// 增加配置
+$('.addpeizhi').click(function(){
+    var count2=$(this).prev().find('.layui-colla-item').length+1;
+    var cloneNode=$('.pzmodel').clone(true)[0];
+    $('.gggl .gggg').append(cloneNode);
+    $('.gggl .layui-collapse>div:last-child').find('h2').text('配置'+count2);
+    layui.form.render();
+    layui.element.init();
+});
+// 删除配置
+$('.gggg').on('click','.delpz',function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    var that=$(this);
+    layer.confirm('确定要删除吗？',function (index) {
+      /*   $.post('set_ad_status',{'status':9,'a_ids[]':id},function (result) {
+             if (result.status == 1) {
+                that.parents('.layui-colla-item').remove();
+                layer.msg('删除成功');
+                 layer.close(index);
+            } else {
+                layer.msg('删除失败');
+                 layer.close(index);
+             }
+         },'json');*/
+        layer.close(index);
+        that.parents('.layui-colla-item').remove();
+        var delcounts=$('.gggl .gggg').find('.layui-colla-item').length;
+        for(var i=1;i<=delcounts;i++){
+            $('.gggg .layui-colla-item').eq(i-1).find('h2').text('配置'+i);
+        }
+    });
+});
+// 添加广告
+$('.gggg').on('click','.addadver',function(){
+    var count=parseInt($(this).parents('.layui-colla-item').find('.layui-form-item:last-child').attr('data-num'))+1;
+    // console.log(count);
+    var html=
+        '<div class="layui-form-item" data-num="'+count+'">'+
+        '<label class="layui-form-label layui-col-md1 layui-col-xs2 layui-hide-xs"></label>'+
+        '<div class="layui-input-block layui-col-md10 layui-col-xs10 layui-col-xs10">'+
+        '<label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">广告'+count+'：</label>'+
+        '<div class="layui-input-inline layui-col-md2 layui-col-xs4 layui-col-xs6 tishi">'+
+        '<select name="city" lay-verify="required">'+
+        '<option value=""></option>'+
+        '<option value="0">千元名表免费拿</option>'+
+        '<option value="1">100元红包到你手</option>'+
+        '<option value="2">最高借贷10万，3分钟审核放款</option>'+
+        '</select>'+
+        '</div>'+
+        '<label class="layui-form-label layui-col-md1 layui-col-xs2 layui-col-xs5">权重：</label>'+
+        '<div class="layui-input-inline layui-col-md1 layui-col-sm2 layui-col-xs-3">'+
+        '<input type="number" class="layui-input quanzhong">'+
+        '</div>'+
+        
+        '<div class="layui-form-mid layui-word-aux layui-col-md-1 layui-col-sm-2 layui-col-xs-3 deladver">删除</div>'+
+        '</div>'+
+        '</div>';
+    $(this).parents('.layui-colla-content').find('form').append(html);
+    layui.form.render();
+    layui.element.init();
+    count++;
+});
+// 广告删除
+$('.gggl').on('click','.deladver',function(){
+    if($(this).prev().find('input').attr('disabled')!='disabled'){
+        $(this).parents('.layui-form-item').remove();
+        layui.form.render();
+        layui.element.init();
+    }
+});
+// 读取上传照片,html5预览图片方法
+function html5Reader(file){
+    var file = file.files[0];
+    var reader = new FileReader();
+    reader.onload = function(){
+        var pic = document.getElementById("show");
+        pic.src = this.result;
+    };
+    reader.readAsDataURL(file);
+}
+function changepic(source){
+    //获取需要处理的DOM对象
+    var pic = document.getElementById("show");
+    var file = document.getElementById("file");
+    $('#file').attr('value',source.files[0].name);
+    //获取图片后缀
+    var ext = file.value.substring(file.value.lastIndexOf(".")+1).toLowerCase();
+    //gif在IE浏览器暂时无法显示
+    if(ext != 'png' && ext != 'jpg' && ext != 'jpeg'){
+        alert("图片的格式必须为png或者jpg或者jpeg格式！");
+        return;
+    }
+    //判断ie类型
+    var isIE = navigator.userAgent.match(/MSIE/) != null;
+    var isIE6 = navigator.userAgent.match(/MSIE 6.0/) != null;
+    //根据浏览器的类型进行操作方式的选择
+    if(isIE) {
+        //选中表单提交中的file对象,即获得焦点，可以继续保持
+        file.select();
+        //因为ie9安全级别高，需要模拟让其失去焦点
+        file.blur();
+        //获取文件的本地地址
+        var reallocalpath = document.selection.createRange().text;   //document.selection.createRange(); --->window.getSelection(); [ie11]
+        // alert(reallocalpath);
+        //IE6浏览器设置img的src为本地路径可以直接显示图片
+        if(isIE6){
+            //加载预览图
+            pic.src = reallocalpath;
+        }else{
+            var isIE10 = navigator.userAgent.match(/MSIE 10.0/)!=null;
+            if(isIE10){
+                html5Reader(file);
+            }else{
+                //非IE6版本的IE由于安全问题直接设置img的src无法显示本地图片，但是可以通过滤镜来实现
+                document.getElementById("show").value=reallocalpath;
+                pic.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\"" + reallocalpath + "\")";
+                //pic.style.cssText="display: block;width:106px ;height: 130px;margin: 0 auto;";
+                //设置img的src为base64编码的透明图片 取消显示浏览器默认图片
+                pic.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+                //alert(reallocalpath);
+                pic.src=reallocalpath;
+            }
+        }
+    }else {
+        html5Reader(file);
+    }
+}
+// 创建广告上传照片
+function html5Reader1(file){
+    var file = file.files[0];
+    var reader = new FileReader();
+    reader.onload = function(){
+        var pic = document.getElementById("show1");
+        var files = document.getElementById("file1");
+        pic.src = this.result;
+    };
+    reader.readAsDataURL(file);
+}
+function changepic1(){
+    //获取需要处理的DOM对象
+    var pic = document.getElementById("show1");
+    var file = document.getElementById("file1");
+    //获取图片后缀
+    var ext = file.value.substring(file.value.lastIndexOf(".")+1).toLowerCase();
+    //gif在IE浏览器暂时无法显示
+    if(ext != 'png' && ext != 'jpg' && ext != 'jpeg'){
+        alert("图片的格式必须为png或者jpg或者jpeg格式！");
+        return;
+    }
+    //判断ie类型
+    var isIE = navigator.userAgent.match(/MSIE/) != null;
+    var isIE6 = navigator.userAgent.match(/MSIE 6.0/) != null;
+    //根据浏览器的类型进行操作方式的选择
+    if(isIE) {
+        //选中表单提交中的file对象,即获得焦点，可以继续保持
+        file.select();
+        //因为ie9安全级别高，需要模拟让其失去焦点
+        file.blur();
+        //获取文件的本地地址
+        var reallocalpath = document.selection.createRange().text;   //document.selection.createRange(); --->window.getSelection(); [ie11]
+        // alert(reallocalpath);
+        //IE6浏览器设置img的src为本地路径可以直接显示图片
+        if(isIE6){
+            //加载预览图
+            pic.src = reallocalpath;
+        }else{
+            var isIE10 = navigator.userAgent.match(/MSIE 10.0/)!=null;
+            if(isIE10){
+                html5Reader(file);
+            }else{
+                //非IE6版本的IE由于安全问题直接设置img的src无法显示本地图片，但是可以通过滤镜来实现
+                document.getElementById("show").value=reallocalpath;
+                pic.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\"" + reallocalpath + "\")";
+                //pic.style.cssText="display: block;width:106px ;height: 130px;margin: 0 auto;";
+                //设置img的src为base64编码的透明图片 取消显示浏览器默认图片
+                pic.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+                //alert(reallocalpath);
+                pic.src=reallocalpath;
+            }
+        }
+    }else {
+        html5Reader1(file);
+    }
+}
+// 新增商家logo管理确定上传
+$('.add-logo-sure').click(function(e){
+    e.preventDefault();
+    
+    if($('#show').attr('src')==''){
+        layer.alert('上传图片不能为空！');
+    }else{
+        var formData = new FormData($("#MyLogoAdd")[0]);
+        // console.log(formData);
+        $.ajax({
+            type:'post',
+            url:'add_trader',
+            data:formData,
+            contentType:false,
+            processData:false,
+            dataType:'json',
+            success:function(data){
+                if (data.status == 1){
+                    $('.mark').fadeOut();
+                    $('.logo-model').hide();
+                    layer.msg(data.msg);
+                    setTimeout(function(){
+                        window.location.reload();
+                    },500);
+                } else {
+                    layer.msg(data.msg);
+                    return false;
+                }
+            },
+            error:function(){
+                console.log('ajax请求失败');
+            }
+        })
+    }
+});
+
+//删除商家logo
+$('.delLogo').on('click',function () {
+    var that = $(this)
+        ,id = that.data('id');
+      layer.confirm('确定要删除吗？',function (index) {
+          $.post('set_trader_status',{'status':0,'t_ids[]':id},function (result) {
+              if (result.status == 1) {
+                  that.parents('tr').remove();
+                  layer.msg('删除成功');
+                  layer.close(index);
+              } else {
+                  layer.msg('删除失败');
+                  layer.close(index);
+              }
+          },'json');
+      });
+});
+layui.use('form',function () {
+    var form = layui.form;
+    //设置商家状态
+    form.on('switch(status)', function(data){
+        var status = data.elem.checked ? 1 : 2;
+        var t_ids = data.value;
+        $.post('set_trader_status',{'status':status,'t_ids[]':t_ids},function (result) {
+            if (result.status == 1) {
+                layer.msg(result.msg);
+            } else {
+                layer.msg(result.msg);
+            }
+        },'json');
+    });
+
+    //投放类型联动
+    form.on('select(type)',function (data) {
+        if (data.value == 14) {
+            $(".app_down").css('display','block');
+            $(".image_ad").css('display','none');
+        } else {
+            $(".app_down").css('display','none');
+            $(".image_ad").css('display','block');
+        }
+    });
+
+    //数据提交
+    form.on('submit(add_ad)',function (data) {
+        var post_data = data.field
+            ,url = 'add_ad';
+        $.post(url,post_data,function (result) {
+            if (result.status == 1) {
+                layer.msg(result.msg);
+                setTimeout(function () {
+                    window.location.reload();
+                },2000);
+            } else {
+                layer.msg(result.msg);
+            }
+        },'json');
+        return false;
+    });
+    form.on('radio(erweima)', function (data) {
+        $(".diy-radio").prop("checked") ? $("#game-cishu").css("display", "block") : $("#game-cishu").css("display", "none");
+        console.log(data);
+    });
+
+});
+
+//广告详情
+$('.ad-detail').on('click',function () {
+    var id = $(this).data('id');
+    var url = 'ad_detail?id='+id;
+    layer.open({
+        type: 2,
+        title: '详情',
+        area: ['800px', '500px'],
+        content: url
+    });
+});
+
+// 表格全选与否
+var isChecked=true;
+// 商家广告管理-全选与取消
+$('.sjgggl .totaltr').click(function(){
+    isChecked=!isChecked;
+    if(isChecked){
+        $(this).parent().prev().find('input').prop('checked',false);
+    }else{
+        $(this).parent().prev().find('input').prop('checked',true);
+    }
+});
+// 商家广告管理-单个选择--->>全选
+$('.sjgggl .layui-collapse').on('click','input',function(e){
+    e.stopPropagation();
+    layui.stope(e);
+    //each 便利每一个元素，让其执行该函数
+    $('.sjgggl .layui-collapse .layui-colla-title input').each(function(){
+        if(!$(this).prop('checked')){
+            $(this).parents('.layui-collapse').next().find('.totaltr').prop('checked',false);
+             /*isChecked=!isChecked;*/
+            //有一个不满足就 跳出该循环，避免执行下面
+            return false;
+        }else{
+            $(this).parents('.layui-collapse').next().find('.totaltr').prop('checked',true);
+            isChecked=!isChecked;
+        }
+    })
+});
+//--------------------商家广告管理（全选）-----------------
+const checkbox_select=$(".sjgggl .layui-collapse .layui-colla-title :checkbox");
+
+function change(){
+	//单个多选框总数
+	var talNum=checkbox_select.size();
+	//选中的个数
+	var checkCount=0;
+	checkbox_select.each(function(){
+		if($(this).prop("checked")){
+			checkCount++;
+		}
+	})
+	talNum==checkCount?$(".sjgggl .totaltr").prop("checked",true):$(".sjgggl .totaltr").prop("checked",false)
+	
+}
+//点击全选
+$(".sjgggl .totaltr").click(function(){
+	$(this).prop("checked")?checkbox_select.prop("checked",true):checkbox_select.prop("checked",false)
+})
+checkbox_select.click(function(){change();});
+// ==================== 商家logo管理-全选与取消 ====================
+// 缓存选择器
+const CHECKBOX_SELECTOR = $(".sjlggl .layui-table tbody :checkbox");
+
+function check() {
+    // 单个复选框总数
+    var checkNum = CHECKBOX_SELECTOR.size();
+    // 记录其中选中状态个数
+    var chackCounter = 0;
+    CHECKBOX_SELECTOR.each(function() {
+        if($(this).prop("checked")) {
+            chackCounter++;
+        }
+    })
+    checkNum == chackCounter
+    ? $(".sjlggl .selAll,.sjlggl .totaltr").prop("checked", true)
+    : $(".sjlggl .selAll,.sjlggl .totaltr").prop("checked", false)
+}
+
+// 点击全选框
+$(".sjlggl .selAll,.sjlggl .totaltr").click(function() {
+    // 关联单个复选框
+    $(this).prop("checked")
+    ? CHECKBOX_SELECTOR.prop("checked", true)
+    : CHECKBOX_SELECTOR.prop("checked", false)
+    // 两个全选框关联
+    $(this).hasClass("selAll")
+    ? $(".sjlggl .totaltr").prop("checked", $(this).prop("checked"))
+    : $(".sjlggl .selAll").prop("checked", $(this).prop("checked"))
+})
+
+// 点击单个复选框
+CHECKBOX_SELECTOR.click(function() { check(); });
+// ==================== check end ====================
+
+// var isSelected=true;
+// // 商家logo管理-全选与取消
+// $('.sjlggl .selAll').click(function(){
+//     isSelected=!isSelected;
+//     // console.log(isSelected);
+//     if(isSelected){
+//         $(this).parents('thead').next().find('input').prop('checked',false);
+//     }else{
+//         $(this).parents('thead').next().find('input').prop('checked',true);
+//     }
+// });
+// // 商家logo管理-单个选择--->>全选
+// $('.sjlggl .layui-table tbody').on('click','input',function(e){
+//     e.stopPropagation();
+//     //each 便利每一个元素，让其执行该函数
+//     $('.sjlggl .layui-table tbody input').each(function(){
+//         if(!$(this).prop('checked')){
+//             $(this).parents('tbody').prev().find('.selAll').prop('checked',false);
+//             // isChecked=!isChecked;
+//             //有一个不满足就 跳出该循环，避免执行下面
+//             return false;
+//         }else{
+//             $(this).parents('tbody').prev().find('.selAll').prop('checked',true);
+//             isSelected=!isSelected;
+//         }
+//     })
+// });
+// ==== 数组去除 undefined ====
+function removeUndefind(arr) {
+    var $arr = [];
+    for (let value of arr) {
+        if (value) {
+            $arr.push(value)
+        }
+    }
+    return $arr;
+}
+// ====
+//  商家logo
+function updateStatuslogo(beClickedlogo) {
+    // ==== 数组重置 ====
+    id_listlogo = [];
+    // ====
+    $('.layui-table tbody input:checked').each(function(){
+        id_listlogo.push($(this).attr('data-id'));
+        $id_listlogo = removeUndefind(id_listlogo);
+        console.log($id_listlogo)
+        layer.confirm('确定要修改吗？',function(index){
+            $.post('set_trader_status', { 'status': beClickedlogo, 'a_ids[]': $id_listlogo},function (result) {
+                if (result.status == 1) {
+                    layer.msg('操作成功');
+                    layer.close(index);
+                    setTimeout(function(){
+                        window.location.reload();
+                    },500)
+                } else {
+                    layer.msg('操作失败');
+                    layer.close(index);
+                }
+            },'json');
+        })
+    })
+}
+// 商家广告管理-批量删除广告
+var id_listlogo = [], $id_listlogo = [];
+$('#uplogo').click(function(){
+    var beClickedlogo=$(this).attr('data-num');
+    updateStatuslogo(beClickedlogo)
+});
+$('#deletlogo').click(function(){
+    var beClickedlogo=$(this).attr('data-num');
+    updateStatuslogo(beClickedlogo)
+});
+$('#downlogo').click(function(){
+    var beClickedlogo=$(this).attr('data-num');
+    updateStatuslogo(beClickedlogo)
+});
+
+
+//商家广告管理-删除广告
+$('.ad-del').on('click',function () {
+    var that = $(this);
+    var id = that.data('id');
+    layer.confirm('确定要删除吗？',function (index) {
+        $.post('set_ad_status',{'status':9,'a_ids[]':id},function (result) {
+            if (result.status == 1) {
+                that.parents('.layui-colla-item').remove();
+                layer.msg('删除成功');
+                layer.close(index);
+            } else {
+                layer.msg('删除失败');
+                layer.close(index);
+            }
+        },'json');
+    });
+});
+//更新题目状态接口 带删除9删除 1启用 2暂停 3结束
+function updateStatus(beClicked) {
+    id_list=[];
+    $('.sjgggl .layui-collapse .layui-colla-title input:checked').each(function(){
+        id_list.push($(this).attr('data-id'));
+        $id_list = removeUndefind(id_list);
+        console.log(id_list);
+        layer.confirm('确定要修改吗？',function(index){
+            $.post('set_ad_status',{'status':beClicked,'a_ids[]':$id_list},function (result) {
+                if (result.status == 1) {
+                    layer.msg('操作成功');
+                    layer.close(index);
+                    setTimeout(function(){
+                        window.location.reload();
+                    },500)
+                } else {
+                    layer.msg('操作失败');
+                    layer.close(index);
+                }
+            },'json');
+        })
+    })
+}
+// 商家广告管理-批量删除广告
+var id_list=[]; var $id_list=[]
+$('#delet').click(function(){
+    var beClicked=$(this).attr('data-num');
+    updateStatus(beClicked)
+});
+$('#up').click(function(){
+    var beClicked=$(this).attr('data-num');
+    updateStatus(beClicked)
+});
+$('#end').click(function(){
+    var beClicked=$(this).attr('data-num');
+    updateStatus(beClicked)
+});
+$('#down').click(function(){
+    var beClicked=$(this).attr('data-num');
+    updateStatus(beClicked)
+});
+
+// 创建商家广告确定提交
+$('.add-adver-sure').click(function(e){
+    e.preventDefault();
+    var formData = new FormData($("#createAdver")[0]);
+    // $.ajax({
+    //     type:'post',
+    //     url:'',
+    //     data:formData,
+    //     contentType:false,
+    //     processData:false,
+    //     mimeType:"multipart/form-data",
+    //     dataType:'json',
+    //     success:function(data){
+    //         console.log(data);
+    //     },
+    //     error:function(){
+    //         console.log('ajax请求失败');
+    //     }
+    // })
+});
+
+$('.sjgggl .change-btn').click(function(){
+	
+    if($(this).text()=='确定'){
+
+//   	$(this).text('修改').removeClass('resave').removeClass('layui-btn-success').addClass('layui-btn-normal').addClass('change-btn'); 	
+		$(this).text('修改').removeClass('change-btn').removeClass('layui-btn-normal').addClass('layui-btn-success').addClass('resave');
+		 
+        $(this).parents('.layui-form').prev().find('input').attr('disabled','disabled');
+        layui.form.render();
+     layui.element.init();
+    
+    
+    }else{
+    	
+    	$(this).text('确定').removeClass('resave').removeClass('layui-btn-success').addClass('layui-btn-normal').addClass('change-btn');
+//  	$(this).text('确定').removeClass('change-btn').removeClass('layui-btn-normal').addClass('layui-btn-success').addClass('resave');
+//      $(this).parents('.layui-form').prev().find('input').removeAttr('disabled');
+		 $(this).parents('.layui-form').prev().find('input').removeAttr('disabled');
+        layui.form.render();
+     	layui.element.init();
+    }
+});

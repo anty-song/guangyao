@@ -1,0 +1,91 @@
+layui.use(['element','layer','laydate'],function(){
+    var element=layui.element;
+    var layer=layui.layer;
+    var laydate=layui.laydate;
+    //收支明细-开始日期
+    var insStart1 = laydate.render({
+        elem: '#staticStart1',
+        // min: 0,//设定起始时间，默认1970-1-1,0表示当前日期
+        showBottom:false,
+        done: function(value, date){
+            //更新结束日期的最小日期
+            insEnd1.config.min = lay.extend({}, date, {
+                month: date.month - 1
+            });
+            //自动弹出结束日期的选择器
+            insEnd1.config.elem[0].focus();
+        }
+    });
+    //收支明细-结束日期
+    var insEnd1 = laydate.render({
+        elem: '#staticEnd1',
+        // min: 0,//设定起始时间，默认1970-1-1,0表示当前日期
+        showBottom:false,
+        done: function(value, date){
+            //更新开始日期的最大日期
+            insStart1.config.max = lay.extend({}, date, {
+                month: date.month - 1
+            });
+        }
+    });
+});
+// 修改自由广告收入和腾讯广告收入
+var item_value;//点击td时储存td的值
+$('.income_outlay').on('click','.own_fee, .tencent_fee',function(){
+    var that=$(this);
+    var id=that.parent().attr('data-id');
+    item_value=that.text();
+    layer.confirm('<input type="text" class="layui-input edit-input" maxlength="8" value='+item_value+'>', {
+        btn: ['确定','取消'] //按钮
+    }, function(){
+        item_value=parseFloat($(".edit-input").val());
+        var email_exp=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/g;
+        var phone_exp=/^1[3456789]{1}\d{9}$/;
+        var float_exp=/\d+\.?\d{0,4}/;
+        if(!(float_exp.test(item_value))){
+            layer.msg('最多保留四位小数', {icon: 2});
+            return false;
+        }
+        // layer.msg('修改成功', {icon: 1});
+        // //重新位该td赋值
+        // that.text(item_value);
+        // // 重新计算总收入
+        // var service_fee=parseFloat(that.parents('tr').find('.service_fee').text());//本行服务费收入
+        // var own_fee=parseFloat(that.parents('tr').find('.own_fee').text());//本行自由广告收入
+        // var tencent_fee=parseFloat(that.parents('tr').find('.tencent_fee').text());//本行腾讯广告收入
+        // var total_fee=parseFloat(service_fee + own_fee + tencent_fee);
+        // that.parents('tr').find('.total_fee').text(total_fee);
+        // //重新计算收支差额
+        // var expenditure_fee=parseFloat(that.parents('tr').find('.expenditure_fee').text());
+        // var difference=parseFloat(total_fee - expenditure_fee);
+        // difference = difference.toFixed(2);
+        // if(difference>0){
+        //     that.parents('tr').find('.difference').addClass('positive_number').removeClass('negative_number').text(difference);
+        // }else{
+        //     that.parents('tr').find('.difference').addClass('negative_number').removeClass('positive_number').text(difference);
+        // }
+        if(that.attr('class')=='own_fee'){
+            paramData={id:id,own_fee:item_value};
+        }else{
+            paramData={id:id,tencent_fee:item_value};
+        }
+        $.ajax({
+            type:"POST",
+            url:'/admin/statistics/up_io_data',
+            data:paramData,
+            dataType:"JSON",
+            success:function(data){
+                console.log(data);
+                if(data.status==1){
+                    layer.msg(data.msg, {icon: 1});
+                    window.location.reload();
+                }else{
+                    layer.msg(data.msg, {icon:2});
+                }
+            },
+            error:function(){
+                console.log('ajax出错');
+            }
+        });
+    });
+});

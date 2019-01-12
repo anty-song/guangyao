@@ -1,0 +1,21 @@
+<?php /*a:1:{s:53:"D:\WWW\tp_test\qianbao\h5\view\question\download.html";i:1541396605;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>来捡钱</title>
+    <link rel="stylesheet" href="/static/question_style/css/download.css">
+</head>
+<body>
+<div class="content">
+    <img class="heijing" src="/static/question_style/img/heijing.png"/>
+    <div class="wenzi-h"><img class="wenzi" src="/static/question_style/img/wenzi.png" /></div>
+    <div class="ch-h"><img class="ch" src="/static/question_style/img/ch.png" /></div>
+    <div class="bt1-h"> <a href="javascript:;" onclick="download_btn();"><img class="bt1" src="/static/question_style/img/bt1.png" /></a></div>
+</div>
+<script src="/static/question_style/js/jquery.min.js"></script>
+<script src="/static/question_style/js/flexible.js"></script>
+<script src="/static/question_style/js/download.js"></script>
+</body>
+</html>
